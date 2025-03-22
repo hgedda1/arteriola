@@ -5,7 +5,7 @@
   "homepage": "https://hgedda1.github.io/arteriola",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "predeploy": "pnpm run build",

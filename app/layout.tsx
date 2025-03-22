@@ -9,8 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "MCAT Simulation Platform",
-  description: "A realistic MCAT exam simulation environment",
-    generator: 'v0.dev'
+  description: "A realistic MCAT exam simulation environment"
 }
 
 export default function RootLayout({
