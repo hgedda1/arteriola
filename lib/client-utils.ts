@@ -24,9 +24,9 @@ export const getBasePath = (): string => {
   if (typeof window !== "undefined") {
     // In the browser, we can detect the base path from the current location
     if (window.location.hostname.includes("github.io")) {
-      return "/mcat-sim"
+      return "/arteriola"
     }
   }
-  return process.env.NODE_ENV === "production" ? "/mcat-sim" : ""
+  return process.env.NODE_ENV === "production" ? "/arteriola" : ""
 }
 

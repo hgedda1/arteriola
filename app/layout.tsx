@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         {/* Force reload CSS for GitHub Pages */}
         {process.env.NODE_ENV === "production" && (
-          <link rel="stylesheet" href="/mcat-sim/_next/static/css/app/layout.css" />
+          <link rel="stylesheet" href="/arteriola/_next/static/css/app/layout.css" />
         )}
       </head>
       <body className={inter.className}>
@@ -39,7 +39,7 @@ export default function RootLayout({
                 if (links.length === 0 || !document.querySelector('style')) {
                   const link = document.createElement('link');
                   link.rel = 'stylesheet';
-                  link.href = '/mcat-sim/_next/static/css/app/layout.css';
+                  link.href = '/arteriola/_next/static/css/app/layout.css';
                   document.head.appendChild(link);
                 }
               })();

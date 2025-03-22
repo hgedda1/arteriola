@@ -4,7 +4,7 @@ A realistic MCAT exam simulation environment built with Next.js and Tailwind CSS
 
 ## Live Demo
 
-Visit the live demo at: [https://hgedda1.github.io/mcat-sim/](https://hgedda1.github.io/mcat-sim/)
+Visit the live demo at: [https://hgedda1.github.io/arteriola/](https://hgedda1.github.io/arteriola/)
 
 ## Features
 
@@ -34,6 +34,6 @@ Visit the live demo at: [https://hgedda1.github.io/mcat-sim/](https://hgedda1.gi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/hgedda1/mcat-sim.git
-   cd mcat-sim
+   git clone https://github.com/hgedda1/arteriola.git
+   cd arteriola
 
