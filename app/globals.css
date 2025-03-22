@@ -1,0 +1,469 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===== CRITICAL STYLES FOR DARK/LIGHT MODE COMPATIBILITY ===== */
+
+/* Base text colors */
+.text-black {
+  color: #000000 !important;
+}
+
+.dark .text-black {
+  color: #ffffff !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.dark .text-white {
+  color: #ffffff !important;
+}
+
+/* Background colors */
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+.dark .bg-white {
+  background-color: #1e293b !important; /* slate-800 */
+}
+
+.bg-\[\#1a4a7a\] {
+  background-color: #1a4a7a !important;
+}
+
+.dark .bg-\[\#1a4a7a\] {
+  background-color: #0f172a !important; /* slate-900 */
+}
+
+.dark\:bg-slate-900 {
+  background-color: #0f172a !important;
+}
+
+.dark .dark\:bg-slate-900 {
+  background-color: #0f172a !important;
+}
+
+.dark .dark\:bg-slate-800 {
+  background-color: #1e293b !important;
+}
+
+.dark .dark\:bg-slate-700 {
+  background-color: #334155 !important;
+}
+
+/* Card styles */
+.dark .card {
+  background-color: #1e293b !important; /* slate-800 */
+  border-color: #334155 !important; /* slate-700 */
+}
+
+/* Button styles */
+.dark button {
+  color: #ffffff;
+}
+
+.dark .bg-\[\#3a6a9a\] {
+  background-color: #3b82f6 !important; /* blue-500 */
+}
+
+/* Muted text */
+.text-muted-foreground {
+  color: #64748b !important; /* slate-500 */
+}
+
+.dark .text-muted-foreground,
+.dark .dark\:text-slate-400,
+.dark .dark\:text-slate-300 {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+/* Colored text variants */
+.text-blue-800 {
+  color: #1e40af !important;
+}
+
+.dark .text-blue-800,
+.dark .dark\:text-blue-400,
+.dark .dark\:text-blue-200 {
+  color: #60a5fa !important; /* blue-400 */
+}
+
+.text-green-800 {
+  color: #166534 !important;
+}
+
+.dark .text-green-800,
+.dark .dark\:text-green-400,
+.dark .dark\:text-green-200 {
+  color: #4ade80 !important; /* green-400 */
+}
+
+.text-amber-800 {
+  color: #92400e !important;
+}
+
+.dark .text-amber-800,
+.dark .dark\:text-amber-400,
+.dark .dark\:text-amber-200 {
+  color: #fbbf24 !important; /* amber-400 */
+}
+
+.text-red-800 {
+  color: #991b1b !important;
+}
+
+.dark .text-red-800,
+.dark .dark\:text-red-400,
+.dark .dark\:text-red-200 {
+  color: #f87171 !important; /* red-400 */
+}
+
+/* Chart-specific styles */
+.dark .recharts-cartesian-axis-tick-value,
+.dark .recharts-polar-angle-axis-tick-value,
+.dark .recharts-polar-radius-axis-tick-value {
+  fill: #e2e8f0 !important; /* slate-200 */
+}
+
+.dark .recharts-cartesian-grid-horizontal line,
+.dark .recharts-cartesian-grid-vertical line,
+.dark .recharts-polar-grid-concentric circle,
+.dark .recharts-polar-grid-radial line {
+  stroke: #475569 !important; /* slate-600 */
+}
+
+.dark .recharts-default-tooltip {
+  background-color: #1e293b !important; /* slate-800 */
+  border-color: #334155 !important; /* slate-700 */
+  color: #e2e8f0 !important; /* slate-200 */
+}
+
+/* Form elements */
+.dark input[type="radio"],
+.dark input[type="checkbox"] {
+  border-color: #475569 !important; /* slate-600 */
+}
+
+.dark input[type="radio"]:checked,
+.dark input[type="checkbox"]:checked {
+  background-color: #3b82f6 !important; /* blue-500 */
+  border-color: #3b82f6 !important; /* blue-500 */
+}
+
+/* Dialog styles */
+.dark .dialog-content,
+.dark .dark\:bg-slate-800 {
+  background-color: #1e293b !important; /* slate-800 */
+  border-color: #334155 !important; /* slate-700 */
+  color: #ffffff !important;
+}
+
+/* Progress bar */
+.dark .progress-bar {
+  background-color: #334155 !important; /* slate-700 */
+}
+
+/* Tab styles */
+.dark .dark\:data-\[state\=active\]\:bg-slate-900[data-state="active"] {
+  background-color: #0f172a !important; /* slate-900 */
+  color: #ffffff !important;
+}
+
+/* Specific component overrides */
+.dark .dark\:bg-blue-900\/20 {
+  background-color: rgba(30, 58, 138, 0.2) !important; /* blue-900 at 20% opacity */
+}
+
+.dark .dark\:bg-green-900\/20,
+.dark .dark\:bg-green-900\/30 {
+  background-color: rgba(20, 83, 45, 0.2) !important; /* green-900 at 20% opacity */
+}
+
+.dark .dark\:bg-amber-900\/20,
+.dark .dark\:bg-amber-900\/30 {
+  background-color: rgba(120, 53, 15, 0.2) !important; /* amber-900 at 20% opacity */
+}
+
+.dark .dark\:bg-red-900\/20,
+.dark .dark\:bg-red-900\/30 {
+  background-color: rgba(127, 29, 29, 0.2) !important; /* red-900 at 20% opacity */
+}
+
+/* Fix for toolbar buttons in exam section */
+.dark .bg-\[\#f0f4f8\].dark\:bg-slate-700 button {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+.dark .bg-\[\#f0f4f8\].dark\:bg-slate-700 button:hover {
+  background-color: #475569 !important; /* slate-600 */
+}
+
+/* Fix for highlighted text */
+.dark .bg-yellow-200.dark\:bg-yellow-700 {
+  background-color: #a16207 !important; /* yellow-700 */
+  color: #ffffff !important;
+}
+
+/* Fix for strikethrough text */
+.dark .line-through {
+  text-decoration: line-through;
+  text-decoration-color: #ffffff;
+}
+
+/* Fix for section review navigation buttons */
+.dark .bg-green-100.dark\:bg-green-900.dark\:text-green-100 {
+  background-color: rgba(20, 83, 45, 0.5) !important;
+  color: #4ade80 !important;
+}
+
+.dark .bg-red-100.dark\:bg-red-900.dark\:text-red-100 {
+  background-color: rgba(127, 29, 29, 0.5) !important;
+  color: #f87171 !important;
+}
+
+.dark .bg-blue-50.dark\:bg-blue-900\/30.dark\:border-blue-700 {
+  background-color: rgba(30, 58, 138, 0.3) !important;
+  border-color: #1d4ed8 !important;
+}
+
+/* Fix for "Take Exam Again" button */
+.dark .px-8 {
+  color: #ffffff !important;
+}
+
+/* Fix for download summary button */
+.dark .flex.items-center.gap-2 {
+  color: #ffffff !important;
+}
+
+/* Additional styles to ensure text visibility in both themes */
+.text-black {
+  color: #000000 !important;
+}
+
+.dark .text-black {
+  color: #ffffff !important;
+}
+
+.text-slate-300 {
+  color: #64748b !important;
+}
+
+.dark .text-slate-300 {
+  color: #cbd5e1 !important;
+}
+
+/* Fix for review section text */
+.review-option-text {
+  color: #000000 !important;
+}
+
+.dark .review-option-text {
+  color: #ffffff !important;
+}
+
+/* Ensure all labels are visible */
+label {
+  color: #000000 !important;
+}
+
+.dark label {
+  color: #ffffff !important;
+}
+
+/* Fix for explanation text */
+.explanation-text {
+  color: #000000 !important;
+}
+
+.dark .explanation-text {
+  color: #cbd5e1 !important;
+}
+
+/* Responsive utilities */
+.responsive-container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  .responsive-container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-container {
+    max-width: 1280px;
+  }
+}
+
+/* Responsive text sizing */
+.responsive-text {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-text {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive image handling */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive table container */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure all images are responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Add these styles to hide default scrollbars and use custom styling when needed */
+/* Hide scrollbars but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Custom scrollbar styling for when we do want to show them */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.dark .custom-scrollbar {
+  scrollbar-color: rgba(71, 85, 105, 0.5) transparent;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(71, 85, 105, 0.5);
+}
+
+/* Remove fixed heights that might cause scrollbars */
+.auto-height {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
