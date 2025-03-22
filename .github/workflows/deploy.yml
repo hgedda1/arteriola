@@ -17,32 +17,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Enable Corepack & Setup pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
+      - name: Build project
         run: pnpm run build
         env:
           NODE_ENV: production
 
-      - name: Fix CSS paths for GitHub Pages
+      - name: Fix CSS/media paths for GitHub Pages
         run: |
           find "out" -name "*.html" -exec sed -i 's/\/_next\/static\/css\//_next\/static\/css\//g' {} \;
           find "out" -name "*.html" -exec sed -i 's/\/_next\/static\/media\//_next\/static\/media\//g' {} \;
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact
+      - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './out'
