@@ -1,25 +1,15 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-
 const nextConfig = {
-  output: "export", // required for static export
-  basePath: isProd ? "/arteriola" : "",
-  assetPrefix: isProd ? "/arteriola/" : "",
+  output: 'export',
+  basePath: '/arteriola',
+  assetPrefix: '/arteriola/',
   trailingSlash: true,
   images: {
-    unoptimized: true, // required for static export
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
+    unoptimized: true
   },
   experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
-  },
-};
+    appDir: true
+  }
+}
 
-export default nextConfig;
+module.exports = nextConfig;
