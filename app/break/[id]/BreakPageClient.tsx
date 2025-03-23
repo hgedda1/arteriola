@@ -24,8 +24,7 @@ export default function BreakPageClient({ id }: { id: string }) {
     const examState = localStorage.getItem("examState")
 
     if (!userData || !examState) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/register`)
+      router.push('/register')
       return
     }
 
@@ -37,10 +36,9 @@ export default function BreakPageClient({ id }: { id: string }) {
 
       // Verify the previous section was completed
       if (!state.completedSections || !state.completedSections.includes(sectionId)) {
-        const basePath = getBasePath()
-        router.push(`${basePath}/exam/section/${sectionId}`)
+        router.push(`/exam/section/${sectionId}`)
         return
-      }
+      }      
 
       // Set break duration based on section
       let duration = 10 * 60 // Default 10 minutes

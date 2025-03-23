@@ -18,15 +18,8 @@ export const removeLocalStorage = (key: string): void => {
   }
 }
 
-// Base path helper for GitHub Pages
+// Base path helper
 export const getBasePath = (): string => {
-  // This will return the correct base path in both development and production
-  if (typeof window !== "undefined") {
-    // In the browser, we can detect the base path from the current location
-    if (window.location.hostname.includes("github.io")) {
-      return "/arteriola"
-    }
-  }
-  return process.env.NODE_ENV === "production" ? "/arteriola" : ""
+  return ""
 }
 
