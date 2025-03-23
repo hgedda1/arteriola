@@ -9,6 +9,7 @@ import { CheckCircle, XCircle } from "lucide-react"
 import { getAllSectionQuestions } from "@/lib/questions"
 import type { Question } from "@/lib/exam-data"
 import { getBasePath } from "@/lib/client-utils"
+import { getSafeSectionQuestions } from "@/lib/safe-questions"
 
 // Add this function to handle passage-based questions
 const getPassageQuestions = (questions: Question[], currentQuestion: Question): Question[] => {
@@ -99,13 +100,63 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
 
       // Load user answers
       if (state.answers && state.answers[sectionId]) {
+        console.log(`Loading answers for section ${sectionId} in review:`, state.answers[sectionId])
         setUserAnswers(state.answers[sectionId] as Record<string, string>)
+      } else {
+        console.warn(`No answers found for section ${sectionId} in examState:`, state)
       }
 
-      // Load questions for this section
-      const allQuestions = getAllSectionQuestions()
-      if (allQuestions[sectionId]) {
-        setQuestions(allQuestions[sectionId])
+      // Try to load questions from localStorage first for consistency
+      try {
+        const storedQuestions = localStorage.getItem(`section${sectionId}-questions`)
+        if (storedQuestions) {
+          const parsedQuestions = JSON.parse(storedQuestions)
+          console.log(`Review: Loaded ${parsedQuestions.length} questions from localStorage for section ${sectionId}`)
+          setQuestions(parsedQuestions)
+          setLoading(false)
+          return
+        }
+      } catch (err) {
+        console.error("Error loading questions from localStorage in review:", err)
+      }
+
+      // Fall back to getAllSectionQuestions if localStorage doesn't have the questions
+      try {
+        const allQuestions = getAllSectionQuestions()
+        if (allQuestions[sectionId] && allQuestions[sectionId].length > 0) {
+          console.log(`Review: Loaded ${allQuestions[sectionId].length} questions for review of section ${sectionId}`)
+          setQuestions(allQuestions[sectionId])
+        } else {
+          // If getAllSectionQuestions fails, try getSafeSectionQuestions
+          console.log(`Review: Trying safe questions for section ${sectionId}`)
+          const safeQuestions = getSafeSectionQuestions(sectionId)
+          if (safeQuestions && safeQuestions.length > 0) {
+            console.log(`Review: Loaded ${safeQuestions.length} safe questions for section ${sectionId}`)
+            setQuestions(safeQuestions)
+          } else {
+            throw new Error("Failed to load questions for review")
+          }
+        }
+      } catch (error) {
+        console.error(`Error loading questions for review of section ${sectionId}:`, error)
+        // Create emergency fallback questions for review
+        const fallbackQuestions: Question[] = []
+        const targetCount = sectionId === 2 ? 53 : 59
+
+        for (let i = 0; i < targetCount; i++) {
+          fallbackQuestions.push({
+            id: `section${sectionId}-review-fallback-${i}`,
+            type: "discrete",
+            question: `Fallback review question ${i + 1} for section ${sectionId}`,
+            options: ["Option A", "Option B", "Option C", "Option D"],
+            correctAnswer: "Option A",
+            topic: "general",
+            explanation: "This is a fallback question for review. The correct answer is Option A.",
+          })
+        }
+
+        setQuestions(fallbackQuestions)
+        console.log(`Review: Created ${fallbackQuestions.length} fallback questions for section ${sectionId}`)
       }
 
       setLoading(false)
@@ -124,9 +175,21 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
 
   const isAnswerCorrect = (questionId: string) => {
     const question = questions.find((q) => q.id === questionId)
-    if (!question) return false
+    if (!question) {
+      console.warn(`Question with ID ${questionId} not found`)
+      return false
+    }
 
-    return userAnswers[questionId] === question.correctAnswer
+    const userAnswer = userAnswers[questionId]
+    if (!userAnswer) {
+      console.warn(`No user answer found for question ${questionId}`)
+      return false
+    }
+
+    console.log(
+      `Checking answer for ${questionId}: User answer: ${userAnswer}, Correct answer: ${question.correctAnswer}`,
+    )
+    return userAnswer === question.correctAnswer
   }
 
   if (loading) {
