@@ -30,13 +30,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build the project
+      - name: Build static site
         run: pnpm run build
-        env:
-          NODE_ENV: production
-
-      - name: Export static site for GitHub Pages
-        run: pnpm run export
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
