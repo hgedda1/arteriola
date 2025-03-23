@@ -30,15 +30,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build project
+      - name: Build the project
         run: pnpm run build
         env:
           NODE_ENV: production
 
-      - name: Fix CSS/media paths for GitHub Pages
-        run: |
-          find "out" -name "*.html" -exec sed -i 's/\/_next\/static\/css\//_next\/static\/css\//g' {} \;
-          find "out" -name "*.html" -exec sed -i 's/\/_next\/static\/media\//_next\/static\/media\//g' {} \;
+      - name: Export static site for GitHub Pages
+        run: pnpm run export
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4

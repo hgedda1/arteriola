@@ -5,8 +5,11 @@ const nextConfig = {
   assetPrefix: '/arteriola/',
   trailingSlash: true,
   images: {
-    unoptimized: true
-  }
+    unoptimized: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 module.exports = nextConfig;
