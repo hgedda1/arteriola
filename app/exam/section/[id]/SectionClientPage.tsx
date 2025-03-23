@@ -32,7 +32,7 @@ export default function SectionClientPage({ id }: { id: string }) {
       const basePath = getBasePath()
       router.push(`${basePath}/instructions`)
     }
-  }, [sectionId, id, router])  
+  }, [sectionId, id, router])
 
   // Use refs for values that shouldn't trigger re-renders
   const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -242,9 +242,10 @@ export default function SectionClientPage({ id }: { id: string }) {
       // Navigate to complete page
       const basePath = getBasePath()
       router.push(`${basePath}/complete`)
-      } catch (error) {
-        console.error("Error ending exam:", error)
-      }
+    } catch (error) {
+      console.error("Error ending exam:", error)
+    }
+  }, [router, saveProgress, sectionId, answers])
 
   // Initial load effect - runs only once
   useEffect(() => {
@@ -256,7 +257,7 @@ export default function SectionClientPage({ id }: { id: string }) {
       const basePath = getBasePath()
       router.push(`${basePath}/instructions`)
       return
-    }    
+    }
 
     console.log(`Loading section ${sectionId}...`)
 
@@ -432,7 +433,7 @@ export default function SectionClientPage({ id }: { id: string }) {
             onClick={() => {
               const basePath = getBasePath()
               router.push(`${basePath}/instructions`)
-            }}            
+            }}
           >
             Return to Instructions
           </Button>
@@ -459,7 +460,7 @@ export default function SectionClientPage({ id }: { id: string }) {
             onClick={() => {
               const basePath = getBasePath()
               router.push(`${basePath}/instructions`)
-            }}            
+            }}
           >
             Return to Instructions
           </Button>
