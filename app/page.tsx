@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useEffect, useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { CustomLink } from "@/components/custom-link"
+import { getBasePath } from "@/lib/client-utils"
 
 export default function Home() {
   // Use client-side rendering to avoid hydration mismatch
@@ -18,6 +19,8 @@ export default function Home() {
     // Return a minimal loading state that won't cause hydration issues
     return <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex items-center justify-center">Loading...</div>
   }
+
+  const basePath = getBasePath()
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex flex-col items-center justify-center p-4">
@@ -112,7 +115,7 @@ export default function Home() {
           </div>
         </CardContent>
         <CardFooter className="flex justify-center border-t pt-6">
-          <CustomLink href="/register">
+          <CustomLink href={`${basePath}/register`}>
             <Button size="lg" className="px-8">
               Begin Exam
             </Button>
