@@ -769,7 +769,10 @@ export default function CompletePageContent({
                   </p>
                 </div>
                 <button
-                  onClick={() => (window.location.href = `/review/section/${section.id}`)}
+                  onClick={() => {
+                    const basePath = window.location.pathname.includes("/arteriola") ? "/arteriola" : ""
+                    window.location.href = `${basePath}/review/section/${section.id}`
+                  }}
                   className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                 >
                   Review Section
