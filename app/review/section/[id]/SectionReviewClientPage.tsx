@@ -754,11 +754,11 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
           size="sm"
           onClick={() => {
             const basePath = getBasePath()
-            router.push(`${basePath}/review`)
+            router.push(`${basePath}/complete`)
           }}
           className="text-black dark:text-white dark:border-slate-600"
         >
-          Back to Sections
+          Back to Results
         </Button>
       </div>
 
@@ -1235,11 +1235,11 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
             <button
               onClick={() => {
                 const basePath = getBasePath()
-                router.push(`${basePath}/review`)
+                router.push(`${basePath}/complete`)
               }}
               className="bg-[#3a6a9a] px-3 py-1 rounded flex items-center text-white"
             >
-              Back to Sections <span className="ml-1">▶</span>
+              Back to Results <span className="ml-1">▶</span>
             </button>
           )}
         </div>
