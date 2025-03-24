@@ -740,6 +740,31 @@ export default function SectionClientPage({ id }: { id: string }) {
         </span>
       </div>
 
+      {/* Metadata Badges */}
+      {currentQuestion.foundationalConcept && (
+        <div className="bg-[#f0f0f0] dark:bg-slate-800 p-1 flex flex-wrap gap-2 border-b border-gray-300 dark:border-slate-700">
+          {currentQuestion.foundationalConcept && (
+            <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs px-2 py-1 rounded">
+              FC {currentQuestion.foundationalConcept}
+            </span>
+          )}
+          {currentQuestion.contentCategory && (
+            <span className="inline-block bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 text-xs px-2 py-1 rounded">
+              CC {currentQuestion.contentCategory}
+            </span>
+          )}
+          {currentQuestion.disciplines &&
+            currentQuestion.disciplines.map((discipline, idx) => (
+              <span
+                key={idx}
+                className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 text-xs px-2 py-1 rounded"
+              >
+                {discipline}
+              </span>
+            ))}
+        </div>
+      )}
+
       {/* Question Type Header */}
       <div className="bg-[#1a4a7a] text-white p-1 px-2 border border-black dark:border-slate-600">
         Multiple Choice Item - Single Select

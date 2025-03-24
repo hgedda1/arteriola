@@ -4,24 +4,33 @@ import type React from "react"
 
 import { formatTopicName } from "@/lib/score-utils"
 import { useTheme } from "next-themes"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useMemo } from "react"
+import { Button } from "@/components/ui/button"
 
+// Update the TopicDataPoint interface to include x, y, and section properties
 interface TopicDataPoint {
   topic: string
   originalTopic: string
   percentage: number
-  section: number
+  section?: number
   correct: number
   total: number
   x?: number
   y?: number
 }
 
+// Update the PerformanceRadarChart component to include foundational concept data
 interface PerformanceRadarChartProps {
   topicScores: Record<string, { correct: number; total: number; percentage: number; section: number }>
+  foundationalConceptScores?: Record<string, { correct: number; total: number; percentage: number }>
+  displayMode?: "topics" | "concepts"
 }
 
-export function PerformanceRadarChart({ topicScores }: PerformanceRadarChartProps) {
+export function PerformanceRadarChart({
+  topicScores,
+  foundationalConceptScores,
+  displayMode = "topics",
+}: PerformanceRadarChartProps) {
   const { theme } = useTheme()
   const isDark = theme === "dark"
   const [mounted, setMounted] = useState(false)
@@ -31,16 +40,42 @@ export function PerformanceRadarChart({ topicScores }: PerformanceRadarChartProp
   const [mousePosition, setMousePosition] = useState<{ x: number; y: number } | null>(null)
   const requestRef = useRef<number | null>(null)
   const tooltipRef = useRef<HTMLDivElement>(null)
+  const [activeMode, setActiveMode] = useState<"topics" | "concepts">(displayMode)
 
-  // Format data for the radar chart
-  const chartData: TopicDataPoint[] = Object.entries(topicScores).map(([topic, data]) => ({
-    topic: formatTopicName(topic),
-    originalTopic: topic,
-    percentage: Math.round(data.percentage),
-    section: data.section,
-    correct: data.correct,
-    total: data.total,
-  }))
+  // Format data for the radar chart based on active mode
+  const chartData: TopicDataPoint[] = useMemo(() => {
+    if (activeMode === "concepts" && foundationalConceptScores && Object.keys(foundationalConceptScores).length > 0) {
+      return Object.entries(foundationalConceptScores).map(([concept, data]) => ({
+        topic: `Concept ${concept}`,
+        originalTopic: concept,
+        percentage: Math.round(typeof data === "number" ? data : data.percentage || 0),
+        correct: typeof data === "number" ? 0 : data.correct || 0,
+        total: typeof data === "number" ? 0 : data.total || 0,
+        x: undefined,
+        y: undefined,
+      }))
+    } else {
+      return Object.entries(topicScores || {}).map(([topic, data]) => ({
+        topic: formatTopicName(topic),
+        originalTopic: topic,
+        percentage: Math.round(data.percentage || 0),
+        section: data.section || 1,
+        correct: data.correct || 0,
+        total: data.total || 0,
+        x: undefined,
+        y: undefined,
+      }))
+    }
+  }, [activeMode, topicScores, foundationalConceptScores])
+
+  // Remove this early return that's causing the hooks error
+  // if (mounted && chartData.length === 0) {
+  //   return (
+  //     <div className="w-full h-[450px] flex items-center justify-center">
+  //       <p className="text-gray-500 dark:text-gray-400">No performance data available</p>
+  //     </div>
+  //   );
+  // }
 
   // Animation function
   const animate = () => {
@@ -51,6 +86,24 @@ export function PerformanceRadarChart({ topicScores }: PerformanceRadarChartProp
   }
 
   // Start animation
+  useEffect(() => {
+    setMounted(true)
+
+    if (mounted) {
+      drawRadarChart()
+
+      // Redraw on window resize
+      const handleResize = () => {
+        drawRadarChart()
+      }
+
+      window.addEventListener("resize", handleResize)
+      return () => {
+        window.removeEventListener("resize", handleResize)
+      }
+    }
+  }, [mounted, isDark, chartData, animationProgress, hoveredPoint, mousePosition])
+
   useEffect(() => {
     if (mounted) {
       setAnimationProgress(0)
@@ -274,7 +327,9 @@ export function PerformanceRadarChart({ topicScores }: PerformanceRadarChartProp
   // Use useEffect to ensure the component only renders on the client
   useEffect(() => {
     setMounted(true)
+  }, [])
 
+  useEffect(() => {
     if (mounted) {
       drawRadarChart()
 
@@ -290,57 +345,90 @@ export function PerformanceRadarChart({ topicScores }: PerformanceRadarChartProp
     }
   }, [mounted, isDark, chartData, animationProgress, hoveredPoint, mousePosition])
 
+  // Instead, move the empty data check to the final return statement
   if (!mounted) {
     return <div className="w-full h-[400px] flex items-center justify-center">Loading chart...</div>
   }
 
-  // Update the return JSX to adjust the container height and add more space for the chart
+  // Add the toggle for switching between topics and concepts
+  const toggleDisplayMode = () => {
+    if (foundationalConceptScores) {
+      setActiveMode((prev) => (prev === "topics" ? "concepts" : "topics"))
+      // Reset animation when switching modes
+      setAnimationProgress(0)
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current)
+      }
+      requestRef.current = requestAnimationFrame(animate)
+    }
+  }
+
+  // Add the toggle button to the UI
   return (
     <div className="w-full h-[450px] relative">
-      <canvas
-        ref={canvasRef}
-        className="w-full h-[400px] cursor-pointer"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      ></canvas>
-
-      {/* Tooltip */}
-      <div
-        ref={tooltipRef}
-        className="absolute hidden bg-white dark:bg-slate-800 p-2 rounded shadow-lg border border-gray-200 dark:border-slate-700 z-10 pointer-events-none"
-        style={{ minWidth: "150px" }}
-      >
-        {hoveredPoint !== null && chartData[hoveredPoint] && (
-          <>
-            <div className="font-medium text-black dark:text-white">{chartData[hoveredPoint].topic}</div>
-            <div className="text-sm text-gray-600 dark:text-gray-300">Section {chartData[hoveredPoint].section}</div>
-            <div className="text-sm font-medium text-black dark:text-white">
-              Score: {chartData[hoveredPoint].percentage}%
-            </div>
-            <div className="text-xs text-gray-600 dark:text-gray-300">
-              {chartData[hoveredPoint].correct} of {chartData[hoveredPoint].total} correct
-            </div>
-          </>
-        )}
-      </div>
-
-      {/* Fallback text display - with responsive grid */}
-      {chartData.length > 0 && (
-        <div className="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-800 p-2 border-t border-gray-200 dark:border-slate-700 h-[50px] overflow-y-auto custom-scrollbar">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-xs">
-            {chartData.map((item, index) => (
-              <div key={index} className="flex items-center">
-                <div
-                  className="w-3 h-3 rounded-full mr-1 flex-shrink-0"
-                  style={{ backgroundColor: isDark ? "#60a5fa" : "#3b82f6" }}
-                ></div>
-                <span className="text-black dark:text-white truncate">
-                  {item.topic}: {item.percentage}%
-                </span>
-              </div>
-            ))}
-          </div>
+      {/* Check for empty data in the return statement instead */}
+      {chartData.length === 0 ? (
+        <div className="w-full h-[400px] flex items-center justify-center">
+          <p className="text-gray-500 dark:text-gray-400">No performance data available</p>
         </div>
+      ) : (
+        <>
+          {foundationalConceptScores && (
+            <div className="absolute top-2 right-2 z-10">
+              <Button variant="outline" size="sm" onClick={toggleDisplayMode} className="text-xs">
+                {activeMode === "topics" ? "Show Concepts" : "Show Topics"}
+              </Button>
+            </div>
+          )}
+
+          <canvas
+            ref={canvasRef}
+            className="w-full h-[400px] cursor-pointer"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          ></canvas>
+
+          {/* Tooltip */}
+          <div
+            ref={tooltipRef}
+            className="absolute hidden bg-white dark:bg-slate-800 p-2 rounded shadow-lg border border-gray-200 dark:border-slate-700 z-10 pointer-events-none"
+            style={{ minWidth: "150px" }}
+          >
+            {hoveredPoint !== null && chartData[hoveredPoint] && (
+              <>
+                <div className="font-medium text-black dark:text-white">{chartData[hoveredPoint].topic}</div>
+                {activeMode === "topics" && chartData[hoveredPoint].section && (
+                  <div className="text-sm text-gray-600 dark:text-gray-300">
+                    Section {chartData[hoveredPoint].section}
+                  </div>
+                )}
+                <div className="text-sm font-medium text-black dark:text-white">
+                  Score: {chartData[hoveredPoint].percentage}%
+                </div>
+                <div className="text-xs text-gray-600 dark:text-gray-300">
+                  {chartData[hoveredPoint].correct} of {chartData[hoveredPoint].total} correct
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Fallback text display - with responsive grid */}
+          <div className="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-800 p-2 border-t border-gray-200 dark:border-slate-700 h-[50px] overflow-y-auto custom-scrollbar">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-xs">
+              {chartData.map((item, index) => (
+                <div key={index} className="flex items-center">
+                  <div
+                    className="w-3 h-3 rounded-full mr-1 flex-shrink-0"
+                    style={{ backgroundColor: isDark ? "#60a5fa" : "#3b82f6" }}
+                  ></div>
+                  <span className="text-black dark:text-white truncate">
+                    {item.topic}: {item.percentage}%
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
       )}
     </div>
   )

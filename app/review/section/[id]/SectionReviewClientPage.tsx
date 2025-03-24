@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
-import { CheckCircle, XCircle } from "lucide-react"
+import { CheckCircle, XCircle, Download } from "lucide-react"
 import { getAllSectionQuestions } from "@/lib/questions"
 import type { Question } from "@/lib/exam-data"
 import { getBasePath } from "@/lib/client-utils"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
+import { formatTopicName } from "@/lib/score-utils"
 
 // Add this function to handle passage-based questions
 const getPassageQuestions = (questions: Question[], currentQuestion: Question): Question[] => {
@@ -43,6 +44,440 @@ const getPassageTextForQuestion = (question: Question, questions: Question[]): s
   return undefined
 }
 
+// Add this function to generate HTML for download
+const generateSectionReviewHTML = (
+  sectionId: number,
+  sectionTitle: string,
+  questions: Question[],
+  userAnswers: Record<string, string>,
+  score: number,
+  correctCount: number,
+  totalCount: number,
+): string => {
+  const html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Section ${sectionId} Review - ${sectionTitle}</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
+          color: #333;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        h1, h2, h3, h4 {
+          color: #1a4a7a;
+        }
+        .header {
+          text-align: center;
+          margin-bottom: 30px;
+          border-bottom: 2px solid #1a4a7a;
+          padding-bottom: 20px;
+        }
+        .score-summary {
+          display: flex;
+          justify-content: space-around;
+          margin: 20px 0;
+          padding: 15px;
+          background-color: #f0f7ff;
+          border-radius: 8px;
+        }
+        .score-box {
+          text-align: center;
+        }
+        .score-value {
+          font-size: 24px;
+          font-weight: bold;
+          color: #1a4a7a;
+        }
+        .score-label {
+          font-size: 14px;
+          color: #666;
+        }
+        .question-item {
+          margin-bottom: 30px;
+          padding: 15px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          background-color: #fff;
+        }
+        .question-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #eee;
+        }
+        .question-metadata {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: 10px;
+        }
+        .metadata-tag {
+          font-size: 12px;
+          padding: 2px 8px;
+          border-radius: 4px;
+          background-color: #e0f2ff;
+          color: #1a4a7a;
+        }
+        .passage-box {
+          padding: 15px;
+          background-color: #f9f9f9;
+          border-radius: 8px;
+          margin-bottom: 15px;
+          border-left: 4px solid #1a4a7a;
+        }
+        .question-text {
+          font-weight: bold;
+          margin-bottom: 15px;
+        }
+        .options-list {
+          list-style-type: none;
+          padding-left: 0;
+        }
+        .option-item {
+          padding: 8px 12px;
+          margin-bottom: 8px;
+          border-radius: 4px;
+          border: 1px solid #ddd;
+        }
+        .user-selected {
+          border-color: #f59e0b;
+          background-color: #fef3c7;
+        }
+        .correct-answer {
+          border-color: #10b981;
+          background-color: #d1fae5;
+        }
+        .incorrect-answer {
+          border-color: #ef4444;
+          background-color: #fee2e2;
+        }
+        .explanation-box {
+          margin-top: 15px;
+          padding: 15px;
+          background-color: #f0f7ff;
+          border-radius: 8px;
+          border-left: 4px solid #3b82f6;
+        }
+        .explanation-title {
+          font-weight: bold;
+          margin-bottom: 8px;
+          color: #1a4a7a;
+        }
+        .footer {
+          text-align: center;
+          margin-top: 40px;
+          padding-top: 20px;
+          border-top: 1px solid #ddd;
+          font-size: 14px;
+          color: #666;
+        }
+        .image-container {
+          text-align: center;
+          margin: 15px 0;
+        }
+        .image-container img {
+          max-width: 100%;
+          max-height: 400px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        .topic-badge {
+          display: inline-block;
+          padding: 3px 8px;
+          background-color: #e0f2ff;
+          color: #1a4a7a;
+          border-radius: 4px;
+          font-size: 12px;
+          margin-right: 8px;
+        }
+        .correct-icon {
+          color: #10b981;
+          margin-left: 8px;
+        }
+        .incorrect-icon {
+          color: #ef4444;
+          margin-left: 8px;
+        }
+        .table-of-contents {
+          background-color: #f9f9f9;
+          padding: 15px;
+          border-radius: 8px;
+          margin-bottom: 30px;
+        }
+        .toc-title {
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .toc-list {
+          list-style-type: none;
+          padding-left: 0;
+          columns: 2;
+        }
+        .toc-item {
+          margin-bottom: 5px;
+        }
+        .toc-link {
+          text-decoration: none;
+          color: #1a4a7a;
+        }
+        .toc-link:hover {
+          text-decoration: underline;
+        }
+        .toc-status {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          margin-right: 5px;
+        }
+        .status-correct {
+          background-color: #10b981;
+        }
+        .status-incorrect {
+          background-color: #ef4444;
+        }
+        .status-unanswered {
+          background-color: #9ca3af;
+        }
+        @media print {
+          .question-item {
+            page-break-inside: avoid;
+          }
+          .passage-box {
+            page-break-inside: avoid;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="header">
+        <h1>Section ${sectionId} Review</h1>
+        <h2>${sectionTitle}</h2>
+        <p>Generated on: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
+      </div>
+      
+      <div class="score-summary">
+        <div class="score-box">
+          <div class="score-value">${score}%</div>
+          <div class="score-label">Section Score</div>
+        </div>
+        <div class="score-box">
+          <div class="score-value">${correctCount}/${totalCount}</div>
+          <div class="score-label">Correct Answers</div>
+        </div>
+      </div>
+      
+      <!-- Table of Contents -->
+      <div class="table-of-contents">
+        <div class="toc-title">Quick Navigation</div>
+        <ul class="toc-list">
+          ${questions
+            .map((question, index) => {
+              const isAnswered = userAnswers[question.id] !== undefined
+              const isCorrect = userAnswers[question.id] === question.correctAnswer
+              let statusClass = "status-unanswered"
+              if (isAnswered) {
+                statusClass = isCorrect ? "status-correct" : "status-incorrect"
+              }
+
+              return `
+              <li class="toc-item">
+                <span class="toc-status ${statusClass}"></span>
+                <a href="#question-${index + 1}" class="toc-link">Question ${index + 1}: ${
+                  question.question.length > 50 ? question.question.substring(0, 50) + "..." : question.question
+                }</a>
+              </li>
+            `
+            })
+            .join("")}
+        </ul>
+      </div>
+      
+      <!-- Questions -->
+      ${questions
+        .map((question, index) => {
+          const userAnswer = userAnswers[question.id]
+          const isCorrect = userAnswer === question.correctAnswer
+          const isAnswered = userAnswer !== undefined
+          const passageText = getPassageTextForQuestion(question, questions)
+
+          return `
+          <div id="question-${index + 1}" class="question-item">
+            <div class="question-header">
+              <div>
+                <strong>Question ${index + 1}</strong>
+                <span class="topic-badge">${formatTopicName(question.topic)}</span>
+              </div>
+              <div>
+                ${
+                  isAnswered
+                    ? isCorrect
+                      ? '<span style="color: #10b981;">✓ Correct</span>'
+                      : '<span style="color: #ef4444;">✗ Incorrect</span>'
+                    : '<span style="color: #9ca3af;">Not Answered</span>'
+                }
+              </div>
+            </div>
+            
+            <!-- Question Metadata -->
+            ${
+              question.foundationalConcept ||
+              question.contentCategory ||
+              (question.disciplines && question.disciplines.length > 0)
+                ? `
+              <div class="question-metadata">
+                ${
+                  question.foundationalConcept
+                    ? `
+                  <span class="metadata-tag">FC ${question.foundationalConcept}</span>
+                `
+                    : ""
+                }
+                ${
+                  question.contentCategory
+                    ? `
+                  <span class="metadata-tag">CC ${question.contentCategory}</span>
+                `
+                    : ""
+                }
+                ${
+                  question.disciplines && question.disciplines.length > 0
+                    ? question.disciplines
+                        .map(
+                          (discipline) => `
+                    <span class="metadata-tag">${discipline}</span>
+                  `,
+                        )
+                        .join("")
+                    : ""
+                }
+                ${
+                  question.subtopics && question.subtopics.length > 0
+                    ? question.subtopics
+                        .map(
+                          (subtopic) => `
+                    <span class="metadata-tag">${subtopic}</span>
+                  `,
+                        )
+                        .join("")
+                    : ""
+                }
+                ${
+                  question.difficulty
+                    ? `
+                  <span class="metadata-tag">${question.difficulty}</span>
+                `
+                    : ""
+                }
+              </div>
+            `
+                : ""
+            }
+            
+            <!-- Passage if applicable -->
+            ${
+              passageText
+                ? `
+              <div class="passage-box">
+                <h4>Passage</h4>
+                <div>${passageText}</div>
+                ${
+                  question.image && question.type === "passage"
+                    ? `
+                  <div class="image-container">
+                    <img src="${question.image}" alt="Passage image" />
+                  </div>
+                `
+                    : ""
+                }
+              </div>
+            `
+                : ""
+            }
+            
+            <!-- Question Text -->
+            <div class="question-text">${question.question}</div>
+            
+            <!-- Question Image if any (not passage image) -->
+            ${
+              question.image && question.type !== "passage"
+                ? `
+              <div class="image-container">
+                <img src="${question.image}" alt="Question image" />
+              </div>
+            `
+                : ""
+            }
+            
+            <!-- Answer Options -->
+            <ul class="options-list">
+              ${question.options
+                .map((option, optionIndex) => {
+                  const letter = String.fromCharCode(65 + optionIndex) // A, B, C, D, etc.
+                  const isUserAnswer = userAnswer === option
+                  const isCorrectAnswer = question.correctAnswer === option
+
+                  let optionClass = ""
+                  if (isUserAnswer && isCorrectAnswer) {
+                    optionClass = "correct-answer"
+                  } else if (isUserAnswer && !isCorrectAnswer) {
+                    optionClass = "incorrect-answer"
+                  } else if (isCorrectAnswer) {
+                    optionClass = "correct-answer"
+                  } else if (isUserAnswer) {
+                    optionClass = "user-selected"
+                  }
+
+                  return `
+                  <li class="option-item ${optionClass}">
+                    <strong>${letter}.</strong> ${option}
+                    ${isCorrectAnswer ? '<span style="color: #10b981; margin-left: 8px;">✓ Correct Answer</span>' : ""}
+                    ${isUserAnswer && !isCorrectAnswer ? '<span style="color: #ef4444; margin-left: 8px;">✗ Your Answer</span>' : ""}
+                  </li>
+                `
+                })
+                .join("")}
+            </ul>
+            
+            <!-- Explanation -->
+            <div class="explanation-box">
+              <div class="explanation-title">Explanation</div>
+              <div>${question.explanation || "No explanation available for this question."}</div>
+              
+              ${
+                question.explanationImage
+                  ? `
+                <div class="image-container">
+                  <img src="${question.explanationImage}" alt="Explanation image" />
+                </div>
+              `
+                  : ""
+              }
+            </div>
+          </div>
+        `
+        })
+        .join("")}
+      
+      <div class="footer">
+        <p>MCAT Exam Simulation Platform</p>
+        <p>This document is for personal study purposes only.</p>
+      </div>
+    </body>
+    </html>
+  `
+
+  return html
+}
+
 // Change the component props from { params } to { id }
 export default function SectionReviewClientPage({ id }: { id: string }) {
   const router = useRouter()
@@ -56,6 +491,9 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [userAnswers, setUserAnswers] = useState<Record<string, string>>({})
   const [userName, setUserName] = useState("")
+  const [sectionTitle, setSectionTitle] = useState("")
+  const [score, setScore] = useState(0)
+  const [correctCount, setCorrectCount] = useState(0)
 
   const sectionTitles = {
     1: "Biological and Biochemical Foundations of Living Systems",
@@ -98,6 +536,9 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
         return
       }
 
+      // Set section title
+      setSectionTitle(sectionTitles[sectionId as keyof typeof sectionTitles] || `Section ${sectionId}`)
+
       // Load user answers
       if (state.answers && state.answers[sectionId]) {
         console.log(`Loading answers for section ${sectionId} in review:`, state.answers[sectionId])
@@ -113,6 +554,22 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
           const parsedQuestions = JSON.parse(storedQuestions)
           console.log(`Review: Loaded ${parsedQuestions.length} questions from localStorage for section ${sectionId}`)
           setQuestions(parsedQuestions)
+
+          // Calculate score and correct count
+          const answers = state.answers[sectionId] || {}
+          let correct = 0
+          parsedQuestions.forEach((q: Question) => {
+            if (answers[q.id] === q.correctAnswer) {
+              correct++
+            }
+          })
+
+          const totalQuestions = parsedQuestions.length
+          const scorePercentage = totalQuestions > 0 ? Math.round((correct / totalQuestions) * 100) : 0
+
+          setCorrectCount(correct)
+          setScore(scorePercentage)
+
           setLoading(false)
           return
         }
@@ -192,6 +649,29 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
     return userAnswer === question.correctAnswer
   }
 
+  // Add download function
+  const downloadSectionReview = () => {
+    const html = generateSectionReviewHTML(
+      sectionId,
+      sectionTitles[sectionId as keyof typeof sectionTitles] || `Section ${sectionId}`,
+      questions,
+      userAnswers,
+      score,
+      correctCount,
+      questions.length,
+    )
+
+    const blob = new Blob([html], { type: "text/html" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = `MCAT_Section${sectionId}_Review_${new Date().toISOString().split("T")[0]}.html`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-900 text-black dark:text-white">
@@ -212,8 +692,6 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
   const questionNumber = currentQuestionIndex + 1
   const totalQuestions = questions.length
   const answeredCount = Object.keys(userAnswers).length
-  const correctCount = questions.filter((q) => isAnswerCorrect(q.id)).length
-  const scorePercentage = (correctCount / totalQuestions) * 100
 
   // Check if current question is part of a passage
   const isPassageQuestion = currentQuestion.type === "passage"
@@ -229,11 +707,21 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
         <div>Review - {sectionTitles[sectionId as keyof typeof sectionTitles]}</div>
         <div className="flex items-center gap-4">
           <div>
-            Score: {correctCount}/{totalQuestions} ({Math.round(scorePercentage)}%)
+            Score: {correctCount}/{totalQuestions} ({score}%)
           </div>
           <div>
             {questionNumber} of {totalQuestions}
           </div>
+          {/* Add Download Button */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={downloadSectionReview}
+            className="flex items-center gap-1 bg-green-600 hover:bg-green-700 text-white border-none"
+          >
+            <Download className="h-4 w-4" />
+            <span>Download Review</span>
+          </Button>
         </div>
       </div>
 
@@ -345,6 +833,53 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                 <p className="text-black dark:text-white">{currentQuestion.question}</p>
               </div>
 
+              {/* Question Metadata */}
+              {currentQuestion.foundationalConcept && (
+                <div className="mt-2 mb-4 flex flex-wrap gap-2">
+                  {currentQuestion.foundationalConcept && (
+                    <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs px-2 py-1 rounded">
+                      FC {currentQuestion.foundationalConcept}
+                    </span>
+                  )}
+                  {currentQuestion.contentCategory && (
+                    <span className="inline-block bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 text-xs px-2 py-1 rounded">
+                      CC {currentQuestion.contentCategory}
+                    </span>
+                  )}
+                  {currentQuestion.disciplines &&
+                    currentQuestion.disciplines.map((discipline, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 text-xs px-2 py-1 rounded"
+                      >
+                        {discipline}
+                      </span>
+                    ))}
+                  {currentQuestion.subtopics &&
+                    currentQuestion.subtopics.map((subtopic, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-block bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-100 text-xs px-2 py-1 rounded"
+                      >
+                        {subtopic}
+                      </span>
+                    ))}
+                  {currentQuestion.difficulty && (
+                    <span
+                      className={`inline-block text-xs px-2 py-1 rounded ${
+                        currentQuestion.difficulty === "Advanced"
+                          ? "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100"
+                          : currentQuestion.difficulty === "Intermediate"
+                            ? "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100"
+                            : "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100"
+                      }`}
+                    >
+                      {currentQuestion.difficulty}
+                    </span>
+                  )}
+                </div>
+              )}
+
               {/* Question Image if any (not passage image) */}
               {currentQuestion.image && currentQuestion.type !== "passage" && (
                 <div className="mb-4">
@@ -416,7 +951,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                 ) : (
                   // Text-based options
                   currentQuestion.options.map((option, index) => {
-                    const letter = String.fromCharCode(65 + index) // A, B, C, D, etc.
+                    const letter = String.fromCharCode(65 + index)
                     const isUserAnswer = userAnswers[currentQuestion.id] === option
                     const isCorrectAnswer = currentQuestion.correctAnswer === option
                     const optionId = `option-${currentQuestion.id}-${index}`
@@ -489,6 +1024,53 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               <p className="text-black dark:text-white">{currentQuestion.question}</p>
             </div>
 
+            {/* Question Metadata */}
+            {currentQuestion.foundationalConcept && (
+              <div className="mt-2 mb-4 flex flex-wrap gap-2">
+                {currentQuestion.foundationalConcept && (
+                  <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs px-2 py-1 rounded">
+                    FC {currentQuestion.foundationalConcept}
+                  </span>
+                )}
+                {currentQuestion.contentCategory && (
+                  <span className="inline-block bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 text-xs px-2 py-1 rounded">
+                    CC {currentQuestion.contentCategory}
+                  </span>
+                )}
+                {currentQuestion.disciplines &&
+                  currentQuestion.disciplines.map((discipline, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 text-xs px-2 py-1 rounded"
+                    >
+                      {discipline}
+                    </span>
+                  ))}
+                {currentQuestion.subtopics &&
+                  currentQuestion.subtopics.map((subtopic, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-block bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-100 text-xs px-2 py-1 rounded"
+                    >
+                      {subtopic}
+                    </span>
+                  ))}
+                {currentQuestion.difficulty && (
+                  <span
+                    className={`inline-block text-xs px-2 py-1 rounded ${
+                      currentQuestion.difficulty === "Advanced"
+                        ? "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100"
+                        : currentQuestion.difficulty === "Intermediate"
+                          ? "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100"
+                          : "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100"
+                    }`}
+                  >
+                    {currentQuestion.difficulty}
+                  </span>
+                )}
+              </div>
+            )}
+
             {/* Question Image if any */}
             {currentQuestion.image && (
               <div className="mb-4 flex justify-center">
@@ -502,7 +1084,6 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               </div>
             )}
 
-            {/* Answer Options */}
             <div className="space-y-3 mt-4">
               {currentQuestion.optionImages ? (
                 // Image-based options
@@ -560,7 +1141,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               ) : (
                 // Text-based options
                 currentQuestion.options.map((option, index) => {
-                  const letter = String.fromCharCode(65 + index) // A, B, C, D, etc.
+                  const letter = String.fromCharCode(65 + index)
                   const isUserAnswer = userAnswers[currentQuestion.id] === option
                   const isCorrectAnswer = currentQuestion.correctAnswer === option
                   const optionId = `option-${currentQuestion.id}-${index}`
@@ -631,8 +1212,8 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
       <div className="bg-[#1a4a7a] text-white p-2 flex justify-between items-center">
         <div className="flex items-center">
           <span className="mr-2">Section Score:</span>
-          <Progress value={scorePercentage} className="w-32 h-2 bg-gray-300 dark:bg-gray-700 progress-bar" />
-          <span className="ml-2">{Math.round(scorePercentage)}%</span>
+          <Progress value={score} className="w-32 h-2 bg-gray-300 dark:bg-gray-700 progress-bar" />
+          <span className="ml-2">{score}%</span>
         </div>
         <div className="flex gap-2">
           {currentQuestionIndex > 0 && (

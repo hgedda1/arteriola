@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import GoogleAnalytics from "@/components/google-analytics"
+import MetadataInitializer from "@/components/metadata-initializer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <GoogleAnalytics />
+        <MetadataInitializer />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
@@ -28,3 +30,4 @@ export default function RootLayout({
     </html>
   )
 }
+

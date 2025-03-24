@@ -14,6 +14,9 @@ import {
   type Passage,
 } from "./exam-data"
 
+// Add this import at the top of the file
+import { updateQuestionMetadata, updateSectionQuestions } from "./update-question-metadata"
+
 // Function to extract questions from passages
 function extractQuestionsFromPassages(passages: Passage[]): Question[] {
   const questions: Question[] = []
@@ -243,7 +246,7 @@ function groupQuestionsByPassage(questions: Question[]): Question[] {
   return [...passageQuestions, ...discreteQuestions]
 }
 
-// Update the getSectionQuestions function to use the groupQuestionsByPassage function
+// Modify the getSectionQuestions function to update metadata
 export function getSectionQuestions(sectionId: number): Question[] {
   let questions: Question[] = []
   let targetCount: number
@@ -331,6 +334,9 @@ export function getSectionQuestions(sectionId: number): Question[] {
           })
         }
       }
+
+    // Update metadata for all questions
+    questions = updateSectionQuestions(questions)
 
     console.log(`Successfully loaded ${questions.length} questions for section ${sectionId}`)
 
@@ -474,7 +480,7 @@ export function getSectionQuestions(sectionId: number): Question[] {
       // Create a variation of the template question
       const variation = i < templates.length ? "" : ` (Variation ${Math.floor(i / templates.length) + 1})`
 
-      defaultQuestions.push({
+      const question: Question = {
         id: `section${sectionId}-fallback-${i}`,
         type: "discrete",
         question: template ? `${template.q}${variation}` : `Fallback question ${i + 1} for section ${sectionId}?`,
@@ -482,7 +488,10 @@ export function getSectionQuestions(sectionId: number): Question[] {
         correctAnswer: template ? template.a[0] : "Option A",
         topic: topic,
         explanation: `This is a fallback question. The correct answer is ${template ? template.a[0] : "Option A"}.`,
-      })
+      }
+
+      // Add metadata to the question
+      defaultQuestions.push(updateQuestionMetadata(question))
     }
 
     // Store the fallback questions in localStorage

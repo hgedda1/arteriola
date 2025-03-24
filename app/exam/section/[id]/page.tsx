@@ -21,7 +21,7 @@ export default async function SectionPage({ params }: { params: Promise<{ id: st
   )
 }
 
-// Add this to ensure the page is properly generated for all sections
+// generated for all sections
 export function generateStaticParams() {
   return [{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }]
 }
