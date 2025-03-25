@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { useEffect, useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { CustomLink } from "@/components/custom-link"
+import Link from "next/link"
 import { getBasePath } from "@/lib/client-utils"
 
 export default function Home() {
@@ -115,11 +115,11 @@ export default function Home() {
           </div>
         </CardContent>
         <CardFooter className="flex justify-center border-t pt-6">
-          <CustomLink href={`${basePath}/register`}>
+          <Link href={`${basePath}/register`}>
             <Button size="lg" className="px-8">
               Begin Exam
             </Button>
-          </CustomLink>
+          </Link>
         </CardFooter>
       </Card>
     </div>
