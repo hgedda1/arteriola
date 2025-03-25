@@ -16,8 +16,7 @@ export default function ReviewPage() {
     // Check if user is registered
     const userData = localStorage.getItem("examUser")
     if (!userData) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/register`)
+      router.push("/register")
       return
     }
 
@@ -31,8 +30,7 @@ export default function ReviewPage() {
     // Check if exam has been completed
     const examState = localStorage.getItem("examState")
     if (!examState) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/instructions`)
+      router.push("/instructions")
       return
     }
 
@@ -54,8 +52,7 @@ export default function ReviewPage() {
   }
 
   const navigateToSectionReview = (sectionId: number) => {
-    const basePath = getBasePath()
-    router.push(`${basePath}/review/section/${sectionId}`)
+    router.push(`/review/section/${sectionId}`)
   }
 
   return (
@@ -106,8 +103,7 @@ export default function ReviewPage() {
           <Button
             variant="outline"
             onClick={() => {
-              const basePath = getBasePath()
-              router.push(`${basePath}/complete`)
+              router.push("/complete")
             }}
             className="text-black dark:text-white dark:border-slate-600"
           >

@@ -17,8 +17,7 @@ export default function Instructions() {
     // Check if user is registered
     const userData = localStorage.getItem("examUser")
     if (!userData) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/register`)
+      router.push("/register")
       return
     }
 
@@ -26,8 +25,7 @@ export default function Instructions() {
       const user = JSON.parse(userData)
       setUserName(`${user.firstName} ${user.lastName}`)
     } catch (error) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/register`)
+      router.push("/register")
     }
   }, [router])
 
@@ -61,8 +59,7 @@ export default function Instructions() {
       }),
     )
 
-    const basePath = getBasePath()
-    router.push(`${basePath}/exam/section/1`)
+    router.push("/exam/section/1")
   }
 
   return (

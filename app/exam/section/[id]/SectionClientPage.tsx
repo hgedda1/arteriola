@@ -30,8 +30,7 @@ export default function SectionClientPage({ id }: { id: string }) {
   useEffect(() => {
     if (isNaN(sectionId) || sectionId < 1 || sectionId > 4) {
       console.error(`Invalid section ID: ${id}, redirecting to instructions`)
-      const basePath = getBasePath()
-      router.push(`${basePath}/instructions`)
+      router.push("/instructions")
     }
   }, [sectionId, id, router])
 
@@ -198,11 +197,10 @@ export default function SectionClientPage({ id }: { id: string }) {
 
       // Set state to trigger navigation in useEffect
       setSectionCompleted(true)
-      const basePath = getBasePath()
       if (sectionId < 4) {
-        setNextRoute(`${basePath}/break/${sectionId}`)
+        setNextRoute(`/break/${sectionId}`)
       } else {
-        setNextRoute(`${basePath}/complete`)
+        setNextRoute(`/complete`)
       }
     } catch (error) {
       console.error("Error completing section:", error)
@@ -246,11 +244,11 @@ export default function SectionClientPage({ id }: { id: string }) {
       )
 
       // Navigate to complete page
-      const basePath = getBasePath()
-      router.push(`${basePath}/complete`)
-    } catch (error) {
-      console.error("Error ending exam:", error)
-    }
+      router.push(`/complete`)
+      } catch (error) {
+        console.error("Error ending exam:", error)
+      }
+
   }, [router, saveProgress, sectionId, answers])
 
   // Initial load effect - runs only once
@@ -260,8 +258,7 @@ export default function SectionClientPage({ id }: { id: string }) {
     // Validate section ID
     if (isNaN(sectionId) || sectionId < 1 || sectionId > 4) {
       console.error(`Invalid section ID: ${id}, redirecting to instructions`)
-      const basePath = getBasePath()
-      router.push(`${basePath}/instructions`)
+      router.push("/instructions")
       return
     }
 
@@ -270,8 +267,7 @@ export default function SectionClientPage({ id }: { id: string }) {
     // Check if user is registered
     const userData = localStorage.getItem("examUser")
     if (!userData) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/register`)
+      router.push("/register")
       return
     }
 
@@ -285,8 +281,7 @@ export default function SectionClientPage({ id }: { id: string }) {
     // Check if exam has been started
     const examState = localStorage.getItem("examState")
     if (!examState) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/instructions`)
+      router.push("/instructions")
       return
     }
 
@@ -597,8 +592,7 @@ export default function SectionClientPage({ id }: { id: string }) {
           <p className="text-red-500 mb-4">Invalid section ID: {id}</p>
           <Button
             onClick={() => {
-              const basePath = getBasePath()
-              router.push(`${basePath}/instructions`)
+              router.push("/instructions")
             }}
           >
             Return to Instructions
@@ -624,8 +618,7 @@ export default function SectionClientPage({ id }: { id: string }) {
           <p className="mb-4">No questions available for this section.</p>
           <Button
             onClick={() => {
-              const basePath = getBasePath()
-              router.push(`${basePath}/instructions`)
+              router.push("/instructions")
             }}
           >
             Return to Instructions

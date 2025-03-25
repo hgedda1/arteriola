@@ -1,13 +1,8 @@
+// app/exam/section/[id]/page.tsx
 import { Suspense } from "react"
 import SectionClientPage from "./SectionClientPage"
 
-export default async function SectionPage({ params }: { params: Promise<{ id: string }> }) {
-  // Await the params before accessing its properties
-  const resolvedParams = await params
-
-  // Log the params to verify they exist
-  console.log("SectionPage: Received params:", resolvedParams)
-
+export default function SectionPage({ params }: { params: { id: string } }) {
   return (
     <Suspense
       fallback={
@@ -16,7 +11,7 @@ export default async function SectionPage({ params }: { params: Promise<{ id: st
         </div>
       }
     >
-      <SectionClientPage id={resolvedParams.id} />
+      <SectionClientPage id={params.id} />
     </Suspense>
   )
 }

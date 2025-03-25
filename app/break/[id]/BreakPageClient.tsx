@@ -50,8 +50,7 @@ export default function BreakPageClient({ id }: { id: string }) {
       setTimeRemaining(duration)
     } catch (error) {
       console.error("Error loading exam state:", error)
-      const basePath = getBasePath()
-      router.push(`${basePath}/instructions`)
+      router.push("/instructions")
     }
   }, [router, sectionId, id])
 
@@ -73,8 +72,7 @@ export default function BreakPageClient({ id }: { id: string }) {
   }, [timeRemaining])
 
   const skipBreak = () => {
-    const basePath = getBasePath()
-    router.push(`${basePath}/exam/section/${sectionId + 1}`)
+    router.push(`/exam/section/${sectionId + 1}`)
   }
 
   const getNextSectionTitle = () => {

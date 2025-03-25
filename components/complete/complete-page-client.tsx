@@ -41,8 +41,7 @@ export default function CompletePageClient() {
     const examState = localStorage.getItem("examState")
 
     if (!userData || !examState) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/register`)
+      router.push("/register")
       return
     }
 
@@ -55,10 +54,9 @@ export default function CompletePageClient() {
       // Verify at least one section is completed or exam was ended early
       if (!state.completedSections || (state.completedSections.length < 1 && !state.endedEarly)) {
         const nextSection = state.currentSection || 1
-        const basePath = getBasePath()
-        router.push(`${basePath}/exam/section/${nextSection}`)
+        router.push(`/exam/section/${nextSection}`)
         return
-      }
+      }      
 
       // Get all questions for analysis
       const allQuestions: Record<number, any[]> = {}

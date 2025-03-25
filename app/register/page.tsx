@@ -90,8 +90,7 @@ export default function Register() {
       )
 
       // Navigate to instructions
-      const basePath = getBasePath()
-      router.push(`${basePath}/instructions`)
+      router.push("/instructions")
     }
   }
 

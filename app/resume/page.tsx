@@ -17,8 +17,7 @@ export default function ResumePage() {
       // Check if user is registered
       const userData = localStorage.getItem("examUser")
       if (!userData) {
-        const basePath = getBasePath()
-        router.push(`${basePath}/register`)
+        router.push("/register")
         return
       }
 
@@ -49,13 +48,12 @@ export default function ResumePage() {
     if (!examState) return
 
     try {
-      const basePath = getBasePath()
       const currentSection = examState.currentSection || 1
 
       if (currentSection >= 1 && currentSection <= 4) {
-        router.push(`${basePath}/exam/section/${currentSection}`)
+        router.push(`/exam/section/${currentSection}`)
       } else {
-        router.push(`${basePath}/instructions`)
+        router.push(`/instructions`)
       }
     } catch (err) {
       console.error("Error resuming exam:", err)
@@ -79,8 +77,7 @@ export default function ResumePage() {
       )
 
       // Redirect to instructions
-      const basePath = getBasePath()
-      router.push(`${basePath}/instructions`)
+      router.push("/instructions")
     } catch (err) {
       console.error("Error starting new exam:", err)
       setError("An error occurred. Please try again.")

@@ -506,8 +506,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
     // Check if user is registered
     const userData = localStorage.getItem("examUser")
     if (!userData) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/register`)
+      router.push("/register")
       return
     }
 
@@ -521,8 +520,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
     // Check if exam has been completed
     const examState = localStorage.getItem("examState")
     if (!examState) {
-      const basePath = getBasePath()
-      router.push(`${basePath}/instructions`)
+      router.push("/instructions")
       return
     }
 
@@ -531,8 +529,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
 
       // Check if this section was completed
       if (!state.completedSections || !state.completedSections.includes(sectionId)) {
-        const basePath = getBasePath()
-        router.push(`${basePath}/review`)
+        router.push("/review")
         return
       }
 
@@ -619,8 +616,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
       setLoading(false)
     } catch (error) {
       console.error("Error loading exam state:", error)
-      const basePath = getBasePath()
-      router.push(`${basePath}/review`)
+      router.push("/review")
     }
   }, [router, sectionId, id])
 
@@ -753,8 +749,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
           variant="outline"
           size="sm"
           onClick={() => {
-            const basePath = getBasePath()
-            router.push(`${basePath}/complete`)
+            router.push("/complete")
           }}
           className="text-black dark:text-white dark:border-slate-600"
         >
@@ -1234,8 +1229,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
           ) : (
             <button
               onClick={() => {
-                const basePath = getBasePath()
-                router.push(`${basePath}/complete`)
+                router.push("/complete")
               }}
               className="bg-[#3a6a9a] px-3 py-1 rounded flex items-center text-white"
             >
