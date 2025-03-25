@@ -115,7 +115,7 @@ export default function Home() {
           </div>
         </CardContent>
         <CardFooter className="flex justify-center border-t pt-6">
-          <Link href={`${basePath}/register`}>
+          <Link href="/register">
             <Button size="lg" className="px-8">
               Begin Exam
             </Button>
