@@ -714,7 +714,7 @@ export default function CompletePageContent({
                 }),
               )
               // Navigate to instructions
-              window.location.href = "/instructions"
+              window.location.href = `${getBasePath()}/instructions`
             }}
             className="bg-green-600 hover:bg-green-700 text-white"
           >
@@ -775,7 +775,7 @@ export default function CompletePageContent({
                 </div>
                 <button
                   onClick={() => {
-                    window.location.href = `/review/section/${section.id}`
+                    window.location.href = `${getBasePath()}/review/section/${section.id}`
                   }}
                   className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                 >
