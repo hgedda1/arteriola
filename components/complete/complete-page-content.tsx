@@ -649,6 +649,11 @@ export default function CompletePageContent({
     )
   }
 
+  // Function to get the base path
+  const getBasePath = () => {
+    return window.location.pathname.includes("/arteriola") ? "/arteriola" : ""
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">MCAT Exam Complete</h1>
@@ -709,7 +714,8 @@ export default function CompletePageContent({
                 }),
               )
               // Navigate to instructions
-              window.location.href = "/instructions"
+              const basePath = getBasePath()
+              window.location.href = `${basePath}/instructions`
             }}
             className="bg-green-600 hover:bg-green-700 text-white"
           >
@@ -770,7 +776,7 @@ export default function CompletePageContent({
                 </div>
                 <button
                   onClick={() => {
-                    const basePath = window.location.pathname.includes("/arteriola") ? "/arteriola" : ""
+                    const basePath = getBasePath()
                     window.location.href = `${basePath}/review/section/${section.id}`
                   }}
                   className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"

@@ -265,3 +265,21 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+// Base path helper
+export const getBasePath = (): string => {
+  if (typeof window !== "undefined") {
+    // Check if we're on GitHub Pages with the /arteriola path
+    if (window.location.hostname.includes("github.io")) {
+      return "/arteriola"
+    }
+
+    // For local development when testing with the path
+    if (process.env.NODE_ENV === "development" && window.location.pathname.startsWith("/arteriola")) {
+      return "/arteriola"
+    }
+  }
+
+  // Default to empty string for local development without the path
+  return ""
+}
+

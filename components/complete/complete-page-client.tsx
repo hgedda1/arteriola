@@ -13,6 +13,7 @@ import {
 } from "@/lib/utils"
 import { sectionTitles } from "@/constants"
 import CompletePageContent from "@/components/complete/complete-page-content"
+import { getBasePath } from "@/lib/utils"
 
 export default function CompletePageClient() {
   const router = useRouter()
@@ -40,7 +41,8 @@ export default function CompletePageClient() {
     const examState = localStorage.getItem("examState")
 
     if (!userData || !examState) {
-      router.push("/register")
+      const basePath = getBasePath()
+      router.push(`${basePath}/register`)
       return
     }
 
@@ -53,7 +55,8 @@ export default function CompletePageClient() {
       // Verify at least one section is completed or exam was ended early
       if (!state.completedSections || (state.completedSections.length < 1 && !state.endedEarly)) {
         const nextSection = state.currentSection || 1
-        router.push(`/exam/section/${nextSection}`)
+        const basePath = getBasePath()
+        router.push(`${basePath}/exam/section/${nextSection}`)
         return
       }
 

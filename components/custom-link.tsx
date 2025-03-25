@@ -17,7 +17,7 @@ export function CustomLink({ href, className, children, onClick }: CustomLinkPro
 
   // Only prepend basePath if href is an internal link (starts with /)
   // and doesn't already include the basePath
-  const fullHref = href.startsWith("/") && !href.startsWith(basePath) ? `${basePath}${href}` : href
+  const fullHref = href.startsWith("/") && !href.includes(basePath) ? `${basePath}${href}` : href
 
   return (
     <Link href={fullHref} className={className} onClick={onClick}>
