@@ -15,6 +15,7 @@ import { EndExamDialog } from "@/components/end-exam-dialog"
 import { Button } from "@/components/ui/button"
 import { getBasePath } from "@/lib/client-utils"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
+import { PeriodicTableDialog } from "@/components/periodic-table-dialog"
 
 // Change the component props from { params } to { id }
 export default function SectionClientPage({ id }: { id: string }) {
@@ -58,6 +59,9 @@ export default function SectionClientPage({ id }: { id: string }) {
 
   // Add this state in the component
   const [showEndExam, setShowEndExam] = useState(false)
+
+  // Add state for the periodic table dialog
+  const [showPeriodicTable, setShowPeriodicTable] = useState(false)
 
   // Section definitions
   const sections = {
@@ -709,6 +713,14 @@ export default function SectionClientPage({ id }: { id: string }) {
           >
             <span className="mr-1">✏️</span> Strikethrough (W)
           </button>
+          {(sectionId === 1 || sectionId === 3) && (
+            <button
+              className="text-sm px-2 py-1 flex items-center text-black dark:text-white"
+              onClick={() => setShowPeriodicTable(true)}
+            >
+              <span className="mr-1">⚛️</span> Periodic Table
+            </button>
+          )}
           <button
             className="text-sm px-2 py-1 flex items-center text-black dark:text-white"
             onClick={() => setShowScratchPad(true)}
@@ -1082,6 +1094,7 @@ export default function SectionClientPage({ id }: { id: string }) {
         currentSection={sectionId}
         onConfirm={handleEndExam}
       />
+      <PeriodicTableDialog open={showPeriodicTable} onOpenChange={setShowPeriodicTable} />
     </div>
   )
 }
