@@ -267,8 +267,8 @@ export function getSectionQuestions(sectionId: number): Question[] {
         )
         break
       case 2:
-        // Section 2: Chem/Phys - 53 questions, mix of passage and discrete
-        targetCount = 53
+        // Section 2: Chem/Phys - 59 questions, mix of passage and discrete
+        targetCount = 59
         questions = generateQuestionsWithWeightage(
           section2Questions,
           section2Passages,
@@ -290,7 +290,7 @@ export function getSectionQuestions(sectionId: number): Question[] {
         break
       case 4:
         // Section 4: CARS - 59 questions passage
-        targetCount = 59
+        targetCount = 53
         questions = generateQuestionsWithWeightage(
           section4Questions,
           section4Passages,
