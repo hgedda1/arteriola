@@ -319,7 +319,7 @@ export function getSectionQuestions(sectionId: number): Question[] {
           const defaultQuestion: Question = {
             id: `section${sectionId}-default-${questions.length}`,
             type: "discrete",
-            question: `Default question for section ${sectionId}?`,
+            question: `Default question for section (test, skip, answer A) ${sectionId}?`,
             options: ["Option A", "Option B", "Option C", "Option D"],
             correctAnswer: "Option A",
             topic:

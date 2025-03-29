@@ -72,8 +72,8 @@ export default function SectionClientPage({ id }: { id: string }) {
     },
     2: {
       title: "Chemical and Physical Foundations of Biological Systems",
-      timeLimit: 90 * 60, // 90 minutes in seconds
-      questionCount: 53,
+      timeLimit: 95 * 60, // 95 minutes in seconds
+      questionCount: 59,
     },
     3: {
       title: "Psychological, Social, and Biological Foundations of Behavior",
@@ -82,8 +82,8 @@ export default function SectionClientPage({ id }: { id: string }) {
     },
     4: {
       title: "Critical Analysis and Reasoning Skills",
-      timeLimit: 95 * 60, // 95 minutes in seconds
-      questionCount: 59,
+      timeLimit: 90 * 60, // 90 minutes in seconds
+      questionCount: 53,
     },
   }
 

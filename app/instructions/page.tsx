@@ -115,7 +115,7 @@ export default function Instructions() {
               <h3 className="font-medium text-lg text-black dark:text-white">
                 SECTION 2: Chemical and Physical Foundations of Biological Systems
               </h3>
-              <p className="text-sm text-gray-600 text-black dark:text-slate-300 mt-1">53 Questions, 90 Minutes</p>
+              <p className="text-sm text-gray-600 text-black dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
               <p className="text-sm mt-2 dark:text-slate-300">Includes only passage-based questions.</p>
               <p className="text-sm italic mt-1 text-black dark:text-slate-400">
                 30-minute optional break follows this section.
@@ -135,7 +135,7 @@ export default function Instructions() {
               <h3 className="font-medium text-lg text-black dark:text-white">
                 SECTION 4: Critical Analysis and Reasoning Skills
               </h3>
-              <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
+              <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">53 Questions, 90 Minutes</p>
               <p className="text-sm mt-2 dark:text-slate-300">Includes passage-based and discrete questions.</p>
             </div>
           </div>
