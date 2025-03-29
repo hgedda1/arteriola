@@ -13,7 +13,6 @@ import { EndSectionDialog } from "@/components/end-section-dialog"
 import type { Question } from "@/lib/exam-data"
 import { EndExamDialog } from "@/components/end-exam-dialog"
 import { Button } from "@/components/ui/button"
-import { getBasePath } from "@/lib/client-utils"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
 import { PeriodicTableDialog } from "@/components/periodic-table-dialog"
 
@@ -249,10 +248,9 @@ export default function SectionClientPage({ id }: { id: string }) {
 
       // Navigate to complete page
       router.push(`/complete`)
-      } catch (error) {
-        console.error("Error ending exam:", error)
-      }
-
+    } catch (error) {
+      console.error("Error ending exam:", error)
+    }
   }, [router, saveProgress, sectionId, answers])
 
   // Initial load effect - runs only once
@@ -320,132 +318,9 @@ export default function SectionClientPage({ id }: { id: string }) {
       } catch (error) {
         console.error(`All question loading methods failed for section ${sectionId}:`, error)
 
-        // Last resort emergency fallback
-        const lastResortQuestions: Question[] = []
-        const targetCount = sectionId === 2 ? 53 : 59
-
-        // Create themed questions based on section
-        const questionTemplates = {
-          1: [
-            {
-              q: "Which organelle is responsible for protein synthesis?",
-              a: ["Ribosome", "Mitochondria", "Golgi apparatus", "Lysosome"],
-            },
-            {
-              q: "What is the primary function of DNA?",
-              a: ["Store genetic information", "Protein synthesis", "Energy production", "Cell signaling"],
-            },
-            {
-              q: "Which of the following is NOT a nucleotide found in DNA?",
-              a: ["Uracil", "Adenine", "Guanine", "Thymine"],
-            },
-            {
-              q: "Which enzyme catalyzes the hydrolysis of peptide bonds?",
-              a: ["Peptidase", "Amylase", "Lipase", "DNA polymerase"],
-            },
-            {
-              q: "What is the main function of the mitochondria?",
-              a: ["ATP production", "Protein synthesis", "Lipid metabolism", "Cell division"],
-            },
-          ],
-          2: [
-            { q: "What is the SI unit of force?", a: ["Newton", "Joule", "Watt", "Pascal"] },
-            {
-              q: "Which law states that energy cannot be created or destroyed?",
-              a: ["First law of thermodynamics", "Second law of thermodynamics", "Ohm's law", "Boyle's law"],
-            },
-            { q: "What is the pH of a neutral solution at 25°C?", a: ["7", "0", "14", "1"] },
-            {
-              q: "Which of the following is an example of a polar molecule?",
-              a: ["Water", "Methane", "Oxygen", "Nitrogen"],
-            },
-            { q: "What is the charge of an electron?", a: ["Negative", "Positive", "Neutral", "Variable"] },
-          ],
-          3: [
-            {
-              q: "Who is known for classical conditioning experiments with dogs?",
-              a: ["Pavlov", "Skinner", "Freud", "Jung"],
-            },
-            {
-              q: "What is the term for a person's awareness of their own identity?",
-              a: ["Self-concept", "Persona", "Archetype", "Superego"],
-            },
-            {
-              q: "Which theory focuses on how people learn by observing others?",
-              a: ["Social learning theory", "Psychoanalytic theory", "Behaviorism", "Humanism"],
-            },
-            {
-              q: "What is the smallest unit of social organization?",
-              a: ["Family", "Individual", "Community", "Society"],
-            },
-            {
-              q: "Which part of the brain is primarily responsible for emotions?",
-              a: ["Limbic system", "Cerebellum", "Medulla", "Corpus callosum"],
-            },
-          ],
-          4: [
-            {
-              q: "What is the main purpose of a thesis statement in an essay?",
-              a: [
-                "State the main argument",
-                "Provide background information",
-                "Summarize the conclusion",
-                "List supporting evidence",
-              ],
-            },
-            {
-              q: "Which of the following is an example of a logical fallacy?",
-              a: ["Ad hominem", "Deductive reasoning", "Syllogism", "Empirical evidence"],
-            },
-            {
-              q: "What is the difference between correlation and causation?",
-              a: [
-                "Correlation doesn't imply causation",
-                "They are synonymous",
-                "Causation is weaker than correlation",
-                "Correlation only applies to qualitative data",
-              ],
-            },
-            {
-              q: "Which approach to ethics focuses on the outcomes of actions?",
-              a: ["Consequentialism", "Deontology", "Virtue ethics", "Divine command theory"],
-            },
-            {
-              q: "What is the purpose of a control group in an experiment?",
-              a: [
-                "Provide a baseline for comparison",
-                "Maximize the effect of the treatment",
-                "Eliminate all variables",
-                "Increase sample size",
-              ],
-            },
-          ],
-        }
-
-        // Get templates for this section
-        const templates = questionTemplates[sectionId as keyof typeof questionTemplates] || []
-
-        // Generate questions using templates and random variations
-        for (let i = 0; i < targetCount; i++) {
-          // Select a template, cycling through them
-          const template = templates[i % templates.length]
-
-          // Create a variation of the template question
-          const variation = i < templates.length ? "" : ` (Variation ${Math.floor(i / templates.length) + 1})`
-
-          lastResortQuestions.push({
-            id: `section${sectionId}-emergency-${i}`,
-            type: "discrete",
-            question: template ? `${template.q}${variation}` : `Emergency question ${i + 1} for section ${sectionId}?`,
-            options: template ? [...template.a] : ["Option A", "Option B", "Option C", "Option D"],
-            correctAnswer: template ? template.a[0] : "Option A",
-            topic: "general",
-            explanation: `This is an emergency fallback question. The correct answer is ${template ? template.a[0] : "Option A"}.`,
-          })
-        }
-
-        setQuestions(lastResortQuestions)
-        console.log(`Created ${lastResortQuestions.length} emergency fallback questions`)
+        // Display error state instead of generating template questions
+        setLoading(false)
+        router.push("/instructions?error=failed-to-load-questions")
       }
 
       // Load saved answers if any
