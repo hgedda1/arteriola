@@ -1359,7 +1359,7 @@ export const section1Questions: Question[] = [
 },
 {
     "id": "bio-129",
-    "topic": "biology",
+    "topic": "biochemistry",
     "type": "discrete",
     "question": "Which of the following is not considered a primary color of light?",
     "options": [
@@ -1412,7 +1412,7 @@ export const section1Questions: Question[] = [
 },
 {
     "id": "bio-131",
-    "topic": "biology",
+    "topic": "biochemistry",
     "type": "discrete",
     "question": "The symbol B on the periodic table stands for:",
     "options": [
@@ -1439,7 +1439,7 @@ export const section1Questions: Question[] = [
 },
 {
     "id": "bio-132",
-    "topic": "biology",
+    "topic": "biochemistry",
     "type": "discrete",
     "question": "The symbol Mn on the periodic table stands for:",
     "options": [
