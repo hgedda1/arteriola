@@ -30,7 +30,7 @@ export default function Home() {
 
       <Card className="w-full max-w-4xl dark:bg-slate-800">
         <CardHeader className="text-center border-b pb-6">
-          <CardTitle className="text-3xl font-bold dark:text-white">MCAT Simulation Platform</CardTitle>
+          <CardTitle className="text-3xl font-bold dark:text-white">ARTERIOLA</CardTitle>
           <CardDescription className="text-lg mt-2 dark:text-slate-300">MCAT Exam Simulator</CardDescription>
           <div className="mt-2 text-sm text-muted-foreground dark:text-slate-400">
             <p>You can toggle between light and dark mode using the button in the top right corner.</p>
@@ -44,8 +44,8 @@ export default function Home() {
             <div>
               <h2 className="text-xl font-semibold mb-2 dark:text-white">About This Exam</h2>
               <p className="text-gray-700 dark:text-slate-300">
-                This exam consists of four sections designed to test your knowledge across various disciplines. Each
-                section has a specific time limit and number of questions.
+              This simulator is designed to provide a realistic exam experience and assess your knowledge across various disciplines. 
+              Each section has a specific time limit and number of questions. Keep practicing, and you'll feel confident on test day!
               </p>
             </div>
 
@@ -54,50 +54,51 @@ export default function Home() {
 
               <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
                 <h3 className="font-medium text-lg dark:text-white">
-                  SECTION 1: Biological and Biochemical Foundations of Living Systems
+                  SECTION 1: Chemical and Physical Foundations of Biological Systems
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
                 <ul className="list-disc list-inside mt-2 text-sm text-gray-700 dark:text-slate-300">
-                  <li>Biology (55%): Cells, organ systems, genetics, molecular biology</li>
-                  <li>Biochemistry (25%): Proteins, enzymes, metabolism (Glycolysis, Krebs Cycle)</li>
-                  <li>Organic Chemistry (15%): Functional groups, reactions</li>
-                  <li>General Chemistry (5%): Acids/bases, stoichiometry</li>
-                </ul>
-              </div>
-
-              <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
-                <h3 className="font-medium text-lg dark:text-white">
-                  SECTION 2: Chemical and Physical Foundations of Biological Systems
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">53 Questions, 90 Minutes</p>
-                <ul className="list-disc list-inside mt-2 text-sm text-gray-700 dark:text-slate-300">
-                  <li>General Chemistry (30%): Periodic trends, bonding, thermodynamics</li>
-                  <li>Physics (25%): Forces, motion, fluids, electricity, sound</li>
-                  <li>Organic Chemistry (15%): Reaction mechanisms</li>
-                  <li>Biochemistry (25%): Amino acids, enzyme kinetics</li>
+                  <li>General Chemistry (30%)</li>
+                  <li>Physics (25%)</li>
+                  <li>Organic Chemistry (15%)</li>
+                  <li>Biochemistry (25%)</li>
+                  <li>Biology (5%)</li>
                   <li>Basic math skills (no calculator allowed)</li>
                 </ul>
               </div>
 
               <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
                 <h3 className="font-medium text-lg dark:text-white">
-                  SECTION 3: Psychological, Social, and Biological Foundations of Behavior
+                  SECTION 2: Critical Analysis and Reasoning Skills
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">53 Questions, 90 Minutes</p>
+                <ul className="list-disc list-inside mt-2 text-sm text-gray-700 dark:text-slate-300">
+                  <li>Comprehension of humanities and social sciences passages</li>
+                </ul>
+              </div> 
+
+              <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
+                <h3 className="font-medium text-lg dark:text-white">
+                  SECTION 3: Biological and Biochemical Foundations of Living Systems
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
                 <ul className="list-disc list-inside mt-2 text-sm text-gray-700 dark:text-slate-300">
-                  <li>Psychology (65%): Cognition, learning, memory, behavior, emotion</li>
-                  <li>Sociology (30%): Social structure, culture, inequality</li>
-                  <li>Biology (5%): Brain structures, neurotransmitters</li>
+                  <li>Biology (65%)</li>
+                  <li>Biochemistry (25%)</li>
+                  <li>Organic Chemistry (5%)</li>
+                  <li>General Chemistry (5%)</li>
                 </ul>
               </div>
 
               <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
                 <h3 className="font-medium text-lg dark:text-white">
-                  SECTION 4: Critical Analysis and Reasoning Skills
+                  SECTION 4: Psychological, Social, and Biological Foundations of Behavior
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
                 <ul className="list-disc list-inside mt-2 text-sm text-gray-700 dark:text-slate-300">
-                  <li>Comprehension of humanities and social sciences passages</li>
+                  <li>Psychology (65%)</li>
+                  <li>Sociology (30%)</li>
+                  <li>Biology (5%)</li>
                 </ul>
               </div>
             </div>
@@ -109,8 +110,50 @@ export default function Home() {
                 <li>Optional 30-minute break after Section 2</li>
                 <li>No calculator allowed</li>
                 <li>Questions are randomly selected from our database</li>
-                <li>Each attempt will present unique questions</li>
+                <li>Each attempt will present Different set of questions</li>
               </ul>
+
+              <div className="mt-6 overflow-x-auto">
+                <table className="min-w-full text-sm text-left">
+                  <thead className="bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-slate-200">
+                    <tr>
+                      <th className="px-4 py-2">Section</th>
+                      <th className="px-4 py-2">Number of Questions</th>
+                      <th className="px-4 py-2">Content</th>
+                      <th className="px-4 py-2">Time Allotted</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-200">
+                    {[
+                      ["Test-day certification", "–", "–", "4 minutes"],
+                      ["Tutorial (optional)", "–", "–", "10 minutes"],
+                      ["Chemical and Physical Foundations of Biological Systems", "59", "10 passage-based sets & 15 independent questions", "95 minutes"],
+                      ["Break (optional)", "–", "–", "10 minutes"],
+                      ["Critical Analysis and Reasoning Skills", "53", "9 passage-based sets", "90 minutes"],
+                      ["Mid-exam break (optional)", "–", "–", "30 minutes"],
+                      ["Biological and Biochemical Foundations of Living Systems", "59", "10 passage-based sets & 15 independent questions", "95 minutes"],
+                      ["Break (optional)", "–", "–", "10 minutes"],
+                      ["Psychological, Social, and Biological Foundations of Behavior", "59", "10 passage-based sets & 15 independent questions", "95 minutes"],
+                      ["Void Question", "–", "–", "3 minutes"],
+                      ["End-of-day survey (optional)", "–", "–", "5 minutes"],
+                      ["Total content time", "–", "–", "6 hours and 15 minutes"],
+                      ["Total \"seated\" time", "–", "–", "About 7 hours and 30 minutes"]
+                    ].map(([section, questions, content, time], idx) => (
+                      <tr
+                        key={idx}
+                        className={`hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors ${
+                          idx >= 11 ? "font-semibold" : ""
+                        }`}
+                      >
+                        <td className="px-4 py-2">{section}</td>
+                        <td className="px-4 py-2">{questions}</td>
+                        <td className="px-4 py-2">{content}</td>
+                        <td className="px-4 py-2">{time}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </CardContent>

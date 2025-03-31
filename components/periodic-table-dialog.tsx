@@ -1,6 +1,8 @@
 "use client"
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { cn } from "@/lib/utils"
+import { useState } from "react"
 
 interface PeriodicTableDialogProps {
   open: boolean
@@ -8,679 +10,1091 @@ interface PeriodicTableDialogProps {
 }
 
 export function PeriodicTableDialog({ open, onOpenChange }: PeriodicTableDialogProps) {
+  const [selectedElement, setSelectedElement] = useState<{
+    symbol: string
+    name: string
+    mass: string
+  } | null>(null)
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto dark:bg-slate-800">
+      <DialogContent className="max-w-6xl max-h-[95vh] overflow-auto dark:bg-slate-800">
         <DialogHeader>
-          <DialogTitle className="text-lg font-normal dark:text-white">Periodic Table of Elements</DialogTitle>
+          <DialogTitle className="text-xl font-bold text-center dark:text-white">
+            Periodic Table of the Elements
+          </DialogTitle>
         </DialogHeader>
+
+        {selectedElement && (
+          <div className="bg-slate-100 dark:bg-slate-700 p-3 rounded-md mb-4 text-center">
+            <p className="font-medium text-lg">
+              {selectedElement.symbol} - {selectedElement.name}
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Atomic Weight: {selectedElement.mass}</p>
+          </div>
+        )}
+
         <div className="space-y-4">
           <div className="w-full overflow-auto">
-            <div className="min-w-[900px]">
-              {/* Periodic Table Grid */}
-              <div className="grid grid-cols-18 gap-1 text-xs">
-                {/* Row 1 */}
-                <div className="element bg-red-100 dark:bg-red-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">1</div>
-                  <div className="text-center font-bold">H</div>
-                  <div className="text-center text-[10px]">1.008</div>
-                </div>
-                <div className="col-span-16"></div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">2</div>
-                  <div className="text-center font-bold">He</div>
-                  <div className="text-center text-[10px]">4.003</div>
-                </div>
-
-                {/* Row 2 */}
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">3</div>
-                  <div className="text-center font-bold">Li</div>
-                  <div className="text-center text-[10px]">6.94</div>
-                </div>
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">4</div>
-                  <div className="text-center font-bold">Be</div>
-                  <div className="text-center text-[10px]">9.012</div>
-                </div>
-                <div className="col-span-10"></div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">5</div>
-                  <div className="text-center font-bold">B</div>
-                  <div className="text-center text-[10px]">10.81</div>
-                </div>
-                <div className="element bg-red-100 dark:bg-red-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">6</div>
-                  <div className="text-center font-bold">C</div>
-                  <div className="text-center text-[10px]">12.01</div>
-                </div>
-                <div className="element bg-red-100 dark:bg-red-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">7</div>
-                  <div className="text-center font-bold">N</div>
-                  <div className="text-center text-[10px]">14.01</div>
-                </div>
-                <div className="element bg-red-100 dark:bg-red-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">8</div>
-                  <div className="text-center font-bold">O</div>
-                  <div className="text-center text-[10px]">16.00</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">9</div>
-                  <div className="text-center font-bold">F</div>
-                  <div className="text-center text-[10px]">19.00</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">10</div>
-                  <div className="text-center font-bold">Ne</div>
-                  <div className="text-center text-[10px]">20.18</div>
+            <div className="min-w-[1100px] p-4">
+              {/* Main Periodic Table Grid */}
+              <div className="relative">
+                {/* Period 1 */}
+                <div className="grid grid-cols-[1.5rem_repeat(18,minmax(2rem,1fr))] gap-1 mb-1">
+                  <div></div> {/* Period number - hidden */}
+                  <Element
+                    atomicNumber="1"
+                    symbol="H"
+                    name="Hydrogen"
+                    mass="1.008"
+                    bgClass="bg-red-100 dark:bg-red-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <div></div> {/* Empty cell */}
+                  {/* Empty cells from column 3 to 17 */}
+                  {Array.from({ length: 15 }).map((_, i) => (
+                    <div key={i}></div>
+                  ))}
+                  <Element
+                    atomicNumber="2"
+                    symbol="He"
+                    name="Helium"
+                    mass="4.003"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
                 </div>
 
-                {/* Row 3 */}
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">11</div>
-                  <div className="text-center font-bold">Na</div>
-                  <div className="text-center text-[10px]">22.99</div>
-                </div>
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">12</div>
-                  <div className="text-center font-bold">Mg</div>
-                  <div className="text-center text-[10px]">24.31</div>
-                </div>
-                <div className="col-span-10"></div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">13</div>
-                  <div className="text-center font-bold">Al</div>
-                  <div className="text-center text-[10px]">26.98</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">14</div>
-                  <div className="text-center font-bold">Si</div>
-                  <div className="text-center text-[10px]">28.09</div>
-                </div>
-                <div className="element bg-red-100 dark:bg-red-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">15</div>
-                  <div className="text-center font-bold">P</div>
-                  <div className="text-center text-[10px]">30.97</div>
-                </div>
-                <div className="element bg-red-100 dark:bg-red-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">16</div>
-                  <div className="text-center font-bold">S</div>
-                  <div className="text-center text-[10px]">32.07</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">17</div>
-                  <div className="text-center font-bold">Cl</div>
-                  <div className="text-center text-[10px]">35.45</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">18</div>
-                  <div className="text-center font-bold">Ar</div>
-                  <div className="text-center text-[10px]">39.95</div>
-                </div>
-
-                {/* Row 4 */}
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">19</div>
-                  <div className="text-center font-bold">K</div>
-                  <div className="text-center text-[10px]">39.10</div>
-                </div>
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">20</div>
-                  <div className="text-center font-bold">Ca</div>
-                  <div className="text-center text-[10px]">40.08</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">21</div>
-                  <div className="text-center font-bold">Sc</div>
-                  <div className="text-center text-[10px]">44.96</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">22</div>
-                  <div className="text-center font-bold">Ti</div>
-                  <div className="text-center text-[10px]">47.87</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">23</div>
-                  <div className="text-center font-bold">V</div>
-                  <div className="text-center text-[10px]">50.94</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">24</div>
-                  <div className="text-center font-bold">Cr</div>
-                  <div className="text-center text-[10px]">52.00</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">25</div>
-                  <div className="text-center font-bold">Mn</div>
-                  <div className="text-center text-[10px]">54.94</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">26</div>
-                  <div className="text-center font-bold">Fe</div>
-                  <div className="text-center text-[10px]">55.85</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">27</div>
-                  <div className="text-center font-bold">Co</div>
-                  <div className="text-center text-[10px]">58.93</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">28</div>
-                  <div className="text-center font-bold">Ni</div>
-                  <div className="text-center text-[10px]">58.69</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">29</div>
-                  <div className="text-center font-bold">Cu</div>
-                  <div className="text-center text-[10px]">63.55</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">30</div>
-                  <div className="text-center font-bold">Zn</div>
-                  <div className="text-center text-[10px]">65.38</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">31</div>
-                  <div className="text-center font-bold">Ga</div>
-                  <div className="text-center text-[10px]">69.72</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">32</div>
-                  <div className="text-center font-bold">Ge</div>
-                  <div className="text-center text-[10px]">72.63</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">33</div>
-                  <div className="text-center font-bold">As</div>
-                  <div className="text-center text-[10px]">74.92</div>
-                </div>
-                <div className="element bg-red-100 dark:bg-red-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">34</div>
-                  <div className="text-center font-bold">Se</div>
-                  <div className="text-center text-[10px]">78.97</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">35</div>
-                  <div className="text-center font-bold">Br</div>
-                  <div className="text-center text-[10px]">79.90</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">36</div>
-                  <div className="text-center font-bold">Kr</div>
-                  <div className="text-center text-[10px]">83.80</div>
+                {/* Period 2 */}
+                <div className="grid grid-cols-[1.5rem_repeat(18,minmax(2rem,1fr))] gap-1 mb-1">
+                  <div></div> {/* Period number - hidden */}
+                  <Element
+                    atomicNumber="3"
+                    symbol="Li"
+                    name="Lithium"
+                    mass="6.94"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="4"
+                    symbol="Be"
+                    name="Beryllium"
+                    mass="9.012"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  {/* Empty cells from column 3 to 12 */}
+                  {Array.from({ length: 10 }).map((_, i) => (
+                    <div key={i}></div>
+                  ))}
+                  <Element
+                    atomicNumber="5"
+                    symbol="B"
+                    name="Boron"
+                    mass="10.81"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="6"
+                    symbol="C"
+                    name="Carbon"
+                    mass="12.01"
+                    bgClass="bg-red-100 dark:bg-red-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="7"
+                    symbol="N"
+                    name="Nitrogen"
+                    mass="14.01"
+                    bgClass="bg-red-100 dark:bg-red-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="8"
+                    symbol="O"
+                    name="Oxygen"
+                    mass="16.00"
+                    bgClass="bg-red-100 dark:bg-red-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="9"
+                    symbol="F"
+                    name="Fluorine"
+                    mass="19.00"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="10"
+                    symbol="Ne"
+                    name="Neon"
+                    mass="20.18"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
                 </div>
 
-                {/* Row 5 */}
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">37</div>
-                  <div className="text-center font-bold">Rb</div>
-                  <div className="text-center text-[10px]">85.47</div>
-                </div>
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">38</div>
-                  <div className="text-center font-bold">Sr</div>
-                  <div className="text-center text-[10px]">87.62</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">39</div>
-                  <div className="text-center font-bold">Y</div>
-                  <div className="text-center text-[10px]">88.91</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">40</div>
-                  <div className="text-center font-bold">Zr</div>
-                  <div className="text-center text-[10px]">91.22</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">41</div>
-                  <div className="text-center font-bold">Nb</div>
-                  <div className="text-center text-[10px]">92.91</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">42</div>
-                  <div className="text-center font-bold">Mo</div>
-                  <div className="text-center text-[10px]">95.95</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">43</div>
-                  <div className="text-center font-bold">Tc</div>
-                  <div className="text-center text-[10px]">[98]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">44</div>
-                  <div className="text-center font-bold">Ru</div>
-                  <div className="text-center text-[10px]">101.1</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">45</div>
-                  <div className="text-center font-bold">Rh</div>
-                  <div className="text-center text-[10px]">102.9</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">46</div>
-                  <div className="text-center font-bold">Pd</div>
-                  <div className="text-center text-[10px]">106.4</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">47</div>
-                  <div className="text-center font-bold">Ag</div>
-                  <div className="text-center text-[10px]">107.9</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">48</div>
-                  <div className="text-center font-bold">Cd</div>
-                  <div className="text-center text-[10px]">112.4</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">49</div>
-                  <div className="text-center font-bold">In</div>
-                  <div className="text-center text-[10px]">114.8</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">50</div>
-                  <div className="text-center font-bold">Sn</div>
-                  <div className="text-center text-[10px]">118.7</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">51</div>
-                  <div className="text-center font-bold">Sb</div>
-                  <div className="text-center text-[10px]">121.8</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">52</div>
-                  <div className="text-center font-bold">Te</div>
-                  <div className="text-center text-[10px]">127.6</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">53</div>
-                  <div className="text-center font-bold">I</div>
-                  <div className="text-center text-[10px]">126.9</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">54</div>
-                  <div className="text-center font-bold">Xe</div>
-                  <div className="text-center text-[10px]">131.3</div>
+                {/* Period 3 */}
+                <div className="grid grid-cols-[1.5rem_repeat(18,minmax(2rem,1fr))] gap-1 mb-1">
+                  <div></div> {/* Period number - hidden */}
+                  <Element
+                    atomicNumber="11"
+                    symbol="Na"
+                    name="Sodium"
+                    mass="22.99"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="12"
+                    symbol="Mg"
+                    name="Magnesium"
+                    mass="24.31"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  {/* Empty cells from column 3 to 12 */}
+                  {Array.from({ length: 10 }).map((_, i) => (
+                    <div key={i}></div>
+                  ))}
+                  <Element
+                    atomicNumber="13"
+                    symbol="Al"
+                    name="Aluminum"
+                    mass="26.98"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="14"
+                    symbol="Si"
+                    name="Silicon"
+                    mass="28.09"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="15"
+                    symbol="P"
+                    name="Phosphorus"
+                    mass="30.97"
+                    bgClass="bg-red-100 dark:bg-red-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="16"
+                    symbol="S"
+                    name="Sulfur"
+                    mass="32.07"
+                    bgClass="bg-red-100 dark:bg-red-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="17"
+                    symbol="Cl"
+                    name="Chlorine"
+                    mass="35.45"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="18"
+                    symbol="Ar"
+                    name="Argon"
+                    mass="39.95"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
                 </div>
 
-                {/* Row 6 */}
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">55</div>
-                  <div className="text-center font-bold">Cs</div>
-                  <div className="text-center text-[10px]">132.9</div>
-                </div>
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">56</div>
-                  <div className="text-center font-bold">Ba</div>
-                  <div className="text-center text-[10px]">137.3</div>
-                </div>
-                <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">57-71</div>
-                  <div className="text-center font-bold">La-Lu</div>
-                  <div className="text-center text-[10px]"></div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">72</div>
-                  <div className="text-center font-bold">Hf</div>
-                  <div className="text-center text-[10px]">178.5</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">73</div>
-                  <div className="text-center font-bold">Ta</div>
-                  <div className="text-center text-[10px]">180.9</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">74</div>
-                  <div className="text-center font-bold">W</div>
-                  <div className="text-center text-[10px]">183.8</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">75</div>
-                  <div className="text-center font-bold">Re</div>
-                  <div className="text-center text-[10px]">186.2</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">76</div>
-                  <div className="text-center font-bold">Os</div>
-                  <div className="text-center text-[10px]">190.2</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">77</div>
-                  <div className="text-center font-bold">Ir</div>
-                  <div className="text-center text-[10px]">192.2</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">78</div>
-                  <div className="text-center font-bold">Pt</div>
-                  <div className="text-center text-[10px]">195.1</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">79</div>
-                  <div className="text-center font-bold">Au</div>
-                  <div className="text-center text-[10px]">197.0</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">80</div>
-                  <div className="text-center font-bold">Hg</div>
-                  <div className="text-center text-[10px]">200.6</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">81</div>
-                  <div className="text-center font-bold">Tl</div>
-                  <div className="text-center text-[10px]">204.4</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">82</div>
-                  <div className="text-center font-bold">Pb</div>
-                  <div className="text-center text-[10px]">207.2</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">83</div>
-                  <div className="text-center font-bold">Bi</div>
-                  <div className="text-center text-[10px]">209.0</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">84</div>
-                  <div className="text-center font-bold">Po</div>
-                  <div className="text-center text-[10px]">[209]</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">85</div>
-                  <div className="text-center font-bold">At</div>
-                  <div className="text-center text-[10px]">[210]</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">86</div>
-                  <div className="text-center font-bold">Rn</div>
-                  <div className="text-center text-[10px]">[222]</div>
+                {/* Period 4 - Full row */}
+                <div className="grid grid-cols-[1.5rem_repeat(18,minmax(2rem,1fr))] gap-1 mb-1">
+                  <div></div> {/* Period number - hidden */}
+                  <Element
+                    atomicNumber="19"
+                    symbol="K"
+                    name="Potassium"
+                    mass="39.10"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="20"
+                    symbol="Ca"
+                    name="Calcium"
+                    mass="40.08"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="21"
+                    symbol="Sc"
+                    name="Scandium"
+                    mass="44.96"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="22"
+                    symbol="Ti"
+                    name="Titanium"
+                    mass="47.87"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="23"
+                    symbol="V"
+                    name="Vanadium"
+                    mass="50.94"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="24"
+                    symbol="Cr"
+                    name="Chromium"
+                    mass="52.00"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="25"
+                    symbol="Mn"
+                    name="Manganese"
+                    mass="54.94"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="26"
+                    symbol="Fe"
+                    name="Iron"
+                    mass="55.85"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="27"
+                    symbol="Co"
+                    name="Cobalt"
+                    mass="58.93"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="28"
+                    symbol="Ni"
+                    name="Nickel"
+                    mass="58.69"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="29"
+                    symbol="Cu"
+                    name="Copper"
+                    mass="63.55"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="30"
+                    symbol="Zn"
+                    name="Zinc"
+                    mass="65.38"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="31"
+                    symbol="Ga"
+                    name="Gallium"
+                    mass="69.72"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="32"
+                    symbol="Ge"
+                    name="Germanium"
+                    mass="72.63"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="33"
+                    symbol="As"
+                    name="Arsenic"
+                    mass="74.92"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="34"
+                    symbol="Se"
+                    name="Selenium"
+                    mass="78.97"
+                    bgClass="bg-red-100 dark:bg-red-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="35"
+                    symbol="Br"
+                    name="Bromine"
+                    mass="79.90"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="36"
+                    symbol="Kr"
+                    name="Krypton"
+                    mass="83.80"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
                 </div>
 
-                {/* Row 7 */}
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">87</div>
-                  <div className="text-center font-bold">Fr</div>
-                  <div className="text-center text-[10px]">[223]</div>
+                {/* Period 5 - Full row */}
+                <div className="grid grid-cols-[1.5rem_repeat(18,minmax(2rem,1fr))] gap-1 mb-1">
+                  <div></div> {/* Period number - hidden */}
+                  <Element
+                    atomicNumber="37"
+                    symbol="Rb"
+                    name="Rubidium"
+                    mass="85.47"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="38"
+                    symbol="Sr"
+                    name="Strontium"
+                    mass="87.62"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="39"
+                    symbol="Y"
+                    name="Yttrium"
+                    mass="88.91"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="40"
+                    symbol="Zr"
+                    name="Zirconium"
+                    mass="91.22"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="41"
+                    symbol="Nb"
+                    name="Niobium"
+                    mass="92.91"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="42"
+                    symbol="Mo"
+                    name="Molybdenum"
+                    mass="95.95"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="43"
+                    symbol="Tc"
+                    name="Technetium"
+                    mass="[98]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="44"
+                    symbol="Ru"
+                    name="Ruthenium"
+                    mass="101.1"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="45"
+                    symbol="Rh"
+                    name="Rhodium"
+                    mass="102.9"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="46"
+                    symbol="Pd"
+                    name="Palladium"
+                    mass="106.4"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="47"
+                    symbol="Ag"
+                    name="Silver"
+                    mass="107.9"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="48"
+                    symbol="Cd"
+                    name="Cadmium"
+                    mass="112.4"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="49"
+                    symbol="In"
+                    name="Indium"
+                    mass="114.8"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="50"
+                    symbol="Sn"
+                    name="Tin"
+                    mass="118.7"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="51"
+                    symbol="Sb"
+                    name="Antimony"
+                    mass="121.8"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="52"
+                    symbol="Te"
+                    name="Tellurium"
+                    mass="127.6"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="53"
+                    symbol="I"
+                    name="Iodine"
+                    mass="126.9"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="54"
+                    symbol="Xe"
+                    name="Xenon"
+                    mass="131.3"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
                 </div>
-                <div className="element bg-blue-100 dark:bg-blue-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">88</div>
-                  <div className="text-center font-bold">Ra</div>
-                  <div className="text-center text-[10px]">[226]</div>
-                </div>
-                <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">89-103</div>
-                  <div className="text-center font-bold">Ac-Lr</div>
-                  <div className="text-center text-[10px]"></div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">104</div>
-                  <div className="text-center font-bold">Rf</div>
-                  <div className="text-center text-[10px]">[267]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">105</div>
-                  <div className="text-center font-bold">Db</div>
-                  <div className="text-center text-[10px]">[268]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">106</div>
-                  <div className="text-center font-bold">Sg</div>
-                  <div className="text-center text-[10px]">[269]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">107</div>
-                  <div className="text-center font-bold">Bh</div>
-                  <div className="text-center text-[10px]">[270]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">108</div>
-                  <div className="text-center font-bold">Hs</div>
-                  <div className="text-center text-[10px]">[277]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">109</div>
-                  <div className="text-center font-bold">Mt</div>
-                  <div className="text-center text-[10px]">[278]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">110</div>
-                  <div className="text-center font-bold">Ds</div>
-                  <div className="text-center text-[10px]">[281]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">111</div>
-                  <div className="text-center font-bold">Rg</div>
-                  <div className="text-center text-[10px]">[282]</div>
-                </div>
-                <div className="element bg-purple-100 dark:bg-purple-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">112</div>
-                  <div className="text-center font-bold">Cn</div>
-                  <div className="text-center text-[10px]">[285]</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">113</div>
-                  <div className="text-center font-bold">Nh</div>
-                  <div className="text-center text-[10px]">[286]</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">114</div>
-                  <div className="text-center font-bold">Fl</div>
-                  <div className="text-center text-[10px]">[289]</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">115</div>
-                  <div className="text-center font-bold">Mc</div>
-                  <div className="text-center text-[10px]">[290]</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">116</div>
-                  <div className="text-center font-bold">Lv</div>
-                  <div className="text-center text-[10px]">[293]</div>
-                </div>
-                <div className="element bg-yellow-100 dark:bg-yellow-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">117</div>
-                  <div className="text-center font-bold">Ts</div>
-                  <div className="text-center text-[10px]">[294]</div>
-                </div>
-                <div className="element bg-green-100 dark:bg-green-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                  <div className="font-bold">118</div>
-                  <div className="text-center font-bold">Og</div>
-                  <div className="text-center text-[10px]">[294]</div>
-                </div>
-              </div>
 
-              {/* Lanthanides and Actinides */}
-              <div className="mt-4">
-                <div className="grid grid-cols-15 gap-1 text-xs">
-                  {/* Lanthanides */}
-                  <div className="col-span-3 flex items-center justify-center">
-                    <span className="text-sm font-medium">Lanthanides</span>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">57</div>
-                    <div className="text-center font-bold">La</div>
-                    <div className="text-center text-[10px]">138.9</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">58</div>
-                    <div className="text-center font-bold">Ce</div>
-                    <div className="text-center text-[10px]">140.1</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">59</div>
-                    <div className="text-center font-bold">Pr</div>
-                    <div className="text-center text-[10px]">140.9</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">60</div>
-                    <div className="text-center font-bold">Nd</div>
-                    <div className="text-center text-[10px]">144.2</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">61</div>
-                    <div className="text-center font-bold">Pm</div>
-                    <div className="text-center text-[10px]">[145]</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">62</div>
-                    <div className="text-center font-bold">Sm</div>
-                    <div className="text-center text-[10px]">150.4</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">63</div>
-                    <div className="text-center font-bold">Eu</div>
-                    <div className="text-center text-[10px]">152.0</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">64</div>
-                    <div className="text-center font-bold">Gd</div>
-                    <div className="text-center text-[10px]">157.3</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">65</div>
-                    <div className="text-center font-bold">Tb</div>
-                    <div className="text-center text-[10px]">158.9</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">66</div>
-                    <div className="text-center font-bold">Dy</div>
-                    <div className="text-center text-[10px]">162.5</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">67</div>
-                    <div className="text-center font-bold">Ho</div>
-                    <div className="text-center text-[10px]">164.9</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">68</div>
-                    <div className="text-center font-bold">Er</div>
-                    <div className="text-center text-[10px]">167.3</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">69</div>
-                    <div className="text-center font-bold">Tm</div>
-                    <div className="text-center text-[10px]">168.9</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">70</div>
-                    <div className="text-center font-bold">Yb</div>
-                    <div className="text-center text-[10px]">173.0</div>
-                  </div>
-                  <div className="element bg-orange-100 dark:bg-orange-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">71</div>
-                    <div className="text-center font-bold">Lu</div>
-                    <div className="text-center text-[10px]">175.0</div>
-                  </div>
+                {/* Period 6 - With Lanthanide placeholder */}
+                <div className="grid grid-cols-[1.5rem_repeat(18,minmax(2rem,1fr))] gap-1 mb-1">
+                  <div></div> {/* Period number - hidden */}
+                  <Element
+                    atomicNumber="55"
+                    symbol="Cs"
+                    name="Cesium"
+                    mass="132.9"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="56"
+                    symbol="Ba"
+                    name="Barium"
+                    mass="137.3"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="57-71"
+                    symbol="La-Lu"
+                    name="Lanthanides"
+                    mass=""
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="72"
+                    symbol="Hf"
+                    name="Hafnium"
+                    mass="178.5"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="73"
+                    symbol="Ta"
+                    name="Tantalum"
+                    mass="180.9"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="74"
+                    symbol="W"
+                    name="Tungsten"
+                    mass="183.8"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="75"
+                    symbol="Re"
+                    name="Rhenium"
+                    mass="186.2"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="76"
+                    symbol="Os"
+                    name="Osmium"
+                    mass="190.2"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="77"
+                    symbol="Ir"
+                    name="Iridium"
+                    mass="192.2"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="78"
+                    symbol="Pt"
+                    name="Platinum"
+                    mass="195.1"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="79"
+                    symbol="Au"
+                    name="Gold"
+                    mass="197.0"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="80"
+                    symbol="Hg"
+                    name="Mercury"
+                    mass="200.6"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="81"
+                    symbol="Tl"
+                    name="Thallium"
+                    mass="204.4"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="82"
+                    symbol="Pb"
+                    name="Lead"
+                    mass="207.2"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="83"
+                    symbol="Bi"
+                    name="Bismuth"
+                    mass="209.0"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="84"
+                    symbol="Po"
+                    name="Polonium"
+                    mass="[209]"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="85"
+                    symbol="At"
+                    name="Astatine"
+                    mass="[210]"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="86"
+                    symbol="Rn"
+                    name="Radon"
+                    mass="[222]"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                </div>
 
-                  {/* Actinides */}
-                  <div className="col-span-3 flex items-center justify-center">
-                    <span className="text-sm font-medium">Actinides</span>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">89</div>
-                    <div className="text-center font-bold">Ac</div>
-                    <div className="text-center text-[10px]">[227]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">90</div>
-                    <div className="text-center font-bold">Th</div>
-                    <div className="text-center text-[10px]">232.0</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">91</div>
-                    <div className="text-center font-bold">Pa</div>
-                    <div className="text-center text-[10px]">231.0</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">92</div>
-                    <div className="text-center font-bold">U</div>
-                    <div className="text-center text-[10px]">238.0</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">93</div>
-                    <div className="text-center font-bold">Np</div>
-                    <div className="text-center text-[10px]">[237]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">94</div>
-                    <div className="text-center font-bold">Pu</div>
-                    <div className="text-center text-[10px]">[244]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">95</div>
-                    <div className="text-center font-bold">Am</div>
-                    <div className="text-center text-[10px]">[243]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">96</div>
-                    <div className="text-center font-bold">Cm</div>
-                    <div className="text-center text-[10px]">[247]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">97</div>
-                    <div className="text-center font-bold">Bk</div>
-                    <div className="text-center text-[10px]">[247]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">98</div>
-                    <div className="text-center font-bold">Cf</div>
-                    <div className="text-center text-[10px]">[251]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">99</div>
-                    <div className="text-center font-bold">Es</div>
-                    <div className="text-center text-[10px]">[252]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">100</div>
-                    <div className="text-center font-bold">Fm</div>
-                    <div className="text-center text-[10px]">[257]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">101</div>
-                    <div className="text-center font-bold">Md</div>
-                    <div className="text-center text-[10px]">[258]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">102</div>
-                    <div className="text-center font-bold">No</div>
-                    <div className="text-center text-[10px]">[259]</div>
-                  </div>
-                  <div className="element bg-pink-100 dark:bg-pink-900/30 p-1 border border-gray-300 dark:border-gray-700">
-                    <div className="font-bold">103</div>
-                    <div className="text-center font-bold">Lr</div>
-                    <div className="text-center text-[10px]">[266]</div>
-                  </div>
+                {/* Period 7 - With Actinide placeholder */}
+                <div className="grid grid-cols-[1.5rem_repeat(18,minmax(2rem,1fr))] gap-1 mb-1">
+                  <div></div> {/* Period number - hidden */}
+                  <Element
+                    atomicNumber="87"
+                    symbol="Fr"
+                    name="Francium"
+                    mass="[223]"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="88"
+                    symbol="Ra"
+                    name="Radium"
+                    mass="[226]"
+                    bgClass="bg-blue-100 dark:bg-blue-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="89-103"
+                    symbol="Ac-Lr"
+                    name="Actinides"
+                    mass=""
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="104"
+                    symbol="Rf"
+                    name="Rutherfordium"
+                    mass="[267]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="105"
+                    symbol="Db"
+                    name="Dubnium"
+                    mass="[268]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="106"
+                    symbol="Sg"
+                    name="Seaborgium"
+                    mass="[269]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="107"
+                    symbol="Bh"
+                    name="Bohrium"
+                    mass="[270]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="108"
+                    symbol="Hs"
+                    name="Hassium"
+                    mass="[277]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="109"
+                    symbol="Mt"
+                    name="Meitnerium"
+                    mass="[278]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="110"
+                    symbol="Ds"
+                    name="Darmstadtium"
+                    mass="[281]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="111"
+                    symbol="Rg"
+                    name="Roentgenium"
+                    mass="[282]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="112"
+                    symbol="Cn"
+                    name="Copernicium"
+                    mass="[285]"
+                    bgClass="bg-purple-100 dark:bg-purple-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="113"
+                    symbol="Nh"
+                    name="Nihonium"
+                    mass="[286]"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="114"
+                    symbol="Fl"
+                    name="Flerovium"
+                    mass="[289]"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="115"
+                    symbol="Mc"
+                    name="Moscovium"
+                    mass="[290]"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="116"
+                    symbol="Lv"
+                    name="Livermorium"
+                    mass="[293]"
+                    bgClass="bg-yellow-100 dark:bg-yellow-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="117"
+                    symbol="Ts"
+                    name="Tennessine"
+                    mass="[294]"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="118"
+                    symbol="Og"
+                    name="Oganesson"
+                    mass="[294]"
+                    bgClass="bg-green-100 dark:bg-green-900/30"
+                    onSelect={setSelectedElement}
+                  />
                 </div>
-              </div>
 
-              {/* Legend */}
-              <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-2">
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-blue-100 dark:bg-blue-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
-                  <span className="text-xs">Alkali Metals</span>
+                {/* Lanthanides Series */}
+                <div className="mt-16 grid grid-cols-[1.5rem_repeat(15,minmax(2rem,1fr))] gap-1 text-xs">
+                  <div className="flex items-center justify-center">
+                    <span className="text-[0.45rem]"></span>
+                  </div>
+                  <Element
+                    atomicNumber="57"
+                    symbol="La"
+                    name="Lanthanum"
+                    mass="138.9"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="58"
+                    symbol="Ce"
+                    name="Cerium"
+                    mass="140.1"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="59"
+                    symbol="Pr"
+                    name="Praseodymium"
+                    mass="140.9"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="60"
+                    symbol="Nd"
+                    name="Neodymium"
+                    mass="144.2"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="61"
+                    symbol="Pm"
+                    name="Promethium"
+                    mass="[145]"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="62"
+                    symbol="Sm"
+                    name="Samarium"
+                    mass="150.4"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="63"
+                    symbol="Eu"
+                    name="Europium"
+                    mass="152.0"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="64"
+                    symbol="Gd"
+                    name="Gadolinium"
+                    mass="157.3"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="65"
+                    symbol="Tb"
+                    name="Terbium"
+                    mass="158.9"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="66"
+                    symbol="Dy"
+                    name="Dysprosium"
+                    mass="162.5"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="67"
+                    symbol="Ho"
+                    name="Holmium"
+                    mass="164.9"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="68"
+                    symbol="Er"
+                    name="Erbium"
+                    mass="167.3"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="69"
+                    symbol="Tm"
+                    name="Thulium"
+                    mass="168.9"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="70"
+                    symbol="Yb"
+                    name="Ytterbium"
+                    mass="173.0"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="71"
+                    symbol="Lu"
+                    name="Lutetium"
+                    mass="175.0"
+                    bgClass="bg-orange-100 dark:bg-orange-900/30"
+                    onSelect={setSelectedElement}
+                  />
                 </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-purple-100 dark:bg-purple-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
-                  <span className="text-xs">Transition Metals</span>
+
+                {/* Actinides Series */}
+                
+                <div className="mt-6 grid grid-cols-[1.5rem_repeat(15,minmax(2rem,1fr))] gap-1 text-xs">
+                  <div className="flex items-center justify-center">
+                    <span className="text-[0.45rem]"></span>
+                  </div>
+                  <Element
+                    atomicNumber="89"
+                    symbol="Ac"
+                    name="Actinium"
+                    mass="[227]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="90"
+                    symbol="Th"
+                    name="Thorium"
+                    mass="232.0"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="91"
+                    symbol="Pa"
+                    name="Protactinium"
+                    mass="231.0"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="92"
+                    symbol="U"
+                    name="Uranium"
+                    mass="238.0"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="93"
+                    symbol="Np"
+                    name="Neptunium"
+                    mass="[237]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="94"
+                    symbol="Pu"
+                    name="Plutonium"
+                    mass="[244]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="95"
+                    symbol="Am"
+                    name="Americium"
+                    mass="[243]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="96"
+                    symbol="Cm"
+                    name="Curium"
+                    mass="[247]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="97"
+                    symbol="Bk"
+                    name="Berkelium"
+                    mass="[247]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="98"
+                    symbol="Cf"
+                    name="Californium"
+                    mass="[251]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="99"
+                    symbol="Es"
+                    name="Einsteinium"
+                    mass="[252]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="100"
+                    symbol="Fm"
+                    name="Fermium"
+                    mass="[257]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="101"
+                    symbol="Md"
+                    name="Mendelevium"
+                    mass="[258]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="102"
+                    symbol="No"
+                    name="Nobelium"
+                    mass="[259]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
+                  <Element
+                    atomicNumber="103"
+                    symbol="Lr"
+                    name="Lawrencium"
+                    mass="[266]"
+                    bgClass="bg-pink-100 dark:bg-pink-900/30"
+                    onSelect={setSelectedElement}
+                  />
                 </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-yellow-100 dark:bg-yellow-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
-                  <span className="text-xs">Post-Transition Metals</span>
+
+                {/* Legend */}
+                <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-2">
+                  <div className="flex items-center">
+                    <div className="w-4 h-4 bg-blue-100 dark:bg-blue-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
+                    <span className="text-xs">Alkali Metals</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-4 h-4 bg-purple-100 dark:bg-purple-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
+                    <span className="text-xs">Transition Metals</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-4 h-4 bg-yellow-100 dark:bg-yellow-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
+                    <span className="text-xs">Post-Transition Metals</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-4 h-4 bg-red-100 dark:bg-red-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
+                    <span className="text-xs">Nonmetals</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-4 h-4 bg-green-100 dark:bg-green-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
+                    <span className="text-xs">Halogens</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-4 h-4 bg-orange-100 dark:bg-orange-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
+                    <span className="text-xs">Lanthanides</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-4 h-4 bg-pink-100 dark:bg-pink-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
+                    <span className="text-xs">Actinides</span>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-red-100 dark:bg-red-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
-                  <span className="text-xs">Nonmetals</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-green-100 dark:bg-green-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
-                  <span className="text-xs">Halogens</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-orange-100 dark:bg-orange-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
-                  <span className="text-xs">Lanthanides</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-pink-100 dark:bg-pink-900/30 border border-gray-300 dark:border-gray-700 mr-2"></div>
-                  <span className="text-xs">Actinides</span>
+                <div className="mt-4 text-xs text-gray-500 dark:text-gray-400">
+                  IUPAC Periodic Table
                 </div>
               </div>
             </div>
@@ -688,6 +1102,29 @@ export function PeriodicTableDialog({ open, onOpenChange }: PeriodicTableDialogP
         </div>
       </DialogContent>
     </Dialog>
+  )
+}
+
+// Element component for reusability
+interface ElementProps {
+  atomicNumber: string
+  symbol: string
+  name: string
+  mass: string
+  bgClass: string
+  onSelect: (element: { symbol: string; name: string; mass: string } | null) => void
+}
+
+function Element({ atomicNumber, symbol, name, mass, bgClass, onSelect }: ElementProps) {
+  return (
+    <div
+      className={cn("p-0.5 border border-gray-300 dark:border-gray-700", bgClass, "cursor-pointer")}
+      onClick={() => onSelect({ symbol, name, mass })}
+    >
+      <div className="font-bold text-[9px]">{atomicNumber}</div>
+      <div className="text-center font-bold text-xs">{symbol}</div>
+      <div className="text-center text-[8px]">{mass}</div>
+    </div>
   )
 }
 

@@ -256,7 +256,7 @@ export function getSectionQuestions(sectionId: number): Question[] {
 
     switch (sectionId) {
       case 1:
-        // Section 1: Bio/Biochem - 59 questions, mix of passage and discrete
+        // Chem/Phys - 59 questions, mix of passage and discrete
         targetCount = 59
         questions = generateQuestionsWithWeightage(
           section1Questions,
@@ -267,8 +267,8 @@ export function getSectionQuestions(sectionId: number): Question[] {
         )
         break
       case 2:
-        // Section 2: Chem/Phys - 59 questions, mix of passage and discrete
-        targetCount = 59
+        // CARS - 59 questions passage
+        targetCount = 53
         questions = generateQuestionsWithWeightage(
           section2Questions,
           section2Passages,
@@ -278,7 +278,7 @@ export function getSectionQuestions(sectionId: number): Question[] {
         )
         break
       case 3:
-        // Section 3: Psych/Soc - 59 questions, mix of passage and discrete
+        // Bio/Biochem - 59 questions, mix of passage and discrete
         targetCount = 59
         questions = generateQuestionsWithWeightage(
           section3Questions,
@@ -289,8 +289,8 @@ export function getSectionQuestions(sectionId: number): Question[] {
         )
         break
       case 4:
-        // Section 4: CARS - 59 questions passage
-        targetCount = 53
+        // Psych/Soc - 59 questions, mix of passage and discrete
+        targetCount = 59
         questions = generateQuestionsWithWeightage(
           section4Questions,
           section4Passages,

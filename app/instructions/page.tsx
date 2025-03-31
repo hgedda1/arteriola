@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { getBasePath } from "@/lib/client-utils"
 
 export default function Instructions() {
   const router = useRouter()
@@ -100,47 +99,6 @@ export default function Instructions() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-black dark:text-white">Exam Format</h2>
-
-            <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
-              <h3 className="font-medium text-lg text-black dark:text-white">
-                SECTION 1: Biological and Biochemical Foundations of Living Systems
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
-              <p className="text-sm mt-2 dark:text-slate-300">Includes both passage-based and discrete questions.</p>
-              <p className="text-sm italic mt-1 dark:text-slate-400">10-minute optional break follows this section.</p>
-            </div>
-
-            <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
-              <h3 className="font-medium text-lg text-black dark:text-white">
-                SECTION 2: Chemical and Physical Foundations of Biological Systems
-              </h3>
-              <p className="text-sm text-gray-600 text-black dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
-              <p className="text-sm mt-2 dark:text-slate-300">Includes only passage-based questions.</p>
-              <p className="text-sm italic mt-1 text-black dark:text-slate-400">
-                30-minute optional break follows this section.
-              </p>
-            </div>
-
-            <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
-              <h3 className="font-medium text-lg text-black dark:text-white">
-                SECTION 3: Psychological, Social, and Biological Foundations of Behavior
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
-              <p className="text-sm mt-2 dark:text-slate-300">Includes both passage-based and discrete questions.</p>
-              <p className="text-sm italic mt-1 dark:text-slate-400">10-minute optional break follows this section.</p>
-            </div>
-
-            <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
-              <h3 className="font-medium text-lg text-black dark:text-white">
-                SECTION 4: Critical Analysis and Reasoning Skills
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-slate-300 mt-1">53 Questions, 90 Minutes</p>
-              <p className="text-sm mt-2 dark:text-slate-300">Includes passage-based and discrete questions.</p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
             <h2 className="text-xl font-semibold text-black dark:text-white">Technical Information</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-slate-300">
               <li>A timer will be displayed for each section.</li>
@@ -149,6 +107,23 @@ export default function Instructions() {
               <li>If you experience technical difficulties, please contact the proctor.</li>
             </ul>
           </div>
+
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-black dark:text-white">Ready to begin ?</h2>
+
+            <div className="border rounded-lg p-4 bg-white dark:bg-slate-700 dark:border-slate-600">
+              <h3 className="font-medium text-lg text-black dark:text-white">
+                SECTION 1: Chemical and Physical Foundations of Biological Systems
+              </h3>
+              <p className="text-sm text-gray-600 text-black dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
+              <p className="text-sm mt-2 dark:text-slate-300">Includes Diecrete and passage-based questions.</p>
+              <p className="text-sm italic mt-1 text-black dark:text-slate-400">
+                10-minute optional break follows this section.
+              </p>
+            </div>
+          </div>
+
+          
         </CardContent>
         <CardFooter className="flex justify-center border-t pt-6">
           <Button size="lg" onClick={startExam} className="px-8">

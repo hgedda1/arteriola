@@ -31,8 +31,8 @@ export interface Passage {
   questions: Question[]
 }
 
-// Sample passages for Section 4: Critical Analysis and Reasoning Skills
-export const section4Passages: Passage[] = [
+// Critical Analysis and Reasoning Skills
+export const section2Passages: Passage[] = [
   {
     id: "passage-philosophy-justice",
     text: "In the early nineteenth century, a large number of communal experiments, both secular and religious, sprang up in the northeastern United States. These communities shared the belief that it was possible to create a more perfect society through the proper social arrangements. The secular communities, such as Brook Farm, were inspired by the ideas of Charles Fourier, Robert Owen, and other European social theorists who believed that the competitive nature of capitalism was the source of society's ills. The religious communities, such as the Shakers and the Oneidans, were inspired by the belief that the Second Coming of Christ was imminent and that a more perfect society would hasten its arrival.\n\nBrook Farm, founded in 1841 in West Roxbury, Massachusetts, was one of the most famous of these communities. Led by George Ripley, a Unitarian minister, Brook Farm was based on the idea that a balance of manual and intellectual labor would create a more fulfilling life. The community attracted many notable intellectuals, including Nathaniel Hawthorne, who later wrote about his experiences in his novel The Blithedale Romance. Despite its intellectual vigor, Brook Farm struggled financially. The members, many of whom were more suited to intellectual than agricultural labor, found farming difficult and unpleasant. After a fire destroyed the community's main building in 1846, Brook Farm disbanded.\n\nThe Oneida Community, founded by John Humphrey Noyes in 1848 in Oneida, New York, was more successful. Noyes, who had studied theology at Yale, believed that Christ had already returned in 70 AD, making it possible for people to achieve perfection in this life. The Oneidans practiced 'complex marriage,' in which all members were considered married to each other, and 'mutual criticism,' in which members publicly critiqued each other's behavior. The Oneidans believed that monogamy was selfish and that by sharing partners, they could create a more selfless society. Unlike Brook Farm, the Oneida Community was economically successful, manufacturing steel traps and silverware. However, after Noyes fled to Canada to avoid prosecution for statutory rape, the community abandoned complex marriage and eventually became a joint-stock company, Oneida Ltd., which still exists today.",
@@ -194,8 +194,8 @@ export const section4Passages: Passage[] = [
   },
 ]
 
-// Sample passages for Section 1: Biological and Biochemical Foundations
-export const section1Passages: Passage[] = [
+// Biological and Biochemical Foundations
+export const section3Passages: Passage[] = [
   {
     id: "passage-enzyme-kinetics",
     text: "Enzymes are biological catalysts that accelerate chemical reactions without being consumed in the process. They work by lowering the activation energy required for reactions to occur. Most enzymes are proteins, though some RNA molecules can also function as enzymes (ribozymes). Enzyme activity can be affected by various factors including temperature, pH, substrate concentration, and the presence of inhibitors or activators.\n\nEnzyme kinetics is the study of the chemical reactions catalyzed by enzymes, with a focus on their rates. The rate of an enzyme-catalyzed reaction increases with substrate concentration until all enzyme active sites are saturated with substrate. This relationship is typically modeled using the Michaelis-Menten equation: v = (Vmax × [S]) / (Km + [S]), where v is the reaction rate, Vmax is the maximum reaction rate, [S] is the substrate concentration, and Km (the Michaelis constant) is the substrate concentration at which the reaction rate is half of Vmax. The Km value is inversely related to the enzyme's affinity for the substrate—a lower Km indicates a higher affinity.\n\nEnzyme inhibitors can reduce the rate of an enzyme-catalyzed reaction. Competitive inhibitors bind to the enzyme's active site, preventing substrate binding. The degree of competitive inhibition depends on the relative concentrations of the inhibitor and substrate, as they compete for the same binding site. Increasing substrate concentration can overcome competitive inhibition. In contrast, noncompetitive inhibitors bind to a site other than the active site, changing the enzyme's shape so that it no longer binds substrate effectively. Noncompetitive inhibition cannot be overcome by increasing substrate concentration.\n\nAllosteric regulation is another important mechanism for controlling enzyme activity. Allosteric enzymes have regulatory binding sites separate from their active sites. When an allosteric modulator binds to the regulatory site, it changes the conformation of the enzyme, affecting its activity. Allosteric activators increase enzyme activity, while allosteric inhibitors decrease it. Many allosteric enzymes are regulated by feedback inhibition, where the end product of a metabolic pathway inhibits an enzyme early in the pathway, preventing the unnecessary production of more product.",
@@ -287,8 +287,8 @@ export const section1Passages: Passage[] = [
   },
 ]
 
-// Sample passages for Section 2: Chemical and Physical Foundations
-export const section2Passages: Passage[] = [
+// Chemical and Physical Foundations
+export const section1Passages: Passage[] = [
   {
     id: "passage-thermodynamics",
     text: "Thermodynamics is the branch of physics that deals with heat, work, and temperature, and their relation to energy, radiation, and physical properties of matter. The behavior of these quantities is governed by the four laws of thermodynamics which convey a quantitative description using measurable macroscopic physical quantities, but may be explained in terms of microscopic constituents by statistical mechanics.\n\nThe zeroth law of thermodynamics states that if two systems are each in thermal equilibrium with a third system, they are also in thermal equilibrium with each other. This law helps define the notion of temperature. When two objects are in thermal equilibrium, they are at the same temperature, and no heat flows between them.\n\nThe first law of thermodynamics, also known as the law of conservation of energy, states that energy cannot be created or destroyed, only transformed from one form to another. In a closed system, the change in internal energy (ΔU) equals the heat added to the system (Q) minus the work done by the system (W): ΔU = Q - W. This law introduces the concept of internal energy and explains why perpetual motion machines of the first kind (those that produce work without energy input) are impossible.\n\nThe second law of thermodynamics states that the total entropy of an isolated system always increases over time or remains constant in ideal cases. It introduces the concept of entropy (S), a measure of the disorder or randomness in a system. One formulation of this law is that heat cannot spontaneously flow from a colder body to a hotter body. The second law explains why perpetual motion machines of the second kind (those that convert heat completely into work) are impossible and why certain processes are irreversible.\n\nThe third law of thermodynamics states that as the temperature of a system approaches absolute zero, the entropy of the system approaches a minimum value. This law implies that it is impossible to reach absolute zero in a finite number of steps, as the system would need to be completely ordered (with minimum entropy), which is practically unattainable.\n\nThermodynamics has wide-ranging applications in physics, chemistry, biology, and engineering. It helps explain phenomena from the efficiency of heat engines to the direction of chemical reactions, and from the behavior of black holes to the processes of life itself.",
@@ -369,8 +369,8 @@ export const section2Passages: Passage[] = [
   },
 ]
 
-// Sample passages for Section 3: Psychological, Social, and Biological Foundations
-export const section3Passages: Passage[] = [
+// Psychological, Social, and Biological Foundations
+export const section4Passages: Passage[] = [
   {
     id: "passage-social-psychology",
     text: "Social psychology is the scientific study of how people's thoughts, feelings, and behaviors are influenced by the actual, imagined, or implied presence of others. One of the most famous experiments in social psychology was conducted by Stanley Milgram in the 1960s. Milgram was interested in understanding how ordinary people could be influenced to commit atrocities, such as those carried out by Nazi soldiers during World War II. In his experiment, participants were told they were participating in a study on learning and memory, and were instructed to administer increasingly powerful electric shocks to a 'learner' (who was actually an actor) when they answered questions incorrectly.\n\nThe experimenter, dressed in a lab coat to symbolize scientific authority, instructed the participant (the 'teacher') to increase the shock level after each wrong answer. The learner, who was in another room, would cry out in pain and eventually beg to be released as the shock levels increased. If the participant hesitated, the experimenter would use a series of verbal prods, such as 'The experiment requires that you continue.' Milgram found that about 65% of participants were willing to administer what they believed to be potentially lethal electric shocks (450 volts) when ordered to do so by the experimenter.\n\nMilgram's findings challenged the prevailing view that only disturbed individuals would inflict harm on an innocent person. Instead, his research suggested that ordinary people could engage in cruel behavior when placed in situations where they felt obligated to obey an authority figure. Milgram proposed that people enter an 'agentic state' when they see themselves as agents of another person's will, allowing them to attribute responsibility for their actions to the authority figure rather than to themselves.\n\nThe Milgram experiment has been replicated many times with similar results, though it has also been criticized on ethical grounds for the psychological distress it caused participants. Modern ethical guidelines would not permit such an experiment to be conducted today without significant modifications to protect participants from harm. Nevertheless, Milgram's work has had a profound impact on our understanding of obedience and authority, and it continues to be relevant in explaining how ordinary people can be led to engage in harmful behaviors in various contexts, from military atrocities to corporate wrongdoing.",
@@ -451,8 +451,8 @@ export const section3Passages: Passage[] = [
   },
 ]
 
-// Section 1: Biological and Biochemical Foundations of Living Systems
-export const section1Questions: Question[] = [
+// Biological and Biochemical Foundations of Living Systems
+export const section3Questions: Question[] = [
   // biology 38 mandatory
   {
     "id": "bio-13",
@@ -4839,8 +4839,8 @@ export const section1Questions: Question[] = [
   
 ];
 
-// Section 2: Chemical and Physical Foundations of Biological Systems
-export const section2Questions: Question[] = [
+// Chemical and Physical Foundations of Biological Systems
+export const section1Questions: Question[] = [
   // biology 3 mandatory
   {
     "id": "bio-148",
@@ -6626,7 +6626,7 @@ export const section2Questions: Question[] = [
 ];
 
 // Section 3: Psychological, Social, and Biological Foundations of Behavior
-export const section3Questions: Question[] = [
+export const section4Questions: Question[] = [
   // psychology 38 (39)
   {
     "id": "psych-02",
@@ -10387,7 +10387,7 @@ export const section3Questions: Question[] = [
 ];
 
 // Section 4: Critical Analysis and Reasoning Skills
-export const section4Questions: Question[] = [
+export const section2Questions: Question[] = [
   // Example of a question with an image
   {
     id: "cars-2",
@@ -10432,13 +10432,6 @@ export const sectionQuestionTypeConfig = {
 // Topic weightage for each section
 export const sectionTopicWeightage = {
   1: {
-    // Biological and Biochemical Foundations
-    biology: 0.65, // 65%
-    biochemistry: 0.25, // 25%
-    organicChemistry: 0.05, // 5%
-    generalChemistry: 0.05, // 5%
-  },
-  2: {
     // Chemical and Physical Foundations
     biology: 0.05, // 5%
     generalChemistry: 0.3, // 30%
@@ -10446,32 +10439,39 @@ export const sectionTopicWeightage = {
     organicChemistry: 0.15, // 15%
     biochemistry: 0.25, // 25%
   },
-  3: {
-    // Psychological, Social, and Biological Foundations
-    psychology: 0.65, // 65%
-    sociology: 0.3, // 30%
-    biology: 0.05, // 5%
-  },
-  4: {
+  2: {
     // Critical Analysis and Reasoning Skills
     criticalThinking: 0.5, // 50%
     ethics: 0, // 0%
     scientificHistory: 0.5, // 55%
   },
+  3: {
+     // Biological and Biochemical Foundations
+     biology: 0.65, // 65%
+     biochemistry: 0.25, // 25%
+     organicChemistry: 0.05, // 5%
+     generalChemistry: 0.05, // 5%
+  },
+  4: {
+    // Psychological, Social, and Biological Foundations
+    psychology: 0.65, // 65%
+    sociology: 0.3, // 30%
+    biology: 0.05, // 5%
+  },
 }
 
 // Define the foundational concepts and content categories
 export const foundationalConcepts = {
-  // Section 1: Biological and Biochemical Foundations
+  // Biological and Biochemical Foundations
   "1": "Biomolecules have unique properties that determine how they contribute to the structure and function of cells",
   "2": "Highly-organized assemblies of molecules, cells, and organs interact to carry out the functions of living organisms",
   "3": "Complex systems of tissues and organs sense the internal and external environments of multicellular organisms, and through integrated functioning, maintain a stable internal environment within an ever-changing external environment",
 
-  // Section 3: Chemical and Physical Foundations
+  // Chemical and Physical Foundations
   "4": "Complex living organisms transport materials, sense their environment, process signals, and respond to changes using processes understood in terms of physical principles",
   "5": "The principles that govern chemical interactions and reactions form the basis for a broader understanding of the molecular dynamics of living systems",
 
-  // Section 2: Psychological, Social, and Biological Foundations
+  // Psychological, Social, and Biological Foundations
   "6": "Biological, psychological, and sociocultural factors influence the ways that individuals perceive, think about, and react to the world",
   "7": "Biological, psychological, and sociocultural factors influence behavior and behavior change",
   "8": "Psychological, sociocultural, and biological factors influence the way we think about ourselves and others, as well as how we interact",
