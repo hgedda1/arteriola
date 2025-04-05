@@ -4885,7 +4885,7 @@ export const section1Questions: Question[] = [
     "foundationalConcept": "5",
     "contentCategory": "5D",
     "disciplines": [
-        "BIO",
+        "BC",
         "CHEM"
     ],
     "subtopics": [
@@ -4912,7 +4912,7 @@ export const section1Questions: Question[] = [
     "foundationalConcept": "5",
     "contentCategory": "5B",
     "disciplines": [
-        "BIO",
+        "BC",
         "CHEM"
     ],
     "subtopics": [
@@ -6023,7 +6023,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "3",
   "contentCategory": "3C",
   "disciplines": [
-      "BIO"
+      "BC"
   ],
   "subtopics": [
       "Skin Anatomy",
@@ -6050,7 +6050,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "3",
   "contentCategory": "3C",
   "disciplines": [
-      "BIO"
+      "BC"
   ],
   "subtopics": [
       "Biochemistry"
@@ -6076,7 +6076,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO"
+      "BC"
   ],
   "subtopics": [
       "Vitamins and Nutrients"
@@ -6102,7 +6102,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO"
+      "BC"
   ],
   "subtopics": [
       "Vitamins and Nutrients"
@@ -6128,7 +6128,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO"
+      "BC"
   ],
   "subtopics": [
       "Vitamins and Nutrients"
@@ -6154,8 +6154,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO",
-      "BIOC"
+      "BC"
   ],
   "subtopics": [
       "Vitamins",
@@ -6182,8 +6181,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO",
-      "BIOC"
+      "BC"
   ],
   "subtopics": [
       "Vitamins",
@@ -6210,8 +6208,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO",
-      "BIOC"
+      "BC"
   ],
   "subtopics": [
       "Vitamin Classification"
@@ -6237,7 +6234,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO"
+      "BC"
   ],
   "subtopics": [
       "Macronutrients and Micronutrients"
@@ -6263,8 +6260,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO",
-      "BIOC"
+      "BC"
   ],
   "subtopics": [
       "Vitamin Sources"
@@ -6290,8 +6286,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO",
-      "BIOC"
+      "BC"
   ],
   "subtopics": [
       "Vitamin Sources"
@@ -6317,8 +6312,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO",
-      "BIOC"
+      "BC"
   ],
   "subtopics": [
       "Vitamin Sources"
@@ -6344,7 +6338,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO"
+      "BC"
   ],
   "subtopics": [
       "Macronutrients and Micronutrients"
@@ -6370,8 +6364,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO",
-      "BIOC"
+      "BC"
   ],
   "subtopics": [
       "Vitamin Sources"
@@ -6397,7 +6390,7 @@ export const section1Questions: Question[] = [
   "foundationalConcept": "5",
   "contentCategory": "5B",
   "disciplines": [
-      "BIO"
+      "BC"
   ],
   "subtopics": [
       "Vitamin Sources"
@@ -6625,7 +6618,7 @@ export const section1Questions: Question[] = [
  
 ];
 
-// Section 3: Psychological, Social, and Biological Foundations of Behavior
+// Psychological, Social, and Biological Foundations of Behavior
 export const section4Questions: Question[] = [
   // psychology 38 (39)
   {
@@ -10386,7 +10379,7 @@ export const section4Questions: Question[] = [
    
 ];
 
-// Section 4: Critical Analysis and Reasoning Skills
+// Critical Analysis and Reasoning Skills
 export const section2Questions: Question[] = [
   // Example of a question with an image
   {
@@ -10437,7 +10430,7 @@ export const sectionTopicWeightage = {
     generalChemistry: 0.3, // 30%
     physics: 0.25, // 25%
     organicChemistry: 0.15, // 15%
-    biochemistry: 0.25, // 25%
+    biochemistry: 0.20, // 25%
   },
   2: {
     // Critical Analysis and Reasoning Skills
