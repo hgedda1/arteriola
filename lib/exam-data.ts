@@ -10409,16 +10409,16 @@ export const sectionQuestionTypeConfig = {
     passage: 0, // 0.5 50% passage-based questions
   },
   2: {
-    discrete: 1,
-    passage: 0,
+    discrete: 0,
+    passage: 1,
   },
   3: {
     discrete: 1,
-    passage: 0.5,
+    passage: 0,
   },
   4: {
-    discrete: 0.0, // CARS has passage-based questions
-    passage: 1,
+    discrete: 1,
+    passage: 0,
   },
 }
 
@@ -10441,7 +10441,7 @@ export const sectionTopicWeightage = {
   3: {
      // Biological and Biochemical Foundations
      biology: 0.65, // 65%
-     biochemistry: 0.25, // 25%
+     biochemistry: 0.20, // 25%
      organicChemistry: 0.05, // 5%
      generalChemistry: 0.05, // 5%
   },
