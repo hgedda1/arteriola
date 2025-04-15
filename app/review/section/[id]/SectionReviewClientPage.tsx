@@ -8,7 +8,6 @@ import { Progress } from "@/components/ui/progress"
 import { CheckCircle, XCircle, Download } from "lucide-react"
 import { getAllSectionQuestions } from "@/lib/questions"
 import type { Question } from "@/lib/exam-data"
-import { getBasePath } from "@/lib/client-utils"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
 import { formatTopicName } from "@/lib/score-utils"
 
@@ -788,6 +787,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                     width={400}
                     height={300}
                     className="border border-gray-300 dark:border-slate-700 rounded max-w-full h-auto"
+                    unoptimized 
                   />
                 </div>
               )}
@@ -884,6 +884,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                     width={300}
                     height={200}
                     className="border border-gray-300 dark:border-slate-700"
+                    unoptimized 
                   />
                 </div>
               )}
@@ -937,6 +938,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                               width={300}
                               height={200}
                               className="border border-gray-300 dark:border-slate-700 rounded"
+                              unoptimized 
                             />
                           </div>
                         </div>
@@ -1005,6 +1007,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                       width={400}
                       height={250}
                       className="border border-gray-300 dark:border-slate-700 rounded-md"
+                      unoptimized 
                     />
                   </div>
                 )}
@@ -1075,6 +1078,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                   width={400}
                   height={300}
                   className="border border-gray-300 dark:border-slate-700"
+                  unoptimized 
                 />
               </div>
             )}
@@ -1127,6 +1131,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                             width={300}
                             height={200}
                             className="border border-gray-300 dark:border-slate-700 rounded"
+                            unoptimized 
                           />
                         </div>
                       </div>
@@ -1195,6 +1200,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                     width={500}
                     height={300}
                     className="border border-gray-300 dark:border-slate-700 rounded-md"
+                    unoptimized 
                   />
                 </div>
               )}

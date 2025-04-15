@@ -175,7 +175,7 @@ function generateQuestionsWithWeightage(
           explanation: `This is an explanation for the generated ${topic} passage question.`,
           topic,
           ...(Math.random() > 0.7 && {
-            image: "/placeholder.svg?height=300&width=300",
+            image: "placeholder.svg?height=300&width=300",
           }),
         })
       }
@@ -211,7 +211,7 @@ function generateQuestionsWithWeightage(
         explanation: `This is an explanation for the generated ${topic} question.`,
         topic,
         ...(Math.random() > 0.7 && {
-          image: "/placeholder.svg?height=300&width=300",
+          image: "placeholder.svg?height=300&width=300",
         }),
       })
     }
@@ -504,6 +504,9 @@ export function getSectionQuestions(sectionId: number): Question[] {
         correctAnswer: template ? template.a[0] : "Option A",
         topic: topic,
         explanation: `This is a fallback question. The correct answer is ${template ? template.a[0] : "Option A"}.`,
+        ...(Math.random() > 0.7 && {
+          image: "placeholder.svg?height=300&width=300",
+        }),
       }
 
       // Add metadata to the question

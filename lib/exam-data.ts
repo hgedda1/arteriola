@@ -199,7 +199,7 @@ export const section3Passages: Passage[] = [
     {
         id: "passage-Just-as-the-ingestion",
         text: "Just as the ingestion of nutrients is mandatory for human life, so is the excretion of metabolic waste products. One of these nutrients, protein, is used for building muscle, nucleic acids, and countless compounds integral to homeostasis. However, the catabolism of the amino acids generated from protein digestion produces ammonia, which, if not further degraded, can become toxic. Similarly, if the same salts that provide energy and chemical balance to cells are in excess, fluid retention will occur, damaging the circulatory, cardiac, and pulmonary systems. One of the most important homeostatic organs is the kidney, which closely regulates the excretion and reabsorption of many essential ions and molecules. One mechanism of renal function involves the secretion of antidiuretic hormone (ADH). Diabetes insipidus (DI), is the condition that occurs when ADH is ineffective. As a result, the kidneys are unable to concentrate urine, leading to excessive water loss. There are two types of DI \" central and nephrogenic. Central DI occurs when there is a deficiency in the quantity or quality of ADH produced. Nephrogenic DI occurs when the kidney tubules are unresponsive to ADH. To differentiate between these two conditions, a patients urine osmolarity is measured both prior to therapy and after a 24-hour restriction on fluid intake. Exogenous ADH is then administered and urine osmolarity is measured again. The table below gives the results of testing on four patients. Assume that a urine osmolarity of 285 mOsm/L of H O is normal.",
-        image: "/images/q35/1.jpg",
+        image: "images/q35/1.jpg",
         topic: "biology",
         questions: [
           {
@@ -312,7 +312,7 @@ export const section3Passages: Passage[] = [
       {
         id: "passage-Hemophilia-is-a-genetically",
         text:"Hemophilia is a genetically inherited disease that causes the synthesis of an abnormal clotting factor. As a result, hemophiliacs bleed excessively from the slightest injury. The figure below is a partial pedigree for the hemophilia trait in Queen Victorias descendants. The pedigree indicates no history of hemophilia for either parent prior to the F generation.",
-        image: "/images/q41/1.png",
+        image: "images/q41/1.png",
         topic: "biology",
         questions: [
           {
@@ -381,7 +381,7 @@ export const section3Passages: Passage[] = [
       {
         id: "passage-Aerobic-respiration-is-the",
         text: "Aerobic respiration is the major process used by oxygen-requiring organisms to generate energy. During respiration, glucose is metabolized to generate chemical energy in the form of ATP: The biochemical machinery necessary for cellular respiration is found in the mitochondria, small organelles scattered throughout the cytoplasm of most eukaryotic cells. The number of mitochondria per cell varies by tissue type and cell function. Mitochondria are unusual in that they have their own genetic systems, entirely separate from the cell’s nuclear DNA. However, mitochondrial replication is still dependent on nuclear DNA to encode essential proteins. Despite this, mitochondria seem to replicate randomly, out of phase with both the cell cycle and with other mitochondria. The nature of the mitochondrial genome and its protein-synthesizing machinery has led many researchers to propose the endosymbiotic hypothesis: •\tA primitive cell once ingested a bacterium. •\tThe two entered a symbiotic relationship. •\tThe cell provided protection, while the bacterium provided energy. •\tOver time, the bacterium evolved into today’s mitochondrion, retaining some of its own DNA. Additionally, mitochondrial DNA is inherited maternally (non-Mendelian inheritance), as the egg supplies the cytoplasm (and thus the mitochondria) to the zygote. This inheritance pattern is used to study evolutionary relationships.",
-        image: "/images/q42/1.png",
+        image: "images/q42/1.png",
         topic: "biology",
         questions: [
           {
@@ -480,7 +480,7 @@ export const section3Passages: Passage[] = [
       {
         id: "passage-Four-major-blood-types",
         text:"Four major blood types exist in the human ABO blood system: types A, B, AB, and O; and there are three alleles that code for them. The A and B alleles are codominant, and the O allele is recessive. Blood types are derived from the presence of specific polysaccharide antigens that lie on the outer surface of the red blood cell membrane. The A allele codes for the production of the A antigen; the B allele codes for the production of the B antigen; the O allele does not code for any antigen. While there are many other antigens found on red blood cell membranes, the second most important antigen is the Rh antigen. Rh is an autosomally dominant trait coded for by 2 alleles. If this antigen is present, an individual is Rh⁺; if it is absent, an individual is Rh⁻. For example, a person with type AB blood with the Rh⁺ antigen is said to be AB⁺. These antigens become most important when an individual comes into contact with foreign blood. Because of the presence of naturally occurring substances that closely mimic the A and B antigens, individuals who do not have these antigens on their red blood cells will form antibodies against them. This is inconsequential until situations such as blood transfusion, organ transplant, or pregnancy occur. Erythroblastosis fetalis is a condition in which the red blood cells of an Rh⁺ fetus are attacked by antibodies produced by its Rh⁻ mother. Unlike ABO incompatibility, in which there are naturally occurring antibodies to foreign antigens, the Rh system requires prior sensitization to the Rh antigen before antibodies are produced. This sensitization usually occurs during the delivery of an Rh⁺ baby. So while the first baby will not be harmed, any further Rh⁺ fetuses are at risk. The Coombs tests provide a method for determining whether a mother has mounted an immune response against her baby’s blood. The tests are based on whether or not agglutination occurs when Coombs reagent is added to a sample. Coombs reagent contains antibodies against the anti-Rh antibodies produced by the mother. The indirect Coombs test takes the mother’s serum, which contains her antibodies but no red blood cells, and mixes it with Rh⁺ red blood cells. Coombs reagent is then added. If agglutination occurs, the test is positive, and the mother must be producing anti-Rh antibodies. The direct Coombs test mixes the baby’s red blood cells with Coombs reagent. If agglutination occurs, the test is positive, and the baby’s red blood cells must have been attacked by its mother’s anti-Rh antibodies.",
-        image: "/images/q44/1.png",
+        image: "images/q44/1.png",
         topic: "organicChemistry",
         questions: [
           {
@@ -595,14 +595,14 @@ export const section3Passages: Passage[] = [
         id: "passage-Alleles-are-created-when",
         text: "Alleles are created when a single gene undergoes several distinct mutations. These alleles may have different dominance relationships with one another; for example, there are three alleles coding for the human blood groups, the Iᴬ, Iᴮ, and i alleles. Both the Iᴬ and Iᴮ alleles are dominant to the i allele, but Iᴬ and Iᴮ are codominant to each other. A multiple-allele system has recently been discovered in the determination of hair coloring in a species of wild rat. The rats are found to have one of three colors: brown, red, or white. Let B = the gene for brown hair; b = the gene for red hair; and w = the gene for white hair. The results from nine experimental crosses are shown below. The males and females in Crosses 1, 2, and 3 are all homozygous for hair color.",
         topic: "biology",
-        image: "/images/q49/1.png",
+        image: "images/q49/1.png",
         questions: [
           {
             id: "passage-Alleles-are-created-when-q1",
             type: "passage",
             passageId: "passage-Alleles-are-created-when",
             question: "Based on the experimental results, what is the genotype of the male in Cross 6?",
-            image: "/images/q49/q1.png",
+            image: "images/q49/q1.png",
             options: [
               "bw",
               "bb",
@@ -715,7 +715,7 @@ export const section3Passages: Passage[] = [
             type: "passage",
             passageId: "passage-Hypoxia-refers-to-a",
             question: "The passages of the respiratory tract which do not participate in gas exchange are called the physiological dead space. Compared to air in the alveoli, air in the physiological dead space will have:",
-            image: "/images/q57/q4.png",
+            image: "images/q57/q4.png",
             options: [
               "higher pCO and higher pCO",
               "higher pCO and lower pCO",
@@ -761,7 +761,7 @@ export const section3Passages: Passage[] = [
       {
         id: "passage-Artificial-kidneys-have-been",
         text: "Artificial kidneys have been used for almost 50 years to treat patients with different forms of renal failure. The artificial kidney (dialysis machine) removes unwanted substances from the blood by diffusion. A patients blood is passed through channels bounded by a porous, semi-permeable membrane that allows the free diffusion in both directions of all plasma constituents except the plasma proteins. Erythrocytes and other cellular components of blood cannot pass through the membrane. The other side of the membrane is exposed to the dialyzing fluid which carries away the unwanted materials. If the concentration of a material in the blood is greater than in the dialyzing fluid, there will be a net flow of the material from the plasma to the dialyzing fluid. If the concentration of a material in the blood is less than in the dialyzing fluid, there will be a net flow of the material from the dialyzing fluid into the blood. The composition of normal plasma, plasma in an individual suffering renal failure, and dialyzing fluid are shown in Table 1. Dialysis replaces some functions of the kidneys and attempts to correct the effects of renal failure. For example, patients with renal failure develop acidosis due to a buildup of metabolically produced acids in the circulation. Without dialysis, the pH of the blood will drop and coma may occur. Dialyzing fluid contains a relatively high concentration of bicarbonate which diffuses into the circulation and neutralizes the acid.",
-        image: "/images/q66/1.png",
+        image: "images/q66/1.png",
         topic: "biology",
         questions: [
           {
@@ -860,7 +860,7 @@ export const section3Passages: Passage[] = [
         id: "passage-The-process-of-depolarization",
         text: "The process of depolarization triggers the cardiac cycle. The electronics of the cycle can be monitored by an electrocardiogram (EKG). The cycle is divided into two major phases, both named for events in the ventricle: the period of ventricular contraction and blood ejection, systole, followed by the period of ventricular relaxation and blood filling, diastole. During the very first part of systole, the ventricles are contracting but all valves in the heart are closed thus no blood can be ejected. Once the rising pressure in the ventricles becomes great enough to open the aortic and pulmonary valves, the ventricular ejection or systole occurs. Blood is forced into the aorta and pulmonary trunk as the contracting ventricular muscle fibers shorten. The volume of blood ejected from a ventricle during systole is termed stroke volume. During the very first part of diastole, the ventricles begin to relax, and the aortic and pulmonary valves close. No blood is entering or leaving the ventricles since once again all the valves are closed. Once ventricular pressure falls below atrial pressure, the atrioventricular (AV) valves open. Atrial contraction occurs towards the end of diastole, after most of the ventricular filling has taken place. The ventricle receives blood throughout most of diastole, not just when the atrium contracts. Figure 1: Electronic and pressure changes in the heart and aorta during the cardiac cycle.",
         topic: "biology",
-        image: "/images/q148/1.png",
+        image: "images/q148/1.png",
         questions: [
           {
             id: "passage-The-process-of-depolarization-q1",
@@ -942,7 +942,7 @@ export const section3Passages: Passage[] = [
             type: "passage",
             passageId: "passage-The-process-of-depolarization",
             question: "According to Fig. 1, the opening of the aortic and pulmonary valves is NOT associated with:",
-            image: "/images/q148/q6.png",
+            image: "images/q148/q6.png",
             options: [
               "ventricular systole.",
               "a rise and fall in aortic pressure.",
@@ -958,7 +958,7 @@ export const section3Passages: Passage[] = [
       {
         id: "passage-The-polymerase-chain-reaction",
         text: "The polymerase chain reaction (PCR) is a powerful biological tool that allows the rapid amplification of any fragment of DNA without purification. In PCR, DNA primers are made to flank the specific DNA sequence to be amplified. These primers are then extended to the end of the DNA molecule with the use of a heat- resistant DNA polymerase. The newly synthesized DNA strand is then used as the template to undergo another round of replication. The 1st step in PCR is the melting of the target DNA into 2 single strands by heating the reaction mixture to approximately 94ֲ° C, and then rapidly cooling the mixture to allow annealing of the DNA primers to their specific locations. Once the primer has annealed, the temperature is elevated to 72ֲ° C to allow optimal activity of the DNA polymerase. The polymerase will continue to add nucleotides until the entire complimentary strand of the template is completed at which point the cycle is repeated (Figure 1)Figure 1 - One of the uses of PCR is sex determination, which requires amplification of intron 1 of the amelogenin gene. This gene found on the X-Y homologous chromosomes has a 184 base pair deletion on the Y homologue. Therefore, by amplifying intron 1 females can be distinguished from males by the fact that males will have 2 different sizes of the amplified DNA while females will only have 1 unique fragment size.",
-        image: "/images/q150/1.png",
+        image: "images/q150/1.png",
         topic: "biochemistry",
         questions: [
           {
@@ -1109,7 +1109,7 @@ export const section3Passages: Passage[] = [
             type: "passage",
             passageId: "passage-Every-atomic-orbital-contains",
             question: "Which of the following figures describes the shape of σ*2pz molecular orbital?",
-            image: "/images/q170/q5.png",
+            image: "images/q170/q5.png",
             options: [
               "Option A",
               "Option B",
@@ -1207,7 +1207,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-Hemoglobin-Hb-and-myoglobin",
     text: "Hemoglobin (Hb) and myoglobin (Mb) are the O-carrying proteins in vertebrates. Hb, which is contained within red blood cells, serves as the O carrier in blood and also plays a vital role in the transport of CO and H Vertebrate Hb consists of four polypeptides (subunits) each with a heme group. The four chains are held+ together by noncovalent attractions. The affinity of Hb for O varies between species and within species depending on such factors as blood pH, stage of development, and body size. For example, small mammals give up O more readily than large mammals because small mammals have a higher metabolic rate and require more O per gram of tissue. The binding of O - to Hb is also dependent on the cooperativity of the Hb subunits. That is, binding at one heme facilitates the binding of O at the other hemes within the Hb molecule by altering the conformation of the entire molecule. This conformational change makes subsequent binding of O more energetically favorable. Conversely, the unloading of O at one heme facilitates the unloading of O at the others by a similar mechanism. Figure 1 depicts the O - -dissociation curves of Hb (Curves A, B, and C) and myoglobin (Curve D), where saturation, Y, is the fractional occupancy of the O -binding sites. The fraction of O that is transferred from Hb as the blood passes through the tissue capillaries is called the utilization coefficient. A normal value is approximately 0.25.Figure 1 – Myoglobin facilitates transport in muscle and serves as a reserve store of O . Mb is a single polypeptide chain containing a heme group, with a molecular weight of 18 kd. As can be seen in Figure 1, Mb (Curve D) has a greater affinity for than Hb.",
-    image: "/images/q34/1.png",
+    image: "images/q34/1.png",
     topic: "biochemistry",
     questions: [
       {
@@ -1320,7 +1320,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-The-mechanism-for-the",
     text: "The mechanism for the acid-catalyzed esterification of a carboxylic acid, carried out with R'OH, is shown below. The tagged alcohol R'18OH is used to study the reaction mechanism. The resulting ester is separated from the reaction mixture; the water from the reaction mixture is then distilled off completely and collected as a separate fraction",
-    image: "/images/q43/1.png",
+    image: "images/q43/1.png",
     topic: "organicChemistry",
     questions: [
       {
@@ -1372,7 +1372,7 @@ export const section1Passages: Passage[] = [
         id: "passage-The-mechanism-for-the-q4",
         type: "passage",
         passageId: "passage-The-mechanism-for-the",
-        image: "/images/q43/q4.png", // /images/q43/q4_1.png",
+        image: "images/q43/q4.png", // images/q43/q4_1.png",
         question: "Why does this reaction occur?",
         options: [
           "The halide is a poor leaving group.",
@@ -1389,7 +1389,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-A-student-was-given",
     text: "A student was given a sample of an unknown liquid and asked to determine as much as possible about its structure. He was told that the compound contained only carbon, hydrogen, and oxygen, and had only one type of functional group. The student found its boiling point to be 206 °C. Using mass spectroscopy, he determined its molecular weight to be 138 g/mol. Finally, he took the infrared spectrum of the compound, which is shown below. From this spectrum, the student quickly reached a conclusion about the functional group. He then turned his attention to the fingerprint region of the compound, which generally has a complicated pattern of peaks that are determined by the structure of the hydrocarbon portion of a molecule. The student decided that the large peak at 750 cm⁻¹ must indicate that this was a disubstituted aromatic compound. The overlapping set of peaks near 3000 cm⁻¹ includes one peak at 2850 cm⁻¹.",
-    image: "/images/q48/1.png",
+    image: "images/q48/1.png",
     topic: "organicChemistry",
     questions: [
       {
@@ -1412,7 +1412,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-A-student-was-given",
         question: "Assuming that all of the students deductions were correct, which of the following could be the structure of the unknown compound?",
-        image: "/images/q48/q2.png",
+        image: "images/q48/q2.png",
         options: [
           "Option A",
           "Option B",
@@ -1428,7 +1428,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-Compounds-containing-a-hydroxyl",
     text: "Compounds containing a hydroxyl group attached to a benzene ring are called phenols. Derivatives of phenols, such as naphthols and phenanthrols, have chemical properties similar to those of phenols, as do most of the many naturally-occurring substituted phenols. Like other alcohols, phenols have higher boiling points than hydrocarbons of similar molecular weight. Like carboxylic acids, phenols are more acidic than their alcohol counterparts. Phenols undergo a number of different reactions; both their hydroxyl groups and their benzene rings are highly reactive. A number of chemical tests can be used to distinguish phenols from alcohols and carboxylic acids. Thymol, a naturally occurring phenol, is an effective disinfectant that is obtained from thyme oil. Thymol can also be synthesized from m-cresol, as shown in Reaction A below. Thymol can then be converted to menthol, another naturally-occurring organic compound; this conversion is shown in Reaction B.",
-    image: "/images/q50/1.png",
+    image: "images/q50/1.png",
     topic: "organicChemistry",
     questions: [
       {
@@ -1436,7 +1436,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Compounds-containing-a-hydroxyl",
         question: " Reaction A – m-cresol, thymol Reaction B -thymol, methnol Reaction A is an example of:",
-        image: "/images/q50/q1.png",
+        image: "images/q50/q1.png",
         options: [
           "a free radical substitution.",
           "an electrophilic aromatic substitution.",
@@ -1452,7 +1452,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Compounds-containing-a-hydroxyl",
         question: " Reaction A - Reaction B - Comparing the K - values for cyclohexanol (K= 10) and phenol (K= 1.3ֳ — 10) reveals that phenol is more acidic than cyclohexanol. Which of the following explain(s) the acidity of phenol? I.\tThe exceptionally strong hydrogen bonding possible with phenol facilitates the loss of a proton, making it more acidic than cyclohexanol. II.\tPhenols conjugate base, phenoxide, is stabilized by resonance to a greater extent than phenol itself. III.\tThe negative charge of the oxygen atom on the phenoxide ion is delocalized over the benzene ring.",
-        image: "/images/q50/q2.png",
+        image: "images/q50/q2.png",
         options: [
           "I only",
           "II only",
@@ -1468,7 +1468,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Compounds-containing-a-hydroxyl",
         question: " Reaction A - Reaction B - Which of the following shows the order of decreasing acidity among the four compounds below?",
-        image: "/images/q50/q3.png",
+        image: "images/q50/q3.png",
         options: [
           "I, III, IV, II",
           "IV, I, II, III",
@@ -1484,7 +1484,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Compounds-containing-a-hydroxyl",
         question: " Reaction A - Reaction B - The reaction of phenol with dilute nitric acid produces which of the following compounds?",
-        image: "/images/q50/q4.png",
+        image: "images/q50/q4.png",
         options: [
           "Option A",
           "Option B",
@@ -1500,7 +1500,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Compounds-containing-a-hydroxyl",
         question: " Reaction A - Reaction B - What simple chemical test could be used to distinguish between the following two compounds?",
-        image: "/images/q50/q5.png",
+        image: "images/q50/q5.png",
         options: [
           "Compound IIs solubility in NaHCO",
           "Compound Is solubility in NaOH",
@@ -1516,7 +1516,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Compounds-containing-a-hydroxyl",
         question: " Reaction A - Reaction B - Compound H(O) dissolves in aqueous sodium hydroxide but is insoluble in aqueous sodium bicarbonate. The proton NMR spectrum of compound X is as follows:",
-        image: "/images/q50/q6.png",
+        image: "images/q50/q6.png",
         options: [
           "Option A",
           "Option B",
@@ -1532,7 +1532,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-Synthetic-dyes-constitute-a",
     text: "Synthetic dyes constitute a commercially significant area of organic chemistry. The color producing properties of these compounds are the result of highly delocalized electron systems giving rise to electronic transitions whose absorptions occur in the visible region. Most commercially useful dyes can be classified as one of three types \" anthraquinones, azo dyes, or triarylmethyl salts. Examples of each type are illustrated in Figure 1. In order for a dye to be useful in the fabric industry, it must have sufficient affinity for the polymeric fibers of which the material is composed; the dye must not only impart a color to the fabric, but must also do so in a relatively permanent manner (color fastness). Proper design of synthetic polymers requires the placement of acidic or basic side chains along the polymer backbone such that binding sites are available for dying. Similarly, dyes must be produced not only with the appropriate color-producing structure, but also with an affinity for the fabric in question. The structural units of several common synthetic fibers are shown in Figure 2.",
-    image: "/images/q56/1.png",
+    image: "images/q56/1.png",
     topic: "organicChemistry",
     questions: [
       {
@@ -1578,7 +1578,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "Alizarin and aniline yellow only",
         explanation: "Hydrogen bonding occurs between OH groups and NH groups in any combination. Since the glucose monomer in cellulose has OH groups, cellulose should be capable of hydrogen bonding to either alizarin, with its two OH groups, or to aniline yellow, with its aromatic amine functionality. Malachite green, on the other hand, has no acidic protons available for hydrogen bonding due to the methylation of the nitrogen atoms.",
-        explanationImage: "/images/q56/q3_ans.png",
+        explanationImage: "images/q56/q3_ans.png",
         topic: "organicChemistry"
       },
       {
@@ -1586,7 +1586,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Synthetic-dyes-constitute-a",
         question: "Nylon, Dacron, and many other synthetic fibers are produced via condensation reactions. Which of the following would be the best starting materials for the production of nylon 66?",
-        image: "/images/q56/q4.png",
+        image: "images/q56/q4.png",
         options: [
           "cis-2-butenoic acid and 1,6-hexanediamine",
           "butanedioic acid and 1,6-hexanediamine",
@@ -1617,7 +1617,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-Morphine-alkaloids-derived-from",
     text: "Morphine alkaloids derived from the opium poppy have long been used as analgesics. Codeine, the methyl ether of morphine, is a naturally occurring alkaloid with medicinal properties very similar to those of morphine. Thousands of derivatives of morphine have been synthesized and tested for their biological effects. For example, the diacylated derivative of morphine, heroin, is a highly addictive drug. Much effort has gone into understanding how morphine and its derivatives function. Studies have shown that certain common structural features of alkaloids are required for the compound to exhibit biological activity. These structural requirements are summarized by the so called morphine rule: Demerol and methadone, shown in Figure 2, are two synthetic alkaloids designed to satisfy the morphine rule. Synthetic alkaloids such as these have been found to mimic certain physiological properties of morphine and its derivatives, and have found pharmacological application due to other, more desirable biological effects. Methadone has been used widely in the United States and Great Britain as a treatment for heroin addiction; it reduces the physical symptoms accompanying withdrawal without producing many of the other effects of heroin.",
-    image: "/images/q64/1.png",
+    image: "images/q64/1.png",
     topic: "organicChemistry",
     questions: [
       {
@@ -1634,7 +1634,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "II only",
         explanation: "Choices A and C are incorrect because a quaternary carbon (bonded to 4 alkyl groups) need not be a chiral center if two of these alkyl groups are identical. This is shown below: Choice D is incorrect because an sp hybridized carbon adopts a planar configuration and can only bind to three substituents (not the four required of a quaternary carbon).",
-        explanationImage: "/images/q64/q1-ans.png",
+        explanationImage: "images/q64/q1-ans.png",
         topic: "organicChemistry"
       },
       {
@@ -1650,7 +1650,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "5",
         explanation: "Any carbon bonded to four different substituents will be chiral. Morphine has five such carbons as shown in image Note that the nitrogen atom is also a chiral center. If nitrogens lone pair of electrons is considered a fourth substituent bonded to nitrogen, it can be seen that nitrogen can also act as a chiral center. Some amines can invert configuration (and thus are not chiral). The tertiary amine of morphine cannot invert \" it is locked into its configuration by the ring structure. However, the question asks for the number of chiral carbons, not the number of chiral centers.",
-        explanationImage: "/images/q64/q2-ans.png",
+        explanationImage: "images/q64/q2-ans.png",
         topic: "organicChemistry"
       },
       {
@@ -1658,7 +1658,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Morphine-alkaloids-derived-from",
         question: "Which of the following compounds would be most likely to have morphine-like biological effects?",
-        image: "/images/q64/q3.png",
+        image: "images/q64/q3.png",
         options: [
           "Option A",
           "Option B",
@@ -1682,7 +1682,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "nucleophiles.",
         explanation: "This reaction proceeds through nucleophilic attack by the hydroxy oxygen (of morphine) on the electrophilic carbonyl carbon of ethanoyl chloride. A nucleophile is an electron rich (Lewis Base) species that can attack an electrophile (electron poor species). Thus, the hydroxy groups on morphine act as nucleophiles. Choice B is incorrect because the carbonyl carbon is the electrophile in this reaction. The carbonyl group is polarized. Electrons are drawn towards the electronegative oxygen leaving the carbon with a slightly positive charge. Thus, the carbon is electron deficient and wants electrons. It is an electrophile. Choice C is incorrect because chloride acts as the leaving group in this reaction. Choice D is incorrect because Lewis acids are electron pair acceptors. The hydroxy group acts as an electron pair donor, a Lewis base.",
-        explanationImage: "/images/q64/q4-ans.png",
+        explanationImage: "images/q64/q4-ans.png",
         topic: "organicChemistry"
       },
       {
@@ -1690,7 +1690,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Morphine-alkaloids-derived-from",
         question: "Hofmann elimination involves methylation of the amine nitrogen followed by elimination (E2). Which of the following represents a possible product of one sequence of Hofmann elimination on Meperidine (demerol)?",
-        image: "/images/q64/q5.png",
+        image: "images/q64/q5.png",
         options: [
           "Option A",
           "Option B",
@@ -1706,7 +1706,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-The-hydrogens-of-alkanes",
     text: "The hydrogens of alkanes have pKₐ values that are over 30 or 40. In contrast, the α-hydrogens of aldehydes and ketones have pKₐ values that range from 19 to 21. These fairly acidic α-hydrogens can be removed by strong bases to form anions called enolates. The enolate ions are strongly stabilized by resonance. Protonation of the enolate at oxygen produces an enol. Interconversion between the keto and enol forms is called tautomerization and is illustrated in Figure 1. The keto form is usually highly favored. Keto-enol tautomerization has some interesting consequences. For example, if a ketone is treated with acid or base in a solvent of D₂O (heavy water), all of the α-hydrogens will be exchanged for deuterium. This reaction is shown in Figure 2. Another consequence of keto-enol tautomerization is the racemization of chiral α-carbons. In the enol form, the α-carbon adopts a planar configuration and is no longer chiral. Tautomerization back to the ketone produces a racemic mixture of products. This is shown in Figure 3. Figure 3 - A scientist attempts to follow the progress of the α-deuteration shown in Figure 2 using proton NMR.",
-    image: "/images/q65/1.png",
+    image: "images/q65/1.png",
     topic: "organicChemistry",
     questions: [
       {
@@ -1737,7 +1737,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "(R)-3-methyl-2-pentanone",
         explanation: "The structure can be drawn as shown below: The longest chain has 5 carbons and this compound will be named with the pent- prefix. This is enough to select Choice A. Numbering proceeds to give the lowest numbered ketone (the highest priority group in this compound). Choice B is incorrect because it does not number the longest chain correctly, naming the molecule as an ethyl substituted butanone. Choice C is incorrect because it too does not number the longest chain correctly. Choice D describes an impossible molecule.",
-        explanationImage: "/images/q65/q2-ans.png",
+        explanationImage: "images/q65/q2-ans.png",
         topic: "organicChemistry"
       },
       {
@@ -1745,7 +1745,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-The-hydrogens-of-alkanes",
         question: "Which of the following ketones will have the most acidic ־±-hydrogen:",
-        image: "/images/q65/q3.png",
+        image: "images/q65/q3.png",
         options: [
           "Option A",
           "Option B",
@@ -1761,7 +1761,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-The-hydrogens-of-alkanes",
         question: "The two products formed by the racemization reaction in Figure 3 could best be described as:",
-        image: "/images/q65/q4.png",
+        image: "images/q65/q4.png",
         options: [
           "enantiomers",
           "diastereomers",
@@ -1777,7 +1777,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-The-hydrogens-of-alkanes",
         question: "The aldol condensation proceeds through formation of an enolate anion. This is followed by nucleophilic attack by the enolate ion on the carbonyl carbon of the original aldehyde. Which of the following reactants would lead to the product indicated below?",
-        image: "/images/q65/q5.png",
+        image: "images/q65/q5.png",
         options: [
           "Option A",
           "Option B",
@@ -1793,7 +1793,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-Sugars-are-carbohydrates-that",
     text: "Sugars are carbohydrates, that is, molecules usually with the empirical formula C(H₂O), and structural formulas made up of polyhydroxy aldehydes or ketones. Because of their polyfunctional nature, sugars can undergo a wide variety of transformations upon treatment with acids, bases, or heat, and upon reaction with other simple reagents and enzymes. While many sugars occur in nature and are thus readily available, the synthesis and modification of simple sugars is a necessary step in studies of enzymatic processes. Higher sugars can be synthesized from the simple carbohydrate D-glyceraldehyde with the following procedure: D-glyceraldehyde (Compound A) is reacted with HCN to produce a cyanohydrin (Compound B). Compound B is then treated with hydrogen gas and a modified palladium catalyst (similar to the Lindlar reagent) to give Compound C. Compound C is hydrolyzed to give the higher sugars in Mixture D. This reaction is summarized in Figure 1. Mixture D contains two compounds, which can be separated by crystallization. Two doublets near 9.5 δ (ppm) are observed in the ¹H NMR spectrum of Mixture D, with each doublet corresponding to one of the two products present in the mixture. IR spectroscopy shows broad absorptions for both products around 3300 cm⁻¹. The hydroxyl groups of carbohydrates can also participate in reactions. For example, D-glyceraldehyde can react with chloromethane under basic conditions to yield a completely methylated product. This SN2 reaction is shown in Figure 2.",
-    image: "/images/q71/1.png",
+    image: "images/q71/1.png",
     topic: "organicChemistry",
     questions: [
       {
@@ -1809,7 +1809,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "nucleophilic alkoxide ion.",
         explanation: "The passage states that an SN2 reaction occurs. This requires a good nucleophile. Alkoxides (RO⁻) are strong bases and thus good nucleophiles. Sodium hydroxide (NaOH) is used in this reaction to remove the hydrogen from the hydroxyl group to form the alkoxide. Choice A is incorrect because a hydroxyl group would be converted to water, a good leaving group, under acidic conditions. The reaction in Figure 2 occurs under basic conditions. Choice C is incorrect because carbocation intermediates occur in SN1 and E1 reactions, but not in SN2. Choice D is incorrect because tetrahedral intermediates are formed during addition reactions to a carbon/oxygen double bond. The reaction in Figure 2 does not involve attack on the carbonyl group.",
-        explanationImage: "/images/q71/q1-ans.png",
+        explanationImage: "images/q71/q1-ans.png",
         topic: "organicChemistry"
       },
       {
@@ -1825,7 +1825,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "avoid reduction of the cyanohydrin to the amine.",
         explanation: "The cyanohydrin (Compound B) is reduced to an imine (Compound C). If platinum were used, reduction would proceed all the way to the amine. This must be avoided in order to produce the carbonyl group on the extended sugar. Choice B is incorrect because a catalyst does not alter the thermodynamic favorability of a reaction; it only increases the rate by lowering activation energy. Choice C is incorrect because a Lewis acid is an electron pair acceptor. The palladium catalyst acts as an activator of hydrogen. Choice D is incorrect because Compound B does not have a carbonyl group.",
-        explanationImage: "/images/q71/q2-ans.png",
+        explanationImage: "images/q71/q2-ans.png",
         topic: "organicChemistry"
       },
       {
@@ -1841,7 +1841,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "epimers.",
         explanation: "Epimers are sugars that differ in configuration about a single stereocenter. A new chiral center is formed in the first step of the sugar extension (cyanohydrin formation), leading to the formation of two different sugars in Mixture D. Choice A is incorrect because enantiomers are mirror images that differ at every stereocenter. Choice B is incorrect because anomers differ at a new chiral center formed when adopting a ring structure — not relevant here. Choice D is incorrect because disaccharides are formed from the condensation of two monosaccharides, which is not what’s occurring here.",
-        explanationImage: "/images/q71/q3-ans.png",
+        explanationImage: "images/q71/q3-ans.png",
         topic: "organicChemistry"
       },
       {
@@ -1849,7 +1849,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Sugars-are-carbohydrates-that",
         question: "What are the missing compounds, respectively, in the following reaction?",
-        image: "/images/q71/q4.png",
+        image: "images/q71/q4.png",
         options: [
           "Option A",
           "Option B",
@@ -1874,7 +1874,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "a hemiacetal.",
         explanation: "Choice A is incorrect because glucofuranose refers to a 5-membered ring, which would form from carbon-4, not carbon-5. Choice C is incorrect because a lactone is a cyclic ester — no ester is formed here. Choice D is incorrect because a glycoside is a sugar acetal formed when a sugar reacts with another alcohol, usually under acidic conditions.",
-        explanationImage: "/images/q71/q5-ans.png", // "/images/q71/q5-1-ans.png"
+        explanationImage: "images/q71/q5-ans.png", // "images/q71/q5-1-ans.png"
         topic: "organicChemistry"
       }
     ]
@@ -1882,7 +1882,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-Several-models-have-been",
     text: "Several models have been developed for relating changes in dissociation constants to changes in the tertiary and quaternary structures of oligomeric proteins. One model suggests that the protein's subunits can exist in either of two distinct conformations, R and T. At equilibrium, there are few R conformation molecules: 10 000 T to 1 R and it is an important feature of the enzyme that this ratio does not change. The substrate is assumed to bind more tightly to the R form than to the T form, which means that binding of the substrate favors the transition from the T conformation to R. The conformational transitions of the individual subunits are assumed to be tightly linked, so that if one subunit flips from T to R the others must do the same. The binding of the first molecule of substrate thus promotes the binding of the second and if substrate is added continuously, all of the enzyme will be in the R form and act on the substrate. Because the concerted transition of all of the subunits from T to R or back, preserves the overall symmetry of the protein, this model is called the symmetry model. The model further predicts that allosteric activating enzymes make the R conformation even more reactive with the substrate while allosteric inhibitors react with the T conformation so that most of the enzyme is held back in the T shape. Experiment Evaluating Non-Symmetry Model Enzymes Experiments were performed with enzyme conformers that did not obey the symmetry model. The data is summarized in Figure 1.  Figure 1: Equilibrium distribution of two conformers at different temperatures given the free energy of their interconversion. (modified from Mr.Holmium).",
-    image: "/images/q149/1.png",
+    image: "images/q149/1.png",
     topic: "biochemistry",
     questions: [
       {
@@ -1928,7 +1928,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "a hyperbola.",
         explanation: "The amount of substrate-enzyme complex would increase steadily as more substrate is added until a point at which all enzymes are involved in a substrate- enzyme complex, and any more substrate added will have no effect (saturation kinetics). The graph would show a steadily slowing curve of positive slope which reaches a point at which it levels off into a horizontal line. This curve is called a hyperbola (see image below). A sigmoidal shape would be expected in cooperative binding (i.e. the symmetry model as described in the passage or hemoglobin). Note: This was a classic question in the old MCAT and, not surprisingly, the same concept comes up in the AAMC's new MCAT practice materials: the difference between the simple (rectangular) hyperbola and the sigmoidal curve suggesting cooperative binding (and also, the ability to recognize the shapes of these 2 curves independently). Also note that the myoglobin saturation curve is a hyperbola, but hemoglobin has a sigmoid shape due to the cooperative binding of oxygen molecules. And finally, note the positions of Vmax (= maximum velocity/reaction rate) and Km (substrate concentration at 1/2 Vmax) displaying Michaelis-Menten kinetics associated with the hyperbolic curve on the left, as opposed to the sigmoidal curve on the right (image from the GS BIO book or ebook, BCM 2.9):",
-        explanationImage: "/images/q149/q3-ans.png",
+        explanationImage: "images/q149/q3-ans.png",
         topic: "biochemistry"
       },
       {
@@ -1959,7 +1959,7 @@ export const section1Passages: Passage[] = [
         ],
         correctAnswer: "are regulated by compounds which are not their substrates and which do not bind to their active sites.",
         explanation: "You must be familiar with how enzyme function is regulated to answer this question. An allosteric enzyme has a site other than the one for the substrate at which a molecule (not the substrate) that directs the function of the enzyme can bind. The above illustrates the allosteric regulation of an enzyme with a positive effector (on the left) and a negative effector (on the right).",
-        explanationImage: "/images/q149/q5-ans.png",
+        explanationImage: "images/q149/q5-ans.png",
         topic: "biochemistry"
       }
     ]
@@ -1967,7 +1967,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-The-periodic-beating-of",
     text: "The periodic beating of the heart is controlled by electrical impulses that originate within the cardiac muscle itself. These pulses travel to the sinoatrial node and from there to the atria and the ventricles, causing the cardiac muscles to contract. If a current of a few hundred milliamperes passes through the heart, it will interfere with this natural system, and may cause the heart to beat erratically. This condition is known as ventricular fibrillation, and is life-threatening. If, however, a larger current of about 5 to 6 amps is passed through the heart, a sustained ventricular contraction will occur. The cardiac muscle cannot relax, and the heart stops beating. If at this point the muscle is allowed to relax, a regular heartbeat will usually resume. The large current required to stop the heart is supplied by a device known as a defibrillator. A schematic diagram of a defibrillator is shown below. This device is essentially a heavy-duty capacitor capable of storing large amounts of energy. To charge the capacitor quickly (in 1 to 3 seconds), a large DC voltage must be applied to the plates of the capacitor. This is achieved using a step-up transformer, which creates an output voltage that is much larger than the input voltage. The transformer used in this defibrillator has a step-up ratio of 1:50. The AC voltage that is obtained from the transformer must then be converted to DC voltage in order to charge the capacitor. This is accomplished using a diode, which allows current flow in one direction only. Once the capacitor is fully charged, the charge remains stored until the switch is moved to position B and the plates are placed on the patients chest. To cut down the resistance between the patients body and the defibrillator, the electrodes are covered with a wetting gel before use. Care must be taken to insure that the patient is not in electrical contact with the ground while the defibrillator is in use.",
-    image: "/images/q167/1.png",
+    image: "images/q167/1.png",
     topic: "physics",
     questions: [
       {
@@ -2048,7 +2048,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-Many-nutrients-required-by",
     text: "Many nutrients required by plants exist in soil as basic cations: Mg²⁺, Mn²⁺, and Ca²⁺. A soil’s cation-exchange capacity is a measure of its ability to adsorb these 2⁺ basic cations as well as exchangeable hydrogen (H⁺) and aluminum (Al³⁺) ions. The cation-exchange capacity of soil is derived from two sources: small clay particles called micelles consisting of alternating layers of alumina and silica crystals, and organic colloids. Replacement of Al³⁺ and Si⁴⁺ by other cations of lower valence creates a net negative charge within the inner layers of the micelles. This is called the soil’s permanent charge. For example, replacement of an atom of aluminum by calcium within a section where the net charge was previously zero, as shown below, produces a net charge of −1, to which other cations can become adsorbed. Figure 1 – A pH-dependent charge develops when hydrogen dissociates from hydroxyl moieties on the outer surfaces of the clay micelles. This leaves negatively-charged oxygen atoms to which basic cations may adsorb. Likewise, a large pH-dependent charge develops when hydrogen dissociates from carboxylic acids and phenols in organic matter. In most clays, permanent charges brought about by substitution account for anywhere from half to nearly all of the total cation-exchange capacity. Soils very high in organic matter contain primarily pH-dependent charges. In a research study, three samples of soil were leached with a 1 N solution of neutral KCl, and the displaced Al³⁺ and basic cations were measured. The sample was then leached again with a buffered solution of BaCl₂ and triethanolamine at pH 8.2, and the displaced H⁺ measured. Table 1 gives results for three soils tested by this method. Due to the buffering effect of the soil’s cation exchange capacity, just measuring the soil solution’s pH will not indicate how much base is needed to change the soil pH. In another experiment, measured amounts of acid and base were added to 10-gram samples of well-mixed soil that had been collected from various locations in a field. The volumes of the samples were equalized by adding water. The results were recorded in Figure 2.",
-    image: "/images/q168/1.png",
+    image: "images/q168/1.png",
     topic: "generalChemistry",
     questions: [
       {
@@ -2146,7 +2146,7 @@ export const section1Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Many-nutrients-required-by",
         question: "Anaerobic organisms are able to denitrify wet soils by the following metabolic pathway: If all the oxygen in the nitric acid is converted to water, how many additional equivalents of acid will be consumed during the production of 5 moles of nitrogen (N₂)?",
-        image: "/images/q168/q7.png",
+        image: "images/q168/q7.png",
         options: [
           "20",
           "30",
@@ -2237,7 +2237,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-When-light-in-the",
     text: "When light in the ultraviolet region of the spectrum is shone on a type of material known as a phosphor, it fluoresces and emits light in the visible region of the spectrum. Lamps that utilize this property, known as fluorescent lamps, are very efficient light sources. The arrangement of a typical fluorescent lamp is shown below. The lamp is a glass tube whose inside walls are covered with a phosphor. The tube has an appreciable length-to-diameter ratio so as to reduce the power losses at each end, and it is filled with argon gas mixed with mercury vapor. Inside each end of the tube are tungsten electrodes covered with an emission material. Electrons are liberated at the cathode and accelerated by an applied electric field. These free electrons encounter the gas mixture, ionizing some mercury atoms and exciting others. Since it requires more energy to ionize the atoms than to excite the electrons, more excitation than ionization occurs. When the excited electrons revert to their ground state, they radiate ultraviolet photons with a wavelength of 253.7 nm. These photons impinge on the phosphor coating of the tube and excite electrons in the phosphor to higher energy states. The excited electrons in the phosphor return to their ground state in two or more steps, producing radiation in the visible region of the spectrum. Not every fluorescent lamp emits the same color of radiation; the color is dependent on the relative percentages of different heavy metal compounds in the phosphor. The fluorescent lamp shown operates at 100 volts and draws 400 milliamps of current during normal operation. Of the total power that the lamp consumes, only 25% is converted to light, while the remaining 75% is dissipated as heat. This energy keeps the lamp at its optimum working temperature of 40°C. In the lamp shown, the phosphor coating is calcium metasilicate, which emits orange to yellow light.",
-    image: "/images/q169/1.png",
+    image: "images/q169/1.png",
     topic: "physics",
     questions: [
       {
@@ -2320,7 +2320,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-A-ski-jump-is",
     text: "A ski jump is an inclined track from which a ski jumper takes off through the air. After traveling down the track, the skier takes off from a ramp at the bottom of the track. The skier lands farther down on the slope. Figure 1 shows a ski jump, in which the ramp at the lower end of the track makes an angle of 30° to the horizontal. The track is inclined at an angle θ to the horizontal, and the slope is inclined at an angle of 45° to the horizontal. A ski jumper is stationary at the top of the track. Once the skier pushes off, she accelerates down the track, and then takes off from the ramp. The vertical height difference between the top of the track and its lowest point is 50 m, and the vertical height difference between the top of the ramp and its lowest point is 10 m. The distance traveled by the skier between leaving the ski jump ramp and making contact with the slope is called the jump distance. In some cases, to increase this distance, a skier will jump slightly upon leaving the ramp, thereby increasing the vertical velocity. Unless otherwise stated, assume friction is negligible and ignore air resistance.",
-    image: "/images/q171/1.png",
+    image: "images/q171/1.png",
     topic: "physics",
     questions: [
       {
@@ -2403,7 +2403,7 @@ export const section1Passages: Passage[] = [
   {
     id: "passage-X-rays-are-produced-by",
     text: "X-rays are produced by a device which beams electrons with an energy between 103 and 106 eV at a metal plate. The electrons interact with the metal plate and are stopped by it. Much of the energy of the incoming electrons is released in the form of X-rays, which are high-energy photons of electromagnetic radiation. An example of such a device is shown below. Electrons are accelerated from the cathode toward the anode by an electric field. (Diagram: classic evacuated X-ray tube showing electron path from cathode to anode, X-rays emitted from anode) There are two mechanisms by which the X-rays are produced within the metal: 1.\tBremsstrahlung (German for \"breaking radiation\") – X-rays are emitted by the electrons as they are brought to rest by interactions with the positive nuclei of the anode. 2.\tCharacteristic X-ray emission – When an incoming electron knocks an inner electron out of one of the metal atoms of the anode, an electron is replaced by one from a higher energy level. The energy difference is emitted as a photon (an X-ray). •\tX-rays are absorbed by a material when they pass through it. •\tThe amount of X-rays absorbed increases with the density of the material. •\tLow-energy X-rays are more likely to be absorbed than higher-energy X-rays. Note: •\t1 eV=1.6×10−19 J1 \\, \\text{eV} = 1.6 \\times 10^{-19} \\, \\text{J} •\tPlanck’s constant: h=4.1×10−15 eV\\cdotpsh = 4.1 \\times 10^{-15} \\, \\text{eV·s} •\tSpeed of light: c=3×108 m/sc = 3 \\times 10^8 \\, \\text{m/s}",
-    image:"/images/q178/1.png",
+    image:"images/q178/1.png",
     topic: "physics",
     questions: [
       {
@@ -2568,7 +2568,7 @@ export const section4Passages: Passage[] = [
   {
     id: "passage-Which-of-the-following",
     text: "In 1972, Georges Ungar reported the discovery of a peptide that appeared to transfer learning. Ungar’s claim was based on experiments in which rats placed in a chamber with specially designed dark and light regions were trained to avoid the dark regions of the chamber. Following their training, the rats were killed and brain extracts were prepared. These brain extracts were injected into naive rats which were then observed to acquire the fear of darkness without training. Two hypotheses were proposed to explain these remarkable results: Hypothesis 1 – Ungar concluded that the extracts contained some chemical that transmitted the learned fear of darkness to the naive rats. A fifteen amino-acid polypeptide was isolated from the brain extracts and sequenced. Ungar claimed that this peptide, called scotophobin, was a chemical transmitter of learning. The peptide had the primary structure shown below: C–Ser–Asp–Asn–Arg–Gln–Gln–Gly–Lys–Ser–Ala–Arg–Gln–Gly–Gly–Tyr–N (scotophobin) Hypothesis 2 – Other researchers, who tested scotophobin but could not reproduce Ungar’s results, argued that scotophobin did not transfer the learned fear of darkness. Instead, they suggested that scotophobin, which is structurally similar to ACTH and vasopressin, acted to increase stress in the rats. Since stress increases sympathetic nervous activity, rats injected with scotophobin would become hyperactive and tend to spend less time in the dark regions of the experimental chamber. They argued that such stress responses in the rats could be misinterpreted as a fear of darkness. Ungar’s claim was further weakened by chemical analysis in which both the scotophobin extracts which Ungar had injected into the naive rats and a sample of synthesized scotophobin peptide were subjected to SDS polyacrylamide gel electrophoresis, as shown in Figure 1.",
-    image: "/images/q63/1.png",
+    image: "images/q63/1.png",
     topic: "psychology",
     questions: [
       {
@@ -2576,7 +2576,7 @@ export const section4Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Which-of-the-following",
         question: "Hydrolytic enzymes cleave polypeptides at specific amino acid residues. Which of the following hydrolytic enzymes could be used to cleave scotophobin into three fragments?",
-        image: "/images/q63/q1.png",
+        image: "images/q63/q1.png",
         options: [
           "Trypsin only",
           "Trypsin or clositripain only",
@@ -2639,7 +2639,7 @@ export const section4Passages: Passage[] = [
     id: "passage-Before-birth-the-rodent",
     text: "Before birth, the rodent brain is sexually undifferentiated. It is only in the first few days following birth, during a period referred to as the critical period, that the rodent brain differentiates along male or female lines. The hormone testosterone plays a critical role in this development. Specifically, sexual differentiation is determined by the presence of estradiol, an estrogen derivative of testosterone, in certain areas of the brain. Testosterone is converted to estradiol in critical brain cells that contain the enzyme aromatase. To study the effects of testosterone on the neonatal rodent brain, the following experiments were conducted: The above research, combined with additional studies, concluded that testosterone has two organizational effects on the male rodent brain: Defeminization - Moderate levels of testosterone-derived estradiol during the critical period are sufficient for defeminization of the brain. Defeminization of the rodent brain results in loss of estrogen positive feedback on LH and FSH secretion and the ensuing loss of cyclicity, as well as loss of female sex behavior. Masculinization - High levels of estradiol due to high levels of testosterone during the critical period results in masculinization of the brain. Masculinization leads to the induction of male sex behavior including antagonism towards other males and the mounting of females.",
     topic: "psychology",
-    image: "/images/q72/1.png",
+    image: "images/q72/1.png",
     questions: [
       {
         id: "passage-Before-birth-the-rodent-q1",
@@ -2661,7 +2661,7 @@ export const section4Passages: Passage[] = [
         type: "passage",
         passageId: "passage-Before-birth-the-rodent",
         question: "The conversion of testosterone to estradiol is what type of reaction?",
-        image: "/images/q71/q2.png",
+        image: "images/q71/q2.png",
         options: [
           "Reduction",
           "Aromatization",
@@ -2737,7 +2737,7 @@ export const section4Passages: Passage[] = [
   {
     id: "passage-The-process-by-which",
     text: "The process by which individuals decide and choose to seek assistance for health or mental health problems is called help-seeking. Table 1 displays the percentage of American Indian/Alaska Native and non-Hispanic White adults who received mental health or counseling treatment in 2008. Help-seeking is a complex process and individuals will choose to obtain treatment for a variety of reasons. One of the strongest Source: Adapted from U.S. Department of Health & Human Services,\"Mental Health and American Indians/Alaska Natives\"",
-    image: "/images/q159/1.png",
+    image: "images/q159/1.png",
     topic: "sociology",
     questions: [
       {
@@ -12763,7 +12763,7 @@ export const section2Questions: Question[] = [
       "Government policies have successfully reduced poverty rates",
     ],
     correctAnswer: "There is a significant income gap between different demographic groups",
-    image: "/images/income-inequality.png", // Path to the image in the public folder
+    image: "images/income-inequality.png", // Path to the image in the public folder
     explanation:
       "The graph clearly shows disparities in income levels across different demographic groups, supporting the conclusion that there is a significant income gap. The data does not provide sufficient information to support the other conclusions about trends over time, causation, or policy effectiveness.",
     topic: "criticalThinking",

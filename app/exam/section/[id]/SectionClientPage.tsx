@@ -65,23 +65,23 @@ export default function SectionClientPage({ id }: { id: string }) {
   // Section definitions
   const sections = {
     1: {
-      title: "Biological and Biochemical Foundations of Living Systems",
-      timeLimit: 95 * 60, // 95 minutes in seconds
-      questionCount: 59,
-    },
-    2: {
       title: "Chemical and Physical Foundations of Biological Systems",
       timeLimit: 95 * 60, // 95 minutes in seconds
       questionCount: 59,
     },
+    2: {
+      title: "Critical Analysis and Reasoning Skills",
+      timeLimit: 90 * 60, // 90 minutes in seconds
+      questionCount: 53,
+    },
     3: {
-      title: "Psychological, Social, and Biological Foundations of Behavior",
+      title: "Biological and Biochemical Foundations of Living Systems",
       timeLimit: 95 * 60, // 95 minutes in seconds
       questionCount: 59,
     },
     4: {
-      title: "Critical Analysis and Reasoning Skills",
-      timeLimit: 90 * 60, // 90 minutes in seconds
+      title: "Psychological, Social, and Biological Foundations of Behavior",
+      timeLimit: 95 * 60, // 95 minutes in seconds
       questionCount: 53,
     },
   }
@@ -669,6 +669,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                     width={400}
                     height={300}
                     className="border border-gray-300 dark:border-slate-700 rounded max-w-full h-auto"
+                    unoptimized 
                   />
                 </div>
               )}
@@ -716,6 +717,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                     width={300}
                     height={200}
                     className="border border-gray-300 dark:border-slate-700"
+                    unoptimized 
                   />
                 </div>
               )}
@@ -756,6 +758,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                               width={300}
                               height={200}
                               className="border border-gray-300 dark:border-slate-700 rounded"
+                              unoptimized 
                             />
                           </div>
                         </div>
@@ -807,6 +810,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                   width={400}
                   height={300}
                   className="border border-gray-300 dark:border-slate-700"
+                  unoptimized 
                 />
               </div>
             )}
@@ -847,6 +851,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                             width={300}
                             height={200}
                             className="border border-gray-300 dark:border-slate-700 rounded"
+                            unoptimized
                           />
                         </div>
                       </div>

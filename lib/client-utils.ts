@@ -22,7 +22,7 @@ export const removeLocalStorage = (key: string): void => {
 export const getBasePath = (): string => {
   if (typeof window !== "undefined") {
     // Check if we're on GitHub Pages with the /arteriola path
-    if (window.location.hostname.includes("github.io")) {
+    if (window.location.hostname.includes("github.io") || window.location.pathname.startsWith("/arteriola")) {
       return "/arteriola"
     }
 

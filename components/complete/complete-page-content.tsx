@@ -12,6 +12,20 @@ import { useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 
+// Add a helper function at the top of the file to handle image paths
+// Add this after the imports:
+// Helper function to ensure image paths work with basePath
+const getImagePath = (path: string): string => {
+  // If path already starts with http or https, it's an external URL
+  if (path.startsWith("http")) return path
+
+  // If path starts with a slash, remove it
+  const cleanPath = path.startsWith("/") ? path.substring(1) : path
+
+  // Return the path (Next.js will handle the basePath)
+  return cleanPath
+}
+
 // Add this function at the top of the file, after the imports
 // Function to generate HTML for all sections' questions
 const generateAllSectionsReviewHTML = (
@@ -446,7 +460,7 @@ const generateAllSectionsReviewHTML = (
                       question.image && question.type === "passage"
                         ? `
                       <div class="image-container">
-                        <img src="${question.image}" alt="Passage image" />
+                        <img src="${getImagePath(question.image)}" alt="Passage image" />
                       </div>
                     `
                         : ""
@@ -464,7 +478,7 @@ const generateAllSectionsReviewHTML = (
                   question.image && question.type !== "passage"
                     ? `
                   <div class="image-container">
-                    <img src="${question.image}" alt="Question image" />
+                    <img src="${getImagePath(question.image)}" alt="Question image" />
                   </div>
                 `
                     : ""
@@ -509,7 +523,7 @@ const generateAllSectionsReviewHTML = (
                     question.explanationImage
                       ? `
                     <div class="image-container">
-                      <img src="${question.explanationImage}" alt="Explanation image" />
+                      <img src="${getImagePath(question.explanationImage)}" alt="Explanation image" />
                     </div>
                   `
                       : ""
