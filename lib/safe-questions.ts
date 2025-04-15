@@ -1,5 +1,7 @@
 import { getAllSectionQuestions } from "./questions"
 import type { Question } from "@/lib/exam-data"
+import { section2Passages } from "./exam-data"
+import { extractQuestionsFromPassages } from "./questions"
 
 // A safer wrapper around getAllSectionQuestions
 export function getSafeSectionQuestions(sectionId: number): Question[] {
@@ -8,10 +10,24 @@ export function getSafeSectionQuestions(sectionId: number): Question[] {
 
     // Get questions from the original function
     const allQuestions = getAllSectionQuestions()
+    console.log(`getAllSectionQuestions returned:`, Object.keys(allQuestions))
 
     // Check if the section exists and has questions
     if (!allQuestions || !allQuestions[sectionId] || !Array.isArray(allQuestions[sectionId])) {
       console.error(`No valid questions found for section ${sectionId}`)
+
+      // For section 2, let's try to directly extract questions from section2Passages
+      if (sectionId === 2 && section2Passages && section2Passages.length > 0) {
+        console.log(
+          `Attempting to directly extract questions from section2Passages (${section2Passages.length} passages)`,
+        )
+        const extractedQuestions = extractQuestionsFromPassages(section2Passages)
+        if (extractedQuestions && extractedQuestions.length > 0) {
+          console.log(`Successfully extracted ${extractedQuestions.length} questions from section2Passages`)
+          return extractedQuestions
+        }
+      }
+
       return createFallbackQuestions(sectionId)
     }
 

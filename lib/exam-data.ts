@@ -1039,6 +1039,782 @@ export const section2Passages: Passage[] = [
           },
         ],
       },
+      {
+        id: "cars-passage-1",
+        text: "The concept of justice has been debated by philosophers for centuries. Plato viewed justice as harmony in a structured political body. For Aristotle, justice meant equality for equals and inequality for unequals. John Rawls proposed a thought experiment called the 'veil of ignorance,' where individuals make decisions about social justice without knowing their own place in society. This forces decision-makers to consider all positions in society when establishing principles of justice, as they might end up in any position themselves. Critics argue that this approach is too theoretical and doesn't account for real-world complexities. However, proponents suggest that the veil of ignorance provides an impartial framework for considering fairness in social institutions.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p1-q1",
+            type: "passage",
+            passageId: "cars-passage-1",
+            question: "According to the passage, Rawls' 'veil of ignorance' is designed to:",
+            options: [
+              "Promote impartiality in decisions about justice",
+              "Prove that Plato's concept of justice is superior",
+              "Demonstrate that justice is impossible to achieve",
+              "Show that inequality is necessary in society",
+            ],
+            correctAnswer: "Promote impartiality in decisions about justice",
+            explanation:
+              "The passage states that the 'veil of ignorance' forces decision-makers to consider all positions in society, creating an impartial framework for considering fairness.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p1-q2",
+            type: "passage",
+            passageId: "cars-passage-1",
+            question: "Which of the following best describes a criticism of Rawls' approach mentioned in the passage?",
+            options: [
+              "It doesn't account for real-world complexities",
+              "It favors equality over liberty",
+              "It contradicts Aristotle's view of justice",
+              "It is too focused on political structures",
+            ],
+            correctAnswer: "It doesn't account for real-world complexities",
+            explanation:
+              "The passage explicitly states that critics argue Rawls' approach is 'too theoretical and doesn't account for real-world complexities.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p1-q3",
+            type: "passage",
+            passageId: "cars-passage-1",
+            question:
+              "Based on the passage, how would Aristotle likely view a society that treats all citizens exactly the same regardless of their contributions?",
+            options: [
+              "As unjust, since he believed in inequality for unequals",
+              "As perfectly just, since everyone is treated equally",
+              "As aligned with Rawls' veil of ignorance",
+              "As a practical implementation of Plato's harmony",
+            ],
+            correctAnswer: "As unjust, since he believed in inequality for unequals",
+            explanation:
+              "The passage states that for Aristotle, 'justice meant equality for equals and inequality for unequals,' suggesting he would view treating everyone exactly the same as unjust if they are not equal in relevant ways.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p1-q4",
+            type: "passage",
+            passageId: "cars-passage-1",
+            question: "The author's tone toward Rawls' theory could best be described as:",
+            options: [
+              "Balanced, presenting both support and criticism",
+              "Dismissive, suggesting the theory has no practical value",
+              "Enthusiastic, strongly advocating for its implementation",
+              "Confused, misunderstanding the basic principles",
+            ],
+            correctAnswer: "Balanced, presenting both support and criticism",
+            explanation:
+              "The author presents both criticisms ('too theoretical') and support ('provides an impartial framework') for Rawls' theory without strongly favoring either position.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p1-q5",
+            type: "passage",
+            passageId: "cars-passage-1",
+            question: "Which philosophical approach to justice is NOT discussed in the passage?",
+            options: [
+              "Utilitarianism",
+              "Plato's concept of harmony",
+              "Aristotle's view of equality and inequality",
+              "Rawls' veil of ignorance",
+            ],
+            correctAnswer: "Utilitarianism",
+            explanation:
+              "The passage discusses Plato's view of justice as harmony, Aristotle's view of equality for equals, and Rawls' veil of ignorance, but does not mention utilitarianism.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "cars-passage-2",
+        text: "Climate change represents one of the most significant challenges of our time, with implications that extend far beyond environmental concerns. While the scientific consensus on anthropogenic climate change is robust, public perception and policy responses vary widely. Some argue that economic considerations should take precedence, suggesting that aggressive climate policies could hamper growth and disproportionately affect developing nations. Others contend that the potential catastrophic consequences of inaction far outweigh short-term economic concerns. The intergenerational ethics of climate change further complicate the debate: current generations must decide how much they are willing to sacrifice for the benefit of future generations who have no voice in today's decisions. This temporal dimension distinguishes climate ethics from many other ethical challenges.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p2-q1",
+            type: "passage",
+            passageId: "cars-passage-2",
+            question: "The primary purpose of this passage is to:",
+            options: [
+              "Highlight the complexity of climate change as both a scientific and ethical issue",
+              "Argue that economic concerns should take priority over environmental policies",
+              "Demonstrate that scientific consensus on climate change is insufficient",
+              "Propose specific policies to address intergenerational climate justice",
+            ],
+            correctAnswer: "Highlight the complexity of climate change as both a scientific and ethical issue",
+            explanation:
+              "The passage presents climate change as a complex issue with scientific, economic, and ethical dimensions, particularly highlighting the intergenerational ethical challenges.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p2-q2",
+            type: "passage",
+            passageId: "cars-passage-2",
+            question: "According to the passage, what makes the ethics of climate change particularly distinctive?",
+            options: [
+              "Its temporal dimension affecting future generations",
+              "The lack of scientific consensus on the issue",
+              "Its disproportionate impact on developing nations",
+              "The conflict between environmental and economic concerns",
+            ],
+            correctAnswer: "Its temporal dimension affecting future generations",
+            explanation:
+              "The passage explicitly states that 'This temporal dimension distinguishes climate ethics from many other ethical challenges,' referring to how current generations must make decisions that affect future generations.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p2-q3",
+            type: "passage",
+            passageId: "cars-passage-2",
+            question: "Which of the following statements would most undermine an argument presented in the passage?",
+            options: [
+              "Evidence that climate change will primarily benefit future generations",
+              "Proof that developing nations support aggressive climate policies",
+              "Studies showing economic growth increases with climate action",
+              "Research indicating public perception aligns with scientific consensus",
+            ],
+            correctAnswer: "Evidence that climate change will primarily benefit future generations",
+            explanation:
+              "The passage presents the ethical challenge as current generations sacrificing for future generations who would be harmed by climate change. Evidence that future generations would benefit from climate change would undermine this ethical dilemma.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p2-q4",
+            type: "passage",
+            passageId: "cars-passage-2",
+            question: "The author's attitude toward the scientific consensus on climate change can best be described as:",
+            options: [
+              "Accepting, treating it as established fact",
+              "Skeptical, questioning its validity",
+              "Neutral, presenting it as one perspective among many",
+              "Dismissive, considering it irrelevant to policy decisions",
+            ],
+            correctAnswer: "Accepting, treating it as established fact",
+            explanation:
+              "The author states that 'the scientific consensus on anthropogenic climate change is robust,' indicating acceptance of this consensus as factual.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p2-q5",
+            type: "passage",
+            passageId: "cars-passage-2",
+            question: "Based on the passage, which group has the least direct input into climate policy decisions?",
+            options: [
+              "Future generations",
+              "Scientists studying climate change",
+              "Developing nations",
+              "Economic policy experts",
+            ],
+            correctAnswer: "Future generations",
+            explanation:
+              "The passage states that 'future generations... have no voice in today's decisions,' indicating they have the least direct input into current climate policy decisions.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "cars-passage-3",
+        text: "The concept of beauty has evolved dramatically throughout human history. In ancient Greece, beauty was closely tied to mathematical proportions and harmony, as exemplified by the Golden Ratio. During the Renaissance, beauty became associated with realistic depictions of the human form and natural landscapes. The modern era has seen a fragmentation of beauty standards, with movements like Dadaism and abstract expressionism challenging conventional aesthetics. Contemporary discussions of beauty increasingly focus on its subjective and culturally constructed nature. Some philosophers argue that beauty is entirely in the eye of the beholder, while others maintain that certain aesthetic principles transcend cultural and historical boundaries. This tension between universal and relative conceptions of beauty continues to animate debates in aesthetics.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p3-q1",
+            type: "passage",
+            passageId: "cars-passage-3",
+            question:
+              "According to the passage, how did the concept of beauty in ancient Greece differ from modern conceptions?",
+            options: [
+              "It was based on mathematical proportions rather than subjective perception",
+              "It focused exclusively on natural landscapes rather than human forms",
+              "It rejected cultural influences on aesthetic judgments",
+              "It emphasized abstract expression over realistic depiction",
+            ],
+            correctAnswer: "It was based on mathematical proportions rather than subjective perception",
+            explanation:
+              "The passage states that in ancient Greece, 'beauty was closely tied to mathematical proportions and harmony,' while modern conceptions focus more on 'subjective and culturally constructed nature.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p3-q2",
+            type: "passage",
+            passageId: "cars-passage-3",
+            question: "Which artistic movement is specifically mentioned as challenging conventional aesthetics?",
+            options: ["Dadaism", "Renaissance art", "Ancient Greek sculpture", "Golden Ratio design"],
+            correctAnswer: "Dadaism",
+            explanation:
+              "The passage mentions 'movements like Dadaism and abstract expressionism challenging conventional aesthetics' in the modern era.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p3-q3",
+            type: "passage",
+            passageId: "cars-passage-3",
+            question: "The main contrast presented in the passage is between:",
+            options: [
+              "Universal and culturally relative conceptions of beauty",
+              "Ancient Greek and Renaissance artistic techniques",
+              "Mathematical and naturalistic approaches to art",
+              "Professional critics and average viewers of art",
+            ],
+            correctAnswer: "Universal and culturally relative conceptions of beauty",
+            explanation:
+              "The passage concludes by highlighting the 'tension between universal and relative conceptions of beauty' as the ongoing debate in aesthetics.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p3-q4",
+            type: "passage",
+            passageId: "cars-passage-3",
+            question:
+              "Based on the passage, during which period would an artist most likely focus on realistic depiction of natural landscapes?",
+            options: ["The Renaissance", "Ancient Greece", "The Dadaist movement", "Contemporary art"],
+            correctAnswer: "The Renaissance",
+            explanation:
+              "The passage states that 'During the Renaissance, beauty became associated with realistic depictions of the human form and natural landscapes.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p3-q5",
+            type: "passage",
+            passageId: "cars-passage-3",
+            question: "The author's primary purpose in this passage is to:",
+            options: [
+              "Trace how conceptions of beauty have changed over time",
+              "Argue that beauty standards should return to mathematical principles",
+              "Prove that beauty is entirely subjective and culturally determined",
+              "Demonstrate the superiority of Renaissance artistic techniques",
+            ],
+            correctAnswer: "Trace how conceptions of beauty have changed over time",
+            explanation:
+              "The passage provides a chronological overview of how beauty has been conceptualized from ancient Greece through the Renaissance to modern and contemporary periods.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "cars-passage-4",
+        text: "The digital divide refers to the gap between demographics and regions that have access to modern information and communications technology and those that don't or have restricted access. This technology includes the telephone, television, personal computers, and the internet. While the term 'digital divide' traditionally referred to access to computers and the internet, differences in the quality of access, information literacy, and technical skills are also significant factors. The digital divide can exist between those living in rural areas and those living in urban areas, between the educated and uneducated, between socioeconomic groups, and globally between more and less industrially developed nations. Even among populations with some access to technology, the digital divide can be evident in the form of lower-performance computers, lower-speed wireless connections, lower-priced connections such as dial-up, and limited access to subscription-based content.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p4-q1",
+            type: "passage",
+            passageId: "cars-passage-4",
+            question: "According to the passage, the digital divide is BEST defined as:",
+            options: [
+              "The gap in access to and quality of modern information technology between different groups",
+              "The difference in computer ownership between rural and urban populations",
+              "The global disparity in internet connection speeds",
+              "The educational gap resulting from unequal access to online resources",
+            ],
+            correctAnswer: "The gap in access to and quality of modern information technology between different groups",
+            explanation:
+              "The passage defines the digital divide as 'the gap between demographics and regions that have access to modern information and communications technology and those that don't or have restricted access.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p4-q2",
+            type: "passage",
+            passageId: "cars-passage-4",
+            question: "Which of the following is NOT mentioned as a factor contributing to the digital divide?",
+            options: [
+              "Government censorship of online content",
+              "Quality of access to technology",
+              "Information literacy",
+              "Technical skills",
+            ],
+            correctAnswer: "Government censorship of online content",
+            explanation:
+              "The passage mentions quality of access, information literacy, and technical skills as factors, but does not mention government censorship of online content.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p4-q3",
+            type: "passage",
+            passageId: "cars-passage-4",
+            question:
+              "Based on the passage, which of the following would be an example of the digital divide even among populations with some technology access?",
+            options: [
+              "Having only dial-up internet rather than high-speed broadband",
+              "Preferring to read print books rather than e-books",
+              "Choosing not to own a smartphone for personal reasons",
+              "Using technology primarily for entertainment rather than education",
+            ],
+            correctAnswer: "Having only dial-up internet rather than high-speed broadband",
+            explanation:
+              "The passage specifically mentions 'lower-priced connections such as dial-up' as an example of the digital divide among populations with some access to technology.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p4-q4",
+            type: "passage",
+            passageId: "cars-passage-4",
+            question: "The author's primary purpose in this passage is to:",
+            options: [
+              "Explain the concept of the digital divide and its various dimensions",
+              "Argue for government intervention to eliminate the digital divide",
+              "Compare the digital divide in developed versus developing nations",
+              "Demonstrate how the digital divide has narrowed over time",
+            ],
+            correctAnswer: "Explain the concept of the digital divide and its various dimensions",
+            explanation:
+              "The passage focuses on defining the digital divide and explaining its various dimensions and manifestations, without advocating for specific policies or making comparative claims about its evolution.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p4-q5",
+            type: "passage",
+            passageId: "cars-passage-4",
+            question: "Which of the following statements is supported by the passage?",
+            options: [
+              "The digital divide encompasses more than just physical access to computers and the internet",
+              "Rural areas have completely overcome the digital divide through satellite technology",
+              "The digital divide is primarily an issue in developing nations",
+              "Education level has little impact on the digital divide within developed countries",
+            ],
+            correctAnswer: "The digital divide encompasses more than just physical access to computers and the internet",
+            explanation:
+              "The passage states that 'While the term 'digital divide' traditionally referred to access to computers and the internet, differences in the quality of access, information literacy, and technical skills are also significant factors.'",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "cars-passage-5",
+        text: "The placebo effect is a remarkable phenomenon in which a placebo—a fake treatment, an inactive substance like sugar, distilled water, or saline solution—can sometimes improve a patient's condition simply because the person has the expectation that it will be helpful. Expectation plays a potent role in the placebo effect. The more a person believes they are going to benefit from a treatment, the more likely it is that they will experience a benefit. While most research on the placebo effect has focused on pain reduction, placebos have been shown to affect a wide variety of conditions, including depression, anxiety, fatigue, and even some symptoms of Parkinson's disease. Recent research has demonstrated that placebos can work even when patients know they are taking a placebo, a phenomenon known as the 'open-label placebo' effect. This suggests that the placebo effect is not merely about deception or trickery but involves complex neurobiological mechanisms that we are only beginning to understand.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p5-q1",
+            type: "passage",
+            passageId: "cars-passage-5",
+            question: "According to the passage, which of the following is true about placebos?",
+            options: [
+              "They can be effective even when patients know they are receiving a placebo",
+              "They are only effective for treating pain conditions",
+              "They work primarily through deception of the patient",
+              "They are most effective when administered as pills rather than injections",
+            ],
+            correctAnswer: "They can be effective even when patients know they are receiving a placebo",
+            explanation:
+              "The passage states that 'placebos can work even when patients know they are taking a placebo, a phenomenon known as the 'open-label placebo' effect.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p5-q2",
+            type: "passage",
+            passageId: "cars-passage-5",
+            question: "The author suggests that the placebo effect:",
+            options: [
+              "Involves complex neurobiological mechanisms not fully understood",
+              "Is primarily a psychological trick with no biological basis",
+              "Has been thoroughly explained by modern medical research",
+              "Only works for patients who are highly suggestible",
+            ],
+            correctAnswer: "Involves complex neurobiological mechanisms not fully understood",
+            explanation:
+              "The passage concludes by stating that the placebo effect 'involves complex neurobiological mechanisms that we are only beginning to understand.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p5-q3",
+            type: "passage",
+            passageId: "cars-passage-5",
+            question: "Based on the passage, which factor is most important in determining the effectiveness of a placebo?",
+            options: [
+              "The patient's expectation of benefit",
+              "The type of inactive substance used",
+              "The condition being treated",
+              "Whether the patient knows it's a placebo",
+            ],
+            correctAnswer: "The patient's expectation of benefit",
+            explanation:
+              "The passage emphasizes that 'Expectation plays a potent role in the placebo effect. The more a person believes they are going to benefit from a treatment, the more likely it is that they will experience a benefit.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p5-q4",
+            type: "passage",
+            passageId: "cars-passage-5",
+            question: "Which of the following conditions is NOT specifically mentioned as being affected by placebos?",
+            options: ["Cancer", "Depression", "Parkinson's disease", "Anxiety"],
+            correctAnswer: "Cancer",
+            explanation:
+              "The passage mentions that placebos affect 'pain reduction... depression, anxiety, fatigue, and even some symptoms of Parkinson's disease,' but does not mention cancer.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p5-q5",
+            type: "passage",
+            passageId: "cars-passage-5",
+            question: "The 'open-label placebo' effect challenges which previous assumption about placebos?",
+            options: [
+              "That deception is necessary for placebos to work",
+              "That placebos only work for pain conditions",
+              "That placebos have no biological effects",
+              "That expectation is important for placebo effects",
+            ],
+            correctAnswer: "That deception is necessary for placebos to work",
+            explanation:
+              "The passage states that the open-label placebo effect 'suggests that the placebo effect is not merely about deception or trickery,' challenging the assumption that patients must be deceived for placebos to be effective.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "cars-passage-6",
+        text: "Harper Lee's 'To Kill a Mockingbird' remains one of the most influential American novels, though critical reception has evolved significantly since its publication in 1960. Initially praised for its moral stance against racial injustice, contemporary critics have raised questions about its portrayal of Black characters and white saviorism. The character of Atticus Finch, long celebrated as a paragon of moral virtue, has been reexamined as potentially representing a kind of passive liberalism that ultimately maintains rather than challenges systemic racism. The novel's narrative perspective through the eyes of Scout, a young white girl, necessarily limits the depth with which racism is explored. Some educators argue that while the novel remains valuable, it should be taught alongside works by Black authors that center Black experiences and agency. Others contend that despite its limitations, the novel's accessible narrative and clear moral message make it an effective gateway for discussions about racism, particularly for younger readers.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p6-q1",
+            type: "passage",
+            passageId: "cars-passage-6",
+            question: "According to the passage, how has critical reception of 'To Kill a Mockingbird' changed over time?",
+            options: [
+              "From unqualified praise to more nuanced criticism of its racial politics",
+              "From obscurity to widespread recognition as a literary masterpiece",
+              "From criticism of its writing style to appreciation of its moral message",
+              "From regional American appeal to global literary significance",
+            ],
+            correctAnswer: "From unqualified praise to more nuanced criticism of its racial politics",
+            explanation:
+              "The passage states that the novel was 'Initially praised for its moral stance against racial injustice,' but 'contemporary critics have raised questions about its portrayal of Black characters and white saviorism.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p6-q2",
+            type: "passage",
+            passageId: "cars-passage-6",
+            question:
+              "Which of the following best describes the contemporary criticism of Atticus Finch mentioned in the passage?",
+            options: [
+              "His character represents a form of liberalism that fails to challenge systemic racism",
+              "His legal defense strategy was unrealistic for the historical period",
+              "His parenting approach was too permissive for the 1930s setting",
+              "His character lacks psychological complexity compared to modern literary standards",
+            ],
+            correctAnswer: "His character represents a form of liberalism that fails to challenge systemic racism",
+            explanation:
+              "The passage states that Atticus has been 'reexamined as potentially representing a kind of passive liberalism that ultimately maintains rather than challenges systemic racism.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p6-q3",
+            type: "passage",
+            passageId: "cars-passage-6",
+            question: "Based on the passage, what limitation of the novel stems from its narrative perspective?",
+            options: [
+              "It limits the depth with which racism is explored",
+              "It makes the story too simplistic for adult readers",
+              "It prevents accurate historical representation of the 1930s South",
+              "It focuses too much on legal proceedings rather than social issues",
+            ],
+            correctAnswer: "It limits the depth with which racism is explored",
+            explanation:
+              "The passage explicitly states that 'The novel's narrative perspective through the eyes of Scout, a young white girl, necessarily limits the depth with which racism is explored.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p6-q4",
+            type: "passage",
+            passageId: "cars-passage-6",
+            question: "What educational approach to teaching 'To Kill a Mockingbird' is suggested in the passage?",
+            options: [
+              "Teaching it alongside works by Black authors",
+              "Removing it from school curricula entirely",
+              "Teaching it only to advanced high school students",
+              "Focusing on its literary style rather than its content",
+            ],
+            correctAnswer: "Teaching it alongside works by Black authors",
+            explanation:
+              "The passage states that 'Some educators argue that while the novel remains valuable, it should be taught alongside works by Black authors that center Black experiences and agency.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p6-q5",
+            type: "passage",
+            passageId: "cars-passage-6",
+            question: "The author's tone toward 'To Kill a Mockingbird' could best be described as:",
+            options: [
+              "Balanced, acknowledging both praise and criticism",
+              "Dismissive, suggesting the novel is outdated and harmful",
+              "Defensive, arguing against contemporary criticisms",
+              "Nostalgic, emphasizing the novel's historical importance over current relevance",
+            ],
+            correctAnswer: "Balanced, acknowledging both praise and criticism",
+            explanation:
+              "The author presents both traditional praise for the novel and contemporary criticisms, as well as arguments for its continued value alongside its limitations, without strongly favoring either position.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "cars-passage-7",
+        text: "Impressionism emerged in the late 19th century as a radical departure from the formal rules that had previously governed painting. The movement began with a group of Paris-based artists whose independent exhibitions brought them to prominence during the 1870s and 1880s. Impressionist painting characteristics include relatively small, thin, yet visible brush strokes, open composition, emphasis on accurate depiction of light in its changing qualities, ordinary subject matter, unusual visual angles, and inclusion of movement as a crucial element of human perception and experience. The development of Impressionism can be considered partly as a reaction by artists to the challenge presented by photography, which seemed to devalue the artist's skill in reproducing reality. The Impressionists sought to capture the momentary, sensory effect of a scene - the impression objects made on the eye in a fleeting instant. To achieve this effect, many Impressionist artists moved from the studio to the streets and countryside, painting en plein air.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p7-q1",
+            type: "passage",
+            passageId: "cars-passage-7",
+            question: "According to the passage, Impressionism developed partly as a response to:",
+            options: [
+              "The challenge presented by photography",
+              "Government censorship of traditional art",
+              "Public demand for more realistic paintings",
+              "Economic pressures on Paris-based artists",
+            ],
+            correctAnswer: "The challenge presented by photography",
+            explanation:
+              "The passage states that 'The development of Impressionism can be considered partly as a reaction by artists to the challenge presented by photography, which seemed to devalue the artist's skill in reproducing reality.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p7-q2",
+            type: "passage",
+            passageId: "cars-passage-7",
+            question: "Which of the following is NOT mentioned as a characteristic of Impressionist painting?",
+            options: [
+              "Symbolic representation of religious themes",
+              "Visible brush strokes",
+              "Open composition",
+              "Unusual visual angles",
+            ],
+            correctAnswer: "Symbolic representation of religious themes",
+            explanation:
+              "The passage lists several characteristics of Impressionist painting, including visible brush strokes, open composition, and unusual visual angles, but does not mention symbolic representation of religious themes.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p7-q3",
+            type: "passage",
+            passageId: "cars-passage-7",
+            question: "The term 'en plein air' as used in the passage most likely refers to:",
+            options: [
+              "Painting outdoors",
+              "Using a new type of canvas",
+              "Exhibiting work independently",
+              "Focusing on light effects",
+            ],
+            correctAnswer: "Painting outdoors",
+            explanation:
+              "The passage states that 'many Impressionist artists moved from the studio to the streets and countryside, painting en plein air,' suggesting that the term refers to painting outdoors rather than in a studio.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p7-q4",
+            type: "passage",
+            passageId: "cars-passage-7",
+            question: "Based on the passage, what did Impressionist painters primarily seek to capture?",
+            options: [
+              "The momentary, sensory effect of a scene",
+              "Perfect anatomical accuracy in human subjects",
+              "Historical and mythological narratives",
+              "Political and social commentary",
+            ],
+            correctAnswer: "The momentary, sensory effect of a scene",
+            explanation:
+              "The passage explicitly states that 'The Impressionists sought to capture the momentary, sensory effect of a scene - the impression objects made on the eye in a fleeting instant.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p7-q5",
+            type: "passage",
+            passageId: "cars-passage-7",
+            question: "The passage suggests that before Impressionism, painting was characterized by:",
+            options: [
+              "Adherence to formal rules",
+              "Emphasis on capturing changing light",
+              "Focus on ordinary subject matter",
+              "Preference for outdoor settings",
+            ],
+            correctAnswer: "Adherence to formal rules",
+            explanation:
+              "The opening sentence states that 'Impressionism emerged in the late 19th century as a radical departure from the formal rules that had previously governed painting,' suggesting that pre-Impressionist painting was characterized by adherence to formal rules.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "cars-passage-8",
+        text: "Economic inequality has been a persistent feature of human societies, but its extent and impact have varied considerably across time and place. In recent decades, many developed nations have experienced growing income and wealth disparities despite overall economic growth. Some economists argue that this trend is an inevitable consequence of technological change and globalization, which have increased returns to education and specialized skills while reducing demand for less-skilled labor. Others contend that political choices, including tax policies, labor regulations, and social welfare programs, play a more significant role in determining inequality levels. Cross-national comparisons reveal that countries with similar levels of economic development can have markedly different inequality profiles, suggesting that policy choices matter. The debate extends beyond purely economic considerations to questions of social cohesion, political stability, and conceptions of fairness and opportunity.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p8-q1",
+            type: "passage",
+            passageId: "cars-passage-8",
+            question:
+              "According to the passage, which factors have some economists identified as driving recent increases in inequality?",
+            options: [
+              "Technological change and globalization",
+              "Population growth and urbanization",
+              "Declining educational attainment",
+              "Increased labor union membership",
+            ],
+            correctAnswer: "Technological change and globalization",
+            explanation:
+              "The passage states that 'Some economists argue that this trend is an inevitable consequence of technological change and globalization, which have increased returns to education and specialized skills while reducing demand for less-skilled labor.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p8-q2",
+            type: "passage",
+            passageId: "cars-passage-8",
+            question:
+              "What evidence does the passage provide to support the idea that policy choices affect inequality levels?",
+            options: [
+              "Countries with similar development levels have different inequality profiles",
+              "Overall economic growth has occurred alongside growing disparities",
+              "Inequality has been a persistent feature throughout human history",
+              "The debate includes non-economic considerations",
+            ],
+            correctAnswer: "Countries with similar development levels have different inequality profiles",
+            explanation:
+              "The passage states that 'Cross-national comparisons reveal that countries with similar levels of economic development can have markedly different inequality profiles, suggesting that policy choices matter.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p8-q3",
+            type: "passage",
+            passageId: "cars-passage-8",
+            question: "Which of the following best describes the author's approach to the topic of economic inequality?",
+            options: [
+              "Presenting multiple perspectives without strongly favoring one",
+              "Arguing that technological change is the primary driver of inequality",
+              "Advocating for specific policy solutions to reduce inequality",
+              "Dismissing concerns about inequality as exaggerated",
+            ],
+            correctAnswer: "Presenting multiple perspectives without strongly favoring one",
+            explanation:
+              "The author presents different perspectives on the causes of inequality (technological/globalization factors versus policy choices) without explicitly endorsing either view.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p8-q4",
+            type: "passage",
+            passageId: "cars-passage-8",
+            question:
+              "Based on the passage, which of the following would LEAST likely be considered a policy choice that could affect inequality levels?",
+            options: [
+              "The pace of technological innovation",
+              "Tax policies",
+              "Labor regulations",
+              "Social welfare programs",
+            ],
+            correctAnswer: "The pace of technological innovation",
+            explanation:
+              "The passage lists 'tax policies, labor regulations, and social welfare programs' as policy choices that affect inequality, while technological change is presented as a factor separate from policy choices.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p8-q5",
+            type: "passage",
+            passageId: "cars-passage-8",
+            question: "The passage suggests that the debate about economic inequality:",
+            options: [
+              "Extends beyond economic considerations to social and political concerns",
+              "Has been definitively resolved by cross-national comparisons",
+              "Is primarily focused on developing nations",
+              "Has diminished in importance in recent decades",
+            ],
+            correctAnswer: "Extends beyond economic considerations to social and political concerns",
+            explanation:
+              "The final sentence states that 'The debate extends beyond purely economic considerations to questions of social cohesion, political stability, and conceptions of fairness and opportunity.'",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "cars-passage-9",
+        text: "Memory is not a perfect recording of experience but rather a reconstructive process susceptible to various distortions and biases. When we recall an event, we are not simply retrieving a stored memory but actively reconstructing it based on fragments of actual memory, general knowledge, expectations, and suggestions received after the event. This reconstructive nature of memory has significant implications for eyewitness testimony in legal settings. Studies have consistently shown that eyewitness memory can be influenced by the wording of questions, exposure to post-event information, and even the implicit expectations of the interviewer. The misinformation effect occurs when a person's recall of episodic memories becomes less accurate because of post-event information. False memories—entirely fabricated recollections of events that never occurred—can be implanted through suggestion, particularly when the suggested events are plausible or when the suggestion comes from a trusted source. Understanding these memory phenomena has led to reforms in how eyewitness evidence is collected and evaluated in legal proceedings.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-p9-q1",
+            type: "passage",
+            passageId: "cars-passage-9",
+            question: "According to the passage, memory is best described as:",
+            options: [
+              "A reconstructive process based on fragments and other information",
+              "A perfect recording of experienced events",
+              "A biological function unaffected by external influences",
+              "A storage system that deteriorates only with age",
+            ],
+            correctAnswer: "A reconstructive process based on fragments and other information",
+            explanation:
+              "The passage states that memory is 'not a perfect recording of experience but rather a reconstructive process' and that when recalling an event, we are 'actively reconstructing it based on fragments of actual memory, general knowledge, expectations, and suggestions.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p9-q2",
+            type: "passage",
+            passageId: "cars-passage-9",
+            question: "The 'misinformation effect' refers to:",
+            options: [
+              "Memory becoming less accurate due to post-event information",
+              "Deliberately lying about witnessed events",
+              "Forgetting details of traumatic experiences",
+              "The tendency to remember only the beginning and end of events",
+            ],
+            correctAnswer: "Memory becoming less accurate due to post-event information",
+            explanation:
+              "The passage defines the misinformation effect as occurring 'when a person's recall of episodic memories becomes less accurate because of post-event information.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p9-q3",
+            type: "passage",
+            passageId: "cars-passage-9",
+            question: "Based on the passage, which factor makes it more likely that false memories will be implanted?",
+            options: [
+              "The suggested events are plausible",
+              "The person has an exceptional memory",
+              "The events being recalled are recent",
+              "The person is aware of memory biases",
+            ],
+            correctAnswer: "The suggested events are plausible",
+            explanation:
+              "The passage states that false memories 'can be implanted through suggestion, particularly when the suggested events are plausible or when the suggestion comes from a trusted source.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p9-q4",
+            type: "passage",
+            passageId: "cars-passage-9",
+            question: "The primary purpose of this passage is to:",
+            options: [
+              "Explain how memory works and its implications for eyewitness testimony",
+              "Argue that eyewitness testimony should never be used in court",
+              "Compare human memory to computer storage systems",
+              "Propose new techniques for improving memory accuracy",
+            ],
+            correctAnswer: "Explain how memory works and its implications for eyewitness testimony",
+            explanation:
+              "The passage explains the reconstructive nature of memory and specifically discusses how this affects eyewitness testimony in legal settings, without making absolute claims about eliminating such testimony.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-p9-q5",
+            type: "passage",
+            passageId: "cars-passage-9",
+            question: "Which of the following is NOT mentioned as a factor that can influence eyewitness memory?",
+            options: [
+              "The witness's personality type",
+              "The wording of questions",
+              "Post-event information",
+              "Interviewer expectations",
+            ],
+            correctAnswer: "The witness's personality type",
+            explanation:
+              "The passage mentions 'the wording of questions, exposure to post-event information, and even the implicit expectations of the interviewer' as factors influencing eyewitness memory, but does not mention personality type.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
   ]
 
 // Biological and Biochemical Foundations

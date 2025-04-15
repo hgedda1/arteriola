@@ -11,6 +11,9 @@ import type { Question } from "@/lib/exam-data"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
 import { formatTopicName } from "@/lib/score-utils"
 
+// Add this at the top of the file, after the imports
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+
 // Add this function to handle passage-based questions
 const getPassageQuestions = (questions: Question[], currentQuestion: Question): Question[] => {
   if (currentQuestion.type !== "passage" || !currentQuestion.passageId) {
@@ -506,10 +509,10 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
   }, [sectionId])
 
   const sectionTitles = {
-    1: "Chemical and Physical Foundations of Biological Systems",
-    2: "Critical Analysis and Reasoning Skills",
-    3: "Biological and Biochemical Foundations of Living Systems",
-    4: "Psychological, Social, and Biological Foundations of Behavior",
+    1: "Biological and Biochemical Foundations of Living Systems",
+    2: "Chemical and Physical Foundations of Biological Systems",
+    3: "Psychological, Social, and Biological Foundations of Behavior",
+    4: "Critical Analysis and Reasoning Skills",
   }
 
   useEffect(() => {
@@ -826,7 +829,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               {passageImage && (
                 <div className="mt-4 flex justify-center">
                   <Image
-                    src={passageImage || "/placeholder.svg"}
+                    src={passageImage ? `${basePath}${passageImage}` : `${basePath}/placeholder.svg`}
                     alt="Passage image"
                     width={400}
                     height={300}
@@ -923,7 +926,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               {hasQuestionImage && (
                 <div className="mb-4">
                   <Image
-                    src={currentQuestion.image || "/placeholder.svg"}
+                    src={currentQuestion.image ? `${basePath}${currentQuestion.image}` : `${basePath}/placeholder.svg`}
                     alt="Question image"
                     width={300}
                     height={200}
@@ -942,7 +945,8 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                       const letter = String.fromCharCode(65 + index) // A, B, C, D, etc.
                       const isUserAnswer = userAnswers[currentQuestion.id] === option
                       const isCorrectAnswer = currentQuestion.correctAnswer === option
-                      const imageSrc = currentQuestion.optionImages?.[index] || "/placeholder.svg?height=200&width=200"
+                      const imageSrc =
+                        currentQuestion.optionImages?.[index] || `${basePath}/placeholder.svg?height=200&width=200`
                       const optionId = `option-${currentQuestion.id}-${index}`
 
                       return (
@@ -977,7 +981,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                               {!isUserAnswer && isCorrectAnswer && " (Correct Answer)"}
                             </label>
                             <Image
-                              src={imageSrc || "/placeholder.svg"}
+                              src={imageSrc || `${basePath}/placeholder.svg`}
                               alt={`Option ${letter}`}
                               width={300}
                               height={200}
@@ -1046,7 +1050,11 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                 {currentQuestion.explanationImage && (
                   <div className="mt-4 flex justify-center">
                     <Image
-                      src={currentQuestion.explanationImage || "/placeholder.svg"}
+                      src={
+                        currentQuestion.explanationImage
+                          ? `${basePath}${currentQuestion.explanationImage}`
+                          : `${basePath}/placeholder.svg`
+                      }
                       alt="Explanation image"
                       width={500}
                       height={300}
@@ -1117,7 +1125,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
             {hasQuestionImage && (
               <div className="mb-4 flex justify-center">
                 <Image
-                  src={currentQuestion.image || "/placeholder.svg"}
+                  src={currentQuestion.image ? `${basePath}${currentQuestion.image}` : `${basePath}/placeholder.svg`}
                   alt="Question image"
                   width={400}
                   height={300}
@@ -1135,7 +1143,8 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                     const letter = String.fromCharCode(65 + index) // A, B, C, D, etc.
                     const isUserAnswer = userAnswers[currentQuestion.id] === option
                     const isCorrectAnswer = currentQuestion.correctAnswer === option
-                    const imageSrc = currentQuestion.optionImages?.[index] || "/placeholder.svg?height=200&width=200"
+                    const imageSrc =
+                      currentQuestion.optionImages?.[index] || `${basePath}/placeholder.svg?height=200&width=200`
                     const optionId = `option-${currentQuestion.id}-${index}`
 
                     return (
@@ -1170,7 +1179,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                             {!isUserAnswer && isCorrectAnswer && " (Correct Answer)"}
                           </label>
                           <Image
-                            src={imageSrc || "/placeholder.svg"}
+                            src={imageSrc || `${basePath}/placeholder.svg`}
                             alt={`Option ${letter}`}
                             width={300}
                             height={200}
@@ -1239,7 +1248,11 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               {currentQuestion.explanationImage && (
                 <div className="mt-4 flex justify-center">
                   <Image
-                    src={currentQuestion.explanationImage || "/placeholder.svg"}
+                    src={
+                      currentQuestion.explanationImage
+                        ? `${basePath}${currentQuestion.explanationImage}`
+                        : `${basePath}/placeholder.svg`
+                    }
                     alt="Explanation image"
                     width={500}
                     height={300}

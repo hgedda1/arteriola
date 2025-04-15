@@ -15,12 +15,27 @@ import {
 
 // Add this import at the top of the file
 import { updateQuestionMetadata, updateSectionQuestions } from "./update-question-metadata"
-// import { getBasePath } from "./client-utils"
-import { shuffleArray } from "./utils"
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+/**
+ * Shuffles an array using the Fisher-Yates algorithm
+ * @param array The array to shuffle
+ * @returns A new shuffled array
+ */
+function shuffleArray<T>(array: T[]): T[] {
+  // Create a copy of the array to avoid modifying the original
+  const shuffled = [...array]
 
-function extractQuestionsFromPassages(passages: Passage[]): Question[] {
+  // Fisher-Yates shuffle algorithm
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+
+  return shuffled
+}
+
+// Export the extractQuestionsFromPassages function so it can be used in safe-questions.ts
+export function extractQuestionsFromPassages(passages: Passage[]): Question[] {
   const questions: Question[] = []
 
   if (!passages || !Array.isArray(passages)) {
@@ -28,39 +43,33 @@ function extractQuestionsFromPassages(passages: Passage[]): Question[] {
     return []
   }
 
-  passages.forEach((passage) => {
+  console.log(`Extracting questions from ${passages.length} passages...`)
+
+  passages.forEach((passage, passageIndex) => {
+    // Add all questions from this passage
     if (passage && passage.questions && Array.isArray(passage.questions)) {
-      const imagePath: string | undefined =
-        typeof passage.image === "string"
-          ? `${basePath}/${passage.image.trim().replace(/^\/+/g, '')}`
-          : undefined
+      console.log(`Processing passage ${passageIndex + 1} (${passage.id}): ${passage.questions.length} questions`)
 
       passage.questions.forEach((question, index) => {
-        const questionImagePath =
-          typeof question.image === "string"
-            ? `${basePath}/${question.image.trim().replace(/^\/+/g, '')}`
-            : undefined
-
+        // Only include the passage text with the first question to avoid duplication
         if (index === 0) {
           questions.push({
             ...question,
-            passage: typeof passage.text === "string" ? passage.text : undefined,
-            ...(imagePath && { image: imagePath }),
+            passage: passage.text,
+            ...(passage.image && { image: passage.image }), // Include passage image with first question
           })
         } else {
-          questions.push({
-            ...question,
-            ...(questionImagePath && { image: questionImagePath }),
-          })
+          questions.push(question)
         }
       })
+    } else {
+      console.warn(`Passage ${passageIndex + 1} has no questions or invalid format`)
     }
   })
 
+  console.log(`Total extracted questions: ${questions.length}`)
   return questions
 }
-
-export { extractQuestionsFromPassages }
 
 // Update the question generation function to handle passage-based questions and respect type percentages
 function generateQuestionsWithWeightage(
@@ -285,6 +294,10 @@ export function getSectionQuestions(sectionId: number): Question[] {
         // CARS - 53 questions, all passage-based
         targetCount = 53
 
+        // Add more detailed logging
+        console.log("Processing Section 2 (CARS)...")
+        console.log("Available section2Passages:", section2Passages ? section2Passages.length : "undefined")
+
         // First try to load questions from localStorage
         try {
           const storedQuestions = localStorage.getItem(`section2-questions`)
@@ -299,13 +312,55 @@ export function getSectionQuestions(sectionId: number): Question[] {
         }
 
         // If no stored questions, generate them
-        questions = generateQuestionsWithWeightage(
-          section2Questions,
-          section2Passages.length > 0 ? section2Passages : section1Passages, // Use section2Passages if available
-          2,
-          targetCount,
-          sectionTopicWeightage[2],
-        )
+        console.log("Generating new questions for Section 2...")
+
+        // Ensure we're using section2Passages and they're not empty
+        if (section2Passages && section2Passages.length > 0) {
+          console.log(`Using ${section2Passages.length} passages from section2Passages`)
+
+          // First try to directly extract questions from passages
+          const extractedQuestions = extractQuestionsFromPassages(section2Passages)
+          if (extractedQuestions && extractedQuestions.length > 0) {
+            console.log(`Successfully extracted ${extractedQuestions.length} questions directly from section2Passages`)
+            questions = extractedQuestions
+
+            // If we don't have enough questions, generate more
+            if (extractedQuestions.length < targetCount) {
+              console.log(
+                `Need ${targetCount - extractedQuestions.length} more questions to reach target of ${targetCount}`,
+              )
+              const additionalQuestions = generateQuestionsWithWeightage(
+                section2Questions,
+                section2Passages,
+                2,
+                targetCount - extractedQuestions.length,
+                sectionTopicWeightage[2],
+              )
+              questions = [...extractedQuestions, ...additionalQuestions]
+            }
+          } else {
+            console.log("Direct extraction failed, falling back to generateQuestionsWithWeightage")
+            questions = generateQuestionsWithWeightage(
+              section2Questions,
+              section2Passages,
+              2,
+              targetCount,
+              sectionTopicWeightage[2],
+            )
+          }
+        } else {
+          console.warn("section2Passages is empty or undefined, falling back to section1Passages")
+          questions = generateQuestionsWithWeightage(
+            section2Questions,
+            section1Passages,
+            2,
+            targetCount,
+            sectionTopicWeightage[2],
+          )
+        }
+
+        // Log the generated questions
+        console.log(`Generated ${questions.length} questions for section 2`)
         break
       case 3:
         // Bio/Biochem - 59 questions, mix of passage and discrete

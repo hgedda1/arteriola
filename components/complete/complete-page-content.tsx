@@ -12,19 +12,32 @@ import { useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 
-// Add a helper function at the top of the file to handle image paths
-// Add this after the imports:
-// Helper function to ensure image paths work with basePath
+// Add this helper function at the top of the file, after the imports
 const getImagePath = (path: string): string => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+
   // If path already starts with http or https, it's an external URL
   if (path.startsWith("http")) return path
 
-  // If path starts with a slash, remove it
+  // If path starts with a slash, ensure we don't double the slash
   const cleanPath = path.startsWith("/") ? path.substring(1) : path
 
-  // Return the path (Next.js will handle the basePath)
-  return cleanPath
+  // Return the path with basePath
+  return `${basePath}/${cleanPath}`
 }
+
+// Add this after the imports:
+// Helper function to ensure image paths work with basePath
+// const getImagePath = (path: string): string => {
+//   // If path already starts with http or https, it's an external URL
+//   if (path.startsWith("http")) return path
+
+//   // If path starts with a slash, remove it
+//   const cleanPath = path.startsWith("/") ? path.substring(1) : path
+
+//   // Return the path (Next.js will handle the basePath)
+//   return cleanPath
+// }
 
 // Add this function at the top of the file, after the imports
 // Function to generate HTML for all sections' questions

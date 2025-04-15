@@ -20,14 +20,14 @@ export const removeLocalStorage = (key: string): void => {
 
 // Base path helper
 export const getBasePath = (): string => {
+  // First check for environment variable
+  if (process.env.NEXT_PUBLIC_BASE_PATH) {
+    return process.env.NEXT_PUBLIC_BASE_PATH
+  }
+
   if (typeof window !== "undefined") {
     // Check if we're on GitHub Pages with the /arteriola path
     if (window.location.hostname.includes("github.io") || window.location.pathname.startsWith("/arteriola")) {
-      return "/arteriola"
-    }
-
-    // For local development when testing with the path
-    if (process.env.NODE_ENV === "development" && window.location.pathname.startsWith("/arteriola")) {
       return "/arteriola"
     }
   }
@@ -36,3 +36,22 @@ export const getBasePath = (): string => {
   return ""
 }
 
+// Helper function to prepend base path to image URLs
+export const getImagePath = (path: string): string => {
+  // If path is already absolute URL, return as is
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path
+  }
+
+  // If path is a data URL, return as is
+  if (path.startsWith("data:")) {
+    return path
+  }
+
+  // Remove leading slash if present
+  const cleanPath = path.startsWith("/") ? path.substring(1) : path
+
+  // Prepend base path
+  const basePath = getBasePath()
+  return `${basePath}/${cleanPath}`
+}
