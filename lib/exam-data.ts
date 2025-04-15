@@ -33,166 +33,253 @@ export interface Passage {
 
 // Critical Analysis and Reasoning Skills
 export const section2Passages: Passage[] = [
-  {
-    id: "passage-philosophy-justice",
-    text: "In the early nineteenth century, a large number of communal experiments, both secular and religious, sprang up in the northeastern United States. These communities shared the belief that it was possible to create a more perfect society through the proper social arrangements. The secular communities, such as Brook Farm, were inspired by the ideas of Charles Fourier, Robert Owen, and other European social theorists who believed that the competitive nature of capitalism was the source of society's ills. The religious communities, such as the Shakers and the Oneidans, were inspired by the belief that the Second Coming of Christ was imminent and that a more perfect society would hasten its arrival.\n\nBrook Farm, founded in 1841 in West Roxbury, Massachusetts, was one of the most famous of these communities. Led by George Ripley, a Unitarian minister, Brook Farm was based on the idea that a balance of manual and intellectual labor would create a more fulfilling life. The community attracted many notable intellectuals, including Nathaniel Hawthorne, who later wrote about his experiences in his novel The Blithedale Romance. Despite its intellectual vigor, Brook Farm struggled financially. The members, many of whom were more suited to intellectual than agricultural labor, found farming difficult and unpleasant. After a fire destroyed the community's main building in 1846, Brook Farm disbanded.\n\nThe Oneida Community, founded by John Humphrey Noyes in 1848 in Oneida, New York, was more successful. Noyes, who had studied theology at Yale, believed that Christ had already returned in 70 AD, making it possible for people to achieve perfection in this life. The Oneidans practiced 'complex marriage,' in which all members were considered married to each other, and 'mutual criticism,' in which members publicly critiqued each other's behavior. The Oneidans believed that monogamy was selfish and that by sharing partners, they could create a more selfless society. Unlike Brook Farm, the Oneida Community was economically successful, manufacturing steel traps and silverware. However, after Noyes fled to Canada to avoid prosecution for statutory rape, the community abandoned complex marriage and eventually became a joint-stock company, Oneida Ltd., which still exists today.",
-    topic: "criticalThinking",
-    questions: [
-      {
-        id: "cars-passage1-q1",
-        type: "passage",
-        passageId: "passage-philosophy-justice",
-        question: "The passage implies that the end of the Brook Farm experiment was probably brought on by",
-        options: [
-          "faltering commitment in the face of hardship.",
-          "a failure to attract members of sufficient intellect or ability.",
-          "the completion of the community's aims.",
-          "the incompetence of philosophers at field labor.",
-        ],
-        correctAnswer: "faltering commitment in the face of hardship.",
-        explanation:
-          "This is an inference question regarding Brook Farm's demise. The last half of the first paragraph suggests that Brook Farm failed because the Farm's members found farming 'difficult and unpleasant,' indicating their commitment faltered when faced with the hardships of agricultural labor. The fire that destroyed the main building was the final blow, but the underlying issue was the members' struggle with the manual labor required.",
-        topic: "criticalThinking",
-      },
-      {
-        id: "cars-passage1-q2",
-        type: "passage",
-        passageId: "passage-philosophy-justice",
-        question: "According to the passage, the Oneidans believed that",
-        options: [
-          "men and women were equal in the eyes of God.",
-          "monogamy was wrong in principle.",
-          "rules and standards of behavior were unnecessary.",
-          "they were destined to witness Christ's second coming.",
-        ],
-        correctAnswer: "monogamy was wrong in principle.",
-        explanation:
-          "This is a detail question regarding the Oneidans' beliefs. The Oneidans are discussed in paragraph 2. In the middle of that paragraph we learn that they felt monogamy was a selfish act, and that by sharing partners, they could create a more selfless society. This directly supports option B.",
-        topic: "criticalThinking",
-      },
-      {
-        id: "cars-passage1-q3",
-        type: "passage",
-        passageId: "passage-philosophy-justice",
-        question: "The author of the passage would most likely agree with which of the following statements?",
-        options: [
-          "Religious communities were more successful than secular ones.",
-          "The communal experiments of the nineteenth century were ultimately failures.",
-          "Economic success was a key factor in the longevity of communal experiments.",
-          "The ideals of communal living are incompatible with human nature.",
-        ],
-        correctAnswer: "Economic success was a key factor in the longevity of communal experiments.",
-        explanation:
-          "This question asks about the author's likely opinion. The passage contrasts Brook Farm, which 'struggled financially' and eventually disbanded, with the Oneida Community, which was 'economically successful' and eventually transformed into a company that 'still exists today.' This contrast suggests that economic success was a key factor in the longevity of these communities.",
-        topic: "criticalThinking",
-      },
-      {
-        id: "cars-passage1-q4",
-        type: "passage",
-        passageId: "passage-philosophy-justice",
-        question: "Which of the following best describes the organization of the passage?",
-        options: [
-          "A chronological account of the rise and fall of communal experiments",
-          "A comparison of two different types of communal experiments",
-          "An argument for the superiority of religious over secular communities",
-          "A thesis about communal living followed by supporting examples",
-        ],
-        correctAnswer: "A comparison of two different types of communal experiments",
-        explanation:
-          "The passage begins by introducing both secular and religious communal experiments, then provides detailed examples of each type: Brook Farm (secular) and the Oneida Community (religious). The structure is comparative, highlighting the differences in their beliefs, practices, and outcomes.",
-        topic: "criticalThinking",
-      },
-    ],
-  },
-  {
-    id: "passage-science-climate",
-    text: "Climate scientists have long understood the fundamental physics of climate change: certain gases in the atmosphere, including carbon dioxide, methane, and water vapor, trap heat that would otherwise escape into space. This 'greenhouse effect' is essential for life on Earth—without it, the planet would be too cold for most organisms to survive. However, human activities, particularly the burning of fossil fuels and deforestation, have significantly increased the concentration of greenhouse gases in the atmosphere, enhancing the greenhouse effect and leading to global warming.\n\nThe evidence for anthropogenic (human-caused) climate change is overwhelming. Global temperature records show that Earth has warmed by approximately 1°C since the pre-industrial era, with the rate of warming accelerating in recent decades. This warming correlates strongly with the increase in atmospheric carbon dioxide, which has risen from about 280 parts per million (ppm) in the pre-industrial era to over 410 ppm today—higher than at any point in at least the past 800,000 years, as revealed by ice core data. Other lines of evidence include the pattern of warming (with greater warming at the poles), cooling in the upper atmosphere (as predicted by greenhouse gas theory), and the timing of warming coinciding with industrialization.\n\nThe consequences of climate change are already apparent and are expected to become more severe as warming continues. Rising sea levels threaten coastal communities and small island nations. More frequent and intense heat waves, droughts, and extreme precipitation events affect agriculture, infrastructure, and human health. Ecosystems are changing, with some species shifting their ranges poleward or to higher elevations, while others face extinction. Ocean acidification, caused by the absorption of carbon dioxide, threatens marine organisms, particularly those that build shells or skeletons from calcium carbonate.\n\nAddressing climate change requires both mitigation (reducing greenhouse gas emissions) and adaptation (preparing for unavoidable changes). Mitigation strategies include transitioning from fossil fuels to renewable energy sources, improving energy efficiency, protecting and restoring forests, and developing carbon capture technologies. Adaptation measures include building sea walls, developing drought-resistant crops, improving early warning systems for extreme weather events, and creating wildlife corridors to facilitate species migration. The most effective approach will likely involve a combination of these strategies, implemented through coordinated international action.",
-    topic: "criticalThinking",
-    questions: [
-      {
-        id: "cars-passage2-q1",
-        type: "passage",
-        passageId: "passage-science-climate",
-        question: "According to the passage, which of the following is NOT evidence for anthropogenic climate change?",
-        options: [
-          "The correlation between rising carbon dioxide levels and global temperatures",
-          "The pattern of greater warming at the poles",
-          "The cooling of the upper atmosphere",
-          "The extinction of certain plant and animal species",
-        ],
-        correctAnswer: "The extinction of certain plant and animal species",
-        explanation:
-          "This is a detail question asking about evidence for anthropogenic climate change. The passage mentions species extinction as a consequence of climate change in the third paragraph, not as evidence that climate change is happening or that it is caused by humans. The other options are all explicitly listed as evidence in the second paragraph.",
-        topic: "criticalThinking",
-      },
-      {
-        id: "cars-passage2-q2",
-        type: "passage",
-        passageId: "passage-science-climate",
-        question: "The author of the passage would most likely agree with which of the following statements?",
-        options: [
-          "The greenhouse effect is harmful and should be eliminated.",
-          "Climate change is a natural process that humans have accelerated.",
-          "Addressing climate change requires either mitigation or adaptation, but not both.",
-          "The most effective approach to climate change involves international cooperation.",
-        ],
-        correctAnswer: "The most effective approach to climate change involves international cooperation.",
-        explanation:
-          "This question asks about the author's likely opinion. In the final paragraph, the author states that the most effective approach to addressing climate change will 'likely involve a combination of these strategies, implemented through coordinated international action.' This directly supports option D. Option A contradicts the passage, which states that the greenhouse effect is 'essential for life on Earth.' Option B oversimplifies the author's view, and option C contradicts the author's statement that addressing climate change requires 'both mitigation and adaptation.'",
-        topic: "criticalThinking",
-      },
-      {
-        id: "cars-passage2-q3",
-        type: "passage",
-        passageId: "passage-science-climate",
-        question:
-          "Based on the passage, which of the following would be classified as a mitigation strategy rather than an adaptation strategy?",
-        options: [
-          "Building sea walls to protect coastal communities",
-          "Developing drought-resistant crops",
-          "Transitioning from fossil fuels to renewable energy",
-          "Creating wildlife corridors to facilitate species migration",
-        ],
-        correctAnswer: "Transitioning from fossil fuels to renewable energy",
-        explanation:
-          "This question tests your understanding of the distinction between mitigation and adaptation as presented in the passage. According to the fourth paragraph, mitigation involves 'reducing greenhouse gas emissions,' while adaptation involves 'preparing for unavoidable changes.' Transitioning from fossil fuels to renewable energy is explicitly listed as a mitigation strategy. The other options are all adaptation strategies, as they involve preparing for or responding to climate changes rather than preventing them.",
-        topic: "criticalThinking",
-      },
-      {
-        id: "cars-passage2-q4",
-        type: "passage",
-        passageId: "passage-science-climate",
-        question: "The passage suggests that ocean acidification is caused by",
-        options: [
-          "rising sea levels.",
-          "the absorption of carbon dioxide by the ocean.",
-          "the melting of polar ice caps.",
-          "increased water temperatures.",
-        ],
-        correctAnswer: "the absorption of carbon dioxide by the ocean.",
-        explanation:
-          "This is a detail question. The passage explicitly states in the third paragraph that 'Ocean acidification, caused by the absorption of carbon dioxide, threatens marine organisms...' This directly supports option B.",
-        topic: "criticalThinking",
-      },
-      {
-        id: "cars-passage2-q5",
-        type: "passage",
-        passageId: "passage-science-climate",
-        question: "Which of the following best describes the purpose of the first paragraph?",
-        options: [
-          "To argue that the greenhouse effect is harmful to life on Earth",
-          "To explain the basic science underlying climate change",
-          "To contrast natural and anthropogenic climate change",
-          "To describe the history of climate science",
-        ],
-        correctAnswer: "To explain the basic science underlying climate change",
-        explanation:
-          "The first paragraph explains the fundamental physics of climate change: how greenhouse gases trap heat, why this effect is natural and necessary for life, and how human activities have enhanced this effect. This is a basic explanation of the science underlying climate change, making option B the best answer. The paragraph does not argue that the greenhouse effect is harmful (in fact, it states the opposite), does not focus on contrasting natural and anthropogenic climate change, and does not describe the history of climate science.",
-        topic: "criticalThinking",
-      },
-    ],
-  },
-]
+    {
+      id: "passage-humanities-1",
+      text: "The concept of beauty has been debated by philosophers for centuries. Plato argued that beauty is an objective quality that exists independently of the observer, while Kant suggested that beauty is subjective, arising from the free play of imagination and understanding. Modern aesthetics often combines these views, recognizing both universal patterns in what humans find beautiful and cultural variations in aesthetic preferences. The golden ratio, for instance, appears in art across cultures, suggesting some objective basis for beauty. Yet different cultures and historical periods have vastly different aesthetic ideals, from the full-figured beauty idealized in Renaissance paintings to the thin physiques preferred in modern Western media. This tension between universal and culturally specific aspects of beauty continues to challenge our understanding of aesthetics.",
+      topic: "criticalThinking",
+      questions: [
+        {
+          id: "passage-humanities-1-q1",
+          type: "passage",
+          passageId: "passage-humanities-1",
+          question:
+            "According to the passage, which philosopher argued that beauty exists independently of the observer?",
+          options: ["Plato", "Kant", "Aristotle", "Hume"],
+          correctAnswer: "Plato",
+          topic: "criticalThinking",
+          explanation:
+            "The passage explicitly states that 'Plato argued that beauty is an objective quality that exists independently of the observer,' making Plato the correct answer.",
+        },
+        {
+          id: "passage-humanities-1-q2",
+          type: "passage",
+          passageId: "passage-humanities-1",
+          question: "The author mentions the golden ratio primarily to illustrate:",
+          options: [
+            "A mathematical concept used by Renaissance artists",
+            "Evidence supporting the objective view of beauty",
+            "A measurement technique used in modern aesthetics",
+            "The superiority of classical aesthetic theories",
+          ],
+          correctAnswer: "Evidence supporting the objective view of beauty",
+          topic: "criticalThinking",
+          explanation:
+            "The author mentions that 'The golden ratio appears in art across cultures, suggesting some objective basis for beauty.' This example is used to support the idea that there may be some objective aspects to beauty, aligning with Plato's view.",
+        },
+        {
+          id: "passage-humanities-1-q3",
+          type: "passage",
+          passageId: "passage-humanities-1",
+          question: "Based on the passage, modern aesthetics can best be characterized as:",
+          options: [
+            "Rejecting classical theories in favor of cultural relativism",
+            "Focusing exclusively on mathematical patterns in art",
+            "Synthesizing objective and subjective perspectives on beauty",
+            "Prioritizing Western ideals of beauty over other cultural standards",
+          ],
+          correctAnswer: "Synthesizing objective and subjective perspectives on beauty",
+          topic: "criticalThinking",
+          explanation:
+            "The passage states that 'Modern aesthetics often combines these views, recognizing both universal patterns in what humans find beautiful and cultural variations in aesthetic preferences.' This indicates a synthesis of objective (universal patterns) and subjective (cultural variations) perspectives.",
+        },
+        {
+          id: "passage-humanities-1-q4",
+          type: "passage",
+          passageId: "passage-humanities-1",
+          question: "The passage suggests that Renaissance paintings and modern Western media differ primarily in their:",
+          options: [
+            "Use of the golden ratio",
+            "Philosophical foundations",
+            "Idealization of different body types",
+            "Cultural significance",
+          ],
+          correctAnswer: "Idealization of different body types",
+          topic: "criticalThinking",
+          explanation:
+            "The passage contrasts 'the full-figured beauty idealized in Renaissance paintings to the thin physiques preferred in modern Western media,' indicating that these art forms differ in the body types they consider beautiful.",
+        },
+        {
+          id: "passage-humanities-1-q5",
+          type: "passage",
+          passageId: "passage-humanities-1",
+          question: "Which of the following best describes the author's position on beauty?",
+          options: [
+            "Beauty is entirely subjective and culturally determined",
+            "Beauty is an objective quality that transcends cultural differences",
+            "Beauty involves both universal patterns and cultural variations",
+            "Beauty cannot be meaningfully analyzed or understood",
+          ],
+          correctAnswer: "Beauty involves both universal patterns and cultural variations",
+          topic: "criticalThinking",
+          explanation:
+            "The author presents both universal aspects of beauty (like the golden ratio appearing across cultures) and cultural variations (different body ideals across time periods). The passage concludes by noting the 'tension between universal and culturally specific aspects of beauty,' suggesting the author views beauty as involving both elements.",
+        },
+      ],
+    },
+    {
+      id: "passage-social-sciences-1",
+      text: "The digital divide refers to the gap between demographics and regions that have access to modern information and communications technology and those that don't or have restricted access. This technology includes the telephone, television, personal computers, and the Internet. While the term 'digital divide' traditionally referred to access to computers and the Internet, differences in the quality of access, technical constraints, and the ability to effectively use the technology are also important factors. The digital divide is not limited to the imbalance in physical access to technology but includes imbalances in resources and skills needed to effectively participate as a digital citizen. Recent studies have shown that the digital divide exists along racial, economic, and geographic lines, with lower-income households, rural areas, and minority groups having less access to technology. The consequences of this divide are far-reaching, affecting education, healthcare access, economic opportunity, and civic participation.",
+      topic: "criticalThinking",
+      questions: [
+        {
+          id: "passage-social-sciences-1-q1",
+          type: "passage",
+          passageId: "passage-social-sciences-1",
+          question:
+            "According to the passage, the digital divide encompasses differences in all of the following EXCEPT:",
+          options: [
+            "Access to technology",
+            "Quality of access",
+            "Skills needed to use technology",
+            "Interest in using technology",
+          ],
+          correctAnswer: "Interest in using technology",
+          topic: "criticalThinking",
+          explanation:
+            "The passage mentions access to technology, quality of access, technical constraints, and the ability to effectively use technology as factors in the digital divide. It also mentions 'resources and skills needed to effectively participate as a digital citizen.' However, it does not mention differences in interest or desire to use technology as a component of the digital divide.",
+        },
+        {
+          id: "passage-social-sciences-1-q2",
+          type: "passage",
+          passageId: "passage-social-sciences-1",
+          question:
+            "Based on the passage, which of the following groups is LEAST likely to experience the digital divide?",
+          options: ["Rural communities", "Minority groups", "High-income urban households", "Low-income households"],
+          correctAnswer: "High-income urban households",
+          topic: "criticalThinking",
+          explanation:
+            "The passage states that 'the digital divide exists along racial, economic, and geographic lines, with lower-income households, rural areas, and minority groups having less access to technology.' By inference, high-income urban households would be least likely to experience the digital divide since they don't fall into any of the groups identified as having less access.",
+        },
+        {
+          id: "passage-social-sciences-1-q3",
+          type: "passage",
+          passageId: "passage-social-sciences-1",
+          question: "The author's definition of the digital divide has evolved to include:",
+          options: [
+            "Only physical access to computers",
+            "Only access to the Internet",
+            "Both physical access and the ability to use technology effectively",
+            "Only the most recent technologies",
+          ],
+          correctAnswer: "Both physical access and the ability to use technology effectively",
+          topic: "criticalThinking",
+          explanation:
+            "The passage states that 'While the term 'digital divide' traditionally referred to access to computers and the Internet, differences in the quality of access, technical constraints, and the ability to effectively use the technology are also important factors.' It further notes that the digital divide 'includes imbalances in resources and skills needed to effectively participate as a digital citizen.' This indicates that the definition has evolved to include both physical access and effective use.",
+        },
+        {
+          id: "passage-social-sciences-1-q4",
+          type: "passage",
+          passageId: "passage-social-sciences-1",
+          question:
+            "According to the passage, the consequences of the digital divide affect all of the following areas EXCEPT:",
+          options: ["Education", "Healthcare access", "Entertainment options", "Civic participation"],
+          correctAnswer: "Entertainment options",
+          topic: "criticalThinking",
+          explanation:
+            "The passage states that 'The consequences of this divide are far-reaching, affecting education, healthcare access, economic opportunity, and civic participation.' Entertainment options are not mentioned as an area affected by the digital divide.",
+        },
+        {
+          id: "passage-social-sciences-1-q5",
+          type: "passage",
+          passageId: "passage-social-sciences-1",
+          question: "Which of the following best describes the author's approach to discussing the digital divide?",
+          options: [
+            "Highly critical of technological advancement",
+            "Primarily focused on economic factors",
+            "Descriptive of the concept and its implications",
+            "Advocating for specific policy solutions",
+          ],
+          correctAnswer: "Descriptive of the concept and its implications",
+          topic: "criticalThinking",
+          explanation:
+            "The author provides a definition of the digital divide, explains how the concept has evolved, identifies affected groups, and outlines consequences. The approach is primarily descriptive, explaining what the digital divide is and its implications, without criticizing technology, focusing exclusively on economics, or advocating for specific policies.",
+        },
+      ],
+    },
+    {
+      id: "passage-natural-sciences-1",
+      text: "The placebo effect is a remarkable phenomenon in which a placebo—a fake treatment, an inactive substance like sugar, distilled water, or saline solution—can sometimes improve a patient's condition simply because the person has the expectation that it will be helpful. Expectation plays a potent role in the placebo effect. The more a person believes they are going to benefit from a treatment, the more likely it is that they will experience a benefit. The placebo effect is more than just positive thinking—expecting a treatment to help you get better. It's about creating a stronger connection between the brain and body and how they work together. Research on the placebo effect has focused on the relationship between mind and body. One of the most common theories is that the placebo effect is due to a person's expectations. If a person expects a pill to do something, then it's possible that the body's own chemistry can cause effects similar to what a medication might have caused. Placebos won't lower your cholesterol or shrink a tumor. Instead, placebos work on symptoms modulated by the brain, like the perception of pain.",
+      topic: "criticalThinking",
+      questions: [
+        {
+          id: "passage-natural-sciences-1-q1",
+          type: "passage",
+          passageId: "passage-natural-sciences-1",
+          question: "According to the passage, which of the following best describes a placebo?",
+          options: [
+            "A treatment that improves a patient's condition through biochemical means",
+            "An inactive substance that can improve a patient's condition due to expectation",
+            "A medication that strengthens the connection between brain and body",
+            "A treatment that directly affects the body's chemistry",
+          ],
+          correctAnswer: "An inactive substance that can improve a patient's condition due to expectation",
+          topic: "criticalThinking",
+          explanation:
+            "The passage defines a placebo as 'a fake treatment, an inactive substance like sugar, distilled water, or saline solution' that 'can sometimes improve a patient's condition simply because the person has the expectation that it will be helpful.' This directly corresponds to the second option.",
+        },
+        {
+          id: "passage-natural-sciences-1-q2",
+          type: "passage",
+          passageId: "passage-natural-sciences-1",
+          question:
+            "Based on the passage, which of the following conditions would be LEAST likely to respond to a placebo treatment?",
+          options: ["Chronic pain", "High cholesterol", "Depression", "Insomnia"],
+          correctAnswer: "High cholesterol",
+          topic: "criticalThinking",
+          explanation:
+            "The passage explicitly states that 'Placebos won't lower your cholesterol or shrink a tumor. Instead, placebos work on symptoms modulated by the brain, like the perception of pain.' This indicates that high cholesterol would be least likely to respond to placebo treatment.",
+        },
+        {
+          id: "passage-natural-sciences-1-q3",
+          type: "passage",
+          passageId: "passage-natural-sciences-1",
+          question: "The author suggests that the placebo effect works primarily through:",
+          options: [
+            "Chemical changes in the inactive substance",
+            "The relationship between mind and body",
+            "The skill of the doctor administering the treatment",
+            "The complexity of the fake treatment",
+          ],
+          correctAnswer: "The relationship between mind and body",
+          topic: "criticalThinking",
+          explanation:
+            "The passage states that 'Research on the placebo effect has focused on the relationship between mind and body' and explains that it's 'about creating a stronger connection between the brain and body and how they work together.' This indicates that the mind-body relationship is the primary mechanism of the placebo effect.",
+        },
+        {
+          id: "passage-natural-sciences-1-q4",
+          type: "passage",
+          passageId: "passage-natural-sciences-1",
+          question: "According to the passage, which factor most strongly influences the effectiveness of a placebo?",
+          options: [
+            "The type of inactive substance used",
+            "The patient's expectation of benefit",
+            "The duration of the treatment",
+            "The patient's previous medical history",
+          ],
+          correctAnswer: "The patient's expectation of benefit",
+          topic: "criticalThinking",
+          explanation:
+            "The passage emphasizes that 'Expectation plays a potent role in the placebo effect. The more a person believes they are going to benefit from a treatment, the more likely it is that they will experience a benefit.' This directly identifies the patient's expectation as the most influential factor.",
+        },
+        {
+          id: "passage-natural-sciences-1-q5",
+          type: "passage",
+          passageId: "passage-natural-sciences-1",
+          question: "Which of the following statements is most consistent with the information in the passage?",
+          options: [
+            "The placebo effect is entirely based on positive thinking",
+            "Placebos can effectively treat any medical condition",
+            "The placebo effect demonstrates the power of the mind to influence certain bodily functions",
+            "Placebos work by changing the chemical composition of the body",
+          ],
+          correctAnswer: "The placebo effect demonstrates the power of the mind to influence certain bodily functions",
+          topic: "criticalThinking",
+          explanation:
+            "The passage states that 'placebos work on symptoms modulated by the brain' and discusses how 'the body's own chemistry can cause effects similar to what a medication might have caused' based on expectations. It also explicitly states that the placebo effect is 'more than just positive thinking' and that placebos cannot treat certain conditions like high cholesterol or tumors. This is most consistent with the idea that the mind can influence certain bodily functions, but not all.",
+        },
+      ],
+    },
+  ]
 
 // Biological and Biochemical Foundations
 export const section3Passages: Passage[] = [

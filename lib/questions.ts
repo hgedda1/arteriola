@@ -29,7 +29,6 @@ function extractQuestionsFromPassages(passages: Passage[]): Question[] {
   }
 
   passages.forEach((passage) => {
-    // Add all questions from this passage
     if (passage && passage.questions && Array.isArray(passage.questions)) {
       const imagePath: string | undefined =
         typeof passage.image === "string"
@@ -60,6 +59,8 @@ function extractQuestionsFromPassages(passages: Passage[]): Question[] {
 
   return questions
 }
+
+export { extractQuestionsFromPassages }
 
 // Update the question generation function to handle passage-based questions and respect type percentages
 function generateQuestionsWithWeightage(
