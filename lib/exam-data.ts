@@ -312,7 +312,7 @@ export const section3Passages: Passage[] = [
       {
         id: "passage-Hemophilia-is-a-genetically",
         text:"Hemophilia is a genetically inherited disease that causes the synthesis of an abnormal clotting factor. As a result, hemophiliacs bleed excessively from the slightest injury. The figure below is a partial pedigree for the hemophilia trait in Queen Victorias descendants. The pedigree indicates no history of hemophilia for either parent prior to the F generation.",
-        image: "images/q41/1.png",
+        image: "images/q41/1.jpg",
         topic: "biology",
         questions: [
           {
@@ -595,14 +595,13 @@ export const section3Passages: Passage[] = [
         id: "passage-Alleles-are-created-when",
         text: "Alleles are created when a single gene undergoes several distinct mutations. These alleles may have different dominance relationships with one another; for example, there are three alleles coding for the human blood groups, the Iᴬ, Iᴮ, and i alleles. Both the Iᴬ and Iᴮ alleles are dominant to the i allele, but Iᴬ and Iᴮ are codominant to each other. A multiple-allele system has recently been discovered in the determination of hair coloring in a species of wild rat. The rats are found to have one of three colors: brown, red, or white. Let B = the gene for brown hair; b = the gene for red hair; and w = the gene for white hair. The results from nine experimental crosses are shown below. The males and females in Crosses 1, 2, and 3 are all homozygous for hair color.",
         topic: "biology",
-        image: "images/q49/1.png",
+        image: "images/q49/1.jpg",
         questions: [
           {
             id: "passage-Alleles-are-created-when-q1",
             type: "passage",
             passageId: "passage-Alleles-are-created-when",
             question: "Based on the experimental results, what is the genotype of the male in Cross 6?",
-            image: "images/q49/q1.png",
             options: [
               "bw",
               "bb",
@@ -12794,9 +12793,9 @@ export const sectionQuestionTypeConfig = {
 export const sectionTopicWeightage = {
   1: {
     // Chemical and Physical Foundations
-    biology: 0.05, // 5%
+    biology: 0.04, // 5%
     generalChemistry: 0.3, // 30%
-    physics: 0.35, // 25%
+    physics: 0.40, // 25%
     organicChemistry: 0.15, // 15%
     biochemistry: 0.15, // 15%
   },
@@ -12815,8 +12814,8 @@ export const sectionTopicWeightage = {
   },
   4: {
     // Psychological, Social, and Biological Foundations
-    psychology: 0.65, // 65%
-    sociology: 0.3, // 30%
+    psychology: 0.60, // 65%
+    sociology: 0.35, // 30%
     biology: 0.05, // 5%
   },
 }
