@@ -12,28 +12,12 @@ import {
   type Passage,
 } from "./exam-data"
 
-// Add this import at the top of the file
 import { updateQuestionMetadata, updateSectionQuestions } from "./update-question-metadata"
+import { getBasePath } from "./client-utils"
+import { shuffleArray } from "./utils"
 
-/**
- * Shuffles an array using the Fisher-Yates algorithm
- * @param array The array to shuffle
- * @returns A new shuffled array
- */
-function shuffleArray<T>(array: T[]): T[] {
-  // Create a copy of the array to avoid modifying the original
-  const shuffled = [...array]
+const basePath = getBasePath()
 
-  // Fisher-Yates shuffle algorithm
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-
-  return shuffled
-}
-
-// Function to extract questions from passages
 function extractQuestionsFromPassages(passages: Passage[]): Question[] {
   const questions: Question[] = []
 
@@ -43,18 +27,21 @@ function extractQuestionsFromPassages(passages: Passage[]): Question[] {
   }
 
   passages.forEach((passage) => {
-    // Add all questions from this passage
     if (passage && passage.questions && Array.isArray(passage.questions)) {
+      const imagePath: string | undefined =
+        typeof passage.image === "string"
+          ? `${basePath}/${passage.image.trim().replace(/^\/+/, '')}`
+          : undefined
+
       passage.questions.forEach((question, index) => {
-        // Only include the passage text with the first question to avoid duplication
         if (index === 0) {
           questions.push({
             ...question,
-            passage: passage.text,
-            ...(passage.image && { image: passage.image }), // Include passage image with first question
+            passage: typeof passage.text === "string" ? passage.text : undefined,
+            ...(imagePath && { image: imagePath }),
           })
         } else {
-          questions.push(question)
+          questions.push({ ...question })
         }
       })
     }
