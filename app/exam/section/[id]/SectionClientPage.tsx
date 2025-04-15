@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
 import { PeriodicTableDialog } from "@/components/periodic-table-dialog"
 import { getBasePath } from "@/lib/client-utils"
+import { trackExamStart, trackQuestionAnswered } from "@/components/analytics-events"
 
 const basePath = getBasePath()
 
@@ -205,6 +206,16 @@ export default function SectionClientPage({ id }: { id: string }) {
           currentSection: sectionId + 1,
         }),
       )
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "exam_section_complete", {
+          section_id: sectionId,
+          total_questions: questions.length,
+          answered: Object.keys(answers).length,
+          marked_for_review: markedQuestions.length,
+          event_category: "Exam",
+          event_label: `Completed Section ${sectionId}`,
+        })
+      }      
 
       // Set state to trigger navigation in useEffect
       setSectionCompleted(true)
@@ -256,6 +267,16 @@ export default function SectionClientPage({ id }: { id: string }) {
 
       // Navigate to complete page
       router.push(`/complete`)
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "exam_end_early", {
+          section_id: sectionId,
+          total_questions: questions.length,
+          answered: Object.keys(answers).length,
+          event_category: "Exam",
+          event_label: `Ended Exam Early at Section ${sectionId}`,
+        })
+      }
+      
     } catch (error) {
       console.error("Error ending exam:", error)
     }
@@ -435,7 +456,17 @@ export default function SectionClientPage({ id }: { id: string }) {
                 answers: updatedAnswers,
               }),
             )
-
+            if (typeof window !== "undefined" && window.gtag) {
+              window.gtag("event", "question_answered", {
+                section_id: sectionId,
+                question_id: questionId,
+                selected_answer: value,
+                question_number: currentQuestionIndex + 1,
+                total_questions: questions.length,
+                event_category: "Exam",
+                event_label: `Answered question ${questionId} in section ${sectionId}`,
+              })
+            }
             console.log(`Saved answer for question ${questionId} immediately`)
           } catch (error) {
             console.error("Error saving answer immediately:", error)
