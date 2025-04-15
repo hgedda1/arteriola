@@ -693,7 +693,9 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
   const passageText = getPassageTextForQuestion(currentQuestion, questions)
   const passageQuestions = isPassageQuestion ? getPassageQuestions(questions, currentQuestion) : []
   const passageImage =
-    isPassageQuestion && currentQuestion.image && currentQuestion.type === "passage" ? currentQuestion.image : undefined
+    isPassageQuestion && currentQuestion.passageId
+      ? questions.find((q) => q.passageId === currentQuestion.passageId && q.image)?.image
+      : undefined
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-900 text-black dark:text-white">
@@ -1004,8 +1006,8 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                     <Image
                       src={currentQuestion.explanationImage || "/placeholder.svg"}
                       alt="Explanation image"
-                      width={400}
-                      height={250}
+                      width={500}
+                      height={300}
                       className="border border-gray-300 dark:border-slate-700 rounded-md"
                       unoptimized 
                     />

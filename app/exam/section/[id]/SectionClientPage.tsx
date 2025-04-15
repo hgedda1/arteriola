@@ -550,8 +550,12 @@ export default function SectionClientPage({ id }: { id: string }) {
   const isPassageQuestion = currentQuestion.type === "passage"
   const passageText = getPassageTextForQuestion(currentQuestion, questions)
   const passageQuestions = isPassageQuestion ? getPassageQuestions(questions, currentQuestion) : []
+
+  // Find passage image - look for any question in the passage group that has an image
   const passageImage =
-    isPassageQuestion && currentQuestion.image && currentQuestion.type === "passage" ? currentQuestion.image : undefined
+    isPassageQuestion && currentQuestion.passageId
+      ? questions.find((q) => q.passageId === currentQuestion.passageId && q.image)?.image
+      : undefined
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-900" onMouseUp={handleTextSelection}>
@@ -709,7 +713,7 @@ export default function SectionClientPage({ id }: { id: string }) {
               </div>
 
               {/* Question Image if any (not passage image) */}
-              {currentQuestion.image && currentQuestion.type !== "passage" && (
+              {currentQuestion.image && (
                 <div className="mb-4">
                   <Image
                     src={currentQuestion.image || "/placeholder.svg"}
