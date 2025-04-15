@@ -15,26 +15,6 @@ import { EndExamDialog } from "@/components/end-exam-dialog"
 import { Button } from "@/components/ui/button"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
 import { PeriodicTableDialog } from "@/components/periodic-table-dialog"
-import {
-  trackExamStart,
-  trackSectionComplete,
-  trackQuestionAnswered,
-  trackQuestionMarked,
-  trackQuestionNavigation,
-  trackEndEarly,
-  trackToolUsage,
-} from "@/components/analytics-events"
-
-// Add the import for getImagePath at the top of the file
-import { getImagePath } from "@/lib/client-utils"
-
-// Add this at the top of the file, after the imports
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
-
-// Function to get the correct image path
-// const getImagePath = (imagePath: string) => {
-//   return `${basePath}${imagePath}`
-// }
 
 // Change the component props from { params } to { id }
 export default function SectionClientPage({ id }: { id: string }) {
@@ -57,11 +37,6 @@ export default function SectionClientPage({ id }: { id: string }) {
   // Use refs for values that shouldn't trigger re-renders
   const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const initialLoadDoneRef = useRef(false)
-
-  // Add refs for timer tracking
-  const startTimeRef = useRef<number>(Date.now())
-  const elapsedTimeRef = useRef<number>(0)
-  const lastTickRef = useRef<number>(Date.now())
 
   const [loading, setLoading] = useState(true)
   const [questions, setQuestions] = useState<Question[]>([])
@@ -107,7 +82,7 @@ export default function SectionClientPage({ id }: { id: string }) {
     4: {
       title: "Psychological, Social, and Biological Foundations of Behavior",
       timeLimit: 95 * 60, // 95 minutes in seconds
-      questionCount: 53,
+      questionCount: 59,
     },
   }
 
@@ -132,9 +107,6 @@ export default function SectionClientPage({ id }: { id: string }) {
     range.surroundContents(span)
 
     setSelectedText("")
-
-    // Track highlight tool usage
-    trackToolUsage(sectionId, "highlight")
   }
 
   // Handle strikethrough
@@ -150,9 +122,6 @@ export default function SectionClientPage({ id }: { id: string }) {
     range.surroundContents(span)
 
     setSelectedText("")
-
-    // Track strikethrough tool usage
-    trackToolUsage(sectionId, "strikethrough")
   }
 
   // Memoize the saveProgress function to avoid recreating it on every render
@@ -194,7 +163,6 @@ export default function SectionClientPage({ id }: { id: string }) {
           currentQuestionIndex: updatedCurrentQuestionIndex,
           currentSection: sectionId,
           sectionStartTime: examState.sectionStartTime || new Date().toISOString(),
-          elapsedTime: elapsedTimeRef.current, // Save elapsed time
         }),
       )
     } catch (error) {
@@ -221,28 +189,6 @@ export default function SectionClientPage({ id }: { id: string }) {
       const examState = JSON.parse(localStorage.getItem("examState") || "{}")
       const completedSections = [...(examState.completedSections || []), sectionId]
 
-      // Calculate score for analytics
-      const sectionQuestions = questions || []
-      const sectionAnswers = answers || {}
-      let correctCount = 0
-
-      sectionQuestions.forEach((question) => {
-        if (sectionAnswers[question.id] === question.correctAnswer) {
-          correctCount++
-        }
-      })
-
-      const score = sectionQuestions.length > 0 ? Math.round((correctCount / sectionQuestions.length) * 100) : 0
-
-      // Track section completion
-      trackSectionComplete(
-        sectionId,
-        score,
-        elapsedTimeRef.current,
-        Object.keys(sectionAnswers).length,
-        sectionQuestions.length,
-      )
-
       localStorage.setItem(
         "examState",
         JSON.stringify({
@@ -262,7 +208,7 @@ export default function SectionClientPage({ id }: { id: string }) {
     } catch (error) {
       console.error("Error completing section:", error)
     }
-  }, [saveProgress, sectionId, questions, answers])
+  }, [saveProgress, sectionId])
 
   // Add this useEffect to handle navigation after state updates
   useEffect(() => {
@@ -290,9 +236,6 @@ export default function SectionClientPage({ id }: { id: string }) {
         completedSections.push(sectionId)
       }
 
-      // Track ending exam early
-      trackEndEarly(sectionId, Object.keys(answers).length, questions.length, timeRemaining)
-
       // Update localStorage with completed sections and endedEarly flag
       localStorage.setItem(
         "examState",
@@ -308,9 +251,7 @@ export default function SectionClientPage({ id }: { id: string }) {
     } catch (error) {
       console.error("Error ending exam:", error)
     }
-  }, [router, saveProgress, sectionId, answers, questions.length, timeRemaining])
-
-  // Add more debugging in the initial load effect to trace the question loading process
+  }, [router, saveProgress, sectionId, answers])
 
   // Initial load effect - runs only once
   useEffect(() => {
@@ -357,26 +298,22 @@ export default function SectionClientPage({ id }: { id: string }) {
       console.log(`Attempting to load questions for section ${sectionId}...`)
       try {
         // First try the regular method
-        console.log("Calling getSectionQuestions...")
         const sectionQuestions = getSectionQuestions(sectionId)
 
         if (!sectionQuestions || sectionQuestions.length === 0) {
           console.error(`No questions returned for section ${sectionId}, trying safe questions...`)
 
           // Try the safe questions method
-          console.log("Calling getSafeSectionQuestions...")
           const safeQuestions = getSafeSectionQuestions(sectionId)
           if (safeQuestions && safeQuestions.length > 0) {
-            console.log(`Successfully loaded ${safeQuestions.length} safe questions for section ${sectionId}`)
-            console.log("First few safe questions:", safeQuestions.slice(0, 3))
             setQuestions(safeQuestions)
+            console.log(`Successfully loaded ${safeQuestions.length} safe questions for section ${sectionId}`)
           } else {
             throw new Error("Both regular and safe question loading failed")
           }
         } else {
-          console.log(`Successfully loaded ${sectionQuestions.length} questions`)
-          console.log("First few questions:", sectionQuestions.slice(0, 3))
           setQuestions(sectionQuestions)
+          console.log(`Successfully loaded ${sectionQuestions.length} questions`)
         }
       } catch (error) {
         console.error(`All question loading methods failed for section ${sectionId}:`, error)
@@ -398,21 +335,9 @@ export default function SectionClientPage({ id }: { id: string }) {
         if (state.currentQuestionIndex && state.currentQuestionIndex[sectionId]) {
           setCurrentQuestionIndex(state.currentQuestionIndex[sectionId])
         }
-
-        // Restore elapsed time if available
-        if (state.elapsedTime) {
-          elapsedTimeRef.current = state.elapsedTime
-        }
-
-        // Initialize start time
-        startTimeRef.current = Date.now()
-        lastTickRef.current = Date.now()
       } catch (error) {
         console.error("Error loading exam state:", error)
       }
-
-      // Track exam section start
-      trackExamStart(sectionId)
 
       setLoading(false)
       // Move this line to the end of the effect
@@ -424,55 +349,29 @@ export default function SectionClientPage({ id }: { id: string }) {
     }
   }, [router, sectionId, id, sections])
 
-  // Timer effect - updated to use Date.now() to prevent pausing when window is minimized
+  // Timer effect
   useEffect(() => {
     if (loading) return
 
     const timer = setInterval(() => {
-      // Calculate elapsed time since last tick
-      const now = Date.now()
-      const deltaTime = Math.floor((now - lastTickRef.current) / 1000)
-
-      // Update elapsed time
-      elapsedTimeRef.current += deltaTime
-
-      // Update last tick time
-      lastTickRef.current = now
-
-      // Update time remaining
       setTimeRemaining((prev) => {
-        const newTimeRemaining = Math.max(0, prev - deltaTime)
-
         // Show warning when 5 minutes remain
-        if (prev > 300 && newTimeRemaining <= 300) {
+        if (prev === 300) {
           setShowTimeWarning(true)
         }
 
         // End section when time is up
-        if (prev > 0 && newTimeRemaining <= 0) {
+        if (prev <= 1) {
           clearInterval(timer)
           completeSection()
           return 0
         }
 
-        return newTimeRemaining
+        return prev - 1
       })
     }, 1000)
 
-    // Handle visibility change to ensure timer continues when tab becomes visible again
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible") {
-        // Update last tick time when tab becomes visible again
-        lastTickRef.current = Date.now()
-      }
-    }
-
-    document.addEventListener("visibilitychange", handleVisibilityChange)
-
-    return () => {
-      clearInterval(timer)
-      document.removeEventListener("visibilitychange", handleVisibilityChange)
-    }
+    return () => clearInterval(timer)
   }, [loading, completeSection])
 
   // Save progress when relevant state changes
@@ -509,12 +408,6 @@ export default function SectionClientPage({ id }: { id: string }) {
         // Log the answer being selected
         console.log(`Selected answer for question ${questionId}: ${value}`)
 
-        // Track question answered
-        const currentQuestion = questions[currentQuestionIndex]
-        if (currentQuestion) {
-          trackQuestionAnswered(sectionId, questionId, currentQuestionIndex + 1, currentQuestion.topic)
-        }
-
         // Save answers immediately after selection
         setTimeout(() => {
           try {
@@ -544,7 +437,7 @@ export default function SectionClientPage({ id }: { id: string }) {
         return newAnswers
       })
     },
-    [sectionId, questions, currentQuestionIndex],
+    [sectionId],
   )
 
   const toggleMarkQuestion = useCallback(() => {
@@ -553,26 +446,21 @@ export default function SectionClientPage({ id }: { id: string }) {
     const questionId = questions[currentQuestionIndex].id
 
     setMarkedQuestions((prev) => {
-      const isMarking = !prev.includes(questionId)
-      const newMarkedQuestions = isMarking ? [...prev, questionId] : prev.filter((id) => id !== questionId)
-
-      // Track marking/unmarking question
-      trackQuestionMarked(sectionId, questionId, currentQuestionIndex + 1, isMarking)
-
-      return newMarkedQuestions
+      if (prev.includes(questionId)) {
+        return prev.filter((id) => id !== questionId)
+      } else {
+        return [...prev, questionId]
+      }
     })
-  }, [currentQuestionIndex, questions, sectionId])
+  }, [currentQuestionIndex, questions])
 
   const navigateToQuestion = useCallback(
     (index: number) => {
       if (index >= 0 && index < questions.length) {
-        // Track navigation between questions
-        trackQuestionNavigation(sectionId, currentQuestionIndex + 1, index + 1)
-
         setCurrentQuestionIndex(index)
       }
     },
-    [questions.length, currentQuestionIndex, sectionId],
+    [questions.length],
   )
 
   // If section ID is invalid, show an error message
@@ -602,50 +490,7 @@ export default function SectionClientPage({ id }: { id: string }) {
   }
 
   const currentQuestion = questions[currentQuestionIndex]
-  // Let's add a specific check for Section 2 to ensure we're handling it correctly
-
-  // In the currentQuestion check, add special handling for Section 2
   if (!currentQuestion) {
-    // Special handling for Section 2
-    if (sectionId === 2) {
-      console.error("No questions available for Section 2 (CARS). Attempting emergency recovery...")
-
-      // Try to directly extract questions from section2Passages
-      try {
-        const { extractQuestionsFromPassages } = require("@/lib/questions")
-        const { section2Passages } = require("@/lib/exam-data")
-
-        if (section2Passages && section2Passages.length > 0) {
-          console.log(`Emergency: Directly extracting from ${section2Passages.length} CARS passages`)
-          console.log("First passage ID:", section2Passages[0].id)
-          console.log(
-            "First passage has questions:",
-            section2Passages[0].questions ? section2Passages[0].questions.length : "none",
-          )
-
-          const extractedQuestions = extractQuestionsFromPassages(section2Passages)
-
-          if (extractedQuestions && extractedQuestions.length > 0) {
-            console.log(`Emergency recovery: Got ${extractedQuestions.length} questions for Section 2`)
-            console.log(
-              "First recovered question:",
-              extractedQuestions[0].id,
-              extractedQuestions[0].question.substring(0, 50) + "...",
-            )
-            setQuestions(extractedQuestions)
-            setLoading(false)
-            return null // Return null to prevent rendering the error message
-          } else {
-            console.error("Emergency extraction returned no questions")
-          }
-        } else {
-          console.error("Emergency recovery failed: section2Passages is empty or undefined")
-        }
-      } catch (error) {
-        console.error("Emergency recovery failed:", error)
-      }
-    }
-
     return (
       <div className="bg-white min-h-screen flex items-center justify-center dark:bg-slate-900 text-black dark:text-white">
         <div className="text-center">
@@ -675,10 +520,11 @@ export default function SectionClientPage({ id }: { id: string }) {
       return []
     }
 
+    // Get all questions with the same passageId
     return questions
       .filter((q) => q.type === "passage" && q.passageId === currentQuestion.passageId)
       .sort((a, b) => {
-        // Sort by question index within the passage
+        // Sort by the actual index in the main questions array to maintain proper order
         const aIndex = questions.findIndex((q) => q.id === a.id)
         const bIndex = questions.findIndex((q) => q.id === b.id)
         return aIndex - bIndex
@@ -705,18 +551,8 @@ export default function SectionClientPage({ id }: { id: string }) {
   const isPassageQuestion = currentQuestion.type === "passage"
   const passageText = getPassageTextForQuestion(currentQuestion, questions)
   const passageQuestions = isPassageQuestion ? getPassageQuestions(questions, currentQuestion) : []
-
-  // Find the first question in the passage group that has the passage text
-  const firstPassageQuestion =
-    isPassageQuestion && currentQuestion.passageId
-      ? questions.find((q) => q.passageId === currentQuestion.passageId && q.passage)
-      : null
-
-  // Use the image from the first passage question as the passage image
-  const passageImage = firstPassageQuestion?.image
-
-  // Determine if the current question has its own image (different from passage image)
-  const hasQuestionImage = currentQuestion.image && (!passageImage || currentQuestion.image !== passageImage)
+  const passageImage =
+    isPassageQuestion && currentQuestion.image && currentQuestion.type === "passage" ? currentQuestion.image : undefined
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-900" onMouseUp={handleTextSelection}>
@@ -756,20 +592,14 @@ export default function SectionClientPage({ id }: { id: string }) {
           {(sectionId === 1 || sectionId === 3) && (
             <button
               className="text-sm px-2 py-1 flex items-center text-black dark:text-white"
-              onClick={() => {
-                setShowPeriodicTable(true)
-                trackToolUsage(sectionId, "periodic_table")
-              }}
+              onClick={() => setShowPeriodicTable(true)}
             >
               <span className="mr-1">⚛️</span> Periodic Table
             </button>
           )}
           <button
             className="text-sm px-2 py-1 flex items-center text-black dark:text-white"
-            onClick={() => {
-              setShowScratchPad(true)
-              trackToolUsage(sectionId, "scratch_pad")
-            }}
+            onClick={() => setShowScratchPad(true)}
           >
             <span className="mr-1">📝</span> Scratch Pad
           </button>
@@ -835,12 +665,11 @@ export default function SectionClientPage({ id }: { id: string }) {
               {passageImage && (
                 <div className="mt-4 flex justify-center">
                   <Image
-                    src={passageImage ? getImagePath(passageImage) : getImagePath("/placeholder.svg")}
+                    src={passageImage || "/placeholder.svg"}
                     alt="Passage image"
                     width={400}
                     height={300}
                     className="border border-gray-300 dark:border-slate-700 rounded max-w-full h-auto"
-                    unoptimized
                   />
                 </div>
               )}
@@ -853,6 +682,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                 <span className="text-sm text-black dark:text-white mr-2">Questions:</span>
                 {passageQuestions.map((q, idx) => {
                   const isCurrentQuestion = q.id === currentQuestion.id
+                  const questionNumber = questions.findIndex((question) => question.id === q.id) + 1
                   return (
                     <button
                       key={q.id}
@@ -868,7 +698,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                             : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                       }`}
                     >
-                      {idx + 1}
+                      {questionNumber}
                     </button>
                   )
                 })}
@@ -880,15 +710,14 @@ export default function SectionClientPage({ id }: { id: string }) {
               </div>
 
               {/* Question Image if any (not passage image) */}
-              {hasQuestionImage && (
+              {currentQuestion.image && currentQuestion.type !== "passage" && (
                 <div className="mb-4">
                   <Image
-                    src={currentQuestion.image ? getImagePath(currentQuestion.image) : getImagePath("/placeholder.svg")}
+                    src={currentQuestion.image || "/placeholder.svg"}
                     alt="Question image"
                     width={300}
                     height={200}
                     className="border border-gray-300 dark:border-slate-700"
-                    unoptimized
                   />
                 </div>
               )}
@@ -901,8 +730,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                     {currentQuestion.options.map((option, index) => {
                       const letter = String.fromCharCode(65 + index) // A, B, C, D, etc.
                       const isSelected = answers[currentQuestion.id] === option
-                      const imageSrc =
-                        currentQuestion.optionImages?.[index] || `${basePath}/placeholder.svg?height=200&width=200`
+                      const imageSrc = currentQuestion.optionImages?.[index] || "/placeholder.svg?height=200&width=200"
                       const optionId = `option-${currentQuestion.id}-${index}`
 
                       return (
@@ -925,12 +753,11 @@ export default function SectionClientPage({ id }: { id: string }) {
                               {option}
                             </label>
                             <Image
-                              src={imageSrc || `${basePath}/placeholder.svg`}
+                              src={imageSrc || "/placeholder.svg"}
                               alt={`Option ${letter}`}
                               width={300}
                               height={200}
                               className="border border-gray-300 dark:border-slate-700 rounded"
-                              unoptimized
                             />
                           </div>
                         </div>
@@ -974,15 +801,14 @@ export default function SectionClientPage({ id }: { id: string }) {
             </div>
 
             {/* Question Image if any */}
-            {hasQuestionImage && (
+            {currentQuestion.image && (
               <div className="mb-4 flex justify-center">
                 <Image
-                  src={currentQuestion.image ? getImagePath(currentQuestion.image) : getImagePath("/placeholder.svg")}
+                  src={currentQuestion.image || "/placeholder.svg"}
                   alt="Question image"
                   width={400}
                   height={300}
                   className="border border-gray-300 dark:border-slate-700"
-                  unoptimized
                 />
               </div>
             )}
@@ -995,8 +821,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                   {currentQuestion.options.map((option, index) => {
                     const letter = String.fromCharCode(65 + index) // A, B, C, D, etc.
                     const isSelected = answers[currentQuestion.id] === option
-                    const imageSrc =
-                      currentQuestion.optionImages?.[index] || `${basePath}/placeholder.svg?height=200&width=200`
+                    const imageSrc = currentQuestion.optionImages?.[index] || "/placeholder.svg?height=200&width=200"
                     const optionId = `option-${currentQuestion.id}-${index}`
 
                     return (
@@ -1019,12 +844,11 @@ export default function SectionClientPage({ id }: { id: string }) {
                             {option}
                           </label>
                           <Image
-                            src={imageSrc || `${basePath}/placeholder.svg`}
+                            src={imageSrc || "/placeholder.svg"}
                             alt={`Option ${letter}`}
                             width={300}
                             height={200}
                             className="border border-gray-300 dark:border-slate-700 rounded"
-                            unoptimized
                           />
                         </div>
                       </div>

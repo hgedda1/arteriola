@@ -280,189 +280,173 @@ export const section2Passages: Passage[] = [
       ],
     },
     {
-        id: "passage-philosophy-justice",
-        text: "In the early nineteenth century, a large number of communal experiments, both secular and religious, sprang up in the northeastern United States. These communities shared the belief that it was possible to create a more perfect society through the proper social arrangements. The secular communities, such as Brook Farm, were inspired by the ideas of Charles Fourier, Robert Owen, and other European social theorists who believed that the competitive nature of capitalism was the source of society's ills. The religious communities, such as the Shakers and the Oneidans, were inspired by the belief that the Second Coming of Christ was imminent and that a more perfect society would hasten its arrival.",
-        topic: "criticalThinking",
-        questions: [
-          {
-            id: "cars-passage1-q1",
-            type: "passage",
-            passageId: "passage-philosophy-justice",
-            question: "The passage implies that the end of the Brook Farm experiment was probably brought on by",
-            options: [
-              "faltering commitment in the face of hardship.",
-              "a failure to attract members of sufficient intellect or ability.",
-              "the completion of the community's aims.",
-              "the incompetence of philosophers at field labor.",
-            ],
-            correctAnswer: "faltering commitment in the face of hardship.",
-            explanation:
-              "This is an inference question regarding Brook Farm's demise. The passage suggests that Brook Farm failed because the Farm's members found farming 'difficult and unpleasant,' indicating their commitment faltered when faced with the hardships of agricultural labor.",
-            topic: "criticalThinking",
-          },
-          {
-            id: "cars-passage1-q2",
-            type: "passage",
-            passageId: "passage-philosophy-justice",
-            question: "According to the passage, the Oneidans believed that",
-            options: [
-              "men and women were equal in the eyes of God.",
-              "monogamy was wrong in principle.",
-              "rules and standards of behavior were unnecessary.",
-              "they were destined to witness Christ's second coming.",
-            ],
-            correctAnswer: "monogamy was wrong in principle.",
-            explanation:
-              "This is a detail question regarding the Oneidans' beliefs. The passage states that they felt monogamy was a selfish act, and that by sharing partners, they could create a more selfless society.",
-            topic: "criticalThinking",
-          },
-          {
-            id: "cars-passage1-q3",
-            type: "passage",
-            passageId: "passage-philosophy-justice",
-            question: "The author of the passage would most likely agree with which of the following statements?",
-            options: [
-              "Religious communities were more successful than secular ones.",
-              "The communal experiments of the nineteenth century were ultimately failures.",
-              "Economic success was a key factor in the longevity of communal experiments.",
-              "The ideals of communal living are incompatible with human nature.",
-            ],
-            correctAnswer: "Economic success was a key factor in the longevity of communal experiments.",
-            explanation:
-              "The passage contrasts Brook Farm, which 'struggled financially' and eventually disbanded, with the Oneida Community, which was 'economically successful' and eventually transformed into a company that 'still exists today.'",
-            topic: "criticalThinking",
-          },
-          {
-            id: "cars-passage1-q4",
-            type: "passage",
-            passageId: "passage-philosophy-justice",
-            question: "Which of the following best describes the organization of the passage?",
-            options: [
-              "A chronological account of the rise and fall of communal experiments",
-              "A comparison of two different types of communal experiments",
-              "An argument for the superiority of religious over secular communities",
-              "A thesis about communal living followed by supporting examples",
-            ],
-            correctAnswer: "A comparison of two different types of communal experiments",
-            explanation:
-              "The passage begins by introducing both secular and religious communal experiments, then provides detailed examples of each type: Brook Farm (secular) and the Oneida Community (religious).",
-            topic: "criticalThinking",
-          },
-          {
-            id: "cars-passage1-q5",
-            type: "passage",
-            passageId: "passage-philosophy-justice",
-            question: "What can be inferred about the author's view of communal experiments?",
-            options: [
-              "They were doomed to fail due to human nature.",
-              "They provided valuable social alternatives despite their limitations.",
-              "They were primarily religious in nature.",
-              "They were too idealistic to succeed in practice.",
-            ],
-            correctAnswer: "They provided valuable social alternatives despite their limitations.",
-            explanation:
-              "The author presents both successes and failures of communal experiments without dismissing them entirely, suggesting they had value as social alternatives even with their limitations.",
-            topic: "criticalThinking",
-          },
-        ],
-      },
+      id: "passage-philosophy-justice",
+      text: "In the early nineteenth century, a large number of communal experiments, both secular and religious, sprang up in the northeastern United States. These communities shared the belief that it was possible to create a more perfect society through the proper social arrangements. The secular communities, such as Brook Farm, were inspired by the ideas of Charles Fourier, Robert Owen, and other European social theorists who believed that the competitive nature of capitalism was the source of society's ills. The religious communities, such as the Shakers and the Oneidans, were inspired by the belief that the Second Coming of Christ was imminent and that a more perfect society would hasten its arrival.\n\nBrook Farm, founded in 1841 in West Roxbury, Massachusetts, was one of the most famous of these communities. Led by George Ripley, a Unitarian minister, Brook Farm was based on the idea that a balance of manual and intellectual labor would create a more fulfilling life. The community attracted many notable intellectuals, including Nathaniel Hawthorne, who later wrote about his experiences in his novel The Blithedale Romance. Despite its intellectual vigor, Brook Farm struggled financially. The members, many of whom were more suited to intellectual than agricultural labor, found farming difficult and unpleasant. After a fire destroyed the community's main building in 1846, Brook Farm disbanded.\n\nThe Oneida Community, founded by John Humphrey Noyes in 1848 in Oneida, New York, was more successful. Noyes, who had studied theology at Yale, believed that Christ had already returned in 70 AD, making it possible for people to achieve perfection in this life. The Oneidans practiced 'complex marriage,' in which all members were considered married to each other, and 'mutual criticism,' in which members publicly critiqued each other's behavior. The Oneidans believed that monogamy was selfish and that by sharing partners, they could create a more selfless society. Unlike Brook Farm, the Oneida Community was economically successful, manufacturing steel traps and silverware. However, after Noyes fled to Canada to avoid prosecution for statutory rape, the community abandoned complex marriage and eventually became a joint-stock company, Oneida Ltd., which still exists today.",
+      topic: "criticalThinking",
+      questions: [
+        {
+          id: "passage-philosophy-justice-q1",
+          type: "passage",
+          passageId: "passage-philosophy-justice",
+          question: "The passage implies that the end of the Brook Farm experiment was probably brought on by",
+          options: [
+            "faltering commitment in the face of hardship.",
+            "a failure to attract members of sufficient intellect or ability.",
+            "the completion of the community's aims.",
+            "the incompetence of philosophers at field labor.",
+          ],
+          correctAnswer: "faltering commitment in the face of hardship.",
+          explanation:
+            "This is an inference question regarding Brook Farm's demise. The last half of the first paragraph suggests that Brook Farm failed because the Farm's members found farming 'difficult and unpleasant,' indicating their commitment faltered when faced with the hardships of agricultural labor. The fire that destroyed the main building was the final blow, but the underlying issue was the members' struggle with the manual labor required.",
+          topic: "criticalThinking",
+        },
+        {
+          id: "passage-philosophy-justice-q2",
+          type: "passage",
+          passageId: "passage-philosophy-justice",
+          question: "According to the passage, the Oneidans believed that",
+          options: [
+            "men and women were equal in the eyes of God.",
+            "monogamy was wrong in principle.",
+            "rules and standards of behavior were unnecessary.",
+            "they were destined to witness Christ's second coming.",
+          ],
+          correctAnswer: "monogamy was wrong in principle.",
+          explanation:
+            "This is a detail question regarding the Oneidans' beliefs. The Oneidans are discussed in paragraph 2. In the middle of that paragraph we learn that they felt monogamy was a selfish act, and that by sharing partners, they could create a more selfless society. This directly supports option B.",
+          topic: "criticalThinking",
+        },
+        {
+          id: "passage-philosophy-justice-q3",
+          type: "passage",
+          passageId: "passage-philosophy-justice",
+          question: "The author of the passage would most likely agree with which of the following statements?",
+          options: [
+            "Religious communities were more successful than secular ones.",
+            "The communal experiments of the nineteenth century were ultimately failures.",
+            "Economic success was a key factor in the longevity of communal experiments.",
+            "The ideals of communal living are incompatible with human nature.",
+          ],
+          correctAnswer: "Economic success was a key factor in the longevity of communal experiments.",
+          explanation:
+            "This question asks about the author's likely opinion. The passage contrasts Brook Farm, which 'struggled financially' and eventually disbanded, with the Oneida Community, which was 'economically successful' and eventually transformed into a company that 'still exists today.' This contrast suggests that economic success was a key factor in the longevity of these communities.",
+          topic: "criticalThinking",
+        },
+        {
+          id: "passage-philosophy-justice-q4",
+          type: "passage",
+          passageId: "passage-philosophy-justice",
+          question: "Which of the following best describes the organization of the passage?",
+          options: [
+            "A chronological account of the rise and fall of communal experiments",
+            "A comparison of two different types of communal experiments",
+            "An argument for the superiority of religious over secular communities",
+            "A thesis about communal living followed by supporting examples",
+          ],
+          correctAnswer: "A comparison of two different types of communal experiments",
+          explanation:
+            "The passage begins by introducing both secular and religious communal experiments, then provides detailed examples of each type: Brook Farm (secular) and the Oneida Community (religious). The structure is comparative, highlighting the differences in their beliefs, practices, and outcomes.",
+          topic: "criticalThinking",
+        },
+      ],
+    },
+    {
+      id: "passage-science-climate",
+      text: "Climate scientists have long understood the fundamental physics of climate change: certain gases in the atmosphere, including carbon dioxide, methane, and water vapor, trap heat that would otherwise escape into space. This 'greenhouse effect' is essential for life on Earth—without it, the planet would be too cold for most organisms to survive. However, human activities, particularly the burning of fossil fuels and deforestation, have significantly increased the concentration of greenhouse gases in the atmosphere, enhancing the greenhouse effect and leading to global warming.\n\nThe evidence for anthropogenic (human-caused) climate change is overwhelming. Global temperature records show that Earth has warmed by approximately 1°C since the pre-industrial era, with the rate of warming accelerating in recent decades. This warming correlates strongly with the increase in atmospheric carbon dioxide, which has risen from about 280 parts per million (ppm) in the pre-industrial era to over 410 ppm today—higher than at any point in at least the past 800,000 years, as revealed by ice core data. Other lines of evidence include the pattern of warming (with greater warming at the poles), cooling in the upper atmosphere (as predicted by greenhouse gas theory), and the timing of warming coinciding with industrialization.\n\nThe consequences of climate change are already apparent and are expected to become more severe as warming continues. Rising sea levels threaten coastal communities and small island nations. More frequent and intense heat waves, droughts, and extreme precipitation events affect agriculture, infrastructure, and human health. Ecosystems are changing, with some species shifting their ranges poleward or to higher elevations, while others face extinction. Ocean acidification, caused by the absorption of carbon dioxide, threatens marine organisms, particularly those that build shells or skeletons from calcium carbonate.\n\nAddressing climate change requires both mitigation (reducing greenhouse gas emissions) and adaptation (preparing for unavoidable changes). Mitigation strategies include transitioning from fossil fuels to renewable energy sources, improving energy efficiency, protecting and restoring forests, and developing carbon capture technologies. Adaptation measures include building sea walls, developing drought-resistant crops, improving early warning systems for extreme weather events, and creating wildlife corridors to facilitate species migration. The most effective approach will likely involve a combination of these strategies, implemented through coordinated international action.",
+      topic: "criticalThinking",
+      questions: [
+        {
+          id: "passage-science-climate-q1",
+          type: "passage",
+          passageId: "passage-science-climate",
+          question: "According to the passage, which of the following is NOT evidence for anthropogenic climate change?",
+          options: [
+            "The correlation between rising carbon dioxide levels and global temperatures",
+            "The pattern of greater warming at the poles",
+            "The cooling of the upper atmosphere",
+            "The extinction of certain plant and animal species",
+          ],
+          correctAnswer: "The extinction of certain plant and animal species",
+          explanation:
+            "This is a detail question asking about evidence for anthropogenic climate change. The passage mentions species extinction as a consequence of climate change in the third paragraph, not as evidence that climate change is happening or that it is caused by humans. The other options are all explicitly listed as evidence in the second paragraph.",
+          topic: "criticalThinking",
+        },
+        {
+          id: "passage-science-climate-q2",
+          type: "passage",
+          passageId: "passage-science-climate",
+          question: "The author of the passage would most likely agree with which of the following statements?",
+          options: [
+            "The greenhouse effect is harmful and should be eliminated.",
+            "Climate change is a natural process that humans have accelerated.",
+            "Addressing climate change requires either mitigation or adaptation, but not both.",
+            "The most effective approach to climate change involves international cooperation.",
+          ],
+          correctAnswer: "The most effective approach to climate change involves international cooperation.",
+          explanation:
+            "This question asks about the author's likely opinion. In the final paragraph, the author states that the most effective approach to addressing climate change will 'likely involve a combination of these strategies, implemented through coordinated international action.' This directly supports option D. Option A contradicts the passage, which states that the greenhouse effect is 'essential for life on Earth.' Option B oversimplifies the author's view, and option C contradicts the author's statement that addressing climate change requires 'both mitigation and adaptation.'",
+          topic: "criticalThinking",
+        },
+        {
+          id: "passage-science-climate-q3",
+          type: "passage",
+          passageId: "passage-science-climate",
+          question:
+            "Based on the passage, which of the following would be classified as a mitigation strategy rather than an adaptation strategy?",
+          options: [
+            "Building sea walls to protect coastal communities",
+            "Developing drought-resistant crops",
+            "Transitioning from fossil fuels to renewable energy",
+            "Creating wildlife corridors to facilitate species migration",
+          ],
+          correctAnswer: "Transitioning from fossil fuels to renewable energy",
+          explanation:
+            "This question tests your understanding of the distinction between mitigation and adaptation as presented in the passage. According to the fourth paragraph, mitigation involves 'reducing greenhouse gas emissions,' while adaptation involves 'preparing for unavoidable changes.' Transitioning from fossil fuels to renewable energy is explicitly listed as a mitigation strategy. The other options are all adaptation strategies, as they involve preparing for or responding to climate changes rather than preventing them.",
+          topic: "criticalThinking",
+        },
+        {
+          id: "passage-science-climate-q4",
+          type: "passage",
+          passageId: "passage-science-climate",
+          question: "The passage suggests that ocean acidification is caused by",
+          options: [
+            "rising sea levels.",
+            "the absorption of carbon dioxide by the ocean.",
+            "the melting of polar ice caps.",
+            "increased water temperatures.",
+          ],
+          correctAnswer: "the absorption of carbon dioxide by the ocean.",
+          explanation:
+            "This is a detail question. The passage explicitly states in the third paragraph that 'Ocean acidification, caused by the absorption of carbon dioxide, threatens marine organisms...' This directly supports option B.",
+          topic: "criticalThinking",
+        },
+        {
+          id: "passage-science-climate-q5",
+          type: "passage",
+          passageId: "passage-science-climate",
+          question: "Which of the following best describes the purpose of the first paragraph?",
+          options: [
+            "To argue that the greenhouse effect is harmful to life on Earth",
+            "To explain the basic science underlying climate change",
+            "To contrast natural and anthropogenic climate change",
+            "To describe the history of climate science",
+          ],
+          correctAnswer: "To explain the basic science underlying climate change",
+          explanation:
+            "The first paragraph explains the fundamental physics of climate change: how greenhouse gases trap heat, why this effect is natural and necessary for life, and how human activities have enhanced this effect. This is a basic explanation of the science underlying climate change, making option B the best answer. The paragraph does not argue that the greenhouse effect is harmful (in fact, it states the opposite), does not focus on contrasting natural and anthropogenic climate change, and does not describe the history of climate science.",
+          topic: "criticalThinking",
+        },
+      ],
+    },
       {
-        id: "passage-science-climate",
-        text: "Climate scientists have long understood the fundamental physics of climate change: certain gases in the atmosphere, including carbon dioxide, methane, and water vapor, trap heat that would otherwise escape into space. This 'greenhouse effect' is essential for life on Earth—without it, the planet would be too cold for most organisms to survive. However, human activities, particularly the burning of fossil fuels and deforestation, have significantly increased the concentration of greenhouse gases in the atmosphere, enhancing the greenhouse effect and leading to global warming.",
-        topic: "criticalThinking",
-        questions: [
-          {
-            id: "cars-passage2-q1",
-            type: "passage",
-            passageId: "passage-science-climate",
-            question: "According to the passage, which of the following is NOT evidence for anthropogenic climate change?",
-            options: [
-              "The correlation between rising carbon dioxide levels and global temperatures",
-              "The pattern of greater warming at the poles",
-              "The cooling of the upper atmosphere",
-              "The extinction of certain plant and animal species",
-            ],
-            correctAnswer: "The extinction of certain plant and animal species",
-            explanation:
-              "The passage mentions species extinction as a consequence of climate change, not as evidence that climate change is happening or that it is caused by humans.",
-            topic: "criticalThinking",
-          },
-          {
-            id: "cars-passage2-q2",
-            type: "passage",
-            passageId: "passage-science-climate",
-            question: "The author of the passage would most likely agree with which of the following statements?",
-            options: [
-              "The greenhouse effect is harmful and should be eliminated.",
-              "Climate change is a natural process that humans have accelerated.",
-              "Addressing climate change requires either mitigation or adaptation, but not both.",
-              "The most effective approach to climate change involves international cooperation.",
-            ],
-            correctAnswer: "The most effective approach to climate change involves international cooperation.",
-            explanation:
-              "In the final paragraph, the author states that the most effective approach to addressing climate change will 'likely involve a combination of these strategies, implemented through coordinated international action.'",
-            topic: "criticalThinking",
-          },
-          {
-            id: "cars-passage2-q3",
-            type: "passage",
-            passageId: "passage-science-climate",
-            question:
-              "Based on the passage, which of the following would be classified as a mitigation strategy rather than an adaptation strategy?",
-            options: [
-              "Building sea walls to protect coastal communities",
-              "Developing drought-resistant crops",
-              "Transitioning from fossil fuels to renewable energy",
-              "Creating wildlife corridors to facilitate species migration",
-            ],
-            correctAnswer: "Transitioning from fossil fuels to renewable energy",
-            explanation:
-              "According to the passage, mitigation involves 'reducing greenhouse gas emissions,' while adaptation involves 'preparing for unavoidable changes.' Transitioning from fossil fuels to renewable energy is explicitly listed as a mitigation strategy.",
-            topic: "criticalThinking",
-          },
-          {
-            id: "cars-passage2-q4",
-            type: "passage",
-            passageId: "passage-science-climate",
-            question: "The passage suggests that ocean acidification is caused by",
-            options: [
-              "rising sea levels.",
-              "the absorption of carbon dioxide by the ocean.",
-              "the melting of polar ice caps.",
-              "increased water temperatures.",
-            ],
-            correctAnswer: "the absorption of carbon dioxide by the ocean.",
-            explanation:
-              "The passage explicitly states that 'Ocean acidification, caused by the absorption of carbon dioxide, threatens marine organisms...'",
-            topic: "criticalThinking",
-          },
-          {
-            id: "cars-passage2-q5",
-            type: "passage",
-            passageId: "passage-science-climate",
-            question: "Which of the following best describes the purpose of the first paragraph?",
-            options: [
-              "To argue that the greenhouse effect is harmful to life on Earth",
-              "To explain the basic science underlying climate change",
-              "To contrast natural and anthropogenic climate change",
-              "To describe the history of climate science",
-            ],
-            correctAnswer: "To explain the basic science underlying climate change",
-            explanation:
-              "The first paragraph explains the fundamental physics of climate change: how greenhouse gases trap heat, why this effect is natural and necessary for life, and how human activities have enhanced this effect.",
-            topic: "criticalThinking",
-          },
-        ],
-      },
-      {
-        id: "passage-humanities-1",
+        id: "passage-humanities-2",
         text: "The concept of beauty has been debated by philosophers for centuries. Plato argued that beauty is an objective quality that exists independently of the observer, while Kant suggested that beauty is subjective, arising from the free play of imagination and understanding. Modern aesthetics often combines these views, recognizing both universal patterns in what humans find beautiful and cultural variations in aesthetic preferences. The golden ratio, for instance, appears in art across cultures, suggesting some objective basis for beauty. Yet different cultures and historical periods have vastly different aesthetic ideals, from the full-figured beauty idealized in Renaissance paintings to the thin physiques preferred in modern Western media. This tension between universal and culturally specific aspects of beauty continues to challenge our understanding of aesthetics.",
         topic: "criticalThinking",
         questions: [
           {
-            id: "passage-humanities-1-q1",
+            id: "passage-humanities-2-q1",
             type: "passage",
-            passageId: "passage-humanities-1",
+            passageId: "passage-humanities-2",
             question:
               "According to the passage, which philosopher argued that beauty exists independently of the observer?",
             options: ["Plato", "Kant", "Aristotle", "Hume"],
@@ -472,9 +456,9 @@ export const section2Passages: Passage[] = [
               "The passage explicitly states that 'Plato argued that beauty is an objective quality that exists independently of the observer,' making Plato the correct answer.",
           },
           {
-            id: "passage-humanities-1-q2",
+            id: "passage-humanities-2-q2",
             type: "passage",
-            passageId: "passage-humanities-1",
+            passageId: "passage-humanities-2",
             question: "The author mentions the golden ratio primarily to illustrate:",
             options: [
               "A mathematical concept used by Renaissance artists",
@@ -488,9 +472,9 @@ export const section2Passages: Passage[] = [
               "The author mentions that 'The golden ratio appears in art across cultures, suggesting some objective basis for beauty.' This example is used to support the idea that there may be some objective aspects to beauty.",
           },
           {
-            id: "passage-humanities-1-q3",
+            id: "passage-humanities-2-q3",
             type: "passage",
-            passageId: "passage-humanities-1",
+            passageId: "passage-humanities-2",
             question: "Based on the passage, modern aesthetics can best be characterized as:",
             options: [
               "Rejecting classical theories in favor of cultural relativism",
@@ -504,9 +488,9 @@ export const section2Passages: Passage[] = [
               "The passage states that 'Modern aesthetics often combines these views, recognizing both universal patterns in what humans find beautiful and cultural variations in aesthetic preferences.'",
           },
           {
-            id: "passage-humanities-1-q4",
+            id: "passage-humanities-2-q4",
             type: "passage",
-            passageId: "passage-humanities-1",
+            passageId: "passage-humanities-2",
             question: "The passage suggests that Renaissance paintings and modern Western media differ primarily in their:",
             options: [
               "Use of the golden ratio",
@@ -520,9 +504,9 @@ export const section2Passages: Passage[] = [
               "The passage contrasts 'the full-figured beauty idealized in Renaissance paintings to the thin physiques preferred in modern Western media,' indicating that these art forms differ in the body types they consider beautiful.",
           },
           {
-            id: "passage-humanities-1-q5",
+            id: "passage-humanities-2-q5",
             type: "passage",
-            passageId: "passage-humanities-1",
+            passageId: "passage-humanities-2",
             question: "Which of the following best describes the author's position on beauty?",
             options: [
               "Beauty is entirely subjective and culturally determined",
@@ -1045,7 +1029,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p1-q1",
+            id: "cars-passage-1-q1",
             type: "passage",
             passageId: "cars-passage-1",
             question: "According to the passage, Rawls' 'veil of ignorance' is designed to:",
@@ -1061,7 +1045,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p1-q2",
+            id: "cars-passage-1-q2",
             type: "passage",
             passageId: "cars-passage-1",
             question: "Which of the following best describes a criticism of Rawls' approach mentioned in the passage?",
@@ -1077,7 +1061,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p1-q3",
+            id: "cars-passage-1-q3",
             type: "passage",
             passageId: "cars-passage-1",
             question:
@@ -1094,7 +1078,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p1-q4",
+            id: "cars-passage-1-q4",
             type: "passage",
             passageId: "cars-passage-1",
             question: "The author's tone toward Rawls' theory could best be described as:",
@@ -1110,7 +1094,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p1-q5",
+            id: "cars-passage-1-q5",
             type: "passage",
             passageId: "cars-passage-1",
             question: "Which philosophical approach to justice is NOT discussed in the passage?",
@@ -1133,7 +1117,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p2-q1",
+            id: "cars-passage-2-q1",
             type: "passage",
             passageId: "cars-passage-2",
             question: "The primary purpose of this passage is to:",
@@ -1149,7 +1133,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p2-q2",
+            id: "cars-passage-2-q2",
             type: "passage",
             passageId: "cars-passage-2",
             question: "According to the passage, what makes the ethics of climate change particularly distinctive?",
@@ -1165,7 +1149,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p2-q3",
+            id: "cars-passage-2-q3",
             type: "passage",
             passageId: "cars-passage-2",
             question: "Which of the following statements would most undermine an argument presented in the passage?",
@@ -1181,7 +1165,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p2-q4",
+            id: "cars-passage-2-q4",
             type: "passage",
             passageId: "cars-passage-2",
             question: "The author's attitude toward the scientific consensus on climate change can best be described as:",
@@ -1197,7 +1181,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p2-q5",
+            id: "cars-passage-2-q5",
             type: "passage",
             passageId: "cars-passage-2",
             question: "Based on the passage, which group has the least direct input into climate policy decisions?",
@@ -1220,7 +1204,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p3-q1",
+            id: "cars-passage-3-q1",
             type: "passage",
             passageId: "cars-passage-3",
             question:
@@ -1237,7 +1221,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p3-q2",
+            id: "cars-passage-3-q2",
             type: "passage",
             passageId: "cars-passage-3",
             question: "Which artistic movement is specifically mentioned as challenging conventional aesthetics?",
@@ -1248,7 +1232,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p3-q3",
+            id: "cars-passage-3-q3",
             type: "passage",
             passageId: "cars-passage-3",
             question: "The main contrast presented in the passage is between:",
@@ -1264,7 +1248,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p3-q4",
+            id: "cars-passage-3-q4",
             type: "passage",
             passageId: "cars-passage-3",
             question:
@@ -1276,7 +1260,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p3-q5",
+            id: "cars-passage-3-q5",
             type: "passage",
             passageId: "cars-passage-3",
             question: "The author's primary purpose in this passage is to:",
@@ -1299,7 +1283,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p4-q1",
+            id: "cars-passage-4-q1",
             type: "passage",
             passageId: "cars-passage-4",
             question: "According to the passage, the digital divide is BEST defined as:",
@@ -1315,7 +1299,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p4-q2",
+            id: "cars-passage-4-q2",
             type: "passage",
             passageId: "cars-passage-4",
             question: "Which of the following is NOT mentioned as a factor contributing to the digital divide?",
@@ -1331,7 +1315,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p4-q3",
+            id: "cars-passage-4-q3",
             type: "passage",
             passageId: "cars-passage-4",
             question:
@@ -1348,7 +1332,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p4-q4",
+            id: "cars-passage-4-q4",
             type: "passage",
             passageId: "cars-passage-4",
             question: "The author's primary purpose in this passage is to:",
@@ -1364,7 +1348,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p4-q5",
+            id: "cars-passage-4-q5",
             type: "passage",
             passageId: "cars-passage-4",
             question: "Which of the following statements is supported by the passage?",
@@ -1387,7 +1371,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p5-q1",
+            id: "cars-passage-5-q1",
             type: "passage",
             passageId: "cars-passage-5",
             question: "According to the passage, which of the following is true about placebos?",
@@ -1403,7 +1387,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p5-q2",
+            id: "cars-passage-5-q2",
             type: "passage",
             passageId: "cars-passage-5",
             question: "The author suggests that the placebo effect:",
@@ -1419,7 +1403,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p5-q3",
+            id: "cars-passage-5-q3",
             type: "passage",
             passageId: "cars-passage-5",
             question: "Based on the passage, which factor is most important in determining the effectiveness of a placebo?",
@@ -1435,7 +1419,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p5-q4",
+            id: "cars-passage-5-q4",
             type: "passage",
             passageId: "cars-passage-5",
             question: "Which of the following conditions is NOT specifically mentioned as being affected by placebos?",
@@ -1446,7 +1430,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p5-q5",
+            id: "cars-passage-5-q5",
             type: "passage",
             passageId: "cars-passage-5",
             question: "The 'open-label placebo' effect challenges which previous assumption about placebos?",
@@ -1469,7 +1453,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p6-q1",
+            id: "cars-passage-6-q1",
             type: "passage",
             passageId: "cars-passage-6",
             question: "According to the passage, how has critical reception of 'To Kill a Mockingbird' changed over time?",
@@ -1485,7 +1469,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p6-q2",
+            id: "cars-passage-6-q2",
             type: "passage",
             passageId: "cars-passage-6",
             question:
@@ -1502,7 +1486,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p6-q3",
+            id: "cars-passage-6-q3",
             type: "passage",
             passageId: "cars-passage-6",
             question: "Based on the passage, what limitation of the novel stems from its narrative perspective?",
@@ -1518,7 +1502,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p6-q4",
+            id: "cars-passage-6-q4",
             type: "passage",
             passageId: "cars-passage-6",
             question: "What educational approach to teaching 'To Kill a Mockingbird' is suggested in the passage?",
@@ -1534,7 +1518,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p6-q5",
+            id: "cars-passage-6-q5",
             type: "passage",
             passageId: "cars-passage-6",
             question: "The author's tone toward 'To Kill a Mockingbird' could best be described as:",
@@ -1557,7 +1541,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p7-q1",
+            id: "cars-passage-7-q1",
             type: "passage",
             passageId: "cars-passage-7",
             question: "According to the passage, Impressionism developed partly as a response to:",
@@ -1573,7 +1557,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p7-q2",
+            id: "cars-passage-7-q2",
             type: "passage",
             passageId: "cars-passage-7",
             question: "Which of the following is NOT mentioned as a characteristic of Impressionist painting?",
@@ -1589,7 +1573,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p7-q3",
+            id: "cars-passage-7-q3",
             type: "passage",
             passageId: "cars-passage-7",
             question: "The term 'en plein air' as used in the passage most likely refers to:",
@@ -1605,7 +1589,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p7-q4",
+            id: "cars-passage-7-q4",
             type: "passage",
             passageId: "cars-passage-7",
             question: "Based on the passage, what did Impressionist painters primarily seek to capture?",
@@ -1621,7 +1605,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p7-q5",
+            id: "cars-passage-7-q5",
             type: "passage",
             passageId: "cars-passage-7",
             question: "The passage suggests that before Impressionism, painting was characterized by:",
@@ -1644,7 +1628,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p8-q1",
+            id: "cars-passage-8-q1",
             type: "passage",
             passageId: "cars-passage-8",
             question:
@@ -1661,7 +1645,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p8-q2",
+            id: "cars-passage-8-q2",
             type: "passage",
             passageId: "cars-passage-8",
             question:
@@ -1678,7 +1662,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p8-q3",
+            id: "cars-passage-8-q3",
             type: "passage",
             passageId: "cars-passage-8",
             question: "Which of the following best describes the author's approach to the topic of economic inequality?",
@@ -1694,7 +1678,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p8-q4",
+            id: "cars-passage-8-q4",
             type: "passage",
             passageId: "cars-passage-8",
             question:
@@ -1711,7 +1695,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p8-q5",
+            id: "cars-passage-8-q5",
             type: "passage",
             passageId: "cars-passage-8",
             question: "The passage suggests that the debate about economic inequality:",
@@ -1734,7 +1718,7 @@ export const section2Passages: Passage[] = [
         topic: "criticalThinking",
         questions: [
           {
-            id: "cars-p9-q1",
+            id: "cars-passage-9-q1",
             type: "passage",
             passageId: "cars-passage-9",
             question: "According to the passage, memory is best described as:",
@@ -1750,7 +1734,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p9-q2",
+            id: "cars-passage-9-q2",
             type: "passage",
             passageId: "cars-passage-9",
             question: "The 'misinformation effect' refers to:",
@@ -1766,7 +1750,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p9-q3",
+            id: "cars-passage-9-q3",
             type: "passage",
             passageId: "cars-passage-9",
             question: "Based on the passage, which factor makes it more likely that false memories will be implanted?",
@@ -1782,7 +1766,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p9-q4",
+            id: "cars-passage-9-q4",
             type: "passage",
             passageId: "cars-passage-9",
             question: "The primary purpose of this passage is to:",
@@ -1798,7 +1782,7 @@ export const section2Passages: Passage[] = [
             topic: "criticalThinking",
           },
           {
-            id: "cars-p9-q5",
+            id: "cars-passage-9-q5",
             type: "passage",
             passageId: "cars-passage-9",
             question: "Which of the following is NOT mentioned as a factor that can influence eyewitness memory?",

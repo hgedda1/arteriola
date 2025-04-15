@@ -80,33 +80,34 @@ export function getPercentileRank(score: number): number {
 
 // Map topics to their respective sections
 export const topicToSectionMap: Record<string, number> = {
-  // Section 1: Biological and Biochemical Foundations
-  biology: 1,
-  biochemistry: 1,
-  organicChemistry: 1,
+  // Section 1: Chemical and Physical Foundations of Biological Systems
+  physics: 1,
   generalChemistry: 1,
+  organicChemistry: 1, // Note: appears in multiple sections
+  biochemistry: 1, // Note: appears in multiple sections
 
-  // Section 2: Chemical and Physical Foundations
-  physics: 2,
-  // organicChemistry and biochemistry are also in section 2
+  // Section 2: Critical Analysis and Reasoning Skills
+  criticalThinking: 2,
+  ethics: 2,
+  scientificHistory: 2,
 
-  // Section 3: Psychological, Social, and Biological Foundations
-  psychology: 3,
-  sociology: 3,
-  // biology is also in section 3
+  // Section 3: Biological and Biochemical Foundations of Living Systems
+  biology: 3, // Note: appears in multiple sections
+  // biochemistry is also in section 3
+  // organicChemistry is also in section 3
 
-  // Section 4: Critical Analysis and Reasoning Skills
-  criticalThinking: 4,
-  ethics: 4,
-  scientificHistory: 4,
+  // Section 4: Psychological, Social, and Biological Foundations of Behavior
+  psychology: 4,
+  sociology: 4,
+  // biology is also in section 4
 }
 
 // Section titles
 export const sectionTitles: Record<number, string> = {
-  1: "Biological and Biochemical Foundations of Living Systems",
-  2: "Chemical and Physical Foundations of Biological Systems",
-  3: "Psychological, Social, and Biological Foundations of Behavior",
-  4: "Critical Analysis and Reasoning Skills",
+  1: "Chemical and Physical Foundations of Biological Systems",
+  2: "Critical Analysis and Reasoning Skills",
+  3: "Biological and Biochemical Foundations of Living Systems",
+  4: "Psychological, Social, and Biological Foundations of Behavior",
 }
 
 // Update the analyzeTopicPerformance function to use the new metadata

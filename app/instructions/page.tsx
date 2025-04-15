@@ -116,14 +116,12 @@ export default function Instructions() {
                 SECTION 1: Chemical and Physical Foundations of Biological Systems
               </h3>
               <p className="text-sm text-gray-600 text-black dark:text-slate-300 mt-1">59 Questions, 95 Minutes</p>
-              <p className="text-sm mt-2 dark:text-slate-300">Includes Diecrete and passage-based questions.</p>
+              <p className="text-sm mt-2 dark:text-slate-300">Includes Discrete and passage-based questions.</p>
               <p className="text-sm italic mt-1 text-black dark:text-slate-400">
                 10-minute optional break follows this section.
               </p>
             </div>
           </div>
-
-          
         </CardContent>
         <CardFooter className="flex justify-center border-t pt-6">
           <Button size="lg" onClick={startExam} className="px-8">
