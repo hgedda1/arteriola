@@ -55,3 +55,27 @@ export const getImagePath = (path: string): string => {
   const basePath = getBasePath()
   return `${basePath}/${cleanPath}`
 }
+// Function to get absolute URLs for images in HTML export
+export const getAbsoluteImageUrl = (imagePath: string): string => {
+  // If it's already an absolute URL, return it as is
+  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+    return imagePath
+  }
+
+  // If it's a placeholder, convert it to an absolute URL
+  if (imagePath.startsWith("/placeholder.svg")) {
+    // Get the current origin
+    const origin = typeof window !== "undefined" ? window.location.origin : ""
+    const basePath = getBasePath()
+    return `${origin}${basePath}${imagePath}`
+  }
+
+  // Otherwise, create a full absolute URL
+  const origin = typeof window !== "undefined" ? window.location.origin : ""
+  const basePath = getBasePath()
+
+  // Ensure the path starts with a slash
+  const normalizedPath = imagePath.startsWith("/") ? imagePath : `/${imagePath}`
+
+  return `${origin}${basePath}${normalizedPath}`
+}

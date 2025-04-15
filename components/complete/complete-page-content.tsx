@@ -11,28 +11,7 @@ import { disciplineColors, foundationalConceptColors, contentCategoryColors } fr
 import { useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
-import { getImagePath as getImagePathUtil } from "@/lib/client-utils"
-
-// Update the getImagePath function to use our utility function
-// Replace the existing getImagePath function with:
-
-// And then update the function to:
-const getImagePath = (path: string): string => {
-  return getImagePathUtil(path)
-}
-
-// Add this after the imports:
-// Helper function to ensure image paths work with basePath
-// const getImagePath = (path: string): string => {
-//   // If path already starts with http or https, it's an external URL
-//   if (path.startsWith("http")) return path
-
-//   // If path starts with a slash, remove it
-//   const cleanPath = path.startsWith("/") ? path.substring(1) : path
-
-//   // Return the path (Next.js will handle the basePath)
-//   return cleanPath
-// }
+import { getAbsoluteImageUrl } from "@/lib/client-utils"
 
 // Add this function at the top of the file, after the imports
 // Function to generate HTML for all sections' questions
@@ -309,7 +288,7 @@ const generateAllSectionsReviewHTML = (
     </head>
     <body>
       <div class="header">
-        <h1>MCAT Exam Summary</h1>
+        <h1>MCAT Exam Complete Review</h1>
         <h2>Comprehensive Question Analysis</h2>
         <p>Prepared for: ${userName}</p>
         <p>Generated on: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
@@ -332,6 +311,7 @@ const generateAllSectionsReviewHTML = (
         <div class="toc-title">Table of Contents</div>
         <div class="toc-list">
           ${results
+            .sort((a, b) => a.id - b.id) // Sort sections by ID
             .map((section) => {
               const sectionQuestions = allSectionQuestions[section.id] || []
               const sectionAnswers = allSectionAnswers[section.id] || {}
@@ -367,6 +347,7 @@ const generateAllSectionsReviewHTML = (
       
       <!-- Sections and Questions -->
       ${results
+        .sort((a, b) => a.id - b.id) // Sort sections by ID
         .map((section) => {
           const sectionQuestions = allSectionQuestions[section.id] || []
           const sectionAnswers = allSectionAnswers[section.id] || {}
@@ -468,7 +449,7 @@ const generateAllSectionsReviewHTML = (
                       question.image && question.type === "passage"
                         ? `
                       <div class="image-container">
-                        <img src="${getImagePath(question.image)}" alt="Passage image" />
+                        <img src="${getAbsoluteImageUrl(question.image)}" alt="Passage image" />
                       </div>
                     `
                         : ""
@@ -486,7 +467,7 @@ const generateAllSectionsReviewHTML = (
                   question.image && question.type !== "passage"
                     ? `
                   <div class="image-container">
-                    <img src="${getImagePath(question.image)}" alt="Question image" />
+                    <img src="${getAbsoluteImageUrl(question.image)}" alt="Question image" />
                   </div>
                 `
                     : ""
@@ -531,7 +512,7 @@ const generateAllSectionsReviewHTML = (
                     question.explanationImage
                       ? `
                     <div class="image-container">
-                      <img src="${getImagePath(question.explanationImage)}" alt="Explanation image" />
+                      <img src="${getAbsoluteImageUrl(question.explanationImage)}" alt="Explanation image" />
                     </div>
                   `
                       : ""
@@ -548,7 +529,7 @@ const generateAllSectionsReviewHTML = (
       <div class="footer">
         <p>MCAT Exam Simulation Platform</p>
         <p>This document is for personal study purposes only.</p>
-        <p>${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
+        <p>Generated on: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
       </div>
     </body>
     </html>
@@ -568,7 +549,6 @@ interface CompletePageContentProps {
   studyRecommendations: string[]
   motivationalMessage: string
   loading: boolean
-  onDownload?: () => void // Add this line to include the onDownload callback
 }
 
 export default function CompletePageContent({
@@ -581,7 +561,6 @@ export default function CompletePageContent({
   studyRecommendations,
   motivationalMessage,
   loading,
-  onDownload,
 }: CompletePageContentProps) {
   // Convert results to sectionScores format expected by SectionPerformanceChart
   const sectionScores = useMemo(() => {
@@ -663,11 +642,6 @@ export default function CompletePageContent({
     a.click()
     document.body.removeChild(a)
     URL.revokeObjectURL(url)
-
-    // Call the onDownload callback if provided
-    if (onDownload) {
-      onDownload()
-    }
   }
 
   if (loading) {
@@ -761,29 +735,31 @@ export default function CompletePageContent({
           <div>
             <h3 className="text-xl font-semibold mb-4">Section Details</h3>
             <div className="space-y-4">
-              {(results || []).map((section) => (
-                <div key={section.id} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">{section.title}</h4>
-                  <div className="grid grid-cols-3 gap-2 text-sm">
-                    <div>
-                      <div className="text-gray-500 dark:text-gray-400">Score</div>
-                      <div className="font-medium">{section.score}%</div>
-                    </div>
-                    <div>
-                      <div className="text-gray-500 dark:text-gray-400">Correct</div>
-                      <div className="font-medium">
-                        {section.correctCount}/{section.questionCount}
+              {(results || [])
+                .sort((a, b) => a.id - b.id) // Sort sections by ID
+                .map((section) => (
+                  <div key={section.id} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                    <h4 className="font-semibold mb-2">{section.title}</h4>
+                    <div className="grid grid-cols-3 gap-2 text-sm">
+                      <div>
+                        <div className="text-gray-500 dark:text-gray-400">Score</div>
+                        <div className="font-medium">{section.score}%</div>
                       </div>
-                    </div>
-                    <div>
-                      <div className="text-gray-500 dark:text-gray-400">Answered</div>
-                      <div className="font-medium">
-                        {section.answeredCount}/{section.questionCount}
+                      <div>
+                        <div className="text-gray-500 dark:text-gray-400">Correct</div>
+                        <div className="font-medium">
+                          {section.correctCount}/{section.questionCount}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-gray-500 dark:text-gray-400">Answered</div>
+                        <div className="font-medium">
+                          {section.answeredCount}/{section.questionCount}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </div>
@@ -793,26 +769,28 @@ export default function CompletePageContent({
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
         <h2 className="text-2xl font-semibold mb-6">Review Questions</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {(results || []).map((section) => (
-            <div key={section.id} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-              <h3 className="font-semibold mb-3">{section.title}</h3>
-              <div className="flex justify-between items-center">
-                <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Score: {section.score}% ({section.correctCount}/{section.questionCount})
-                  </p>
+          {(results || [])
+            .sort((a, b) => a.id - b.id) // Sort sections by ID
+            .map((section) => (
+              <div key={section.id} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                <h3 className="font-semibold mb-3">{section.title}</h3>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Score: {section.score}% ({section.correctCount}/{section.questionCount})
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      window.location.href = `${getBasePath()}/review/section/${section.id}`
+                    }}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+                  >
+                    Review Section
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    window.location.href = `${getBasePath()}/review/section/${section.id}`
-                  }}
-                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                >
-                  Review Section
-                </button>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
 
@@ -1019,10 +997,7 @@ export default function CompletePageContent({
 
         {/* Add Download All Questions Button */}
         <Button
-          onClick={() => {
-            downloadAllSectionsReview()
-            if (onDownload) onDownload()
-          }}
+          onClick={downloadAllSectionsReview}
           className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
         >
           <Download className="h-4 w-4" />

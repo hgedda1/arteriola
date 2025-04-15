@@ -13,7 +13,6 @@ import {
 } from "@/lib/utils"
 import { sectionTitles } from "@/constants"
 import CompletePageContent from "@/components/complete/complete-page-content"
-import { trackExamComplete, trackResultsDownload } from "@/components/analytics-events"
 
 export default function CompletePageClient() {
   const router = useRouter()
@@ -33,7 +32,6 @@ export default function CompletePageClient() {
   const [studyRecommendations, setStudyRecommendations] = useState<string[]>([])
   const [motivationalMessage, setMotivationalMessage] = useState("")
   const [loading, setLoading] = useState(true)
-  const [totalTimeSpent, setTotalTimeSpent] = useState(0)
 
   // Update the useEffect hook to properly fetch and process all data
   useEffect(() => {
@@ -180,26 +178,6 @@ export default function CompletePageClient() {
       // Get motivational message
       setMotivationalMessage(getMotivationalMessage(mcat))
 
-      // Track exam completion
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "exam_complete", {
-          total_score: totalScore,
-          mcat_score: mcatScore,
-          percentile: percentileRank,
-          sections_completed: state.completedSections?.length || 0,
-          ended_early: state.endedEarly || false,
-          event_category: "Exam",
-          event_label: "Completed Full Exam",
-        })
-      }
-
-      // Calculate total time spent
-      const timeSpent = state.elapsedTime || 0
-      setTotalTimeSpent(timeSpent)
-
-      // Track exam completion
-      trackExamComplete(Math.round(total), mcat, timeSpent, !!state.endedEarly)
-
       setLoading(false)
     } catch (error) {
       console.error("Error loading exam results:", error)
@@ -216,20 +194,6 @@ export default function CompletePageClient() {
       .join(" ")
   }
 
-  // Handle download tracking
-  const handleDownload = () => {
-    trackResultsDownload(totalScore, mcatScore)
-    // Track download events
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "download_all_questions", {
-        total_score: totalScore,
-        mcat_score: mcatScore,
-        event_category: "Review",
-        event_label: "Downloaded All Questions",
-      })
-    }
-  }
-
   return (
     <CompletePageContent
       userName={userName}
@@ -241,7 +205,6 @@ export default function CompletePageClient() {
       studyRecommendations={studyRecommendations}
       motivationalMessage={motivationalMessage}
       loading={loading}
-      onDownload={handleDownload}
     />
   )
 }
