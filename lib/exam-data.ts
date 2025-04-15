@@ -279,6 +279,766 @@ export const section2Passages: Passage[] = [
         },
       ],
     },
+    {
+        id: "passage-philosophy-justice",
+        text: "In the early nineteenth century, a large number of communal experiments, both secular and religious, sprang up in the northeastern United States. These communities shared the belief that it was possible to create a more perfect society through the proper social arrangements. The secular communities, such as Brook Farm, were inspired by the ideas of Charles Fourier, Robert Owen, and other European social theorists who believed that the competitive nature of capitalism was the source of society's ills. The religious communities, such as the Shakers and the Oneidans, were inspired by the belief that the Second Coming of Christ was imminent and that a more perfect society would hasten its arrival.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-passage1-q1",
+            type: "passage",
+            passageId: "passage-philosophy-justice",
+            question: "The passage implies that the end of the Brook Farm experiment was probably brought on by",
+            options: [
+              "faltering commitment in the face of hardship.",
+              "a failure to attract members of sufficient intellect or ability.",
+              "the completion of the community's aims.",
+              "the incompetence of philosophers at field labor.",
+            ],
+            correctAnswer: "faltering commitment in the face of hardship.",
+            explanation:
+              "This is an inference question regarding Brook Farm's demise. The passage suggests that Brook Farm failed because the Farm's members found farming 'difficult and unpleasant,' indicating their commitment faltered when faced with the hardships of agricultural labor.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-passage1-q2",
+            type: "passage",
+            passageId: "passage-philosophy-justice",
+            question: "According to the passage, the Oneidans believed that",
+            options: [
+              "men and women were equal in the eyes of God.",
+              "monogamy was wrong in principle.",
+              "rules and standards of behavior were unnecessary.",
+              "they were destined to witness Christ's second coming.",
+            ],
+            correctAnswer: "monogamy was wrong in principle.",
+            explanation:
+              "This is a detail question regarding the Oneidans' beliefs. The passage states that they felt monogamy was a selfish act, and that by sharing partners, they could create a more selfless society.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-passage1-q3",
+            type: "passage",
+            passageId: "passage-philosophy-justice",
+            question: "The author of the passage would most likely agree with which of the following statements?",
+            options: [
+              "Religious communities were more successful than secular ones.",
+              "The communal experiments of the nineteenth century were ultimately failures.",
+              "Economic success was a key factor in the longevity of communal experiments.",
+              "The ideals of communal living are incompatible with human nature.",
+            ],
+            correctAnswer: "Economic success was a key factor in the longevity of communal experiments.",
+            explanation:
+              "The passage contrasts Brook Farm, which 'struggled financially' and eventually disbanded, with the Oneida Community, which was 'economically successful' and eventually transformed into a company that 'still exists today.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-passage1-q4",
+            type: "passage",
+            passageId: "passage-philosophy-justice",
+            question: "Which of the following best describes the organization of the passage?",
+            options: [
+              "A chronological account of the rise and fall of communal experiments",
+              "A comparison of two different types of communal experiments",
+              "An argument for the superiority of religious over secular communities",
+              "A thesis about communal living followed by supporting examples",
+            ],
+            correctAnswer: "A comparison of two different types of communal experiments",
+            explanation:
+              "The passage begins by introducing both secular and religious communal experiments, then provides detailed examples of each type: Brook Farm (secular) and the Oneida Community (religious).",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-passage1-q5",
+            type: "passage",
+            passageId: "passage-philosophy-justice",
+            question: "What can be inferred about the author's view of communal experiments?",
+            options: [
+              "They were doomed to fail due to human nature.",
+              "They provided valuable social alternatives despite their limitations.",
+              "They were primarily religious in nature.",
+              "They were too idealistic to succeed in practice.",
+            ],
+            correctAnswer: "They provided valuable social alternatives despite their limitations.",
+            explanation:
+              "The author presents both successes and failures of communal experiments without dismissing them entirely, suggesting they had value as social alternatives even with their limitations.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "passage-science-climate",
+        text: "Climate scientists have long understood the fundamental physics of climate change: certain gases in the atmosphere, including carbon dioxide, methane, and water vapor, trap heat that would otherwise escape into space. This 'greenhouse effect' is essential for life on Earth—without it, the planet would be too cold for most organisms to survive. However, human activities, particularly the burning of fossil fuels and deforestation, have significantly increased the concentration of greenhouse gases in the atmosphere, enhancing the greenhouse effect and leading to global warming.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "cars-passage2-q1",
+            type: "passage",
+            passageId: "passage-science-climate",
+            question: "According to the passage, which of the following is NOT evidence for anthropogenic climate change?",
+            options: [
+              "The correlation between rising carbon dioxide levels and global temperatures",
+              "The pattern of greater warming at the poles",
+              "The cooling of the upper atmosphere",
+              "The extinction of certain plant and animal species",
+            ],
+            correctAnswer: "The extinction of certain plant and animal species",
+            explanation:
+              "The passage mentions species extinction as a consequence of climate change, not as evidence that climate change is happening or that it is caused by humans.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-passage2-q2",
+            type: "passage",
+            passageId: "passage-science-climate",
+            question: "The author of the passage would most likely agree with which of the following statements?",
+            options: [
+              "The greenhouse effect is harmful and should be eliminated.",
+              "Climate change is a natural process that humans have accelerated.",
+              "Addressing climate change requires either mitigation or adaptation, but not both.",
+              "The most effective approach to climate change involves international cooperation.",
+            ],
+            correctAnswer: "The most effective approach to climate change involves international cooperation.",
+            explanation:
+              "In the final paragraph, the author states that the most effective approach to addressing climate change will 'likely involve a combination of these strategies, implemented through coordinated international action.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-passage2-q3",
+            type: "passage",
+            passageId: "passage-science-climate",
+            question:
+              "Based on the passage, which of the following would be classified as a mitigation strategy rather than an adaptation strategy?",
+            options: [
+              "Building sea walls to protect coastal communities",
+              "Developing drought-resistant crops",
+              "Transitioning from fossil fuels to renewable energy",
+              "Creating wildlife corridors to facilitate species migration",
+            ],
+            correctAnswer: "Transitioning from fossil fuels to renewable energy",
+            explanation:
+              "According to the passage, mitigation involves 'reducing greenhouse gas emissions,' while adaptation involves 'preparing for unavoidable changes.' Transitioning from fossil fuels to renewable energy is explicitly listed as a mitigation strategy.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-passage2-q4",
+            type: "passage",
+            passageId: "passage-science-climate",
+            question: "The passage suggests that ocean acidification is caused by",
+            options: [
+              "rising sea levels.",
+              "the absorption of carbon dioxide by the ocean.",
+              "the melting of polar ice caps.",
+              "increased water temperatures.",
+            ],
+            correctAnswer: "the absorption of carbon dioxide by the ocean.",
+            explanation:
+              "The passage explicitly states that 'Ocean acidification, caused by the absorption of carbon dioxide, threatens marine organisms...'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "cars-passage2-q5",
+            type: "passage",
+            passageId: "passage-science-climate",
+            question: "Which of the following best describes the purpose of the first paragraph?",
+            options: [
+              "To argue that the greenhouse effect is harmful to life on Earth",
+              "To explain the basic science underlying climate change",
+              "To contrast natural and anthropogenic climate change",
+              "To describe the history of climate science",
+            ],
+            correctAnswer: "To explain the basic science underlying climate change",
+            explanation:
+              "The first paragraph explains the fundamental physics of climate change: how greenhouse gases trap heat, why this effect is natural and necessary for life, and how human activities have enhanced this effect.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "passage-humanities-1",
+        text: "The concept of beauty has been debated by philosophers for centuries. Plato argued that beauty is an objective quality that exists independently of the observer, while Kant suggested that beauty is subjective, arising from the free play of imagination and understanding. Modern aesthetics often combines these views, recognizing both universal patterns in what humans find beautiful and cultural variations in aesthetic preferences. The golden ratio, for instance, appears in art across cultures, suggesting some objective basis for beauty. Yet different cultures and historical periods have vastly different aesthetic ideals, from the full-figured beauty idealized in Renaissance paintings to the thin physiques preferred in modern Western media. This tension between universal and culturally specific aspects of beauty continues to challenge our understanding of aesthetics.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "passage-humanities-1-q1",
+            type: "passage",
+            passageId: "passage-humanities-1",
+            question:
+              "According to the passage, which philosopher argued that beauty exists independently of the observer?",
+            options: ["Plato", "Kant", "Aristotle", "Hume"],
+            correctAnswer: "Plato",
+            topic: "criticalThinking",
+            explanation:
+              "The passage explicitly states that 'Plato argued that beauty is an objective quality that exists independently of the observer,' making Plato the correct answer.",
+          },
+          {
+            id: "passage-humanities-1-q2",
+            type: "passage",
+            passageId: "passage-humanities-1",
+            question: "The author mentions the golden ratio primarily to illustrate:",
+            options: [
+              "A mathematical concept used by Renaissance artists",
+              "Evidence supporting the objective view of beauty",
+              "A measurement technique used in modern aesthetics",
+              "The superiority of classical aesthetic theories",
+            ],
+            correctAnswer: "Evidence supporting the objective view of beauty",
+            topic: "criticalThinking",
+            explanation:
+              "The author mentions that 'The golden ratio appears in art across cultures, suggesting some objective basis for beauty.' This example is used to support the idea that there may be some objective aspects to beauty.",
+          },
+          {
+            id: "passage-humanities-1-q3",
+            type: "passage",
+            passageId: "passage-humanities-1",
+            question: "Based on the passage, modern aesthetics can best be characterized as:",
+            options: [
+              "Rejecting classical theories in favor of cultural relativism",
+              "Focusing exclusively on mathematical patterns in art",
+              "Synthesizing objective and subjective perspectives on beauty",
+              "Prioritizing Western ideals of beauty over other cultural standards",
+            ],
+            correctAnswer: "Synthesizing objective and subjective perspectives on beauty",
+            topic: "criticalThinking",
+            explanation:
+              "The passage states that 'Modern aesthetics often combines these views, recognizing both universal patterns in what humans find beautiful and cultural variations in aesthetic preferences.'",
+          },
+          {
+            id: "passage-humanities-1-q4",
+            type: "passage",
+            passageId: "passage-humanities-1",
+            question: "The passage suggests that Renaissance paintings and modern Western media differ primarily in their:",
+            options: [
+              "Use of the golden ratio",
+              "Philosophical foundations",
+              "Idealization of different body types",
+              "Cultural significance",
+            ],
+            correctAnswer: "Idealization of different body types",
+            topic: "criticalThinking",
+            explanation:
+              "The passage contrasts 'the full-figured beauty idealized in Renaissance paintings to the thin physiques preferred in modern Western media,' indicating that these art forms differ in the body types they consider beautiful.",
+          },
+          {
+            id: "passage-humanities-1-q5",
+            type: "passage",
+            passageId: "passage-humanities-1",
+            question: "Which of the following best describes the author's position on beauty?",
+            options: [
+              "Beauty is entirely subjective and culturally determined",
+              "Beauty is an objective quality that transcends cultural differences",
+              "Beauty involves both universal patterns and cultural variations",
+              "Beauty cannot be meaningfully analyzed or understood",
+            ],
+            correctAnswer: "Beauty involves both universal patterns and cultural variations",
+            topic: "criticalThinking",
+            explanation:
+              "The author presents both universal aspects of beauty (like the golden ratio appearing across cultures) and cultural variations (different body ideals across time periods).",
+          },
+        ],
+      },
+      {
+        id: "passage-social-sciences-digital-divide",
+        text: "The digital divide refers to the gap between demographics and regions that have access to modern information and communications technology (ICT) and those that don't or have restricted access. This technology can include the telephone, television, personal computers, and the internet. While the term 'digital divide' traditionally referred to access to computers and the internet, differences in the quality of access, technical constraints, and the ability to effectively use the technology are also important factors. The divide within countries can be affected by factors such as income, education, age, language, geographic location, and physical ability. The divide between developed and developing countries is often characterized as the global digital divide, examining factors such as the ability to process information or the ability to use the technology for economic benefit. The digital divide is not simply about access to technology but also encompasses issues such as skills, digital literacy, and the quality of technical connections.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "passage-social-sciences-digital-divide-q1",
+            type: "passage",
+            passageId: "passage-social-sciences-digital-divide",
+            question: "According to the passage, the digital divide is primarily about:",
+            options: [
+              "The gap between rich and poor countries",
+              "Differences in access to and ability to use modern technology",
+              "The evolution of information and communications technology",
+              "Government policies regarding internet access",
+            ],
+            correctAnswer: "Differences in access to and ability to use modern technology",
+            explanation:
+              "The passage defines the digital divide as 'the gap between demographics and regions that have access to modern information and communications technology (ICT) and those that don't or have restricted access.' It also mentions that the divide includes 'differences in the quality of access, technical constraints, and the ability to effectively use the technology.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-social-sciences-digital-divide-q2",
+            type: "passage",
+            passageId: "passage-social-sciences-digital-divide",
+            question: "Which of the following is NOT mentioned as a factor affecting the digital divide within countries?",
+            options: ["Income", "Education", "Political affiliation", "Geographic location"],
+            correctAnswer: "Political affiliation",
+            explanation:
+              "The passage lists several factors affecting the digital divide within countries: 'income, education, age, language, geographic location, and physical ability.' Political affiliation is not mentioned.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-social-sciences-digital-divide-q3",
+            type: "passage",
+            passageId: "passage-social-sciences-digital-divide",
+            question: "The passage suggests that the concept of the digital divide has:",
+            options: [
+              "Remained constant since it was first introduced",
+              "Become less relevant with technological advances",
+              "Expanded to include more than just access to technology",
+              "Been primarily concerned with developing countries",
+            ],
+            correctAnswer: "Expanded to include more than just access to technology",
+            explanation:
+              "The passage states that 'While the term 'digital divide' traditionally referred to access to computers and the internet, differences in the quality of access, technical constraints, and the ability to effectively use the technology are also important factors.' This indicates that the concept has expanded beyond mere access.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-social-sciences-digital-divide-q4",
+            type: "passage",
+            passageId: "passage-social-sciences-digital-divide",
+            question:
+              "Based on the passage, which of the following would be considered part of the 'global digital divide'?",
+            options: [
+              "Differences in internet speed between urban and rural areas in the United States",
+              "Varying levels of computer ownership among different age groups in Germany",
+              "Disparities in the ability to use technology for economic benefit between developed and developing nations",
+              "Different rates of smartphone adoption among income brackets in Japan",
+            ],
+            correctAnswer:
+              "Disparities in the ability to use technology for economic benefit between developed and developing nations",
+            explanation:
+              "The passage states that 'The divide between developed and developing countries is often characterized as the global digital divide, examining factors such as the ability to process information or the ability to use the technology for economic benefit.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-social-sciences-digital-divide-q5",
+            type: "passage",
+            passageId: "passage-social-sciences-digital-divide",
+            question: "The author of the passage would most likely agree with which of the following statements?",
+            options: [
+              "The digital divide is primarily a problem in developing countries",
+              "Access to technology is the most important factor in the digital divide",
+              "The digital divide is a complex issue involving multiple factors beyond mere access",
+              "The digital divide will disappear as technology becomes more widespread",
+            ],
+            correctAnswer: "The digital divide is a complex issue involving multiple factors beyond mere access",
+            explanation:
+              "The author emphasizes throughout the passage that the digital divide is not just about access but also involves factors such as quality of access, technical constraints, skills, digital literacy, and the ability to use technology effectively.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "passage-natural-sciences-placebo",
+        text: "The placebo effect is a remarkable phenomenon in which a placebo—a fake treatment, an inactive substance like sugar, distilled water, or saline solution—can sometimes improve a patient's condition simply because the person has the expectation that it will be helpful. Expectation plays a potent role in the placebo effect. The more a person believes they are going to benefit from a treatment, the more likely it is that they will experience a benefit. The placebo effect is more than just positive thinking—expecting a treatment to help. It's about creating a stronger connection between the brain and body and how they work together. Placebos won't lower your cholesterol or shrink a tumor. Instead, placebos work on symptoms modulated by the brain, like the perception of pain. The placebo effect is a part of the human potential to react positively to a healer. A patient's distress may be relieved by something for which there is no medical basis. A doctor who gives a patient with a minor complaint a placebo may do so in the belief that it will do no harm, but also in the hope that it will help the patient feel better. Research on the placebo effect has focused on the relationship of mind and body. One of the most common theories is that the placebo effect is due to a person's expectations. If a person expects a pill to do something, then it's possible that the body's own chemistry can cause effects similar to what a medication might have caused.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "passage-natural-sciences-placebo-q1",
+            type: "passage",
+            passageId: "passage-natural-sciences-placebo",
+            question: "According to the passage, which of the following best describes a placebo?",
+            options: [
+              "A treatment that has minimal side effects",
+              "A fake treatment that can improve a patient's condition due to expectation",
+              "A medication that affects the brain's perception of pain",
+              "A substance that creates a connection between the brain and body",
+            ],
+            correctAnswer: "A fake treatment that can improve a patient's condition due to expectation",
+            explanation:
+              "The passage defines a placebo as 'a fake treatment, an inactive substance like sugar, distilled water, or saline solution' that 'can sometimes improve a patient's condition simply because the person has the expectation that it will be helpful.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-natural-sciences-placebo-q2",
+            type: "passage",
+            passageId: "passage-natural-sciences-placebo",
+            question: "The passage suggests that placebos are most effective for which of the following?",
+            options: [
+              "Lowering cholesterol levels",
+              "Shrinking tumors",
+              "Alleviating symptoms modulated by the brain",
+              "Treating serious medical conditions",
+            ],
+            correctAnswer: "Alleviating symptoms modulated by the brain",
+            explanation:
+              "The passage states that 'placebos won't lower your cholesterol or shrink a tumor. Instead, placebos work on symptoms modulated by the brain, like the perception of pain.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-natural-sciences-placebo-q3",
+            type: "passage",
+            passageId: "passage-natural-sciences-placebo",
+            question: "Based on the passage, which of the following is most likely to enhance the placebo effect?",
+            options: [
+              "Using a placebo that looks like a well-known medication",
+              "Telling the patient they are receiving a placebo",
+              "Increasing the patient's expectation of benefit from the treatment",
+              "Administering the placebo in a clinical setting",
+            ],
+            correctAnswer: "Increasing the patient's expectation of benefit from the treatment",
+            explanation:
+              "The passage emphasizes that 'Expectation plays a potent role in the placebo effect. The more a person believes they are going to benefit from a treatment, the more likely it is that they will experience a benefit.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-natural-sciences-placebo-q4",
+            type: "passage",
+            passageId: "passage-natural-sciences-placebo",
+            question: "According to the passage, why might a doctor give a patient a placebo for a minor complaint?",
+            options: [
+              "To avoid prescribing more expensive medications",
+              "Because placebos have been proven to be more effective than actual medications for minor complaints",
+              "In the belief that it will do no harm and might help the patient feel better",
+              "To test whether the patient's symptoms are psychosomatic",
+            ],
+            correctAnswer: "In the belief that it will do no harm and might help the patient feel better",
+            explanation:
+              "The passage states that 'A doctor who gives a patient with a minor complaint a placebo may do so in the belief that it will do no harm, but also in the hope that it will help the patient feel better.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-natural-sciences-placebo-q5",
+            type: "passage",
+            passageId: "passage-natural-sciences-placebo",
+            question:
+              "Which of the following best describes the main focus of research on the placebo effect, according to the passage?",
+            options: [
+              "Developing more effective placebos",
+              "Understanding how placebos can be used to treat serious conditions",
+              "Exploring the relationship between mind and body",
+              "Comparing the effectiveness of different types of placebos",
+            ],
+            correctAnswer: "Exploring the relationship between mind and body",
+            explanation:
+              "The passage states that 'Research on the placebo effect has focused on the relationship of mind and body.'",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "passage-literature-mockingbird",
+        text: "To Kill a Mockingbird, published in 1960, was immediately successful and has become a classic of modern American literature. The novel is renowned for its warmth and humor, despite dealing with serious issues of rape and racial inequality. The narrator's father, Atticus Finch, has served as a moral hero for many readers and as a model of integrity for lawyers. Historian Joseph Crespino explains, 'In the twentieth century, To Kill a Mockingbird is probably the most widely read book dealing with race in America, and its protagonist, Atticus Finch, the most enduring fictional image of racial heroism.' As a Southern Gothic and Bildungsroman novel, To Kill a Mockingbird is both a beloved coming-of-age story and a drama about the roots of human behavior—especially moral development, prejudice, and justice. The novel examines the dichotomy between the public persona and private realities of small-town residents who claim to value fairness but still harbor prejudice. The novel has been criticized for its one-dimensional portrayal of African Americans as docile, simple folk who need white people to defend them, and for using the 'white savior' trope through the character of Atticus Finch. Despite these criticisms, the novel remains a staple of high school English curricula and continues to be regarded as a masterpiece of American literature.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "passage-literature-mockingbird-q1",
+            type: "passage",
+            passageId: "passage-literature-mockingbird",
+            question: "According to the passage, To Kill a Mockingbird is characterized by all of the following EXCEPT:",
+            options: [
+              "Warmth and humor",
+              "Exploration of moral development",
+              "Examination of racial inequality",
+              "Realistic portrayal of African American characters",
+            ],
+            correctAnswer: "Realistic portrayal of African American characters",
+            explanation:
+              "The passage states that the novel 'has been criticized for its one-dimensional portrayal of African Americans as docile, simple folk who need white people to defend them,' indicating that it does not have a realistic portrayal of African American characters.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-literature-mockingbird-q2",
+            type: "passage",
+            passageId: "passage-literature-mockingbird",
+            question: "The passage suggests that Atticus Finch is significant because he:",
+            options: [
+              "Represents the typical Southern lawyer of the 1930s",
+              "Has served as a moral hero and model of integrity",
+              "Successfully defends an innocent man against false accusations",
+              "Challenges the legal system of his time",
+            ],
+            correctAnswer: "Has served as a moral hero and model of integrity",
+            explanation:
+              "The passage states that 'The narrator's father, Atticus Finch, has served as a moral hero for many readers and as a model of integrity for lawyers.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-literature-mockingbird-q3",
+            type: "passage",
+            passageId: "passage-literature-mockingbird",
+            question: "Which of the following literary genres is NOT mentioned as applying to To Kill a Mockingbird?",
+            options: ["Southern Gothic", "Bildungsroman", "Historical fiction", "Coming-of-age story"],
+            correctAnswer: "Historical fiction",
+            explanation:
+              "The passage mentions that To Kill a Mockingbird is a 'Southern Gothic and Bildungsroman novel' and 'a beloved coming-of-age story,' but does not mention historical fiction.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-literature-mockingbird-q4",
+            type: "passage",
+            passageId: "passage-literature-mockingbird",
+            question:
+              "Based on the passage, which of the following best describes a central theme of To Kill a Mockingbird?",
+            options: [
+              "The importance of family bonds in Southern culture",
+              "The contrast between public persona and private prejudice",
+              "The failure of the American legal system",
+              "The historical development of race relations in America",
+            ],
+            correctAnswer: "The contrast between public persona and private prejudice",
+            explanation:
+              "The passage states that 'The novel examines the dichotomy between the public persona and private realities of small-town residents who claim to value fairness but still harbor prejudice.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-literature-mockingbird-q5",
+            type: "passage",
+            passageId: "passage-literature-mockingbird",
+            question: "The author of the passage would most likely agree with which of the following statements?",
+            options: [
+              "To Kill a Mockingbird should be removed from school curricula due to its problematic portrayal of race",
+              "The character of Atticus Finch represents the ideal lawyer in American society",
+              "Despite its flaws, To Kill a Mockingbird remains an important work of American literature",
+              "To Kill a Mockingbird accurately depicts race relations in the American South",
+            ],
+            correctAnswer: "Despite its flaws, To Kill a Mockingbird remains an important work of American literature",
+            explanation:
+              "The passage acknowledges criticisms of the novel but also notes that 'the novel remains a staple of high school English curricula and continues to be regarded as a masterpiece of American literature,' suggesting that despite its flaws, it is still considered important.",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "passage-art-impressionism",
+        text: "Impressionism emerged in France in the 1860s and 1870s as a reaction against the rigid rules of academic painting. The movement is characterized by small, thin, yet visible brush strokes, open composition, emphasis on accurate depiction of light in its changing qualities, ordinary subject matter, inclusion of movement as a crucial element of human perception and experience, and unusual visual angles. The Impressionists found that they could capture the momentary and transient effects of sunlight by painting en plein air (outdoors). They portrayed overall visual effects instead of details, and used short 'broken' brush strokes of mixed and pure unmixed color to achieve an effect of intense color vibration. Impressionism emerged from the practice of painting landscape and outdoor scenes. The style was brought to the attention of the public through an exhibition in 1874, which included Claude Monet's painting Impression, Sunrise. The critical response was mixed, with some critics using the term 'impressionist' derogatively. The public, at first hostile, gradually came to believe that the Impressionists had captured a fresh and original vision. By the 1880s, the movement's central figures were achieving critical and financial success. Although the movement was initially met with resistance, it soon gathered support among progressive young artists and became a major influence on subsequent artistic developments.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "passage-art-impressionism-q1",
+            type: "passage",
+            passageId: "passage-art-impressionism",
+            question: "According to the passage, Impressionism emerged primarily as:",
+            options: [
+              "A continuation of academic painting traditions",
+              "A reaction against rigid academic painting rules",
+              "An attempt to accurately document historical events",
+              "A movement focused on portraiture and still life",
+            ],
+            correctAnswer: "A reaction against rigid academic painting rules",
+            explanation:
+              "The passage states that 'Impressionism emerged in France in the 1860s and 1870s as a reaction against the rigid rules of academic painting.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-art-impressionism-q2",
+            type: "passage",
+            passageId: "passage-art-impressionism",
+            question: "Which of the following is NOT mentioned as a characteristic of Impressionist painting?",
+            options: [
+              "Small, thin, visible brush strokes",
+              "Emphasis on accurate depiction of light",
+              "Detailed representation of subject matter",
+              "Unusual visual angles",
+            ],
+            correctAnswer: "Detailed representation of subject matter",
+            explanation:
+              "The passage states that Impressionists 'portrayed overall visual effects instead of details,' which contradicts the idea of detailed representation of subject matter. The other options are all explicitly mentioned as characteristics of Impressionism.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-art-impressionism-q3",
+            type: "passage",
+            passageId: "passage-art-impressionism",
+            question: "The term 'impressionist' was originally:",
+            options: [
+              "Chosen by the artists to describe their work",
+              "Used derogatively by some critics",
+              "Created by Claude Monet for his exhibition",
+              "Widely accepted as a positive description",
+            ],
+            correctAnswer: "Used derogatively by some critics",
+            explanation:
+              "The passage states that 'The critical response was mixed, with some critics using the term 'impressionist' derogatively.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-art-impressionism-q4",
+            type: "passage",
+            passageId: "passage-art-impressionism",
+            question: "According to the passage, what painting brought Impressionism to public attention?",
+            options: [
+              "An outdoor landscape scene",
+              "A portrait of a French aristocrat",
+              "Impression, Sunrise by Claude Monet",
+              "A collective work by several artists",
+            ],
+            correctAnswer: "Impression, Sunrise by Claude Monet",
+            explanation:
+              "The passage states that the style 'was brought to the attention of the public through an exhibition in 1874, which included Claude Monet's painting Impression, Sunrise.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-art-impressionism-q5",
+            type: "passage",
+            passageId: "passage-art-impressionism",
+            question: "The passage suggests that by the 1880s, Impressionist artists were:",
+            options: [
+              "Still struggling for recognition",
+              "Abandoning their distinctive style",
+              "Achieving critical and financial success",
+              "Primarily working outside of France",
+            ],
+            correctAnswer: "Achieving critical and financial success",
+            explanation:
+              "The passage states that 'By the 1880s, the movement's central figures were achieving critical and financial success.'",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "passage-economics-inequality",
+        text: "Economic inequality refers to the disparate distribution of income and opportunity among different groups in society. It is a concern in almost all countries around the world and often cited as one of the most important social problems of our time. The causes of economic inequality are multifaceted and interconnected. Globalization has increased inequality within many countries, as lower-skilled jobs have been outsourced to developing nations where labor is cheaper. Technological change has also contributed to inequality by increasing the demand for skilled workers while reducing the need for many types of unskilled labor. Tax policies that favor the wealthy, such as lower taxes on capital gains than on earned income, can exacerbate inequality. Additionally, differences in access to quality education perpetuate inequality across generations. The consequences of economic inequality are far-reaching. High levels of inequality are associated with lower social mobility, meaning that children born to poor families are less likely to improve their economic status. Inequality can lead to political instability as those who feel left behind become disillusioned with the system. It can also result in inefficient resource allocation, as those with lower incomes may be unable to invest in education or entrepreneurship, even if they have the ability and ideas to succeed. Addressing economic inequality requires a multifaceted approach, including progressive taxation, investment in education and training, stronger social safety nets, and policies that promote fair competition and prevent the concentration of economic power.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "passage-economics-inequality-q1",
+            type: "passage",
+            passageId: "passage-economics-inequality",
+            question:
+              "According to the passage, which of the following is NOT mentioned as a cause of economic inequality?",
+            options: ["Globalization", "Technological change", "Immigration policies", "Tax policies favoring the wealthy"],
+            correctAnswer: "Immigration policies",
+            explanation:
+              "The passage mentions globalization, technological change, tax policies, and differences in access to education as causes of economic inequality, but does not mention immigration policies.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-economics-inequality-q2",
+            type: "passage",
+            passageId: "passage-economics-inequality",
+            question: "The passage suggests that technological change contributes to inequality by:",
+            options: [
+              "Making it easier for wealthy individuals to hide their assets",
+              "Increasing the cost of consumer goods",
+              "Increasing demand for skilled workers while reducing need for unskilled labor",
+              "Creating monopolies in new industries",
+            ],
+            correctAnswer: "Increasing demand for skilled workers while reducing need for unskilled labor",
+            explanation:
+              "The passage states that 'Technological change has also contributed to inequality by increasing the demand for skilled workers while reducing the need for many types of unskilled labor.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-economics-inequality-q3",
+            type: "passage",
+            passageId: "passage-economics-inequality",
+            question: "Based on the passage, which of the following is a consequence of economic inequality?",
+            options: [
+              "Increased innovation and entrepreneurship",
+              "Greater political stability",
+              "More efficient resource allocation",
+              "Lower social mobility",
+            ],
+            correctAnswer: "Lower social mobility",
+            explanation:
+              "The passage states that 'High levels of inequality are associated with lower social mobility, meaning that children born to poor families are less likely to improve their economic status.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-economics-inequality-q4",
+            type: "passage",
+            passageId: "passage-economics-inequality",
+            question: "According to the passage, addressing economic inequality requires:",
+            options: [
+              "Reducing globalization",
+              "Limiting technological advancement",
+              "A multifaceted approach including progressive taxation",
+              "Focusing primarily on education reform",
+            ],
+            correctAnswer: "A multifaceted approach including progressive taxation",
+            explanation:
+              "The passage states that 'Addressing economic inequality requires a multifaceted approach, including progressive taxation, investment in education and training, stronger social safety nets, and policies that promote fair competition and prevent the concentration of economic power.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-economics-inequality-q5",
+            type: "passage",
+            passageId: "passage-economics-inequality",
+            question: "The author of the passage would most likely agree with which of the following statements?",
+            options: [
+              "Economic inequality is an inevitable consequence of a free market economy",
+              "The primary cause of economic inequality is differences in individual ability and effort",
+              "Economic inequality is a complex problem with significant social consequences",
+              "Technological advancement should be slowed to reduce economic inequality",
+            ],
+            correctAnswer: "Economic inequality is a complex problem with significant social consequences",
+            explanation:
+              "Throughout the passage, the author presents economic inequality as a complex issue with multiple causes and far-reaching consequences, describing it as 'one of the most important social problems of our time.'",
+            topic: "criticalThinking",
+          },
+        ],
+      },
+      {
+        id: "passage-psychology-memory",
+        text: "Memory is the faculty of the brain by which data or information is encoded, stored, and retrieved when needed. It is the retention of information over time for the purpose of influencing future action. If past events could not be remembered, it would be impossible for language, relationships, or personal identity to develop. Memory is often understood as an informational processing system with explicit and implicit functioning that is made up of a sensory processor, short-term (or working) memory, and long-term memory. The sensory processor allows information from the outside world to be sensed in the form of chemical and physical stimuli and attended to with various levels of focus and intent. Working memory serves as an encoding and retrieval processor. Information in the form of stimuli is encoded in accordance with explicit or implicit functions by the working memory processor. The working memory also retrieves information from previously stored material. Finally, the function of long-term memory is to store data through various categorical models or systems. Explicit memory, also known as declarative memory, is the conscious storage and recollection of data. Under declarative memory resides semantic and episodic memory. Semantic memory refers to memory that is encoded with specific meaning, while episodic memory refers to information that is encoded along a spatial and temporal plane. Implicit memory, also known as procedural memory, is the unconscious storage and recollection of information. An example of implicit memory is the unconscious learning or retrieval of motor skills and other tasks performed even after not actively engaging in them for a long time.",
+        topic: "criticalThinking",
+        questions: [
+          {
+            id: "passage-psychology-memory-q1",
+            type: "passage",
+            passageId: "passage-psychology-memory",
+            question: "According to the passage, memory is essential for the development of all of the following EXCEPT:",
+            options: ["Language", "Relationships", "Personal identity", "Physical coordination"],
+            correctAnswer: "Physical coordination",
+            explanation:
+              "The passage states that 'If past events could not be remembered, it would be impossible for language, relationships, or personal identity to develop.' Physical coordination is not mentioned in this context.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-psychology-memory-q2",
+            type: "passage",
+            passageId: "passage-psychology-memory",
+            question: "Which of the following best describes the function of working memory according to the passage?",
+            options: [
+              "Storing information for long periods of time",
+              "Sensing chemical and physical stimuli from the outside world",
+              "Serving as an encoding and retrieval processor",
+              "Categorizing information into semantic and episodic memory",
+            ],
+            correctAnswer: "Serving as an encoding and retrieval processor",
+            explanation:
+              "The passage states that 'Working memory serves as an encoding and retrieval processor. Information in the form of stimuli is encoded in accordance with explicit or implicit functions by the working memory processor. The working memory also retrieves information from previously stored material.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-psychology-memory-q3",
+            type: "passage",
+            passageId: "passage-psychology-memory",
+            question: "Based on the passage, which of the following is an example of semantic memory?",
+            options: [
+              "Remembering what you ate for breakfast yesterday",
+              "Knowing that Paris is the capital of France",
+              "Remembering how to ride a bicycle",
+              "Recalling where you were when you heard important news",
+            ],
+            correctAnswer: "Knowing that Paris is the capital of France",
+            explanation:
+              "The passage states that 'Semantic memory refers to memory that is encoded with specific meaning.' Knowing that Paris is the capital of France is a fact with specific meaning, making it an example of semantic memory.",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-psychology-memory-q4",
+            type: "passage",
+            passageId: "passage-psychology-memory",
+            question: "According to the passage, which type of memory is unconscious?",
+            options: ["Explicit memory", "Declarative memory", "Episodic memory", "Implicit memory"],
+            correctAnswer: "Implicit memory",
+            explanation:
+              "The passage states that 'Implicit memory, also known as procedural memory, is the unconscious storage and recollection of information.'",
+            topic: "criticalThinking",
+          },
+          {
+            id: "passage-psychology-memory-q5",
+            type: "passage",
+            passageId: "passage-psychology-memory",
+            question: "The passage suggests that episodic memory is characterized by:",
+            options: [
+              "Unconscious recollection of information",
+              "Encoding along a spatial and temporal plane",
+              "Storage of motor skills and tasks",
+              "Specific meaning without context",
+            ],
+            correctAnswer: "Encoding along a spatial and temporal plane",
+            explanation:
+              "The passage states that 'episodic memory refers to information that is encoded along a spatial and temporal plane.'",
+            topic: "criticalThinking",
+          },
+        ],
+      },
   ]
 
 // Biological and Biochemical Foundations
