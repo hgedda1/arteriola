@@ -12773,20 +12773,20 @@ export const section2Questions: Question[] = [
 // Add configuration for discrete vs passage percentages for each section
 export const sectionQuestionTypeConfig = {
   1: {
-    discrete: 0.7, // 0.5 50% discrete questions
-    passage: 0.3, // 0.5 50% passage-based questions
+    discrete: 0.6, // 0.5 50% discrete questions
+    passage: 0.4, // 0.5 50% passage-based questions
   },
   2: {
     discrete: 0,
     passage: 1,
   },
   3: {
-    discrete: 0.7,
-    passage: 0.3,
+    discrete: 0.6,
+    passage: 0.4,
   },
   4: {
-    discrete: 0.7,
-    passage: 0.3,
+    discrete: 0.6,
+    passage: 0.4,
   },
 }
 
@@ -12796,9 +12796,9 @@ export const sectionTopicWeightage = {
     // Chemical and Physical Foundations
     biology: 0.05, // 5%
     generalChemistry: 0.3, // 30%
-    physics: 0.25, // 25%
+    physics: 0.35, // 25%
     organicChemistry: 0.15, // 15%
-    biochemistry: 0.20, // 25%
+    biochemistry: 0.15, // 15%
   },
   2: {
     // Critical Analysis and Reasoning Skills
@@ -12808,8 +12808,8 @@ export const sectionTopicWeightage = {
   },
   3: {
      // Biological and Biochemical Foundations
-     biology: 0.65, // 65%
-     biochemistry: 0.20, // 25%
+     biology: 0.75, // 65%
+     biochemistry: 0.15, // 25%
      organicChemistry: 0.05, // 5%
      generalChemistry: 0.05, // 5%
   },
