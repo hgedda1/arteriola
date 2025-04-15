@@ -1,11 +1,9 @@
-import { shuffleArray } from "./utils"
 import {
   section1Questions,
   section2Questions,
   section3Questions,
   section4Questions,
   section1Passages,
-  section2Passages,
   section3Passages,
   section4Passages,
   sectionTopicWeightage,
@@ -16,6 +14,24 @@ import {
 
 // Add this import at the top of the file
 import { updateQuestionMetadata, updateSectionQuestions } from "./update-question-metadata"
+
+/**
+ * Shuffles an array using the Fisher-Yates algorithm
+ * @param array The array to shuffle
+ * @returns A new shuffled array
+ */
+function shuffleArray<T>(array: T[]): T[] {
+  // Create a copy of the array to avoid modifying the original
+  const shuffled = [...array]
+
+  // Fisher-Yates shuffle algorithm
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+
+  return shuffled
+}
 
 // Function to extract questions from passages
 function extractQuestionsFromPassages(passages: Passage[]): Question[] {
@@ -271,7 +287,7 @@ export function getSectionQuestions(sectionId: number): Question[] {
         targetCount = 53
         questions = generateQuestionsWithWeightage(
           section2Questions,
-          section2Passages,
+          section1Passages,
           2,
           targetCount,
           sectionTopicWeightage[2],
@@ -540,7 +556,7 @@ export function getAllSectionQuestions(): Record<number, Question[]> {
         sectionId === 1
           ? section1Passages
           : sectionId === 2
-            ? section2Passages
+            ? section1Passages
             : sectionId === 3
               ? section3Passages
               : section4Passages,

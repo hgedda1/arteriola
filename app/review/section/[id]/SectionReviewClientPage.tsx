@@ -496,10 +496,10 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
   const [correctCount, setCorrectCount] = useState(0)
 
   const sectionTitles = {
-    1: "Biological and Biochemical Foundations of Living Systems",
-    2: "Chemical and Physical Foundations of Biological Systems",
-    3: "Psychological, Social, and Biological Foundations of Behavior",
-    4: "Critical Analysis and Reasoning Skills",
+    1: "Chemical and Physical Foundations of Biological Systems",
+    2: "Critical Analysis and Reasoning Skills",
+    3: "Biological and Biochemical Foundations of Living Systems",
+    4: "Psychological, Social, and Biological Foundations of Behavior",
   }
 
   useEffect(() => {
