@@ -24,6 +24,8 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 // }
 
 // Add this function to handle passage-based questions
+// client-utils.ts (or another shared utils file)
+
 const getPassageQuestions = (questions: Question[], currentQuestion: Question): Question[] => {
   if (currentQuestion.type !== "passage" || !currentQuestion.passageId) {
     return []
@@ -838,12 +840,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               {passageImage && (
                 <div className="mt-4 flex justify-center">
                   <Image
-                    src={passageImage ? getImagePath(passageImage) : getImagePath("/placeholder.svg")}
+                    src={getImagePath(passageImage)}
                     alt="Passage image"
                     width={400}
                     height={300}
                     className="border border-gray-300 dark:border-slate-700 rounded max-w-full h-auto"
-                    unoptimized // Add this to ensure static export works properly
+                    unoptimized // Ensures static export compatibility
                   />
                 </div>
               )}
@@ -935,12 +937,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               {hasQuestionImage && (
                 <div className="mb-4">
                   <Image
-                    src={currentQuestion.image ? getImagePath(currentQuestion.image) : getImagePath("/placeholder.svg")}
+                    src={getImagePath(currentQuestion.image!)}
                     alt="Question image"
                     width={300}
                     height={200}
                     className="border border-gray-300 dark:border-slate-700"
-                    unoptimized // Add this to ensure static export works properly
+                    unoptimized // Ensures static export compatibility
                   />
                 </div>
               )}
@@ -990,12 +992,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                               {!isUserAnswer && isCorrectAnswer && " (Correct Answer)"}
                             </label>
                             <Image
-                              src={imageSrc || getImagePath("/placeholder.svg")}
+                              src={getImagePath(imageSrc || "/placeholder.svg")}
                               alt={`Option ${letter}`}
                               width={300}
                               height={200}
                               className="border border-gray-300 dark:border-slate-700 rounded"
-                              unoptimized // Add this to ensure static export works properly
+                              unoptimized // Ensures static export compatibility
                             />
                           </div>
                         </div>
@@ -1059,16 +1061,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                 {currentQuestion.explanationImage && (
                   <div className="mt-4 flex justify-center">
                     <Image
-                      src={
-                        currentQuestion.explanationImage
-                          ? getImagePath(currentQuestion.explanationImage)
-                          : getImagePath("/placeholder.svg")
-                      }
+                      src={getImagePath(currentQuestion.explanationImage || "/placeholder.svg")}
                       alt="Explanation image"
                       width={500}
                       height={300}
                       className="border border-gray-300 dark:border-slate-700 rounded-md"
-                      unoptimized // Add this to ensure static export works properly
+                      unoptimized // Ensures static export compatibility
                     />
                   </div>
                 )}
@@ -1134,12 +1132,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
             {hasQuestionImage && (
               <div className="mb-4 flex justify-center">
                 <Image
-                  src={currentQuestion.image ? getImagePath(currentQuestion.image) : getImagePath("/placeholder.svg")}
+                  src={getImagePath(currentQuestion.image || "/placeholder.svg")}
                   alt="Question image"
                   width={400}
                   height={300}
-                  className="border border-gray-300 dark:border-slate-700"
-                  unoptimized // Add this to ensure static export works properly
+                  className="border border-gray-300 dark:border-slate-700 rounded"
+                  unoptimized // Ensures static export compatibility
                 />
               </div>
             )}
@@ -1188,12 +1186,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                             {!isUserAnswer && isCorrectAnswer && " (Correct Answer)"}
                           </label>
                           <Image
-                            src={imageSrc || getImagePath("/placeholder.svg")}
+                            src={getImagePath(imageSrc || "/placeholder.svg")}
                             alt={`Option ${letter}`}
                             width={300}
                             height={200}
                             className="border border-gray-300 dark:border-slate-700 rounded"
-                            unoptimized // Add this to ensure static export works properly
+                            unoptimized // Ensures static export compatibility
                           />
                         </div>
                       </div>
@@ -1257,16 +1255,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               {currentQuestion.explanationImage && (
                 <div className="mt-4 flex justify-center">
                   <Image
-                    src={
-                      currentQuestion.explanationImage
-                        ? getImagePath(currentQuestion.explanationImage)
-                        : getImagePath("/placeholder.svg")
-                    }
+                    src={getImagePath(currentQuestion.explanationImage || "/placeholder.svg")}
                     alt="Explanation image"
                     width={500}
                     height={300}
                     className="border border-gray-300 dark:border-slate-700 rounded-md"
-                    unoptimized // Add this to ensure static export works properly
+                    unoptimized // Ensures static export compatibility
                   />
                 </div>
               )}

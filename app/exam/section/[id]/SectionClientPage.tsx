@@ -15,6 +15,14 @@ import { EndExamDialog } from "@/components/end-exam-dialog"
 import { Button } from "@/components/ui/button"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
 import { PeriodicTableDialog } from "@/components/periodic-table-dialog"
+import { getBasePath } from "@/lib/client-utils"
+
+const basePath = getBasePath()
+
+function formatImagePath(imagePath?: string): string {
+  return imagePath ? `${basePath}/${imagePath.trim().replace(/^\/+/, "")}` : "/placeholder.svg"
+}
+
 
 // Change the component props from { params } to { id }
 export default function SectionClientPage({ id }: { id: string }) {
@@ -665,7 +673,7 @@ export default function SectionClientPage({ id }: { id: string }) {
               {passageImage && (
                 <div className="mt-4 flex justify-center">
                   <Image
-                    src={passageImage || "/placeholder.svg"}
+                    src={formatImagePath(passageImage)}
                     alt="Passage image"
                     width={400}
                     height={300}
@@ -713,7 +721,7 @@ export default function SectionClientPage({ id }: { id: string }) {
               {currentQuestion.image && currentQuestion.type !== "passage" && (
                 <div className="mb-4">
                   <Image
-                    src={currentQuestion.image || "/placeholder.svg"}
+                    src={formatImagePath(currentQuestion.image)}
                     alt="Question image"
                     width={300}
                     height={200}
@@ -753,7 +761,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                               {option}
                             </label>
                             <Image
-                              src={imageSrc || "/placeholder.svg"}
+                              src={formatImagePath(imageSrc)}
                               alt={`Option ${letter}`}
                               width={300}
                               height={200}
@@ -804,7 +812,7 @@ export default function SectionClientPage({ id }: { id: string }) {
             {currentQuestion.image && (
               <div className="mb-4 flex justify-center">
                 <Image
-                  src={currentQuestion.image || "/placeholder.svg"}
+                  src={formatImagePath(currentQuestion.image)}
                   alt="Question image"
                   width={400}
                   height={300}
@@ -844,7 +852,7 @@ export default function SectionClientPage({ id }: { id: string }) {
                             {option}
                           </label>
                           <Image
-                            src={imageSrc || "/placeholder.svg"}
+                            src={formatImagePath(imageSrc)}
                             alt={`Option ${letter}`}
                             width={300}
                             height={200}
