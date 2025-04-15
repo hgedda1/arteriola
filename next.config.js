@@ -10,6 +10,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: '/arteriola',
+  },
 }
 
 module.exports = nextConfig;

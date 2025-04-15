@@ -13,10 +13,10 @@ import {
 } from "./exam-data"
 
 import { updateQuestionMetadata, updateSectionQuestions } from "./update-question-metadata"
-import { getBasePath } from "./client-utils"
+// import { getBasePath } from "./client-utils"
 import { shuffleArray } from "./utils"
 
-const basePath = getBasePath()
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 function extractQuestionsFromPassages(passages: Passage[]): Question[] {
   const questions: Question[] = []
