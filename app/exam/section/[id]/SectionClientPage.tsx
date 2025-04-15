@@ -551,11 +551,17 @@ export default function SectionClientPage({ id }: { id: string }) {
   const passageText = getPassageTextForQuestion(currentQuestion, questions)
   const passageQuestions = isPassageQuestion ? getPassageQuestions(questions, currentQuestion) : []
 
-  // Find passage image - look for any question in the passage group that has an image
-  const passageImage =
+  // Find the first question in the passage group that has the passage text
+  const firstPassageQuestion =
     isPassageQuestion && currentQuestion.passageId
-      ? questions.find((q) => q.passageId === currentQuestion.passageId && q.image)?.image
-      : undefined
+      ? questions.find((q) => q.passageId === currentQuestion.passageId && q.passage)
+      : null
+
+  // Use the image from the first passage question as the passage image
+  const passageImage = firstPassageQuestion?.image
+
+  // Determine if the current question has its own image (different from passage image)
+  const hasQuestionImage = currentQuestion.image && (!passageImage || currentQuestion.image !== passageImage)
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-900" onMouseUp={handleTextSelection}>
@@ -713,7 +719,7 @@ export default function SectionClientPage({ id }: { id: string }) {
               </div>
 
               {/* Question Image if any (not passage image) */}
-              {currentQuestion.image && (
+              {hasQuestionImage && (
                 <div className="mb-4">
                   <Image
                     src={currentQuestion.image || "/placeholder.svg"}
@@ -806,7 +812,7 @@ export default function SectionClientPage({ id }: { id: string }) {
             </div>
 
             {/* Question Image if any */}
-            {currentQuestion.image && (
+            {hasQuestionImage && (
               <div className="mb-4 flex justify-center">
                 <Image
                   src={currentQuestion.image || "/placeholder.svg"}
