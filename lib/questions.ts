@@ -30,10 +30,15 @@ function extractQuestionsFromPassages(passages: Passage[]): Question[] {
     if (passage && passage.questions && Array.isArray(passage.questions)) {
       const imagePath: string | undefined =
         typeof passage.image === "string"
-          ? `${basePath}/${passage.image.trim().replace(/^\/+/, '')}`
+          ? `${basePath}/${passage.image.trim().replace(/^\/+/g, '')}`
           : undefined
 
       passage.questions.forEach((question, index) => {
+        const questionImagePath =
+          typeof question.image === "string"
+            ? `${basePath}/${question.image.trim().replace(/^\/+/g, '')}`
+            : undefined
+
         if (index === 0) {
           questions.push({
             ...question,
@@ -41,7 +46,10 @@ function extractQuestionsFromPassages(passages: Passage[]): Question[] {
             ...(imagePath && { image: imagePath }),
           })
         } else {
-          questions.push({ ...question })
+          questions.push({
+            ...question,
+            ...(questionImagePath && { image: questionImagePath }),
+          })
         }
       })
     }
