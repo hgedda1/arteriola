@@ -5,7 +5,8 @@ export function trackExamStart(sectionId: number) {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "exam_start", {
       section_id: sectionId,
-      timestamp: new Date().toISOString(),
+      event_category: "Exam",
+      event_label: `Started Section ${sectionId}`,
     })
   }
 }
@@ -16,7 +17,7 @@ export function trackSectionComplete(
   score: number,
   timeSpent: number,
   answeredCount: number,
-  totalCount: number,
+  totalQuestions: number,
 ) {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "section_complete", {
@@ -24,9 +25,10 @@ export function trackSectionComplete(
       score,
       time_spent: timeSpent,
       answered_count: answeredCount,
-      total_count: totalCount,
-      completion_rate: Math.round((answeredCount / totalCount) * 100),
-      timestamp: new Date().toISOString(),
+      total_questions: totalQuestions,
+      completion_rate: Math.round((answeredCount / totalQuestions) * 100),
+      event_category: "Exam",
+      event_label: `Completed Section ${sectionId}`,
     })
   }
 }
@@ -52,20 +54,22 @@ export function trackQuestionAnswered(sectionId: number, questionId: string, que
       question_id: questionId,
       question_number: questionNumber,
       topic,
-      timestamp: new Date().toISOString(),
+      event_category: "Question Interaction",
+      event_label: `Section ${sectionId} - Question ${questionNumber}`,
     })
   }
 }
 
 // Called when user marks a question for review
-export function trackQuestionMarked(sectionId: number, questionId: string, questionNumber: number, marked: boolean) {
+export function trackQuestionMarked(sectionId: number, questionId: string, questionNumber: number, isMarked: boolean) {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "question_marked", {
       section_id: sectionId,
       question_id: questionId,
       question_number: questionNumber,
-      marked,
-      timestamp: new Date().toISOString(),
+      is_marked: isMarked,
+      event_category: "Question Interaction",
+      event_label: `${isMarked ? "Marked" : "Unmarked"} Question ${questionNumber} in Section ${sectionId}`,
     })
   }
 }
@@ -77,7 +81,9 @@ export function trackQuestionNavigation(sectionId: number, fromQuestion: number,
       section_id: sectionId,
       from_question: fromQuestion,
       to_question: toQuestion,
-      timestamp: new Date().toISOString(),
+      direction: toQuestion > fromQuestion ? "forward" : "backward",
+      event_category: "Navigation",
+      event_label: `Section ${sectionId}: ${fromQuestion} → ${toQuestion}`,
     })
   }
 }
@@ -106,31 +112,28 @@ export function trackBreakEnd(afterSection: number, actualDuration: number, skip
 }
 
 // Called when user ends exam early
-export function trackEndEarly(
-  sectionId: number,
-  questionsAnswered: number,
-  totalQuestions: number,
-  timeRemaining: number,
-) {
+export function trackEndEarly(sectionId: number, answeredCount: number, totalQuestions: number, timeRemaining: number) {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "end_early", {
       section_id: sectionId,
-      questions_answered: questionsAnswered,
+      answered_count: answeredCount,
       total_questions: totalQuestions,
-      completion_percentage: Math.round((questionsAnswered / totalQuestions) * 100),
+      completion_rate: Math.round((answeredCount / totalQuestions) * 100),
       time_remaining: timeRemaining,
-      timestamp: new Date().toISOString(),
+      event_category: "Exam",
+      event_label: `Ended Early in Section ${sectionId}`,
     })
   }
 }
 
 // Called when user uses tools like highlight, strikethrough, etc.
-export function trackToolUsage(sectionId: number, tool: string) {
+export function trackToolUsage(sectionId: number, toolName: string) {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "tool_usage", {
       section_id: sectionId,
-      tool,
-      timestamp: new Date().toISOString(),
+      tool_name: toolName,
+      event_category: "Tools",
+      event_label: `Used ${toolName} in Section ${sectionId}`,
     })
   }
 }

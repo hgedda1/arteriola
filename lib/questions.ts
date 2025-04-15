@@ -10,8 +10,10 @@ import {
   sectionQuestionTypeConfig,
   type Question,
   type Passage,
+  section2Passages,
 } from "./exam-data"
 
+// Add this import at the top of the file
 import { updateQuestionMetadata, updateSectionQuestions } from "./update-question-metadata"
 // import { getBasePath } from "./client-utils"
 import { shuffleArray } from "./utils"
@@ -27,6 +29,7 @@ function extractQuestionsFromPassages(passages: Passage[]): Question[] {
   }
 
   passages.forEach((passage) => {
+    // Add all questions from this passage
     if (passage && passage.questions && Array.isArray(passage.questions)) {
       const imagePath: string | undefined =
         typeof passage.image === "string"
@@ -278,11 +281,26 @@ export function getSectionQuestions(sectionId: number): Question[] {
         )
         break
       case 2:
-        // CARS - 59 questions passage
+        // CARS - 53 questions, all passage-based
         targetCount = 53
+
+        // First try to load questions from localStorage
+        try {
+          const storedQuestions = localStorage.getItem(`section2-questions`)
+          if (storedQuestions) {
+            const parsedQuestions = JSON.parse(storedQuestions)
+            console.log(`Loaded ${parsedQuestions.length} questions from localStorage for section 2`)
+            questions = parsedQuestions
+            break
+          }
+        } catch (err) {
+          console.error("Error loading questions from localStorage for section 2:", err)
+        }
+
+        // If no stored questions, generate them
         questions = generateQuestionsWithWeightage(
           section2Questions,
-          section1Passages,
+          section2Passages.length > 0 ? section2Passages : section1Passages, // Use section2Passages if available
           2,
           targetCount,
           sectionTopicWeightage[2],

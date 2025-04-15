@@ -1,11 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { formatTime } from "@/lib/utils"
-import { getBasePath } from "@/lib/client-utils"
 import { HelpDialog } from "@/components/help-dialog"
+import { trackBreakStart, trackBreakEnd } from "@/components/analytics-events"
 
 export default function BreakPageClient({ id }: { id: string }) {
   const router = useRouter()
@@ -17,6 +17,10 @@ export default function BreakPageClient({ id }: { id: string }) {
   const [breakDuration, setBreakDuration] = useState(0)
   const [userName, setUserName] = useState("First Name Last Name")
   const [showHelp, setShowHelp] = useState(false)
+
+  // Add refs for timer tracking
+  const startTimeRef = useRef<number>(Date.now())
+  const lastTickRef = useRef<number>(Date.now())
 
   useEffect(() => {
     // Check if user is registered and exam is in progress
@@ -38,7 +42,7 @@ export default function BreakPageClient({ id }: { id: string }) {
       if (!state.completedSections || !state.completedSections.includes(sectionId)) {
         router.push(`/exam/section/${sectionId}`)
         return
-      }      
+      }
 
       // Set break duration based on section
       let duration = 10 * 60 // Default 10 minutes
@@ -48,30 +52,86 @@ export default function BreakPageClient({ id }: { id: string }) {
 
       setBreakDuration(duration)
       setTimeRemaining(duration)
+
+      // Initialize timer refs
+      startTimeRef.current = Date.now()
+      lastTickRef.current = Date.now()
+
+      // Track break start
+      trackBreakStart(sectionId, duration)
+
+      // Track break start in analytics
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "break_start", {
+          section_id: sectionId,
+          break_duration: duration,
+          event_category: "Break",
+          event_label: `Started Break after Section ${sectionId}`,
+        })
+      }
     } catch (error) {
       console.error("Error loading exam state:", error)
       router.push("/instructions")
     }
   }, [router, sectionId, id])
 
-  // Timer effect
+  // Timer effect - updated to use Date.now() to prevent pausing when window is minimized
   useEffect(() => {
     if (timeRemaining <= 0) return
 
     const timer = setInterval(() => {
+      // Calculate elapsed time since last tick
+      const now = Date.now()
+      const deltaTime = Math.floor((now - lastTickRef.current) / 1000)
+
+      // Update last tick time
+      lastTickRef.current = now
+
+      // Update time remaining
       setTimeRemaining((prev) => {
-        if (prev <= 1) {
+        if (prev <= deltaTime) {
           clearInterval(timer)
           return 0
         }
-        return prev - 1
+        return prev - deltaTime
       })
     }, 1000)
 
-    return () => clearInterval(timer)
+    // Handle visibility change to ensure timer continues when tab becomes visible again
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        // Update last tick time when tab becomes visible again
+        lastTickRef.current = Date.now()
+      }
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+
+    return () => {
+      clearInterval(timer)
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
+    }
   }, [timeRemaining])
 
   const skipBreak = () => {
+    // Calculate actual break duration
+    const actualDuration = breakDuration - timeRemaining
+
+    // Track break end
+    trackBreakEnd(sectionId, actualDuration, true)
+
+    // Track break skipped in analytics
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "break_skipped", {
+        section_id: sectionId,
+        time_remaining: timeRemaining,
+        break_duration: breakDuration,
+        percentage_used: Math.round(((breakDuration - timeRemaining) / breakDuration) * 100),
+        event_category: "Break",
+        event_label: `Skipped Break after Section ${sectionId}`,
+      })
+    }
+
     router.push(`/exam/section/${sectionId + 1}`)
   }
 

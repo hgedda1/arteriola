@@ -7741,6 +7741,32 @@ export const section1Questions: Question[] = [
       "Skill 1"
   ]
 },
+{
+    id: "chem-359",
+    type: "discrete",
+    question: "If the pH is greater than 7, litmus paper will turn ____.",
+    options: [
+        "Red",
+        "Orange",
+        "Neutral",
+        "Blue"
+    ],
+    correctAnswer: "Blue",
+    explanation: "Litmus paper turns blue in basic (pH > 7) solutions.",
+    topic: "generalChemistry",
+    "foundationalConcept": "5",
+    "contentCategory": "5D",
+    "disciplines": [
+        "CHEM"
+    ],
+    "subtopics": [
+        "pH"
+    ],
+    "difficulty": "Beginner",
+    "skillsTested": [
+        "Skill 1"
+    ]
+  },
 // Physics 15 mandatory
 {
   id: "phys-01",

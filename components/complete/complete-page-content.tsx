@@ -301,7 +301,7 @@ const generateAllSectionsReviewHTML = (
     </head>
     <body>
       <div class="header">
-        <h1>MCAT Exam Complete Review</h1>
+        <h1>MCAT Exam Summary</h1>
         <h2>Comprehensive Question Analysis</h2>
         <p>Prepared for: ${userName}</p>
         <p>Generated on: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
@@ -540,7 +540,7 @@ const generateAllSectionsReviewHTML = (
       <div class="footer">
         <p>MCAT Exam Simulation Platform</p>
         <p>This document is for personal study purposes only.</p>
-        <p>Generated on: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
+        <p>${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
       </div>
     </body>
     </html>
@@ -560,6 +560,7 @@ interface CompletePageContentProps {
   studyRecommendations: string[]
   motivationalMessage: string
   loading: boolean
+  onDownload?: () => void // Add this line to include the onDownload callback
 }
 
 export default function CompletePageContent({
@@ -572,6 +573,7 @@ export default function CompletePageContent({
   studyRecommendations,
   motivationalMessage,
   loading,
+  onDownload,
 }: CompletePageContentProps) {
   // Convert results to sectionScores format expected by SectionPerformanceChart
   const sectionScores = useMemo(() => {
@@ -653,6 +655,11 @@ export default function CompletePageContent({
     a.click()
     document.body.removeChild(a)
     URL.revokeObjectURL(url)
+
+    // Call the onDownload callback if provided
+    if (onDownload) {
+      onDownload()
+    }
   }
 
   if (loading) {
@@ -1004,7 +1011,10 @@ export default function CompletePageContent({
 
         {/* Add Download All Questions Button */}
         <Button
-          onClick={downloadAllSectionsReview}
+          onClick={() => {
+            downloadAllSectionsReview()
+            if (onDownload) onDownload()
+          }}
           className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
         >
           <Download className="h-4 w-4" />

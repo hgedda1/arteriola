@@ -494,6 +494,17 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
   const [score, setScore] = useState(0)
   const [correctCount, setCorrectCount] = useState(0)
 
+  // Track review page views
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "review_section_view", {
+        section_id: sectionId,
+        event_category: "Review",
+        event_label: `Viewed Review for Section ${sectionId}`,
+      })
+    }
+  }, [sectionId])
+
   const sectionTitles = {
     1: "Chemical and Physical Foundations of Biological Systems",
     2: "Critical Analysis and Reasoning Skills",
@@ -622,6 +633,17 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
   const navigateToQuestion = (index: number) => {
     if (index >= 0 && index < questions.length) {
       setCurrentQuestionIndex(index)
+
+      // Track navigation in review
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "review_navigation", {
+          section_id: sectionId,
+          from_question: currentQuestionIndex + 1,
+          to_question: index + 1,
+          event_category: "Review",
+          event_label: `Review Navigation in Section ${sectionId}`,
+        })
+      }
     }
   }
 
@@ -665,6 +687,18 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
     a.click()
     document.body.removeChild(a)
     URL.revokeObjectURL(url)
+
+    // Track download events
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "download_review", {
+        section_id: sectionId,
+        score,
+        correct_count: correctCount,
+        total_questions: questions.length,
+        event_category: "Review",
+        event_label: `Downloaded Review for Section ${sectionId}`,
+      })
+    }
   }
 
   if (loading) {
