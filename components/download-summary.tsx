@@ -3,19 +3,11 @@
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 import { formatTopicName, sectionTitles } from "@/lib/score-utils"
+import { getImagePath as getImagePathUtil } from "@/lib/client-utils"
 
-// Add this helper function at the top of the file, after the imports
+// And then update the function to:
 const getImagePath = (path: string): string => {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
-
-  // If path already starts with http or https, it's an external URL
-  if (path.startsWith("http")) return path
-
-  // If path starts with a slash, ensure we don't double the slash
-  const cleanPath = path.startsWith("/") ? path.substring(1) : path
-
-  // Return the path with basePath
-  return `${basePath}/${cleanPath}`
+  return getImagePathUtil(path)
 }
 
 interface DownloadSummaryProps {

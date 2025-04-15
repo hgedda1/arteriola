@@ -10,9 +10,18 @@ import { getAllSectionQuestions } from "@/lib/questions"
 import type { Question } from "@/lib/exam-data"
 import { getSafeSectionQuestions } from "@/lib/safe-questions"
 import { formatTopicName } from "@/lib/score-utils"
+import { getImagePath } from "@/lib/client-utils"
 
 // Add this at the top of the file, after the imports
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+
+// Helper function to construct image paths
+// const getImagePath = (imagePath: string) => {
+//   if (imagePath.startsWith("/")) {
+//     return `${basePath}${imagePath}`
+//   }
+//   return `${basePath}/${imagePath}`
+// }
 
 // Add this function to handle passage-based questions
 const getPassageQuestions = (questions: Question[], currentQuestion: Question): Question[] => {
@@ -829,12 +838,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               {passageImage && (
                 <div className="mt-4 flex justify-center">
                   <Image
-                    src={passageImage ? `${basePath}${passageImage}` : `${basePath}/placeholder.svg`}
+                    src={passageImage ? getImagePath(passageImage) : getImagePath("/placeholder.svg")}
                     alt="Passage image"
                     width={400}
                     height={300}
                     className="border border-gray-300 dark:border-slate-700 rounded max-w-full h-auto"
-                    unoptimized 
+                    unoptimized // Add this to ensure static export works properly
                   />
                 </div>
               )}
@@ -926,12 +935,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
               {hasQuestionImage && (
                 <div className="mb-4">
                   <Image
-                    src={currentQuestion.image ? `${basePath}${currentQuestion.image}` : `${basePath}/placeholder.svg`}
+                    src={currentQuestion.image ? getImagePath(currentQuestion.image) : getImagePath("/placeholder.svg")}
                     alt="Question image"
                     width={300}
                     height={200}
                     className="border border-gray-300 dark:border-slate-700"
-                    unoptimized 
+                    unoptimized // Add this to ensure static export works properly
                   />
                 </div>
               )}
@@ -946,7 +955,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                       const isUserAnswer = userAnswers[currentQuestion.id] === option
                       const isCorrectAnswer = currentQuestion.correctAnswer === option
                       const imageSrc =
-                        currentQuestion.optionImages?.[index] || `${basePath}/placeholder.svg?height=200&width=200`
+                        currentQuestion.optionImages?.[index] || getImagePath("/placeholder.svg?height=200&width=200")
                       const optionId = `option-${currentQuestion.id}-${index}`
 
                       return (
@@ -981,12 +990,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                               {!isUserAnswer && isCorrectAnswer && " (Correct Answer)"}
                             </label>
                             <Image
-                              src={imageSrc || `${basePath}/placeholder.svg`}
+                              src={imageSrc || getImagePath("/placeholder.svg")}
                               alt={`Option ${letter}`}
                               width={300}
                               height={200}
                               className="border border-gray-300 dark:border-slate-700 rounded"
-                              unoptimized 
+                              unoptimized // Add this to ensure static export works properly
                             />
                           </div>
                         </div>
@@ -1052,14 +1061,14 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                     <Image
                       src={
                         currentQuestion.explanationImage
-                          ? `${basePath}${currentQuestion.explanationImage}`
-                          : `${basePath}/placeholder.svg`
+                          ? getImagePath(currentQuestion.explanationImage)
+                          : getImagePath("/placeholder.svg")
                       }
                       alt="Explanation image"
                       width={500}
                       height={300}
                       className="border border-gray-300 dark:border-slate-700 rounded-md"
-                      unoptimized 
+                      unoptimized // Add this to ensure static export works properly
                     />
                   </div>
                 )}
@@ -1125,12 +1134,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
             {hasQuestionImage && (
               <div className="mb-4 flex justify-center">
                 <Image
-                  src={currentQuestion.image ? `${basePath}${currentQuestion.image}` : `${basePath}/placeholder.svg`}
+                  src={currentQuestion.image ? getImagePath(currentQuestion.image) : getImagePath("/placeholder.svg")}
                   alt="Question image"
                   width={400}
                   height={300}
                   className="border border-gray-300 dark:border-slate-700"
-                  unoptimized 
+                  unoptimized // Add this to ensure static export works properly
                 />
               </div>
             )}
@@ -1144,7 +1153,7 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                     const isUserAnswer = userAnswers[currentQuestion.id] === option
                     const isCorrectAnswer = currentQuestion.correctAnswer === option
                     const imageSrc =
-                      currentQuestion.optionImages?.[index] || `${basePath}/placeholder.svg?height=200&width=200`
+                      currentQuestion.optionImages?.[index] || getImagePath("/placeholder.svg?height=200&width=200")
                     const optionId = `option-${currentQuestion.id}-${index}`
 
                     return (
@@ -1179,12 +1188,12 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                             {!isUserAnswer && isCorrectAnswer && " (Correct Answer)"}
                           </label>
                           <Image
-                            src={imageSrc || `${basePath}/placeholder.svg`}
+                            src={imageSrc || getImagePath("/placeholder.svg")}
                             alt={`Option ${letter}`}
                             width={300}
                             height={200}
                             className="border border-gray-300 dark:border-slate-700 rounded"
-                            unoptimized 
+                            unoptimized // Add this to ensure static export works properly
                           />
                         </div>
                       </div>
@@ -1250,14 +1259,14 @@ export default function SectionReviewClientPage({ id }: { id: string }) {
                   <Image
                     src={
                       currentQuestion.explanationImage
-                        ? `${basePath}${currentQuestion.explanationImage}`
-                        : `${basePath}/placeholder.svg`
+                        ? getImagePath(currentQuestion.explanationImage)
+                        : getImagePath("/placeholder.svg")
                     }
                     alt="Explanation image"
                     width={500}
                     height={300}
                     className="border border-gray-300 dark:border-slate-700 rounded-md"
-                    unoptimized 
+                    unoptimized // Add this to ensure static export works properly
                   />
                 </div>
               )}
